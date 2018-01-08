@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNGuestLetsGetStartedViewController" customModule="Pander" customModuleProvider="target">
+            <connections>
+                <outlet property="guestLetsGetStartedView" destination="i5M-Pr-FkT" id="YRk-la-zsj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="PNGuestLetsGetStartedView" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_icon" translatesAutoresizingMaskIntoConstraints="NO" id="giG-Lp-1sT">
+                    <rect key="frame" x="103" y="40" width="169" height="169"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="giG-Lp-1sT" secondAttribute="height" multiplier="1:1" id="CS6-kk-ZOo"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! I'm Pander." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDO-hg-atb">
+                    <rect key="frame" x="122.5" y="214" width="130" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" red="0.8135040402" green="0.20537638659999999" blue="0.27051001790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLc-or-JTY">
+                    <rect key="frame" x="50" y="578" width="275" height="40"/>
+                    <color key="backgroundColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="ezQ-o2-agG"/>
+                    </constraints>
+                    <state key="normal" title="Let's get started">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="letGetStartedButtonTapped:" destination="-1" eventType="touchUpInside" id="MRM-30-g9C"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
+                    <rect key="frame" x="16" y="243" width="343" height="327"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="327" id="XFs-3B-dp2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-l2-ccN">
+                    <rect key="frame" x="88" y="626" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="2Hh-Tb-cG4"/>
+                    </constraints>
+                    <state key="normal" title="Back to login">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backtoLoginButtonTapped:" destination="-1" eventType="touchUpInside" id="fXn-aA-kvp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="d8f-0u-l8Z" firstAttribute="top" secondItem="nDO-hg-atb" secondAttribute="bottom" constant="8" id="23b-qf-szY"/>
+                <constraint firstItem="kLc-or-JTY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="6BU-Lh-zyh"/>
+                <constraint firstItem="tYn-l2-ccN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="86u-14-l1e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8f-0u-l8Z" secondAttribute="trailing" constant="16" id="9NG-Jh-uhU"/>
+                <constraint firstItem="nDO-hg-atb" firstAttribute="top" secondItem="giG-Lp-1sT" secondAttribute="bottom" constant="5" id="GQV-tk-gKS"/>
+                <constraint firstItem="giG-Lp-1sT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MBs-Bn-1Kc"/>
+                <constraint firstItem="giG-Lp-1sT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="103" id="Mdx-8G-Kcw"/>
+                <constraint firstItem="giG-Lp-1sT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="MpD-fv-YA7"/>
+                <constraint firstItem="d8f-0u-l8Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="NbM-zA-FuB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYn-l2-ccN" secondAttribute="bottom" constant="11" id="VaL-2O-KkQ"/>
+                <constraint firstItem="kLc-or-JTY" firstAttribute="top" secondItem="d8f-0u-l8Z" secondAttribute="bottom" constant="8" id="hkn-J8-HsI"/>
+                <constraint firstItem="nDO-hg-atb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qAk-rP-z64"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kLc-or-JTY" secondAttribute="trailing" constant="50" id="qNK-pR-jAc"/>
+                <constraint firstItem="tYn-l2-ccN" firstAttribute="top" secondItem="kLc-or-JTY" secondAttribute="bottom" constant="8" id="uyh-Kb-52n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="giG-Lp-1sT" secondAttribute="trailing" constant="103" id="y0C-DF-CUn"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="90.5" y="24.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="onboarding_icon" width="139" height="174"/>
+    </resources>
+</document>
