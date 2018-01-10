@@ -17,6 +17,13 @@ extension AppDelegate{
         window?.rootViewController = navigationController
     }
 
+    func moveToSingUp(){
+        let navigationController : UINavigationController = UINavigationController(rootViewController: PNSignUpViewController(nibName: "PNSignUpViewController", bundle: nil))
+        
+        window?.rootViewController = navigationController
+    }
+    
+    
     func moveToLetGetStarted(){
         let navigationController : UINavigationController = UINavigationController(rootViewController: PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil))
         window?.rootViewController = navigationController

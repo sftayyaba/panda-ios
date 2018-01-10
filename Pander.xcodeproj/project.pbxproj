@@ -26,6 +26,9 @@
 		EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1869962002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift */; };
 		EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1869992002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift */; };
 		EB1AE7ED1FFD88F600485366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE7EC1FFD88F500485366 /* GoogleService-Info.plist */; };
+		EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31BB7E200402E800F86CBF /* PNSignUpView.swift */; };
+		EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31BB80200402E800F86CBF /* PNSignUpViewController.swift */; };
+		EB31BB84200402E900F86CBF /* PNSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB31BB81200402E800F86CBF /* PNSignUpViewController.xib */; };
 		EB8F01851FCAD714000D790F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F01821FCAD714000D790F /* AppDelegate.swift */; };
 		EB8F01861FCAD715000D790F /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F01841FCAD714000D790F /* AppNavigation.swift */; };
 		EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F01871FCAD844000D790F /* PNLoginViewController.swift */; };
@@ -114,6 +117,9 @@
 		EB1869962002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift; sourceTree = "<group>"; };
 		EB1869992002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift; sourceTree = "<group>"; };
 		EB1AE7EC1FFD88F500485366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB31BB7E200402E800F86CBF /* PNSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNSignUpView.swift; sourceTree = "<group>"; };
+		EB31BB80200402E800F86CBF /* PNSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNSignUpViewController.swift; sourceTree = "<group>"; };
+		EB31BB81200402E800F86CBF /* PNSignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNSignUpViewController.xib; sourceTree = "<group>"; };
 		EB8F01821FCAD714000D790F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB8F01841FCAD714000D790F /* AppNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		EB8F01871FCAD844000D790F /* PNLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNLoginViewController.swift; sourceTree = "<group>"; };
@@ -365,9 +371,36 @@
 			path = TextFieldDelegate;
 			sourceTree = "<group>";
 		};
+		EB31BB7C200402E800F86CBF /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				EB31BB7D200402E800F86CBF /* View */,
+				EB31BB7F200402E800F86CBF /* ViewController */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		EB31BB7D200402E800F86CBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB31BB7E200402E800F86CBF /* PNSignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB31BB7F200402E800F86CBF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EB31BB80200402E800F86CBF /* PNSignUpViewController.swift */,
+				EB31BB81200402E800F86CBF /* PNSignUpViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		EB8F017D1FCAD680000D790F /* UserProfiling */ = {
 			isa = PBXGroup;
 			children = (
+				EB31BB7C200402E800F86CBF /* SignUp */,
 				EB18695B2001889200C27925 /* Guest */,
 				EB8F017E1FCAD680000D790F /* Login */,
 			);
@@ -985,6 +1018,7 @@
 				EB186972200192E500C27925 /* PNGuestLetsGetStartedViewController.xib in Resources */,
 				EBC74F071FCAC41C00641B48 /* LaunchScreen.storyboard in Resources */,
 				EB8F018A1FCAD844000D790F /* PNLoginViewController.xib in Resources */,
+				EB31BB84200402E900F86CBF /* PNSignUpViewController.xib in Resources */,
 				EB1869842002297A00C27925 /* PNGuestLetsGetStartedWithEmailController.xib in Resources */,
 				EB1869872002297A00C27925 /* PNGuestLetsGetStartedWithLocationController.xib in Resources */,
 				EB1AE7ED1FFD88F600485366 /* GoogleService-Info.plist in Resources */,
@@ -1236,11 +1270,13 @@
 				EB18698E20022A5000C27925 /* PNGuestLetsGetStartedWithNameView.swift in Sources */,
 				EB8F01941FCADA2A000D790F /* AppNetworkManager.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
+				EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */,
 				EBFB71071FCCA14200DB4C58 /* PNBaseView.swift in Sources */,
 				EBED0A401FCE918600F9F5B8 /* PNDeletePushNotifactionTokenOperation.swift in Sources */,
 				EBED0A4A1FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift in Sources */,
 				EB186970200192E500C27925 /* PNGuestLetsGetStartedView.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
+				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
 				EB8F01911FCAD8F6000D790F /* PNBaseManager.swift in Sources */,
 				EBFB70EF1FCB150E00DB4C58 /* userAppSettings.swift in Sources */,
 				EBED0A501FCE93A600F9F5B8 /* PNGetRecommendationsOperation.swift in Sources */,

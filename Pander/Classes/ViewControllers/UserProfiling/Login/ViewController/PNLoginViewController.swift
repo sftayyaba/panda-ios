@@ -52,7 +52,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
        
     }
     
-    @IBAction func emailButtonTapped(_ sender: Any) {
+    @IBAction func createAccountButtonTapped(_ sender: Any) {
         
 //        let loginOperation:PNSignUpOperation = PNSignUpOperation()
         
@@ -100,7 +100,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         }
     }
     
-    @IBAction func continueAsGuestButtonTapped(_ sender: Any) {
-        AppDelegate.sharedInstance()?.moveToLetGetStarted()
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        AppDelegate.sharedInstance()?.moveToSingUp()
     }
 }

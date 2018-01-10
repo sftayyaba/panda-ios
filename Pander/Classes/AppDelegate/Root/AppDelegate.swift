@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         if let window = window {
             window.backgroundColor = UIColor.white
             
-            self.moveToLogin()
+            self.moveToSingUp()
             
             window.makeKeyAndVisible()
         }
