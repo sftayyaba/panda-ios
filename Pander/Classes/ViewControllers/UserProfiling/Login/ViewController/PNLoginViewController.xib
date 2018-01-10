@@ -15,7 +15,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="otP-aF-1GK">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="otP-aF-1GK" customClass="PNLoginView" customModule="Pander" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -245,6 +245,9 @@
                 <constraint firstItem="RT0-xc-mxd" firstAttribute="centerX" secondItem="otP-aF-1GK" secondAttribute="centerX" id="z0Q-67-00r"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="3Fn-V8-xeb"/>
+            <connections>
+                <outlet property="createAccountButton" destination="9aH-OW-Snk" id="bJa-KR-xN1"/>
+            </connections>
             <point key="canvasLocation" x="90" y="24"/>
         </view>
     </objects>

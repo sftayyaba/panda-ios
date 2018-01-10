@@ -26,6 +26,13 @@
 		EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1869962002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift */; };
 		EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1869992002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift */; };
 		EB1AE7ED1FFD88F600485366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE7EC1FFD88F500485366 /* GoogleService-Info.plist */; };
+		EB2FD4C32005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FD4BD2005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoView.swift */; };
+		EB2FD4C42005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FD4BF2005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift */; };
+		EB2FD4C52005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FD4C12005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift */; };
+		EB2FD4C62005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2FD4C22005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib */; };
+		EB2FD4D92005468600CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2FD4D82005468600CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.xib */; };
+		EB2FD4DB2005477D00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FD4DA2005477D00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.swift */; };
+		EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FD4DC20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift */; };
 		EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31BB7E200402E800F86CBF /* PNSignUpView.swift */; };
 		EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31BB80200402E800F86CBF /* PNSignUpViewController.swift */; };
 		EB31BB84200402E900F86CBF /* PNSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB31BB81200402E800F86CBF /* PNSignUpViewController.xib */; };
@@ -117,6 +124,13 @@
 		EB1869962002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift; sourceTree = "<group>"; };
 		EB1869992002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift; sourceTree = "<group>"; };
 		EB1AE7EC1FFD88F500485366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB2FD4BD2005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedStepTwoView.swift; sourceTree = "<group>"; };
+		EB2FD4BF2005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift; sourceTree = "<group>"; };
+		EB2FD4C12005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedStepTwoController.swift; sourceTree = "<group>"; };
+		EB2FD4C22005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNGuestLetsGetStartedStepTwoController.xib; sourceTree = "<group>"; };
+		EB2FD4D82005468600CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNGuestLetGetStartedStepTwoCollectionViewCell.xib; sourceTree = "<group>"; };
+		EB2FD4DA2005477D00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGuestLetGetStartedStepTwoCollectionViewCell.swift; sourceTree = "<group>"; };
+		EB2FD4DC20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		EB31BB7E200402E800F86CBF /* PNSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNSignUpView.swift; sourceTree = "<group>"; };
 		EB31BB80200402E800F86CBF /* PNSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNSignUpViewController.swift; sourceTree = "<group>"; };
 		EB31BB81200402E800F86CBF /* PNSignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNSignUpViewController.xib; sourceTree = "<group>"; };
@@ -224,6 +238,7 @@
 		EB18695B2001889200C27925 /* Guest */ = {
 			isa = PBXGroup;
 			children = (
+				EB2FD4BB2005348C00CE76A6 /* StepTwo */,
 				EB186964200192E500C27925 /* Root */,
 				EB18696A200192E500C27925 /* StepOne */,
 			);
@@ -369,6 +384,68 @@
 				EB1869992002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift */,
 			);
 			path = TextFieldDelegate;
+			sourceTree = "<group>";
+		};
+		EB2FD4BB2005348C00CE76A6 /* StepTwo */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4D1200545C900CE76A6 /* CollectionView */,
+				EB2FD4BC2005348C00CE76A6 /* View */,
+				EB2FD4C02005348C00CE76A6 /* ViewController */,
+			);
+			path = StepTwo;
+			sourceTree = "<group>";
+		};
+		EB2FD4BC2005348C00CE76A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4BD2005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoView.swift */,
+				EB2FD4BE2005348C00CE76A6 /* TextFieldDelegate */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB2FD4BE2005348C00CE76A6 /* TextFieldDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4BF2005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift */,
+			);
+			path = TextFieldDelegate;
+			sourceTree = "<group>";
+		};
+		EB2FD4C02005348C00CE76A6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4C12005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift */,
+				EB2FD4C22005348C00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EB2FD4D1200545C900CE76A6 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4D7200545EA00CE76A6 /* CollectionViewDelegateDatasource */,
+				EB2FD4D2200545C900CE76A6 /* CustomCell */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		EB2FD4D2200545C900CE76A6 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4D82005468600CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.xib */,
+				EB2FD4DA2005477D00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		EB2FD4D7200545EA00CE76A6 /* CollectionViewDelegateDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FD4DC20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift */,
+			);
+			path = CollectionViewDelegateDatasource;
 			sourceTree = "<group>";
 		};
 		EB31BB7C200402E800F86CBF /* SignUp */ = {
@@ -1021,7 +1098,9 @@
 				EB31BB84200402E900F86CBF /* PNSignUpViewController.xib in Resources */,
 				EB1869842002297A00C27925 /* PNGuestLetsGetStartedWithEmailController.xib in Resources */,
 				EB1869872002297A00C27925 /* PNGuestLetsGetStartedWithLocationController.xib in Resources */,
+				EB2FD4C62005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib in Resources */,
 				EB1AE7ED1FFD88F600485366 /* GoogleService-Info.plist in Resources */,
+				EB2FD4D92005468600CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1274,6 +1353,8 @@
 				EBFB71071FCCA14200DB4C58 /* PNBaseView.swift in Sources */,
 				EBED0A401FCE918600F9F5B8 /* PNDeletePushNotifactionTokenOperation.swift in Sources */,
 				EBED0A4A1FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift in Sources */,
+				EB2FD4DB2005477D00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.swift in Sources */,
+				EB2FD4C32005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoView.swift in Sources */,
 				EB186970200192E500C27925 /* PNGuestLetsGetStartedView.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
 				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
@@ -1281,6 +1362,7 @@
 				EBFB70EF1FCB150E00DB4C58 /* userAppSettings.swift in Sources */,
 				EBED0A501FCE93A600F9F5B8 /* PNGetRecommendationsOperation.swift in Sources */,
 				EBFB71151FCCA9AD00DB4C58 /* ApplicationTextfields.swift in Sources */,
+				EB2FD4C42005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift in Sources */,
 				EBFB71121FCCA97300DB4C58 /* ApplicationColors.swift in Sources */,
 				EBC74F0A1FCAC41C00641B48 /* ApplicationConstants.swift in Sources */,
 				EB1869852002297A00C27925 /* PNGuestLetsGetStartedWithLocationView.swift in Sources */,
@@ -1299,6 +1381,8 @@
 				EBED0A411FCE918600F9F5B8 /* PNAddPushNotifactionTokenOperation.swift in Sources */,
 				EB8F01921FCAD8F6000D790F /* PNUserManager.swift in Sources */,
 				EBC74F3B1FCAC41D00641B48 /* NetworkConstants.swift in Sources */,
+				EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */,
+				EB2FD4C52005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift in Sources */,
 				EBFB70F01FCB150E00DB4C58 /* userBaseClass.swift in Sources */,
 				EBED0A3A1FCE8CB500F9F5B8 /* PNReConfirmPasswordOperation.swift in Sources */,
 				EBFB70F41FCB1B5000DB4C58 /* PNCreateGuestAccount.swift in Sources */,

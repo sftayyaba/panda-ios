@@ -7,7 +7,18 @@
 
 import UIKit
 
-class PNLogin: UIView {
+class PNLoginView: PNBaseView {
 
+    @IBOutlet var createAccountButton: UIButton!
     
+    
+    override func awakeFromNib() {
+        self.configureCreateAccountButton()
+    }
+    
+    func configureCreateAccountButton() {
+        
+        self.createAccountButton.layer.cornerRadius = 5.0
+        self.createAccountButton.layer.borderColor = UIColor.customRedColor().cgColor
+    }
 }

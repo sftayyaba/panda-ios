@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 
-extension PNGuestLetsGetStartedWithEmailView : UITextFieldDelegate{
-        
+extension PNGuestLetsGetStartedStepTwoView : UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if self.emailTextField.text != "" && self.passwordTextField.text != ""  {
             self.nextButton.titleLabel?.textColor = UIColor.black
