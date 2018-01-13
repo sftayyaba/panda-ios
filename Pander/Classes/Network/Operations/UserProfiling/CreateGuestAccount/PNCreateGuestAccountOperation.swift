@@ -7,15 +7,10 @@
 //
 
 import Foundation
-import OnebyteSwiftNetworkCycle
 import SwiftyJSON
 
 class PNCreateGuestAccountOperation: OnebyteNetworkOperationBase {
     
-    
-    //MARK: Instance Variables
-    var email: String?
-    var password: String?
     
     //MARK: Overridden Methods
     override func start() {
@@ -25,7 +20,8 @@ class PNCreateGuestAccountOperation: OnebyteNetworkOperationBase {
     }
     
     override func handleDidFinishedWithResponse(response: AnyObject!) {
-        let loginBaseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
+        let json = JSON(response)
+        let loginBaseObject: PNCreateGuestAccount = PNCreateGuestAccount(json: JSON(response))
         
         self.safeCallDidFinishSuccessfullyCallback(responseObject: loginBaseObject)
         self.handleDidFinishedCommon()
@@ -38,9 +34,9 @@ class PNCreateGuestAccountOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
        
-        let urlWithId:String = AppNetworkEndPoints.kUserLogin
+        let urlWithId:String = AppNetworkEndPoints.kCreateGuestAccount
             //+ "email=sheraz.ipa@gmail.com" + "/password=sheraz.ipa"
-        OnebyteNetworkSessionManager.sharedInstance.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
+        OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .get, path: urlWithId, parameters: nil)).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
                 switch response.result {
@@ -57,9 +53,5 @@ class PNCreateGuestAccountOperation: OnebyteNetworkOperationBase {
         }
     }
     
-    private func createBody() -> Dictionary<String, String>{
-        return ["email":     self.email!,
-                "password":     self.password!
-        ]
-    }
+
 }

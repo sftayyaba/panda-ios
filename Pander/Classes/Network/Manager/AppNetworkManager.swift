@@ -8,13 +8,12 @@
 
 import Foundation
 import Alamofire
-import OnebyteSwiftNetworkCycle
 
 class AppNetworkManager {
     // MARK: Class Variables
     static let sharedInstance = AppNetworkManager()
     
-    static func openNetworkRequest (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : String]?) -> OnebyteNetworkRequest {
+    static func openNetworkRequest (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : String]?) -> URLRequestConvertible {
         OnebyteNetworkRequest.baseURLString = AppNetworkConstants.kBaseURLTestingString
         OnebyteNetworkRequest.path = path
         OnebyteNetworkRequest.method = methodType
@@ -24,7 +23,7 @@ class AppNetworkManager {
         return OnebyteNetworkRequest.InitiateRequest()
     }
     
-    static func openNetworkRequestWithNonStringLeaves (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : Any]?) -> OnebyteNetworkRequest {
+    static func openNetworkRequestWithNonStringLeaves (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : Any]?) -> URLRequestConvertible {
         OnebyteNetworkRequest.baseURLString = AppNetworkConstants.kBaseURLTestingString
         OnebyteNetworkRequest.path = path
         OnebyteNetworkRequest.method = methodType
@@ -35,16 +34,19 @@ class AppNetworkManager {
     }
     
 
-    static func closeNetworkRequest (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : String]?) -> OnebyteNetworkRequest {
+    static func closeNetworkRequest (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : Any]?) -> URLRequestConvertible {
         OnebyteNetworkRequest.baseURLString = AppNetworkConstants.kBaseURLTestingString
         OnebyteNetworkRequest.path = path
         OnebyteNetworkRequest.method = methodType
         OnebyteNetworkRequest.parameters = parameters
         
         //Add header dictionary e.g
-//        if let token = JNUserManager.sharedInstance.token{
-//            OnebyteNetworkRequest.headers = ["Authorization": "Bearer \(token)", "Content-Type": "application/json"]
-//        }
+        if let token = PNUserManager.sharedInstance.token, let email = PNUserManager.sharedInstance.email{
+            let str = " { \"email\" : \"\(email)\", \"token\" : \"\(token)\" } "
+            print(str);
+            OnebyteNetworkRequest.headers = ["HTTP_X_PANDER_AUTH": " { \"email\" : \"\(email)\", \"token\" : \"\(token)\" } ", "Content-Type": "application/json"]
+        }
+        
         return OnebyteNetworkRequest.InitiateRequest()
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import OnebyteSwiftNetworkCycle
 import SwiftyJSON
 
 class PNUpdateTokenOperation: OnebyteNetworkOperationBase {
@@ -41,7 +40,7 @@ class PNUpdateTokenOperation: OnebyteNetworkOperationBase {
     private func startLoginOperation() {
        
         let urlWithId:String = AppNetworkEndPoints.kUserSignUp
-        OnebyteNetworkSessionManager.sharedInstance.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
+        OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
                 switch response.result {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import OnebyteSwiftNetworkCycle
 import SwiftyJSON
 
 class PNAddPushNotifactionTokenOperation: OnebyteNetworkOperationBase {
@@ -40,7 +39,7 @@ class PNAddPushNotifactionTokenOperation: OnebyteNetworkOperationBase {
        
         let urlWithId:String = AppNetworkEndPoints.kUserLogin
             //+ "email=sheraz.ipa@gmail.com" + "/password=sheraz.ipa"
-        OnebyteNetworkSessionManager.sharedInstance.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
+        OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
                 switch response.result {

@@ -11,20 +11,20 @@ import SwiftyJSON
 public class userAppSettings: NSObject {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kuserAppSettingsVeganKey: String = " vegan "
-	internal let kuserAppSettingsAlcoholKey: String = " alcohol "
-	internal let kuserAppSettingsSpecialNotifKey: String = " special_notif "
-	internal let kuserAppSettingsGroupSizeKey: String = " group_size "
-	internal let kuserAppSettingsExpandKey: String = " expand "
-	internal let kuserAppSettingsVegetarianKey: String = " vegetarian "
-	internal let kuserAppSettingsDrinksKey: String = " drinks "
-	internal let kuserAppSettingsConfirmKey: String = " confirm "
-	internal let kuserAppSettingsTipKey: String = " tip "
-	internal let kuserAppSettingsPersonalNotifKey: String = " personal_notif "
-	internal let kuserAppSettingsPeanutsKey: String = " peanuts "
-	internal let kuserAppSettingsDebugKey: String = " debug "
-	internal let kuserAppSettingsNutsKey: String = " nuts "
-	internal let kuserAppSettingsDessertKey: String = " dessert "
+	internal let kuserAppSettingsVeganKey: String = "vegan "
+	internal let kuserAppSettingsAlcoholKey: String = "alcohol"
+	internal let kuserAppSettingsSpecialNotifKey: String = "special_notif"
+	internal let kuserAppSettingsGroupSizeKey: String = "group_size"
+	internal let kuserAppSettingsExpandKey: String = "expand"
+	internal let kuserAppSettingsVegetarianKey: String = "vegetarian"
+	internal let kuserAppSettingsDrinksKey: String = "drinks"
+	internal let kuserAppSettingsConfirmKey: String = "confirm"
+	internal let kuserAppSettingsTipKey: String = "tip"
+	internal let kuserAppSettingsPersonalNotifKey: String = "personal_notif"
+	internal let kuserAppSettingsPeanutsKey: String = "peanuts"
+	internal let kuserAppSettingsDebugKey: String = "debug"
+	internal let kuserAppSettingsNutsKey: String = "nuts"
+	internal let kuserAppSettingsDessertKey: String = "dessert"
 
 
     // MARK: Properties

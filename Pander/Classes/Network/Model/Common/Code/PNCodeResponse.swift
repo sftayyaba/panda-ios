@@ -8,10 +8,16 @@
 import Foundation
 import SwiftyJSON
 
+enum PNApiResponseCodes: Int{
+    case successResponse = 0
+    case errorResponse = -1
+}
+
 public class PNCodeResponse: NSObject {
 
+    
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kPNCodeResponseCodeKey: String = " code "
+	public static let kPNCodeResponseCodeKey: String = " code "
 
 
     // MARK: Properties
@@ -34,7 +40,7 @@ public class PNCodeResponse: NSObject {
     - returns: An initalized instance of the class.
     */
     public init(json: JSON) {
-		code = json[kPNCodeResponseCodeKey].int
+        code = json[PNCodeResponse.kPNCodeResponseCodeKey].int
 
     }
 
@@ -47,7 +53,7 @@ public class PNCodeResponse: NSObject {
 
         var dictionary: [String : AnyObject ] = [ : ]
 		if code != nil {
-            dictionary.updateValue(code! as AnyObject, forKey: kPNCodeResponseCodeKey)
+            dictionary.updateValue(code! as AnyObject, forKey: PNCodeResponse.kPNCodeResponseCodeKey)
 		}
 
         return dictionary

@@ -16,12 +16,14 @@ extension PNGuestLetsGetStartedStepTwoView : UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if self.emailTextField.text != "" && self.passwordTextField.text != ""  {
-            self.nextButton.titleLabel?.textColor = UIColor.black
-            self.nextButton.isUserInteractionEnabled = true
-        }else {
-            self.nextButton.titleLabel?.textColor = UIColor.lightGray
-            self.nextButton.isUserInteractionEnabled = false
-        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let updatedText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        
+        self.textChanged(text: updatedText)
+
+        return true;
     }
 }

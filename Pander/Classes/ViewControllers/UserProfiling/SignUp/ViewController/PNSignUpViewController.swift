@@ -7,8 +7,9 @@
 
 import UIKit
 import Alamofire
-import OnebyteSwiftNetworkCycle
 import FacebookLogin
+import FacebookCore
+
 import GoogleSignIn
 
 class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
@@ -70,15 +71,15 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
 //        }
 //        
 //        OnebyteNetworkOperationQueue.sharedInstance.addOperation(loginOperation)
-        
+        AppDelegate.sharedInstance()?.moveToLetGetStarted()
+
     }
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
     
         let fbManager = LoginManager()
         
-        fbManager.logIn(publishPermissions: [.publishActions], viewController: self) {
-            result in
+        fbManager.logIn(readPermissions: [.email], viewController: self) { (result) in
             
             switch result {
             case .failed(let error):
@@ -87,9 +88,54 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
                 print("cancelled")
             case .success(let grantedPermissions, _, let userInfo):
                 print(userInfo.authenticationToken)
+                print(userInfo.authenticationToken)
+                
+                if grantedPermissions.contains("email") {
+                    
+                    GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: AccessToken.current, httpMethod: GraphRequestHTTPMethod.GET, apiVersion: GraphAPIVersion.defaultVersion).start({ (response, result) in
+                        print(result)
+                        
+                        switch result {
+                        case .failed(let error):
+                            self.alert(title: "Error", message: error.localizedDescription)
+                            break
+                        case .success(let graphResponse):
+                            if let responseDictionary = graphResponse.dictionaryValue {
+                                print(responseDictionary)
+                                
+                                if let email = responseDictionary["email"] as? String, let accessToken = AccessToken.current?.authenticationToken, let userId = userInfo.userId{
+                                    
+                                    self.doLoginWithServerUsingFBData(FBToken: accessToken, FBUserID: userId, Email: email)
+                                
+                                }
+                            }
+                        }
+
+                    })
+                    
+                    
+                }
             }
         }
     }
+    
+    
+    
+    //MARK: Social Login Handlers
+    func doLoginWithServerUsingFBData(FBToken fb_token: String , FBUserID fb_user_id: String , Email email: String){
+        PNUserManager.sharedInstance.loginFBUser(FBToken: fb_token, FBUserID: fb_user_id, Email: email, successBlock: {
+
+            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Error", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        }
+    }
+    
     
     //MARK: Gmail Login
     @IBAction func gmailButtonTapped(_ sender: Any) {
@@ -97,11 +143,21 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
+            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+
         }
     }
     
     @IBAction func continueAsGuestButtonTapped(_ sender: Any) {
-        AppDelegate.sharedInstance()?.moveToLetGetStarted()
+        
+        PNUserManager.sharedInstance.loginGuestUser(successBlock: {
+        
+            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+
+        }) { (error) in
+            self.alert(title: "Error", message: error != nil ? error!.localizedDescription : "Something went wrong")
+        }
+        
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {

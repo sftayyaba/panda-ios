@@ -29,8 +29,10 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'GoogleSignIn'
+pod "PWSwitch"
+pod 'NVActivityIndicatorView'
 
-pod 'OnebyteSwiftNetworkCycle', :git => 'https://github.com/hammy-dev-world/OnebyteSwiftNetwork.git'
+
 
 
   # Pods for Pander

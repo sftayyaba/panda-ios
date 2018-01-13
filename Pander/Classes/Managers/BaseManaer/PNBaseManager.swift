@@ -13,6 +13,11 @@ typealias PNSuccessBlockWithCount = (Int) -> Void
 
 typealias PNFailureBlock = (Error? ) -> Void
 
+enum PNNotificationTypes: String{
+    case networkRequestStarted = "network_request_started"
+    case networkRequestStopped = "network_request_stopped"
+}
+
 class PNBaseManager {
     
     static let baseSharedInstance: PNBaseManager = {
@@ -21,11 +26,11 @@ class PNBaseManager {
     }()
 
     func notifyNetworkRequestStarted() {
-        
+        NotificationCenter.default.post(name: Notification.Name(PNNotificationTypes.networkRequestStarted.rawValue), object: nil)
     }
     
     func notifyNetworkRequestFinish() {
-        
+        NotificationCenter.default.post(name: Notification.Name(PNNotificationTypes.networkRequestStopped.rawValue), object: nil)
     }
 }
 

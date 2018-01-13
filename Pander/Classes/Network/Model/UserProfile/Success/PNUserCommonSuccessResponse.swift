@@ -11,8 +11,8 @@ import SwiftyJSON
 public class PNUserCommonSuccessResponse: NSObject {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kuserCommonSuccessCodeKey: String = " code "
-	internal let kuserCommonSuccessUserKey: String = " user "
+	internal let kuserCommonSuccessCodeKey: String = "code"
+	internal let kuserCommonSuccessUserKey: String = "user"
 
 
     // MARK: Properties

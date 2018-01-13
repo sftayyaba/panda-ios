@@ -9,15 +9,23 @@ import UIKit
 
 class PNGuestLetsGetStartedStepTwoView: UIView {
 
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var cuisineTextField: UITextField!
     @IBOutlet var nextButton: UIButton!
 
+    var textChangedCallback: ((String)->())?
+    
     override func awakeFromNib() {
         self.configureTextFields()
     }
     
     private func configureTextFields(){
-        self.emailTextField.delegate = self;
+        self.cuisineTextField.delegate = self;
     }
+    
+    func textChanged(text: String){
+        if let callback = textChangedCallback{
+            callback(text)
+        }
+    }
+
 }

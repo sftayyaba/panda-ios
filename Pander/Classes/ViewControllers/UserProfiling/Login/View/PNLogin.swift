@@ -10,7 +10,9 @@ import UIKit
 class PNLoginView: PNBaseView {
 
     @IBOutlet var createAccountButton: UIButton!
-    
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+
     
     override func awakeFromNib() {
         self.configureCreateAccountButton()

@@ -11,19 +11,19 @@ import SwiftyJSON
 public class userBaseClass: NSObject {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kuserBaseClassEmailKey: String = " email "
-	internal let kuserBaseClassDdcTokenExpiresKey: String = " ddc_token_expires "
-	internal let kuserBaseClassRefreshTokenPanderKey: String = " refresh_token_pander "
-	internal let kuserBaseClassIsFirstSignupKey: String = " is_first_signup "
-	internal let kuserBaseClassDdcRefreshTokenKey: String = " ddc_refresh_token "
-	internal let kuserBaseClassCuisinePreferencesKey: String = " cuisine_preferences "
-	internal let kuserBaseClassLastNameKey: String = " last_name "
-	internal let kuserBaseClassAdventurousnessKey: String = " adventurousness "
-	internal let kuserBaseClassDdcAccessTokenKey: String = " ddc_access_token "
-	internal let kuserBaseClassDdcCustomerIdKey: String = " ddc_customer_id "
-	internal let kuserBaseClassAccessTokenPanderKey: String = " access_token_pander "
-	internal let kuserBaseClassFirstNameKey: String = " first_name "
-	internal let kuserBaseClassAppSettingsKey: String = " app_settings "
+	internal let kuserBaseClassEmailKey: String = "email"
+	internal let kuserBaseClassDdcTokenExpiresKey: String = "ddc_token_expires"
+	internal let kuserBaseClassRefreshTokenPanderKey: String = "refresh_token_pander"
+	internal let kuserBaseClassIsFirstSignupKey: String = "is_first_signup"
+	internal let kuserBaseClassDdcRefreshTokenKey: String = "ddc_refresh_token"
+	internal let kuserBaseClassCuisinePreferencesKey: String = "cuisine_preferences"
+	internal let kuserBaseClassLastNameKey: String = "last_name"
+	internal let kuserBaseClassAdventurousnessKey: String = "adventurousness"
+	internal let kuserBaseClassDdcAccessTokenKey: String = "ddc_access_token"
+	internal let kuserBaseClassDdcCustomerIdKey: String = "ddc_customer_id"
+	internal let kuserBaseClassAccessTokenPanderKey: String = "access_token_pander"
+	internal let kuserBaseClassFirstNameKey: String = "first_name"
+	internal let kuserBaseClassAppSettingsKey: String = "app_settings"
 
 
     // MARK: Properties

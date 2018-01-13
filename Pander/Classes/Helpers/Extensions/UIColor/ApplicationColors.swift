@@ -17,6 +17,8 @@ extension UIColor{
     class func backgroundColor() -> UIColor{
         return UIColor(red:236.0/255.0, green:235.0/255.0 ,blue:241.0/255.0 , alpha:1.00)
     }
+
+
     
     class func customGrayColor() -> UIColor{
         return UIColor(red:135.0/255.0, green:135.0/255.0 ,blue:135.0/255.0 , alpha:1.00)
@@ -124,4 +126,10 @@ extension UIColor{
     class func openJobIndicatorColor() -> UIColor{
         return UIColor.customRedColor()
     }
+    
+    //MARK: Tags  color
+    class func customTagsBackgroundColor() -> UIColor{
+        return UIColor(red:249.0/255.0, green:249.0/255.0 ,blue:249.0/255.0 , alpha:1.00)
+    }
+
 }

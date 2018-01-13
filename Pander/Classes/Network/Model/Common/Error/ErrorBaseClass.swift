@@ -8,12 +8,17 @@
 import Foundation
 import SwiftyJSON
 
-public class ErrorBaseClass: NSObject {
+public class ErrorBaseClass: NSObject, Error {
 
+    public var localizedDescription: String
+    
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kErrorBaseClassCodeKey: String = " code "
-	internal let kErrorBaseClassDevMsgKey: String = " dev_msg "
-	internal let kErrorBaseClassUserMsgKey: String = " user_msg "
+	internal let kErrorBaseClassCodeKey: String = "code"
+
+    internal let kErrorBaseClassErrorKey: String = "error"
+
+    internal let kErrorBaseClassDevMsgKey: String = "dev_msg"
+	internal let kErrorBaseClassUserMsgKey: String = "user_msg"
 
 
     // MARK: Properties
@@ -39,9 +44,10 @@ public class ErrorBaseClass: NSObject {
     */
     public init(json: JSON) {
 		code = json[kErrorBaseClassCodeKey].int
-		devMsg = json[kErrorBaseClassDevMsgKey].string
-		userMsg = json[kErrorBaseClassUserMsgKey].string
-
+		devMsg = json[kErrorBaseClassErrorKey][kErrorBaseClassDevMsgKey].string
+		userMsg = json[kErrorBaseClassErrorKey][kErrorBaseClassUserMsgKey].string
+        
+        localizedDescription = userMsg!
     }
 
 

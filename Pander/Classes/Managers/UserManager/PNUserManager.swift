@@ -8,24 +8,72 @@
 
 import Foundation
 import Alamofire
-import OnebyteSwiftNetworkCycle
 
 final class PNUserManager: PNBaseManager {
     
     // MARK: Instance Variables
-
-        static let sharedInstance: PNUserManager = {
+    var token:String?
+    var email:String?
+    
+    var guestUser: PNCreateGuestAccount?
+    var user: userBaseClass?
+    
+    var recommendations: PNRecommendationsModel?
+    
+    //step 1.1
+    var selectedZip:String?
+    //step 1.2
+    var selectedName:String?
+    
+    
+    
+    static let sharedInstance: PNUserManager = {
         let instance = PNUserManager()
         return instance
     }()
     
-    //MARK: CallBacks
 
+    //MARK: CallBacks
     override func notifyNetworkRequestStarted() {
-        
+        super.notifyNetworkRequestStarted()
     }
     
     override func notifyNetworkRequestFinish() {
+        super.notifyNetworkRequestFinish()
+    }
+    
+    
+    func loginGuestUser(successBlock: @escaping (() -> Void), failureBlock: @escaping ((_ error: Error?) -> Void)){
+        let loginGuestOperation = PNCreateGuestAccountOperation()
+        
+        weak var weakSelf = self
+        
+        weakSelf?.notifyNetworkRequestStarted()
+        
+        loginGuestOperation.didFinishSuccessfullyCallback = {
+            response in
+            
+            if let guestUser = response as? PNCreateGuestAccount{
+                weakSelf?.guestUser = guestUser
+                weakSelf?.token = guestUser.accessTokenPander
+                weakSelf?.email = guestUser.userId
+            }
+
+            weakSelf?.notifyNetworkRequestFinish()
+
+            successBlock()
+        }
+        
+        loginGuestOperation.didFinishWithErrorCallback = {
+            error in
+
+            weakSelf?.notifyNetworkRequestFinish()
+
+            failureBlock(error)
+        
+        }
+        
+        OnebyteNetworkOperationQueue.sharedInstance.addOperation(loginGuestOperation)
         
     }
     

@@ -4,11 +4,16 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNGuestLetsGetStartedViewController" customModule="Pander" customModuleProvider="target">
             <connections>
@@ -21,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_icon" translatesAutoresizingMaskIntoConstraints="NO" id="giG-Lp-1sT">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_icon" translatesAutoresizingMaskIntoConstraints="NO" id="giG-Lp-1sT">
                     <rect key="frame" x="103" y="40" width="169" height="169"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="giG-Lp-1sT" secondAttribute="height" multiplier="1:1" id="CS6-kk-ZOo"/>
@@ -46,12 +51,18 @@
                         <action selector="letGetStartedButtonTapped:" destination="-1" eventType="touchUpInside" id="MRM-30-g9C"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
                     <rect key="frame" x="16" y="243" width="343" height="327"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="327" id="XFs-3B-dp2"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <string key="text">I learn what you like to eat, and then automatically finds the best meal for you to eat for your mood.
+- everytime.
+
+I can search through thousands of menus and pickout exactly the right food for you to order with just one click, And the best part, The more you use me, The better I get!
+
+To start with, help learn a bit about you.</string>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>

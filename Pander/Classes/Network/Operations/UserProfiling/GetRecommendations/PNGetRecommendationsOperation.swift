@@ -7,15 +7,20 @@
 //
 
 import Foundation
-import OnebyteSwiftNetworkCycle
 import SwiftyJSON
 
 class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     
     
     //MARK: Instance Variables
-    var email: String?
-    var password: String?
+    var location: String
+    var zip: String
+    
+    
+    init(Location location: String, Zip zip: String) {
+        self.location = location
+        self.zip = zip
+    }
     
     //MARK: Overridden Methods
     override func start() {
@@ -25,9 +30,22 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     }
     
     override func handleDidFinishedWithResponse(response: AnyObject!) {
-        let loginBaseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
         
-        self.safeCallDidFinishSuccessfullyCallback(responseObject: loginBaseObject)
+        let json = JSON(response)
+        
+        if let code = json["code"].int{
+            
+            if code == PNApiResponseCodes.successResponse.rawValue{
+                let codeResponseObject: PNRecommendationsModel = PNRecommendationsModel(json: JSON(response))
+                
+                self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
+            }else if code <= PNApiResponseCodes.errorResponse.rawValue{
+                let errorResponse: ErrorBaseClass = ErrorBaseClass(json: JSON(response))
+                
+                self.safeCallDidFinishSuccessfullyCallback(responseObject: errorResponse)
+            }
+        }
+        
         self.handleDidFinishedCommon()
     }
     
@@ -38,10 +56,10 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
        
-        let urlWithId:String = AppNetworkEndPoints.kUserLogin
-            //+ "email=sheraz.ipa@gmail.com" + "/password=sheraz.ipa"
-        OnebyteNetworkSessionManager.sharedInstance.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
-            
+        let urlWithId:String = AppNetworkEndPoints.kGetRecommendations
+        
+        OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
+             
             if ((response.response?.statusCode) == 200){
                 switch response.result {
                 case .success(let data):
@@ -57,9 +75,10 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
         }
     }
     
-    private func createBody() -> Dictionary<String, String>{
-        return ["email":     self.email!,
-                "password":     self.password!
+    private func createBody() -> Dictionary<String, Any>{
+        return [ "US" : [
+            "zip": zip
+            ]
         ]
     }
 }

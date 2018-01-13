@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
+import NVActivityIndicatorView
 
-class PNBaseViewController : UIViewController{
-    //MARK: ViewController LifeCycle Methods
+class PNBaseViewController : UIViewController, NVActivityIndicatorViewable{
+    static var indicatorCount = 0
     
+    //MARK: ViewController LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +25,15 @@ class PNBaseViewController : UIViewController{
         self.configureNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.networkRequestStarted(notification:)), name: Notification.Name(PNNotificationTypes.networkRequestStarted.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.networkRequestStopped(notification:)), name: Notification.Name(PNNotificationTypes.networkRequestStopped.rawValue), object: nil)
+        
+        self.doInitialDataLoad()
+    }
 
+    
     //MARK: Initial Load
     internal func doInitialDataLoad(){
         /**
@@ -69,5 +79,32 @@ class PNBaseViewController : UIViewController{
         self.present(myAlert, animated: true, completion: nil)
     }
     
+    
+    
+    //MARK: Progress Indicator Methods
+    internal func showLoader(){
+        if PNBaseViewController.indicatorCount == 0{
+            startAnimating()
+            
+        }
+        
+        PNBaseViewController.indicatorCount+=1
+        
+    }
+    internal func hideLoader(){
+        PNBaseViewController.indicatorCount -= 1
+        if(PNBaseViewController.indicatorCount==0 || PNBaseViewController.indicatorCount < 0){
+            PNBaseViewController.indicatorCount = 0
+            stopAnimating()
+        }
+    }
+    
+    //MARK: Notification Observer Methods
+    @objc private func networkRequestStarted(notification: Notification){
+        self.showLoader()
+    }
+    @objc private func networkRequestStopped(notification: Notification){
+        self.hideLoader()
+    }
     
 }

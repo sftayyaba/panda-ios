@@ -24,8 +24,12 @@ class PNGuestLetsGetStartedViewController: PNBaseViewController {
 
     @IBAction func letGetStartedButtonTapped(_ sender: Any) {
     
-        let locationViewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)
+//        let locationViewController = PNGuestLetsGetStartedStepThreeController(nibName: "PNGuestLetsGetStartedStepThreeController", bundle: nil)
+//        self.navigationController?.pushViewController(locationViewController, animated: true)
+//
+        let locationViewController = PNGuestLetsGetStartedWithLocationController(nibName: "PNGuestLetsGetStartedWithLocationController", bundle: nil)
         self.navigationController?.pushViewController(locationViewController, animated: true)
+        
     }
     
     @IBAction func backtoLoginButtonTapped(_ sender: Any) {

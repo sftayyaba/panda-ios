@@ -7,7 +7,6 @@
 
 import UIKit
 import Alamofire
-import OnebyteSwiftNetworkCycle
 import FacebookLogin
 import GoogleSignIn
 
@@ -21,12 +20,29 @@ class PNGuestLetsGetStartedWithEmailController: PNBaseViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        let viewController = PNGuestLetsGetStartedWithLocationController(nibName: "PNGuestLetsGetStartedWithLocationController", bundle: nil)
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text, let password =
+            self.guestLetsGetStartedWithEmailView.passwordTextField.text {
+            
+            PNUserManager.sharedInstance.signUp(Email: email, Password: password, SuccessBlock: { (successResponse) in
+                
+                let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
+                self.navigationController?.pushViewController(viewController, animated: true)
+                
+            }, FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Opss", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+            
+            
+        }else{
+            self.alert(title: "Error", message: "Email and password are required")
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        let viewController = PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil)
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

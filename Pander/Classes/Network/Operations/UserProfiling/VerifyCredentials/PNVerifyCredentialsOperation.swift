@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import OnebyteSwiftNetworkCycle
 import SwiftyJSON
 
 class PNVerifyCredentialsOperation: OnebyteNetworkOperationBase {
@@ -25,9 +24,21 @@ class PNVerifyCredentialsOperation: OnebyteNetworkOperationBase {
     }
     
     override func handleDidFinishedWithResponse(response: AnyObject!) {
-        let loginBaseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
+        let json = JSON(response)
         
-        self.safeCallDidFinishSuccessfullyCallback(responseObject: loginBaseObject)
+        
+        if let code = json["code"].int{
+            
+            if code == PNApiResponseCodes.successResponse.rawValue{
+                let codeResponseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
+                
+                self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
+            }else if code <= PNApiResponseCodes.errorResponse.rawValue{
+                let errorResponse: ErrorBaseClass = ErrorBaseClass(json: JSON(response))
+                
+                self.safeCallDidFinishSuccessfullyCallback(responseObject: errorResponse)
+            }
+        }
         self.handleDidFinishedCommon()
     }
     
@@ -40,7 +51,7 @@ class PNVerifyCredentialsOperation: OnebyteNetworkOperationBase {
        
         let urlWithId:String = AppNetworkEndPoints.kUserLogin
             //+ "email=sheraz.ipa@gmail.com" + "/password=sheraz.ipa"
-        OnebyteNetworkSessionManager.sharedInstance.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
+        OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
                 switch response.result {

@@ -138,8 +138,8 @@
                         <constraint firstItem="LHk-b3-Jf4" firstAttribute="centerY" secondItem="R4N-mU-xIW" secondAttribute="centerY" constant="0.5" id="zlT-jJ-kuX"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you, [name]! Let's setup your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
-                    <rect key="frame" x="30" y="180" width="315" height="41"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awesome -  and what's your name?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
+                    <rect key="frame" x="30" y="180" width="315" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="aPi-IW-gN6"/>
                     </constraints>

@@ -7,13 +7,15 @@
 
 import UIKit
 import Alamofire
-import OnebyteSwiftNetworkCycle
 import FacebookLogin
+import FacebookCore
+
 import GoogleSignIn
 
 class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     
-
+    @IBOutlet var loginView: PNLoginView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,32 +55,40 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     }
     
     @IBAction func createAccountButtonTapped(_ sender: Any) {
+        if let email = self.loginView.emailTextField.text, let password =
+            self.loginView.passwordTextField.text {
+            
+            PNUserManager.sharedInstance.signIn(Email: email, Password: password, SuccessBlock: { (successResponse) in
+                
+                let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
+                self.navigationController?.pushViewController(viewController, animated: true)
+                
+            }, FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Opss", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+            
+            
+        }else{
+            self.alert(title: "Error", message: "Email and password are required")
+        }
+    }
+    
+    @IBAction func emailButtonTapped(_ sender: Any) {
         
-//        let loginOperation:PNSignUpOperation = PNSignUpOperation()
         
-//        loginOperation.email = "sheraz.ipa1@gmail.com"
-//        loginOperation.password = "sjdnej"
-//        loginOperation.firstName = "sheraz"
-//        loginOperation.lastName = "Rasheed"
-//
-//        loginOperation.didFinishSuccessfullyCallback = { response in
-//        
-//        }
-//        
-//        loginOperation.didFinishWithErrorCallback = { error in
-//            
-//        }
-//        
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(loginOperation)
-        
+        AppDelegate.sharedInstance()?.moveToLetGetStarted()
+
     }
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
     
         let fbManager = LoginManager()
         
-        fbManager.logIn(publishPermissions: [.publishActions], viewController: self) {
-            result in
+        fbManager.logIn(readPermissions: [.email], viewController: self) { (result) in
             
             switch result {
             case .failed(let error):
@@ -87,6 +97,48 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
                 print("cancelled")
             case .success(let grantedPermissions, _, let userInfo):
                 print(userInfo.authenticationToken)
+                print(userInfo.authenticationToken)
+                
+                if grantedPermissions.contains("email") {
+                    
+                    GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: AccessToken.current, httpMethod: GraphRequestHTTPMethod.GET, apiVersion: GraphAPIVersion.defaultVersion).start({ (response, result) in
+                        print(result)
+                        
+                        switch result {
+                        case .failed(let error):
+                            self.alert(title: "Error", message: error.localizedDescription)
+                            break
+                        case .success(let graphResponse):
+                            if let responseDictionary = graphResponse.dictionaryValue {
+                                print(responseDictionary)
+                                
+                                if let email = responseDictionary["email"] as? String, let accessToken = AccessToken.current?.authenticationToken, let userId = userInfo.userId{
+                                    
+                                    self.doLoginWithServerUsingFBData(FBToken: accessToken, FBUserID: userId, Email: email)
+                                    
+                                }
+                            }
+                        }
+                        
+                    })
+                    
+                    
+                }
+            }
+        }
+    }
+    
+    //MARK: Social Login Handlers
+    func doLoginWithServerUsingFBData(FBToken fb_token: String , FBUserID fb_user_id: String , Email email: String){
+        PNUserManager.sharedInstance.loginFBUser(FBToken: fb_token, FBUserID: fb_user_id, Email: email, successBlock: {
+            
+            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+            
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Error", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
             }
         }
     }
@@ -97,6 +149,8 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
+            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+
         }
     }
     

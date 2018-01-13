@@ -11,10 +11,10 @@ import SwiftyJSON
 public class PNCreateGuestAccount: NSObject {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kPNCreateGuestAccountCodeKey: String = " code "
-	internal let kPNCreateGuestAccountUserIdKey: String = " user_id "
-	internal let kPNCreateGuestAccountRefreshTokenPanderKey: String = " refresh_token_pander "
-	internal let kPNCreateGuestAccountAccessTokenPanderKey: String = "access_token_pander "
+	internal let kPNCreateGuestAccountCodeKey: String = "code"
+	internal let kPNCreateGuestAccountUserIdKey: String = "user_id"
+	internal let kPNCreateGuestAccountRefreshTokenPanderKey: String = "refresh_token_pander"
+	internal let kPNCreateGuestAccountAccessTokenPanderKey: String = "access_token_pander"
 
 
     // MARK: Properties

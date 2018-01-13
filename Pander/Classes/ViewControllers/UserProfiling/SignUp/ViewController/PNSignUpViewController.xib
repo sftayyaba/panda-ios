@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_photo" translatesAutoresizingMaskIntoConstraints="NO" id="Mgv-tn-4UA">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pander_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="TWu-hK-sM0">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pander_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="TWu-hK-sM0">
                     <rect key="frame" x="97" y="80" width="180" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="PSs-ri-L0G"/>
@@ -169,7 +169,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vrQ-ct-7gx">
-                    <rect key="frame" x="218" y="557.5" width="127" height="27"/>
+                    <rect key="frame" x="218" y="553.5" width="127" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="lhu-Hl-hM6"/>
+                    </constraints>
                     <color key="tintColor" red="0.97245663400000004" green="0.97261565920000004" blue="0.97242289780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal">
                         <attributedString key="attributedTitle">
@@ -187,13 +190,13 @@
                         </attributedString>
                     </state>
                     <connections>
-                        <action selector="continueAsGuestButtonTapped:" destination="-1" eventType="touchDragInside" id="cyk-bg-dAb"/>
+                        <action selector="continueAsGuestButtonTapped:" destination="-1" eventType="touchUpInside" id="bGg-HL-yhP"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-sj-Jjt">
-                    <rect key="frame" x="30" y="557" width="180" height="30"/>
+                    <rect key="frame" x="30" y="554.5" width="180" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="10a-K6-Oxi"/>
+                        <constraint firstAttribute="height" constant="35" id="10a-K6-Oxi"/>
                     </constraints>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="hCT-hy-zIN"/>

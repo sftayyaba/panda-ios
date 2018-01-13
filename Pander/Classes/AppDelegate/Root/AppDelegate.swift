@@ -30,7 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
       
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        
         if let window = window {
+            
+            window.tintColor = UIColor.red
+            
             window.backgroundColor = UIColor.white
             
             self.moveToSingUp()
