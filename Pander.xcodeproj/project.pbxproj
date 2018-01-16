@@ -71,6 +71,12 @@
 		EBC74F3B1FCAC41D00641B48 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC74EE61FCAC41C00641B48 /* NetworkConstants.swift */; };
 		EBC74F481FCAC41D00641B48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC74F031FCAC41C00641B48 /* ViewController.swift */; };
 		EBC74F491FCAC41D00641B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC74F051FCAC41C00641B48 /* Assets.xcassets */; };
+		EBCC566C200DDA90009D865E /* PNForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC5668200DDA90009D865E /* PNForgotPasswordView.swift */; };
+		EBCC566D200DDA90009D865E /* PNForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC566A200DDA90009D865E /* PNForgotPasswordViewController.swift */; };
+		EBCC566E200DDA90009D865E /* PNForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCC566B200DDA90009D865E /* PNForgotPasswordViewController.xib */; };
+		EBCC5670200DE36B009D865E /* PNUserManager+ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC566F200DE36B009D865E /* PNUserManager+ForgotPassword.swift */; };
+		EBCC5673200DE40D009D865E /* PNForgotPasswordOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC5672200DE40D009D865E /* PNForgotPasswordOperation.swift */; };
+		EBCC5676200DEDC4009D865E /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC5675200DEDC4009D865E /* UIString.swift */; };
 		EBE05BE52006A6A4009A865C /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05BE42006A6A4009A865C /* FlowLayout.swift */; };
 		EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05BE92006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift */; };
 		EBE05BF72006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05BEB2006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift */; };
@@ -208,6 +214,12 @@
 		EBC74EE61FCAC41C00641B48 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		EBC74F031FCAC41C00641B48 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBC74F051FCAC41C00641B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBCC5668200DDA90009D865E /* PNForgotPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNForgotPasswordView.swift; sourceTree = "<group>"; };
+		EBCC566A200DDA90009D865E /* PNForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		EBCC566B200DDA90009D865E /* PNForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		EBCC566F200DE36B009D865E /* PNUserManager+ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+ForgotPassword.swift"; sourceTree = "<group>"; };
+		EBCC5672200DE40D009D865E /* PNForgotPasswordOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNForgotPasswordOperation.swift; sourceTree = "<group>"; };
+		EBCC5675200DEDC4009D865E /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
 		EBE05BE42006A6A4009A865C /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		EBE05BE92006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNStepThreeCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		EBE05BEB2006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetGetStartedStepThreeFlowLayout.swift; sourceTree = "<group>"; };
@@ -652,6 +664,7 @@
 		EB8F017D1FCAD680000D790F /* UserProfiling */ = {
 			isa = PBXGroup;
 			children = (
+				EBCC5666200DDA90009D865E /* ForgotPassword */,
 				EB31BB7C200402E800F86CBF /* SignUp */,
 				EB18695B2001889200C27925 /* Guest */,
 				EB8F017E1FCAD680000D790F /* Login */,
@@ -718,6 +731,7 @@
 				DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */,
 				DABB1DBD20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift */,
 				DAFBBA2C2008311700B8821F /* PNUserManager+FBAuthentication.swift */,
+				EBCC566F200DE36B009D865E /* PNUserManager+ForgotPassword.swift */,
 			);
 			path = UserManager;
 			sourceTree = "<group>";
@@ -733,6 +747,7 @@
 		EB8F01961FCADAD2000D790F /* UserProfiling */ = {
 			isa = PBXGroup;
 			children = (
+				EBCC5671200DE40D009D865E /* ForgotPassword */,
 				DA6A9AA02008A11E00BE591F /* SignUp */,
 				DABB1DBA20081989003CD371 /* CheckAddressIsSupported */,
 				DABB1DB72007FF88003CD371 /* ConnectWithFacebook */,
@@ -928,6 +943,48 @@
 				EBC74F051FCAC41C00641B48 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EBCC5666200DDA90009D865E /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC5667200DDA90009D865E /* View */,
+				EBCC5669200DDA90009D865E /* ViewController */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		EBCC5667200DDA90009D865E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC5668200DDA90009D865E /* PNForgotPasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBCC5669200DDA90009D865E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC566A200DDA90009D865E /* PNForgotPasswordViewController.swift */,
+				EBCC566B200DDA90009D865E /* PNForgotPasswordViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EBCC5671200DE40D009D865E /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC5672200DE40D009D865E /* PNForgotPasswordOperation.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		EBCC5674200DEDAD009D865E /* UIString */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC5675200DEDC4009D865E /* UIString.swift */,
+			);
+			path = UIString;
 			sourceTree = "<group>";
 		};
 		EBE05BE32006A69A009A865C /* CollectionViewLayouts */ = {
@@ -1257,6 +1314,7 @@
 		EBFB71091FCCA78600DB4C58 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EBCC5674200DEDAD009D865E /* UIString */,
 				EBE05C3B2006B818009A865C /* UISwitch */,
 				EBFB71161FCCAA9A00DB4C58 /* PropertyStoring */,
 				EBFB71131FCCA9AD00DB4C58 /* UITextfield */,
@@ -1424,6 +1482,7 @@
 			files = (
 				EB18699020022A5000C27925 /* PNGuestLetsGetStartedWithNameController.xib in Resources */,
 				EBC74F081FCAC41C00641B48 /* Main.storyboard in Resources */,
+				EBCC566E200DDA90009D865E /* PNForgotPasswordViewController.xib in Resources */,
 				EBC74F061FCAC41C00641B48 /* Info.plist in Resources */,
 				EBE05BF92006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.xib in Resources */,
 				EBC74F491FCAC41D00641B48 /* Assets.xcassets in Resources */,
@@ -1686,6 +1745,7 @@
 				EB8F01851FCAD714000D790F /* AppDelegate.swift in Sources */,
 				DA6A9AAE2008F71B00BE591F /* PNRecommendationsModel.swift in Sources */,
 				DABB1DBC20081A19003CD371 /* PNCheckAddressIsSupportedOperation.swift in Sources */,
+				EBCC5676200DEDC4009D865E /* UIString.swift in Sources */,
 				EBFB71081FCCA14200DB4C58 /* PNBaseViewController.swift in Sources */,
 				EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */,
 				EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */,
@@ -1694,6 +1754,7 @@
 				EB8F01941FCADA2A000D790F /* AppNetworkManager.swift in Sources */,
 				EBE05C372006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionView.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
+				EBCC566D200DDA90009D865E /* PNForgotPasswordViewController.swift in Sources */,
 				DA6A9AA42008B11900BE591F /* PNUserManager+SignUp.swift in Sources */,
 				EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */,
 				EBFB71071FCCA14200DB4C58 /* PNBaseView.swift in Sources */,
@@ -1701,7 +1762,9 @@
 				DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */,
 				EBED0A4A1FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift in Sources */,
 				EBE05C3D2006B824009A865C /* UISwitch.swift in Sources */,
+				EBCC566C200DDA90009D865E /* PNForgotPasswordView.swift in Sources */,
 				EB2FD4DB2005477D00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.swift in Sources */,
+				EBCC5673200DE40D009D865E /* PNForgotPasswordOperation.swift in Sources */,
 				EB2FD4C32005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoView.swift in Sources */,
 				EBE05BF72006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift in Sources */,
 				EBE05BFA2006AE33009A865C /* PNGuestLetsGetStartedStepThreeView.swift in Sources */,
@@ -1711,6 +1774,7 @@
 				DABB1DB22007FE62003CD371 /* OnebyteNetworkOperationQueue.swift in Sources */,
 				EBE05BE52006A6A4009A865C /* FlowLayout.swift in Sources */,
 				DABB1DB92007FFF1003CD371 /* PNConnectWithFacebookOperation.swift in Sources */,
+				EBCC5670200DE36B009D865E /* PNUserManager+ForgotPassword.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
 				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
 				EB8F01911FCAD8F6000D790F /* PNBaseManager.swift in Sources */,

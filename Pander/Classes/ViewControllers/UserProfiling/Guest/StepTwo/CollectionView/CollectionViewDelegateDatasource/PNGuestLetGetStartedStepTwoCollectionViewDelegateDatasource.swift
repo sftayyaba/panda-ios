@@ -27,7 +27,7 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
     
     func configureCell(cell: PNGuestLetGetStartedStepTwoCollectionViewCell, forIndexPath indexPath: IndexPath) {
         let dict = cusines[indexPath.row].dictionary
-        let cusineName = dict?[" cuisine "]?.string
+        let cusineName = dict?["cuisine"]?.string
         if let tag = cusineName{
             
             let cuisine = cusines[indexPath.row]

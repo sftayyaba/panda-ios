@@ -26,7 +26,7 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
     }
     
     func configureCell(cell: PNGuestLetGetStartedStepThreeCollectionViewCell, forIndexPath indexPath: IndexPath) {
-        if let tag = cusines[indexPath.row].dictionary?[" dish "]?.string{
+        if let tag = cusines[indexPath.row].dictionary?["dish"]?.string{
             
             let cuisine = cusines[indexPath.row]
             

@@ -22,7 +22,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     
     var cusines = JSON.init(parseJSON:"[{        \" cuisine \":   \"Burgers\",        \" image_url \":   \" link-to-image.com \" },        {\" cuisine \":   \"Pasta\",        \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"Pizza\",            \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"German\",            \" image_url \":   \" link-to-image.com \"    }]").array
 
-    let mainCuisines = JSON.init(parseJSON:"[{        \" cuisine \":   \"Burgers\",        \" image_url \":   \" link-to-image.com \" },        {\" cuisine \":   \"Pasta\",        \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"Pizza\",            \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"German\",            \" image_url \":   \" link-to-image.com \"    }]").array
+    var mainCuisines = JSON.init(parseJSON:"[{        \" cuisine \":   \"Burgers\",        \" image_url \":   \" link-to-image.com \" },        {\" cuisine \":   \"Pasta\",        \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"Pizza\",            \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"German\",            \" image_url \":   \" link-to-image.com \"    }]").array
     
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
             self.cusines = self.mainCuisines?.filter({ (cusineJson) -> Bool in
                 
                 let dict = cusineJson.dictionary
-                let cusineName = dict?[" cuisine "]?.string
+                let cusineName = dict?["cuisine"]?.string
                 if let tag = cusineName{
                     if tag.contains(text){
                         return true
@@ -79,6 +79,10 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     override func doInitialDataLoad() {
         PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recommendations) in
             if let cuisines = recommendations.deliveryRecs?.cuisinesByZip?[PNUserManager.sharedInstance.selectedZip!].array{
+                
+                self.cusines = cuisines
+                self.mainCuisines = cuisines
+                
                 self.collectionView.cusines = cuisines
                 self.collectionView.reloadData()
             }

@@ -21,7 +21,7 @@ class PNBaseViewController : UIViewController, NVActivityIndicatorViewable{
         self.configureView()
         self.configureObjects()
         self.configureCallBacks()
-        self.doInitialDataLoad()
+//        self.doInitialDataLoad()
         self.configureNavigationBar()
     }
     

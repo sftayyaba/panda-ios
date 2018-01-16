@@ -157,4 +157,12 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         AppDelegate.sharedInstance()?.moveToSingUp()
     }
+    
+    @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
+        
+        let viewController = PNForgotPasswordViewController(nibName: "PNForgotPasswordViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+//        AppDelegate.sharedInstance()?.moveToSingUp()
+    }
 }

@@ -44,7 +44,7 @@ class AppNetworkManager {
         if let token = PNUserManager.sharedInstance.token, let email = PNUserManager.sharedInstance.email{
             let str = " { \"email\" : \"\(email)\", \"token\" : \"\(token)\" } "
             print(str);
-            OnebyteNetworkRequest.headers = ["HTTP_X_PANDER_AUTH": " { \"email\" : \"\(email)\", \"token\" : \"\(token)\" } ", "Content-Type": "application/json"]
+            OnebyteNetworkRequest.headers = ["X_PANDER_AUTH": " { \"email\" : \"\(email)\", \"token\" : \"\(token)\" } ", "Content-Type": "application/json"]
         }
         
         return OnebyteNetworkRequest.InitiateRequest()
