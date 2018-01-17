@@ -29,9 +29,10 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'GoogleSignIn'
-pod "PWSwitch"
+pod 'PWSwitch'
 pod 'NVActivityIndicatorView'
-
+pod 'PINCache'
+pod 'ToggleView', '~> 0.0.1'
 
 
 

@@ -33,8 +33,7 @@ class PNGuestLetsGetStartedViewController: PNBaseViewController {
     }
     
     @IBAction func backtoLoginButtonTapped(_ sender: Any) {
-        let loginViewController = PNLoginViewController(nibName: "PNLoginViewController", bundle: nil)
-        self.navigationController?.pushViewController(loginViewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

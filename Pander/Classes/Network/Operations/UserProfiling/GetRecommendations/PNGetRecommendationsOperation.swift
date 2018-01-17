@@ -35,7 +35,7 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
         
         if let code = json["code"].int{
             
-            if code == PNApiResponseCodes.successResponse.rawValue{
+            if code >= PNApiResponseCodes.successResponse.rawValue{
                 let codeResponseObject: PNRecommendationsModel = PNRecommendationsModel(json: JSON(response))
                 
                 self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)

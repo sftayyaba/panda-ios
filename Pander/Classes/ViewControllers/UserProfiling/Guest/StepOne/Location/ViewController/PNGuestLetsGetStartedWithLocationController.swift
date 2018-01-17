@@ -24,9 +24,8 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
             PNUserManager.sharedInstance.checkAddressIsSupported(Zip: zip, SuccessBlock: {
                 successResponse in
 
-                let viewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)
-                self.navigationController?.pushViewController(viewController, animated: true)
-            
+                self.moveToNext()
+                
             }, FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
                     self.alert(title: "Oops", message: localError.localizedDescription)
@@ -39,6 +38,20 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
         }
         
     }
+    
+    
+    
+    func moveToNext(){
+        if PNUserManager.sharedInstance.user != nil || PNUserManager.sharedInstance.guestUser != nil{
+            let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }else{
+            let viewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    
     
     @IBAction func backButtonTapped(_ sender: Any) {
 //        let viewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)

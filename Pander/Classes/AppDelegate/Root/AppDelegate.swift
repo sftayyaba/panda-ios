@@ -36,9 +36,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             window.tintColor = UIColor.red
             
             window.backgroundColor = UIColor.white
-            
-            self.moveToSingUp()
-            
+            if PNUserManager.sharedInstance.user != nil || PNUserManager.sharedInstance.guestUser != nil{
+                if PNUserManager.sharedInstance.isLoggedIn {
+                    moveToHome()
+        
+                }else if PNUserManager.sharedInstance.selectedZip == nil{
+                    moveToLetGetStarted()
+                
+                } else if PNUserManager.sharedInstance.selectedCusines == nil{
+                    self.moveToSingUp()
+                    self.moveToCuisineSelection()
+                    
+                }else if PNUserManager.sharedInstance.selectedDishes == nil{
+                    self.moveToSingUp()
+                    moveToDishSelection()
+                }else{
+                    moveToHome()
+                }
+                
+            }else{
+                self.moveToSingUp()
+            }
             window.makeKeyAndVisible()
         }
 
@@ -47,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 //        var configureError: NSError?
 //        GGLContext.sharedInstance().configureWithError(&configureError)
 //        assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        GIDSignIn.sharedInstance().clientID = "524861039894-lrgu4kjudamd75edoiqvlmm2edthkusj.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = "276477159428-krn5nlk308b2hpvilo6ibklcjrscun9l.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
 
         IQKeyboardManager.sharedManager().enable = true

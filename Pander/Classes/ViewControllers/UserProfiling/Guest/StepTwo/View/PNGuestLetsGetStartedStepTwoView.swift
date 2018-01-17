@@ -16,6 +16,7 @@ class PNGuestLetsGetStartedStepTwoView: UIView {
     
     override func awakeFromNib() {
         self.configureTextFields()
+        self.nextButton.isEnabled = false
     }
     
     private func configureTextFields(){

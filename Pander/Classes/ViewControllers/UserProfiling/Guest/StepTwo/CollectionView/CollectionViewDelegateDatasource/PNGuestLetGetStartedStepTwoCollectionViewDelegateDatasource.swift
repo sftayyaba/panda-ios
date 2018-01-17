@@ -13,6 +13,9 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
 
     var selectedCusines = [JSON]()
 
+    var cuisineSelectedCallback: ((Int)->())?
+
+    
     var sizingCell: PNGuestLetGetStartedStepTwoCollectionViewCell?
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,6 +66,10 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
                 self.selectedCusines.remove(at: alreadySelectedIndex)
         }else{
             self.selectedCusines.append(selectedCusine)
+        }
+        
+        if let callBack = cuisineSelectedCallback{
+            callBack(self.selectedCusines.count)
         }
         
         collectionView.reloadData()

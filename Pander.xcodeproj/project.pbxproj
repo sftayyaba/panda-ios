@@ -93,6 +93,19 @@
 		EBE05C392006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05C312006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.swift */; };
 		EBE05C3A2006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE05C322006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.xib */; };
 		EBE05C3D2006B824009A865C /* UISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05C3C2006B824009A865C /* UISwitch.swift */; };
+		EBE73449200E75AD001BB651 /* PNPartySizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE73443200E75AC001BB651 /* PNPartySizeViewController.swift */; };
+		EBE7344A200E75AD001BB651 /* PNPartySizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE73444200E75AC001BB651 /* PNPartySizeViewController.xib */; };
+		EBE7344B200E75AD001BB651 /* PNPartySizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE73446200E75AC001BB651 /* PNPartySizeView.swift */; };
+		EBE7344C200E75AD001BB651 /* PNPartySizeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE73448200E75AC001BB651 /* PNPartySizeTextFieldDelegate.swift */; };
+		EBE7345B200E8920001BB651 /* PNPartySizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE73459200E8920001BB651 /* PNPartySizeCollectionViewCell.swift */; };
+		EBE7345C200E8920001BB651 /* PNPartySizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7345A200E8920001BB651 /* PNPartySizeCollectionViewCell.xib */; };
+		EBE7345E200E893E001BB651 /* PNPartySizeCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7345D200E893E001BB651 /* PNPartySizeCollectionViewDelegateDatasource.swift */; };
+		EBE73460200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7345F200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift */; };
+		EBE73463200E8A32001BB651 /* PNPartySizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE73461200E8A32001BB651 /* PNPartySizeTableViewCell.swift */; };
+		EBE73464200E8A32001BB651 /* PNPartySizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE73462200E8A32001BB651 /* PNPartySizeTableViewCell.xib */; };
+		EBE7346D200E96F9001BB651 /* PNHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE73467200E96F9001BB651 /* PNHomeView.swift */; };
+		EBE7346F200E96F9001BB651 /* PNHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7346B200E96F9001BB651 /* PNHomeViewController.swift */; };
+		EBE73470200E96F9001BB651 /* PNHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7346C200E96F9001BB651 /* PNHomeViewController.xib */; };
 		EBED0A281FCE8A6B00F9F5B8 /* PNRegisterForUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED0A251FCE8A6A00F9F5B8 /* PNRegisterForUpdateOperation.swift */; };
 		EBED0A321FCE8BCB00F9F5B8 /* PNConvertGuestUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED0A2B1FCE8BCA00F9F5B8 /* PNConvertGuestUserOperation.swift */; };
 		EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED0A2D1FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift */; };
@@ -236,6 +249,19 @@
 		EBE05C312006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedWithDietaryRestrictionController.swift; sourceTree = "<group>"; };
 		EBE05C322006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNGuestLetsGetStartedWithDietaryRestrictionController.xib; sourceTree = "<group>"; };
 		EBE05C3C2006B824009A865C /* UISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISwitch.swift; sourceTree = "<group>"; };
+		EBE73443200E75AC001BB651 /* PNPartySizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPartySizeViewController.swift; sourceTree = "<group>"; };
+		EBE73444200E75AC001BB651 /* PNPartySizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNPartySizeViewController.xib; sourceTree = "<group>"; };
+		EBE73446200E75AC001BB651 /* PNPartySizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPartySizeView.swift; sourceTree = "<group>"; };
+		EBE73448200E75AC001BB651 /* PNPartySizeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPartySizeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		EBE73459200E8920001BB651 /* PNPartySizeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPartySizeCollectionViewCell.swift; sourceTree = "<group>"; };
+		EBE7345A200E8920001BB651 /* PNPartySizeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNPartySizeCollectionViewCell.xib; sourceTree = "<group>"; };
+		EBE7345D200E893E001BB651 /* PNPartySizeCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPartySizeCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
+		EBE7345F200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPartySizeTableViewDelegateDatasource.swift; sourceTree = "<group>"; };
+		EBE73461200E8A32001BB651 /* PNPartySizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPartySizeTableViewCell.swift; sourceTree = "<group>"; };
+		EBE73462200E8A32001BB651 /* PNPartySizeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNPartySizeTableViewCell.xib; sourceTree = "<group>"; };
+		EBE73467200E96F9001BB651 /* PNHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNHomeView.swift; sourceTree = "<group>"; };
+		EBE7346B200E96F9001BB651 /* PNHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNHomeViewController.swift; sourceTree = "<group>"; };
+		EBE7346C200E96F9001BB651 /* PNHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNHomeViewController.xib; sourceTree = "<group>"; };
 		EBED0A251FCE8A6A00F9F5B8 /* PNRegisterForUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNRegisterForUpdateOperation.swift; sourceTree = "<group>"; };
 		EBED0A2B1FCE8BCA00F9F5B8 /* PNConvertGuestUserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNConvertGuestUserOperation.swift; sourceTree = "<group>"; };
 		EBED0A2D1FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCreateGuestAccountOperation.swift; sourceTree = "<group>"; };
@@ -930,6 +956,7 @@
 		EBC74F021FCAC41C00641B48 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EBE73440200E756F001BB651 /* Home */,
 				EBFB71001FCCA14100DB4C58 /* BaseViewController */,
 				EB8F017D1FCAD680000D790F /* UserProfiling */,
 				EBC74F031FCAC41C00641B48 /* ViewController.swift */,
@@ -1133,6 +1160,130 @@
 				EBE05C3C2006B824009A865C /* UISwitch.swift */,
 			);
 			path = UISwitch;
+			sourceTree = "<group>";
+		};
+		EBE73440200E756F001BB651 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73465200E96F9001BB651 /* Root */,
+				EBE73441200E756F001BB651 /* PartySize */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EBE73441200E756F001BB651 /* PartySize */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73450200E84C2001BB651 /* CollectionView */,
+				EBE7344D200E84C1001BB651 /* TableView */,
+				EBE73445200E75AC001BB651 /* View */,
+				EBE73442200E75AC001BB651 /* ViewController */,
+			);
+			path = PartySize;
+			sourceTree = "<group>";
+		};
+		EBE73442200E75AC001BB651 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73443200E75AC001BB651 /* PNPartySizeViewController.swift */,
+				EBE73444200E75AC001BB651 /* PNPartySizeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EBE73445200E75AC001BB651 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73446200E75AC001BB651 /* PNPartySizeView.swift */,
+				EBE73447200E75AC001BB651 /* TextFieldDelegate */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBE73447200E75AC001BB651 /* TextFieldDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73448200E75AC001BB651 /* PNPartySizeTextFieldDelegate.swift */,
+			);
+			path = TextFieldDelegate;
+			sourceTree = "<group>";
+		};
+		EBE7344D200E84C1001BB651 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7344E200E84C1001BB651 /* CustomCells */,
+				EBE7344F200E84C1001BB651 /* DelegateDatasource */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		EBE7344E200E84C1001BB651 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73461200E8A32001BB651 /* PNPartySizeTableViewCell.swift */,
+				EBE73462200E8A32001BB651 /* PNPartySizeTableViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		EBE7344F200E84C1001BB651 /* DelegateDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7345F200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift */,
+			);
+			path = DelegateDatasource;
+			sourceTree = "<group>";
+		};
+		EBE73450200E84C2001BB651 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73451200E84C2001BB651 /* CustomCells */,
+				EBE73452200E84C2001BB651 /* DelegateDatasource */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		EBE73451200E84C2001BB651 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73459200E8920001BB651 /* PNPartySizeCollectionViewCell.swift */,
+				EBE7345A200E8920001BB651 /* PNPartySizeCollectionViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		EBE73452200E84C2001BB651 /* DelegateDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7345D200E893E001BB651 /* PNPartySizeCollectionViewDelegateDatasource.swift */,
+			);
+			path = DelegateDatasource;
+			sourceTree = "<group>";
+		};
+		EBE73465200E96F9001BB651 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73466200E96F9001BB651 /* View */,
+				EBE7346A200E96F9001BB651 /* ViewController */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		EBE73466200E96F9001BB651 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBE73467200E96F9001BB651 /* PNHomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBE7346A200E96F9001BB651 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7346B200E96F9001BB651 /* PNHomeViewController.swift */,
+				EBE7346C200E96F9001BB651 /* PNHomeViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		EBED0A241FCE8A6A00F9F5B8 /* RegisterForUpdate */ = {
@@ -1487,6 +1638,7 @@
 				EBE05BF92006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.xib in Resources */,
 				EBC74F491FCAC41D00641B48 /* Assets.xcassets in Resources */,
 				EB186972200192E500C27925 /* PNGuestLetsGetStartedViewController.xib in Resources */,
+				EBE7344A200E75AD001BB651 /* PNPartySizeViewController.xib in Resources */,
 				EBC74F071FCAC41C00641B48 /* LaunchScreen.storyboard in Resources */,
 				EB8F018A1FCAD844000D790F /* PNLoginViewController.xib in Resources */,
 				EBE05BFD2006AE33009A865C /* PNGuestLetsGetStartedStepThreeController.xib in Resources */,
@@ -1497,7 +1649,10 @@
 				EB1869872002297A00C27925 /* PNGuestLetsGetStartedWithLocationController.xib in Resources */,
 				EB2FD4C62005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib in Resources */,
 				EB1AE7ED1FFD88F600485366 /* GoogleService-Info.plist in Resources */,
+				EBE73470200E96F9001BB651 /* PNHomeViewController.xib in Resources */,
+				EBE7345C200E8920001BB651 /* PNPartySizeCollectionViewCell.xib in Resources */,
 				EB2FD4D92005468600CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewCell.xib in Resources */,
+				EBE73464200E8A32001BB651 /* PNPartySizeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1648,12 +1803,14 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PWSwitch/PWSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/ToggleView/ToggleView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1681,12 +1838,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PWSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ToggleView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1733,11 +1892,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE7346D200E96F9001BB651 /* PNHomeView.swift in Sources */,
 				EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */,
 				EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */,
 				EBED0A4F1FCE93A600F9F5B8 /* PNVerifyCredentialsOperation.swift in Sources */,
 				DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */,
 				EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */,
+				EBE73463200E8A32001BB651 /* PNPartySizeTableViewCell.swift in Sources */,
 				EBED0A281FCE8A6B00F9F5B8 /* PNRegisterForUpdateOperation.swift in Sources */,
 				EB1869822002297A00C27925 /* PNGuestLetsGetStartedWithEmailView.swift in Sources */,
 				EBFB70FA1FCB1CE800DB4C58 /* PNCodeResponse.swift in Sources */,
@@ -1754,6 +1915,7 @@
 				EB8F01941FCADA2A000D790F /* AppNetworkManager.swift in Sources */,
 				EBE05C372006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionView.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
+				EBE7344C200E75AD001BB651 /* PNPartySizeTextFieldDelegate.swift in Sources */,
 				EBCC566D200DDA90009D865E /* PNForgotPasswordViewController.swift in Sources */,
 				DA6A9AA42008B11900BE591F /* PNUserManager+SignUp.swift in Sources */,
 				EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */,
@@ -1781,6 +1943,7 @@
 				DABB1DB32007FE62003CD371 /* OnebyteNetworkOperationBase.swift in Sources */,
 				EBFB70EF1FCB150E00DB4C58 /* userAppSettings.swift in Sources */,
 				DA6A9AAB2008F71B00BE591F /* PNCuisine.swift in Sources */,
+				EBE7344B200E75AD001BB651 /* PNPartySizeView.swift in Sources */,
 				EBED0A501FCE93A600F9F5B8 /* PNGetRecommendationsOperation.swift in Sources */,
 				EBFB71151FCCA9AD00DB4C58 /* ApplicationTextfields.swift in Sources */,
 				DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */,
@@ -1815,12 +1978,17 @@
 				EB2FD4C52005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift in Sources */,
 				DAFBBA2D2008311700B8821F /* PNUserManager+FBAuthentication.swift in Sources */,
 				EBE05BFB2006AE33009A865C /* PNGuestLetsGetStartedStepThreeViewTextFieldDelegate.swift in Sources */,
+				EBE7346F200E96F9001BB651 /* PNHomeViewController.swift in Sources */,
 				EBFB70F01FCB150E00DB4C58 /* userBaseClass.swift in Sources */,
+				EBE7345B200E8920001BB651 /* PNPartySizeCollectionViewCell.swift in Sources */,
 				EBED0A3A1FCE8CB500F9F5B8 /* PNReConfirmPasswordOperation.swift in Sources */,
+				EBE73449200E75AD001BB651 /* PNPartySizeViewController.swift in Sources */,
 				EBFB70F41FCB1B5000DB4C58 /* PNCreateGuestAccount.swift in Sources */,
 				EBE05BF82006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.swift in Sources */,
 				EBFB710F1FCCA92200DB4C58 /* ApplicationButtons.swift in Sources */,
+				EBE73460200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift in Sources */,
 				DA6A9AAF2008F71B00BE591F /* PNDeliveryRecs.swift in Sources */,
+				EBE7345E200E893E001BB651 /* PNPartySizeCollectionViewDelegateDatasource.swift in Sources */,
 				EBC74F481FCAC41D00641B48 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1991,6 +2159,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6U92U4D62;
 				INFOPLIST_FILE = "$(SRCROOT)/Pander/ProjectSettings/ProjectPlists/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BitWay.Pander;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2007,6 +2176,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6U92U4D62;
 				INFOPLIST_FILE = "$(SRCROOT)/Pander/ProjectSettings/ProjectPlists/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BitWay.Pander;
 				PRODUCT_NAME = "$(TARGET_NAME)";

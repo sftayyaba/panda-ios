@@ -35,7 +35,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         super.viewWillDisappear(animated)
         
         // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func configureNavigationBar() {
@@ -55,23 +55,32 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     }
     
     @IBAction func createAccountButtonTapped(_ sender: Any) {
+
         if let email = self.loginView.emailTextField.text, let password =
             self.loginView.passwordTextField.text {
-            
-            PNUserManager.sharedInstance.signIn(Email: email, Password: password, SuccessBlock: { (successResponse) in
-                
-                let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
-                self.navigationController?.pushViewController(viewController, animated: true)
-                
-            }, FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Opss", message: localError.localizedDescription)
-                }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
+
+            if email.isEmail {
+                if password.count >= 5{
+
+                    PNUserManager.sharedInstance.signIn(Email: email, Password: password, SuccessBlock: { (successResponse) in
+
+                        AppDelegate.sharedInstance()?.moveToHome()
+
+                    }, FailureBlock: { (error) in
+                        if let localError = error as? ErrorBaseClass{
+                            self.alert(title: "Opss", message: localError.localizedDescription)
+                        }else {
+                            self.alert(title: "Error", message: "Something went wrong !")
+                        }
+                    })
+                    
+                }else{
+                    self.alert(title: "Error", message: "Incorrect Password.")
                 }
-            })
-            
-            
+            }else{
+                self.alert(title: "Error", message: "Enter Valid Email.")
+            }
+
         }else{
             self.alert(title: "Error", message: "Email and password are required")
         }
@@ -80,8 +89,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     @IBAction func emailButtonTapped(_ sender: Any) {
         
         
-        AppDelegate.sharedInstance()?.moveToLetGetStarted()
-
+        
     }
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
@@ -130,10 +138,11 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     
     //MARK: Social Login Handlers
     func doLoginWithServerUsingFBData(FBToken fb_token: String , FBUserID fb_user_id: String , Email email: String){
+        
         PNUserManager.sharedInstance.loginFBUser(FBToken: fb_token, FBUserID: fb_user_id, Email: email, successBlock: {
             
-            AppDelegate.sharedInstance()?.moveToLetGetStarted()
-            
+            AppDelegate.sharedInstance()?.moveToHome()
+
         }) { (error) in
             if let localError = error as? ErrorBaseClass{
                 self.alert(title: "Error", message: localError.localizedDescription)
@@ -149,7 +158,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
-            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+            AppDelegate.sharedInstance()?.moveToHome()
 
         }
     }

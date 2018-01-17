@@ -32,7 +32,7 @@ class PNForgotPasswordViewController: PNBaseViewController {
         super.viewWillDisappear(animated)
         
         // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func configureNavigationBar() {
@@ -69,5 +69,9 @@ class PNForgotPasswordViewController: PNBaseViewController {
         }else{
             self.alert(title: "Error", message: "Email is required")
         }
+    }
+    @IBAction func backPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
     }
 }

@@ -13,6 +13,9 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
     
     var selectedCusines = [JSON]()
     
+    var cuisineSelectedCallback: ((Int)->())?
+
+    
     var sizingCell: PNGuestLetGetStartedStepThreeCollectionViewCell?
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -58,5 +61,9 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
             self.selectedCusines.append(selectedCusine)
         }
         
+        if let callBack = cuisineSelectedCallback{
+            callBack(self.selectedCusines.count)
+        }
+
         collectionView.reloadData()
     }}

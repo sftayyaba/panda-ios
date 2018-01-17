@@ -21,9 +21,9 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
     
     var sizingCell: PNGuestLetGetStartedStepThreeCollectionViewCell?
 
-    var cusines = JSON.init(parseJSON:"[{ \" cuisine \": \"Burgers\", \" image_url \": \" link-to-image.com \", \" dish \":\"Cheeseburger\" }, { \" cuisine \": \"Pasta\", \" dish \":\"Italian Pasta\", \" image_url \": \" link-to-image.com \" }, { \" cuisine \": \"Pizza\", \" dish \":\"Tikka Pizza\", \" image_url \": \" link-to-image.com \" }, { \" cuisine \": \"German\", \" dish \":\"Brusheza\", \" image_url \": \" link-to-image.com \" }]").array
+    var cusines = JSON.init(parseJSON:"[]").array
 
-    var mainCuisines = JSON.init(parseJSON:"[{ \" cuisine \": \"Burgers\", \" image_url \": \" link-to-image.com \", \" dish \":\"Cheeseburger\" }, { \" cuisine \": \"Pasta\", \" dish \":\"Italian Pasta\", \" image_url \": \" link-to-image.com \" }, { \" cuisine \": \"Pizza\", \" dish \":\"Tikka Pizza\", \" image_url \": \" link-to-image.com \" }, { \" cuisine \": \"German\", \" dish \":\"Brusheza\", \" image_url \": \" link-to-image.com \" }]").array
+    var mainCuisines = JSON.init(parseJSON:"[]").array
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
                 let dict = cusineJson.dictionary
                 let cusineName = dict?["dish"]?.string
                 if let tag = cusineName{
-                    if tag.contains(text){
+                    if tag.lowercased().contains(text.lowercased()){
                         return true
                     }
                 }
@@ -73,12 +73,24 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
             self.collectionView.reloadData()
             
         }
+        
+        
+        
+        self.collectionView.cuisineSelectedCallback = {
+            selectedCount in
+            if selectedCount > 0 {
+                self.guestLetsGetStartedStepThreeView.nextButton.isEnabled = true
+            } else {
+                self.guestLetsGetStartedStepThreeView.nextButton.isEnabled = false
+            }
+        }
+
     }
     
     
     override func doInitialDataLoad() {
         PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recommendations) in
-            if let cuisines = recommendations.deliveryRecs?.cuisinesByZip?[PNUserManager.sharedInstance.selectedZip!].array{
+            if let cuisines = recommendations.deliveryRecs?.dishesByZip?[PNUserManager.sharedInstance.selectedZip!].array{
                 self.collectionView.cusines = cuisines
 
                 self.cusines = cuisines
@@ -99,6 +111,12 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
     
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+        if self.collectionView.selectedCusines.count > 0 {
+            PNUserManager.sharedInstance.selectedDishes = self.collectionView.selectedCusines
+        }else{
+            PNUserManager.sharedInstance.selectedDishes = nil
+        }
+
         let viewController = PNGuestLetsGetStartedWithNewFoodController(nibName: "PNGuestLetsGetStartedWithNewFoodController", bundle: nil)
         self.navigationController?.pushViewController(viewController, animated: true)
     }

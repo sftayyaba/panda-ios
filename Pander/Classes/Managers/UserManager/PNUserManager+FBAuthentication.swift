@@ -22,13 +22,18 @@ extension PNUserManager{
 
             weakSelf?.notifyNetworkRequestFinish()
 
-            if let guestUser = response as? PNCreateGuestAccount{
-                weakSelf?.guestUser = guestUser
-                weakSelf?.token = guestUser.accessTokenPander
-                weakSelf?.email = guestUser.userId
+            if let guestUser = response as? PNUserCommonSuccessResponse{
+            
+                weakSelf?.user = guestUser.user
+                weakSelf?.token = guestUser.user?.accessTokenPander
+                weakSelf?.email = guestUser.user?.email
+                
                 successBlock()
+                
             }else if let errorResponse = response as? ErrorBaseClass{
+                
                 failureBlock(errorResponse)
+            
             }
             
             

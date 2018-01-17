@@ -39,7 +39,7 @@ class PNSignUpOperation: OnebyteNetworkOperationBase {
         
         if let code = json["code"].int{
             
-            if code == PNApiResponseCodes.successResponse.rawValue{
+            if code >= PNApiResponseCodes.successResponse.rawValue{
                 let codeResponseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
                 
                 self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)

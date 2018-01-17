@@ -9,7 +9,19 @@ import UIKit
 
 class PNGuestLetsGetStartedWithDietaryRestrictionView: UIView {
 
-    @IBOutlet var zipCodeTextField: UITextField!
+    @IBOutlet weak var vegetarianButton: UIButton!
+    
+    @IBOutlet weak var veganButton: UIButton!
+    
+    @IBOutlet weak var noPeanutesButton: UIButton!
+    
+    @IBOutlet weak var glutenFreeButton: UIButton!
+    
+    
+    
+    
+    
+    
     
     @IBOutlet var nextButton: UIButton!
     
@@ -19,4 +31,9 @@ class PNGuestLetsGetStartedWithDietaryRestrictionView: UIView {
 
     private func configureNameTextField(){
     }
+    
+    @IBAction func onSelectButtonPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    
 }

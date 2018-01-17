@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVr-Jq-SbP">
-                        <rect key="frame" x="12" y="8" width="183" height="34"/>
+                        <rect key="frame" x="8" y="5" width="191" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="2Mb-cV-otj"/>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="304" id="BP8-X2-tfd"/>
@@ -31,10 +31,10 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ZVr-Jq-SbP" secondAttribute="trailing" constant="12" id="5Nb-oK-5sM"/>
-                <constraint firstAttribute="bottom" secondItem="ZVr-Jq-SbP" secondAttribute="bottom" constant="8" id="CNG-ii-JvA"/>
-                <constraint firstItem="ZVr-Jq-SbP" firstAttribute="leading" secondItem="FP1-G4-j6g" secondAttribute="leading" constant="12" id="k9s-K8-qow"/>
-                <constraint firstItem="ZVr-Jq-SbP" firstAttribute="top" secondItem="FP1-G4-j6g" secondAttribute="top" constant="8" id="zbi-u5-Xfm"/>
+                <constraint firstAttribute="trailing" secondItem="ZVr-Jq-SbP" secondAttribute="trailing" constant="8" id="5Nb-oK-5sM"/>
+                <constraint firstAttribute="bottom" secondItem="ZVr-Jq-SbP" secondAttribute="bottom" constant="5" id="CNG-ii-JvA"/>
+                <constraint firstItem="ZVr-Jq-SbP" firstAttribute="leading" secondItem="FP1-G4-j6g" secondAttribute="leading" constant="8" id="k9s-K8-qow"/>
+                <constraint firstItem="ZVr-Jq-SbP" firstAttribute="top" secondItem="FP1-G4-j6g" secondAttribute="top" constant="5" id="zbi-u5-Xfm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="1wL-YQ-lg8"/>
             <size key="customSize" width="207" height="50"/>

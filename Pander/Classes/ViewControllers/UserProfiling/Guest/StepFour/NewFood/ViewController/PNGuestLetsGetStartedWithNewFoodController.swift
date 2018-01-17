@@ -21,14 +21,15 @@ class PNGuestLetsGetStartedWithNewFoodController: PNBaseViewController {
     
     @IBAction func dietryRestrictionsPressed(_ sender: Any) {
         
-                let viewController = PNGuestLetsGetStartedWithDietaryRestrictionController(nibName: "PNGuestLetsGetStartedWithDietaryRestrictionController", bundle: nil)
-                self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = PNGuestLetsGetStartedWithDietaryRestrictionController(nibName: "PNGuestLetsGetStartedWithDietaryRestrictionController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
 
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
 //        let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
 //        self.navigationController?.pushViewController(viewController, animated: true)
+        AppDelegate.sharedInstance()?.moveToHome()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

@@ -22,7 +22,12 @@ extension AppDelegate{
         
         window?.rootViewController = navigationController
     }
-    
+
+    func moveToHome(){
+        let navigationController : UINavigationController = UINavigationController(rootViewController: PNHomeViewController(nibName: "PNHomeViewController", bundle: nil))
+        navigationController.navigationController?.setNavigationBarHidden(true, animated: false)
+        window?.rootViewController = navigationController
+    }
     
     func moveToLetGetStarted(){
         let navigationController : UINavigationController = UINavigationController(rootViewController: PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil))
@@ -46,4 +51,22 @@ extension AppDelegate{
         navigationController.navigationController?.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
     }
+    
+    func moveToCuisineSelection(){
+        let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
+        if let navigationController = window?.rootViewController as? UINavigationController
+        {
+            navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    
+    func moveToDishSelection(){
+        let viewController = PNGuestLetsGetStartedStepThreeController(nibName: "PNGuestLetsGetStartedStepThreeController", bundle: nil)
+        if let navigationController = window?.rootViewController as? UINavigationController
+        {
+            navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+
 }

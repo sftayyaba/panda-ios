@@ -8,27 +8,155 @@
 
 import Foundation
 import Alamofire
+import PINCache
+import SwiftyJSON
 
 final class PNUserManager: PNBaseManager {
     
     // MARK: Instance Variables
-    var token:String?
-    var email:String?
+    var isLoggedIn: Bool = false {
+        didSet{
+
+                let keyPath = "isLoggedIn"
+                PINCache.shared().setObject(self.isLoggedIn as NSCoding, forKey: keyPath)
+        }
+    }
+    var token:String?{
+        didSet {
+            if let token = self.token{
+                let keyPath = "token"
+                PINCache.shared().setObject(token as NSCoding, forKey: keyPath)
+            }
+        }
+    }
+    var email:String?{
+        didSet {
+            if let email = self.email{
+                let keyPath = "email"
+                PINCache.shared().setObject(email as NSCoding, forKey: keyPath)
+            }
+        }
+    }
     
-    var guestUser: PNCreateGuestAccount?
-    var user: userBaseClass?
+    
+    
+    
+    var guestUser: PNCreateGuestAccount?{
+        didSet {
+            if let guestUser = self.guestUser{
+                let keyPath = "guestUser"
+                PINCache.shared().setObject(guestUser.dictionaryRepresentation() as NSCoding, forKey: keyPath)
+            }
+        }
+    }
+    
+    var user: userBaseClass?{
+        didSet {
+            if let user = self.user{
+                let keyPath = "user"
+                PINCache.shared().setObject(user.dictionaryRepresentation() as NSCoding, forKey: keyPath)
+            }
+        }
+    }
+    
     
     var recommendations: PNRecommendationsModel?
     
     //step 1.1
-    var selectedZip:String?
+    var selectedZip:String?{
+        didSet {
+            if let selectedZip = self.selectedZip{
+                let keyPath = "selectedZip"
+                PINCache.shared().setObject(selectedZip as NSCoding, forKey: keyPath)
+            }
+        }
+    }
+    
     //step 1.2
-    var selectedName:String?
+    var selectedName:String?{
+        didSet {
+            if let selectedName = self.selectedName{
+                let keyPath = "selectedName"
+                PINCache.shared().setObject(selectedName as NSCoding, forKey: keyPath)
+            }
+        }
+    }
     
+    //step 2
+    var selectedCusines :[JSON]?{
+        didSet {
+            if let selectedCusines = self.selectedCusines{
+                let encodedCuisines = selectedCusines.map({ (json) -> String in
+                    json.rawString()!
+                })
+
+                let keyPath = "selectedCusines"
+                PINCache.shared().setObject(encodedCuisines as NSCoding, forKey: keyPath)
+            }
+        }
+    }
     
+    //step 3
+    var selectedDishes :[JSON]?{
+        didSet {
+            if let selectedDishes = self.selectedDishes{
+                let encodedDishes = selectedDishes.map({ (json) -> String in
+                    json.rawString()!
+                })
+                
+                let keyPath = "selectedDishes"
+                PINCache.shared().setObject(encodedDishes as NSCoding, forKey: keyPath)
+            }
+        }
+    }
+    
+
     
     static let sharedInstance: PNUserManager = {
         let instance = PNUserManager()
+        
+        if let token = PINCache.shared().object(forKey:"token") as? String{
+            instance.token = token
+        }
+        
+        if let email = PINCache.shared().object(forKey: "email") as? String{
+            instance.email = email
+        }
+        
+        if let selectedName = PINCache.shared().object(forKey:"selectedName") as? String{
+            instance.selectedName = selectedName
+        }
+        
+        if let selectedZip = PINCache.shared().object(forKey: "selectedZip") as? String{
+            instance.selectedZip = selectedZip
+        }
+        
+        if let userDictionary = PINCache.shared().object(forKey: "user"){
+            instance.user = userBaseClass(object: userDictionary as AnyObject)
+        }
+        
+        if let guestUser = PINCache.shared().object(forKey: "guestUser"){
+            instance.guestUser = PNCreateGuestAccount(object: guestUser as AnyObject)
+        }
+        
+        if let selectedCusines = PINCache.shared().object(forKey: "selectedCusines") as? [String]{
+               instance.selectedCusines = selectedCusines.map({ (strJson) -> JSON in
+                    JSON(parseJSON: strJson)
+                })
+            
+        }
+
+
+        if let selectedDishes = PINCache.shared().object(forKey: "selectedDishes") as? [String]{
+            instance.selectedDishes = selectedDishes.map({ (strJson) -> JSON in
+                JSON(parseJSON: strJson)
+            })
+        }
+
+        if let isLoggedIn = PINCache.shared().object(forKey: "isLoggedIn") as? Bool{
+            instance.isLoggedIn = isLoggedIn
+        }
+        
         return instance
     }()
     
@@ -77,167 +205,5 @@ final class PNUserManager: PNBaseManager {
         
     }
     
-    //MARK: - Operation -
-//
-//    //MARK: Operation/Login
-//    func loginUserWith(email:String, password: String,successBlock: @escaping (() -> Void), failureBlock: @escaping ((_ error: Error?) -> Void)) {
-//
-//        let loginOperation: JNLoginOperation = JNLoginOperation()
-//
-//        loginOperation.email = email
-//        loginOperation.password = password
-//
-//        weak var weakSelf = self
-//
-//        weakSelf?.notifyNetworkRequestStarted()
-//
-//        loginOperation.didFinishSuccessfullyCallback = { response in
-//
-//            successBlock()
-//            weakSelf?.handleLoginSuccessfulAPIRequest(response: response)
-//        }
-//
-//        loginOperation.didFinishWithErrorCallback = { error in
-//            failureBlock(error)
-//            weakSelf?.handleLoginFailedAPIRequest(error: error)
-//        }
-//
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(loginOperation)
-//    }
-//
-//    //MARK: Operation/ForgotPassword
-//    func handleForgotPasswordAPIRequest (email: String, successBlock: @escaping (()-> Void), failureBlock: @escaping (()->Void)) {
-//
-//        let resetPassword: JNForgotPasswordOperation = JNForgotPasswordOperation()
-//
-//        resetPassword.email = email
-//
-//        weak var weakSelf = self
-//
-//        resetPassword.didFinishSuccessfullyCallback = { response in
-//            successBlock()
-//            weakSelf?.handleForgotPasswordSuccessfulAPIRequest(response: response)
-//        }
-//
-//        resetPassword.didFinishWithErrorCallback = { error in
-//            failureBlock()
-//            weakSelf?.handleForgotPasswordFailedAPIRequest(error: error)
-//        }
-//
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(resetPassword)
-//    }
-//
-//    //MARK: Operation/UpdatePassword
-//    func handleUpdatePasswordAPIRequest(newPassword:String!, oldPassword: String!,successBlock: @escaping (()-> Void), failureBlock: @escaping (()->Void)) {
-//
-//        let updatePasswordOperation:JNUpdatePasswordOperation = JNUpdatePasswordOperation()
-//        updatePasswordOperation.newPassword = newPassword
-//        updatePasswordOperation.oldPassword = oldPassword
-//
-//         weak var weakSelf = self
-//
-//        updatePasswordOperation.didFinishSuccessfullyCallback = { response in
-//            successBlock()
-//            weakSelf?.handleUpdatePasswordSuccessfulAPIRequest(response: response)
-//        }
-//
-//        updatePasswordOperation.didFinishWithErrorCallback = { error in
-//            failureBlock()
-//            weakSelf?.handleUpdatePasswordFailedAPIRequest(error: error)
-//        }
-//
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(updatePasswordOperation)
-//    }
-//
-//    //MARK: Operation/JoiningCode
-//    func handleJoiningCodeAPIRequest(successBlock: @escaping (()-> Void), failureBlock: @escaping ((_ error: Error?)->Void)) {
-//
-//        let updatePasswordOperation:JNJoiningCodesOperation = JNJoiningCodesOperation()
-//
-//        weak var weakSelf = self
-//
-//        updatePasswordOperation.didFinishSuccessfullyCallback = { response in
-//            successBlock()
-//            weakSelf?.handleJoiningCodeSuccessfulAPIRequest(response: response)
-//        }
-//
-//        updatePasswordOperation.didFinishWithErrorCallback = { error in
-//            failureBlock(error)
-//            weakSelf?.handleJoiningCodeFailedAPIRequest(error: error)
-//        }
-//
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(updatePasswordOperation)
-//    }
-//
-//    //MARK: Operation/UpdatingProfile
-//    func handleUpdatingProfileAPIRequest(userName:String!, profilePicture: String!,successBlock: @escaping (()-> Void), failureBlock: @escaping ((_ error: Error?)->Void)) {
-//
-//        let updateProfileOperation:JNUpdateProfileOperation = JNUpdateProfileOperation()
-//
-//        updateProfileOperation.userName = userName
-//        updateProfileOperation.pictureUrl = profilePicture
-//        weak var weakSelf = self
-//
-//        updateProfileOperation.didFinishSuccessfullyCallback = { response in
-//            successBlock()
-//            weakSelf?.handleUpdatingProfileSuccessfulAPIRequest(response: response)
-//        }
-//
-//        updateProfileOperation.didFinishWithErrorCallback = { error in
-//            failureBlock(error)
-//            weakSelf?.handleUpdatingProfileFailedAPIRequest(error: error)
-//        }
-//
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(updateProfileOperation)
-//    }
-//
-//    // MARK: - Events -
-//    // MARK: Events/Login
-//    private func handleLoginSuccessfulAPIRequest(response : AnyObject!) -> Void {
-//
-//        let userObject = (response as! JNLoginResponseModel)
-//
-//        self.token = userObject.token
-//        self.user = userObject.user
-//
-//        self.notifyNetworkRequestFinish()
-//    }
-//
-//    private func handleLoginFailedAPIRequest(error : Error!) -> Void {
-//        self.notifyNetworkRequestFinish()
-//    }
-//
-//    // MARK: Events/ForgotPassword
-//    func handleForgotPasswordSuccessfulAPIRequest(response: AnyObject!) {
-//
-//    }
-//
-//    func handleForgotPasswordFailedAPIRequest (error:Error!){
-//
-//    }
-//
-//    // MARK: Events/UpdatePassword
-//    func handleUpdatePasswordSuccessfulAPIRequest (response: AnyObject!) {
-//
-//    }
-//
-//    func handleUpdatePasswordFailedAPIRequest (error: Error!) {
-//
-//    }
-//
-//    // MARK: Events/JoiningCode
-//    func handleJoiningCodeSuccessfulAPIRequest (response: AnyObject!) {
-//        JNUserManager.joiningCodeObject = (response as! JNJoiningCodesBaseClass)
-//    }
-//
-//    func handleJoiningCodeFailedAPIRequest (error: Error!) {
-//
-//    }
-//
-//    // MARK: Events/UpdatingProfile
-//    func handleUpdatingProfileSuccessfulAPIRequest (response: AnyObject!) {
-//    }
-//
-//    func handleUpdatingProfileFailedAPIRequest (error: Error!) {
-//    }
+    
 }

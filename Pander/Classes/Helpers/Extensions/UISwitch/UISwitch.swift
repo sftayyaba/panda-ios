@@ -10,12 +10,18 @@ import UIKit
 
 @IBDesignable class BigSwitch: UISwitch {
     
-    @IBInspectable var scale : CGFloat = 1{
+    @IBInspectable var scaleX : CGFloat = 1{
         didSet{
             setup()
         }
     }
-    
+
+    @IBInspectable var scaleY : CGFloat = 1{
+        didSet{
+            setup()
+        }
+    }
+
     //from storyboard
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,7 +34,7 @@ import UIKit
     }
     
     private func setup(){
-        self.transform = CGAffineTransform(scaleX: scale, y: scale)
+        self.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
     }
     
     override func prepareForInterfaceBuilder() {

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public class PNCreateGuestAccount: NSObject {
+public class PNCreateGuestAccount: NSObject{
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
 	internal let kPNCreateGuestAccountCodeKey: String = "code"

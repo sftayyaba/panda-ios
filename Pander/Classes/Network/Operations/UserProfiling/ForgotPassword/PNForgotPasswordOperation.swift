@@ -32,7 +32,7 @@ class PNForgotPasswordOperation: OnebyteNetworkOperationBase {
         
         if let code = json["code"].int{
             
-            if code == PNApiResponseCodes.successResponse.rawValue{
+            if code >= PNApiResponseCodes.successResponse.rawValue{
                 let codeResponseObject: PNCodeResponse = PNCodeResponse(json: JSON(response))
                 
                 self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
@@ -42,6 +42,7 @@ class PNForgotPasswordOperation: OnebyteNetworkOperationBase {
                 self.safeCallDidFinishSuccessfullyCallback(responseObject: errorResponse)
             }
         }
+        
         self.handleDidFinishedCommon()
     }
     

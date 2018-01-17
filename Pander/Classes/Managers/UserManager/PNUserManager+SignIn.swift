@@ -33,6 +33,8 @@
                     
                     weakSelf?.user = successResponse.user
                     
+                    weakSelf?.isLoggedIn = true
+                    
                     successBlock(successResponse)
                 }else if let errorResponse = response as? ErrorBaseClass{
                     failureBlock(errorResponse)

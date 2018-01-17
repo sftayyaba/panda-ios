@@ -19,17 +19,21 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb682099465332110</string>
+				<string>fb901742596561777</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.524861039894-lrgu4kjudamd75edoiqvlmm2edthkusj</string>
+				<string>com.googleusercontent.apps.276477159428-krn5nlk308b2hpvilo6ibklcjrscun9l</string>
 			</array>
 		</dict>
 		<dict>
@@ -44,7 +48,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>682099465332110</string>
+	<string>901742596561777</string>
 	<key>FacebookDisplayName</key>
 	<string>WristifyTestApp</string>
 	<key>LSApplicationQueriesSchemes</key>

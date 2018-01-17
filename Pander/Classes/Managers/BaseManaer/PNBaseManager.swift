@@ -26,11 +26,15 @@ class PNBaseManager {
     }()
 
     func notifyNetworkRequestStarted() {
-        NotificationCenter.default.post(name: Notification.Name(PNNotificationTypes.networkRequestStarted.rawValue), object: nil)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: Notification.Name(PNNotificationTypes.networkRequestStarted.rawValue), object: nil)
+        }
     }
     
     func notifyNetworkRequestFinish() {
-        NotificationCenter.default.post(name: Notification.Name(PNNotificationTypes.networkRequestStopped.rawValue), object: nil)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: Notification.Name(PNNotificationTypes.networkRequestStopped.rawValue), object: nil)
+        }
     }
 }
 

@@ -58,7 +58,7 @@
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="209" id="XFs-3B-dp2"/>
                     </constraints>
-                    <string key="text">I learn what you like to eat, and then automatically finds the best meal for you to eat for your mood.
+                    <string key="text">I learn what you like to eat, and then automatically finds the best meal for you to eat for your mood
 - everytime.
 
 I can search through thousands of menus and pickout exactly the right food for you to order with just one click, And the best part, The more you use me, The better I get!

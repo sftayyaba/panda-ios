@@ -12,7 +12,7 @@ import GoogleSignIn
 
 class PNGuestLetsGetStartedWithDietaryRestrictionController: PNBaseViewController {
     
-    @IBOutlet var guestLetsGetStartedWithLocationView: PNGuestLetsGetStartedWithLocationView!
+    @IBOutlet var guestLetsGetStartedWithDietryRestrictionView: PNGuestLetsGetStartedWithDietaryRestrictionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,8 @@ class PNGuestLetsGetStartedWithDietaryRestrictionController: PNBaseViewControlle
     @IBAction func nextButtonTapped(_ sender: Any) {
 //        let viewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)
 //        self.navigationController?.pushViewController(viewController, animated: true)
+        AppDelegate.sharedInstance()?.moveToHome()
+
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

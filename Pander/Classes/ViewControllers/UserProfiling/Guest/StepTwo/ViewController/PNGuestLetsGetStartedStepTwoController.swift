@@ -20,9 +20,9 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     @IBOutlet weak var flowLayout: FlowLayout!
     var sizingCell: PNGuestLetGetStartedStepTwoCollectionViewCell?
     
-    var cusines = JSON.init(parseJSON:"[{        \" cuisine \":   \"Burgers\",        \" image_url \":   \" link-to-image.com \" },        {\" cuisine \":   \"Pasta\",        \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"Pizza\",            \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"German\",            \" image_url \":   \" link-to-image.com \"    }]").array
+    var cusines = JSON.init(parseJSON:"[]").array
 
-    var mainCuisines = JSON.init(parseJSON:"[{        \" cuisine \":   \"Burgers\",        \" image_url \":   \" link-to-image.com \" },        {\" cuisine \":   \"Pasta\",        \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"Pizza\",            \" image_url \":   \" link-to-image.com \"},        {            \" cuisine \":   \"German\",            \" image_url \":   \" link-to-image.com \"    }]").array
+    var mainCuisines = JSON.init(parseJSON:"[]").array
     
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
                 let dict = cusineJson.dictionary
                 let cusineName = dict?["cuisine"]?.string
                 if let tag = cusineName{
-                    if tag.contains(text){
+                    if tag.lowercased().contains(text.lowercased()){
                         return true
                     }
                 }
@@ -72,6 +72,15 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
             }
             self.collectionView.reloadData()
                 
+        }
+        
+        self.collectionView.cuisineSelectedCallback = {
+            selectedCount in
+            if selectedCount > 0 {
+                self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = true
+            } else {
+                self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = false
+            }
         }
     }
     
@@ -98,6 +107,12 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+        if self.collectionView.selectedCusines.count > 0 {
+            PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
+        }else{
+            PNUserManager.sharedInstance.selectedCusines = nil
+        }
+        
         let viewController = PNGuestLetsGetStartedStepThreeController(nibName: "PNGuestLetsGetStartedStepThreeController", bundle: nil)
         self.navigationController?.pushViewController(viewController, animated: true)
     }

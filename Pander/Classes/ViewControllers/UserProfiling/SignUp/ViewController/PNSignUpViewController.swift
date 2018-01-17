@@ -79,6 +79,11 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     
         let fbManager = LoginManager()
         
+        if let currentAccessToken = AccessToken.current, currentAccessToken.appId != SDKSettings.appId
+        {
+            fbManager.logOut()
+        }
+        
         fbManager.logIn(readPermissions: [.email], viewController: self) { (result) in
             
             switch result {
@@ -92,9 +97,13 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
                 
                 if grantedPermissions.contains("email") {
                     
+                    PNUserManager.sharedInstance.notifyNetworkRequestStarted()
+
                     GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], accessToken: AccessToken.current, httpMethod: GraphRequestHTTPMethod.GET, apiVersion: GraphAPIVersion.defaultVersion).start({ (response, result) in
                         print(result)
                         
+                        PNUserManager.sharedInstance.notifyNetworkRequestFinish()
+
                         switch result {
                         case .failed(let error):
                             self.alert(title: "Error", message: error.localizedDescription)
