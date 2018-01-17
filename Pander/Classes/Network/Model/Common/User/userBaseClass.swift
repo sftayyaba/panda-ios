@@ -102,32 +102,41 @@ public class userBaseClass: NSObject {
 		if ddcRefreshToken != nil {
             dictionary.updateValue(ddcRefreshToken! as AnyObject, forKey: kuserBaseClassDdcRefreshTokenKey)
 		}
-		if (cuisinePreferences?.count)! > 0 {
-			var temp: [AnyObject] = []
-			for item in cuisinePreferences! {
-                temp.append(item.dictionaryRepresentation() as AnyObject)
-			}
-            dictionary.updateValue(temp as AnyObject, forKey: kuserBaseClassCuisinePreferencesKey)
-		}
+        
+        if let cuisinePreferences = self.cuisinePreferences{
+            if (cuisinePreferences.count) > 0 {
+                var temp: [AnyObject] = []
+                for item in cuisinePreferences {
+                    temp.append(item.dictionaryRepresentation() as AnyObject)
+                }
+                dictionary.updateValue(temp as AnyObject, forKey: kuserBaseClassCuisinePreferencesKey)
+            }
+        }
 		if lastName != nil {
             dictionary.updateValue(lastName! as AnyObject, forKey: kuserBaseClassLastNameKey)
 		}
+        
 		if adventurousness != nil {
             dictionary.updateValue(adventurousness! as AnyObject, forKey: kuserBaseClassAdventurousnessKey)
 		}
-		if ddcAccessToken != nil {
+		
+        if ddcAccessToken != nil {
             dictionary.updateValue(ddcAccessToken! as AnyObject, forKey: kuserBaseClassDdcAccessTokenKey)
 		}
-		if ddcCustomerId != nil {
+		
+        if ddcCustomerId != nil {
             dictionary.updateValue(ddcCustomerId! as AnyObject, forKey: kuserBaseClassDdcCustomerIdKey)
 		}
-		if accessTokenPander != nil {
+		
+        if accessTokenPander != nil {
             dictionary.updateValue(accessTokenPander! as AnyObject, forKey: kuserBaseClassAccessTokenPanderKey)
 		}
-		if firstName != nil {
+		
+        if firstName != nil {
             dictionary.updateValue(firstName! as AnyObject, forKey: kuserBaseClassFirstNameKey)
 		}
-		if appSettings != nil {
+		
+        if appSettings != nil {
             dictionary.updateValue(appSettings!.dictionaryRepresentation() as AnyObject, forKey: kuserBaseClassAppSettingsKey)
 		}
 
