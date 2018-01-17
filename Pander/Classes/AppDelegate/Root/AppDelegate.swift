@@ -39,10 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             if PNUserManager.sharedInstance.user != nil || PNUserManager.sharedInstance.guestUser != nil{
                 if PNUserManager.sharedInstance.isLoggedIn {
                     moveToHome()
-        
+                    
                 }else if PNUserManager.sharedInstance.selectedZip == nil{
+                    self.moveToSingUp()
+                    
                     moveToLetGetStarted()
-                
+                    
                 } else if PNUserManager.sharedInstance.selectedCusines == nil{
                     self.moveToSingUp()
                     self.moveToCuisineSelection()
@@ -59,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             }
             window.makeKeyAndVisible()
         }
+
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
