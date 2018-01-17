@@ -14,7 +14,8 @@ import GoogleSignIn
 
 class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     
-
+    @IBOutlet weak var termsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +43,19 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     }
     
     override func configureView() {
-        
+//        let text = self.termsLabel.text
+//        //        disclaimerTextView.font = font;
+//        let attrString = self.termsLabel.attributedText?.mutableCopy() as! NSMutableAttributedString
+//        let range1 : NSRange = (text! as NSString).range(of: "Pander")
+//        
+//        
+//        attrString.addAttribute(NSAttributedStringKey.link, value: URL(string: "https://www.pandereats.com/terms/"), range: range1)
+//                
+//        
+//        let range2 = (text! as NSString).range(of: "Delivery")
+//        attrString.addAttribute(NSAttributedStringKey.link, value: URL(string:"https://www.delivery.com/info/legal/terms"), range: range2)
+//
+//        self.termsLabel.attributedText = attrString
     }
     
     fileprivate func configureFacebookLoginButton() {
@@ -152,7 +165,13 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
-            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+            PNUserManager.sharedInstance.loginGuestUser(successBlock: {
+                
+                AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                
+            }) { (error) in
+                self.alert(title: "Error", message: error != nil ? error!.localizedDescription : "Something went wrong")
+            }
 
         }
     }

@@ -16,7 +16,7 @@ extension PNGuestLetsGetStartedWithLocationView : UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if self.zipCodeTextField.text != "" {
+        if self.zipCodeTextField.text != "" && self.zipCodeTextField.text!.count >= 5{
             self.nextButton.titleLabel?.textColor = UIColor.black
             self.nextButton.isUserInteractionEnabled = true
         }else {

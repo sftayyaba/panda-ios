@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,6 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNSignUpViewController" customModule="Pander" customModuleProvider="target">
             <connections>
+                <outlet property="termsLabel" destination="Mzn-eT-0OA" id="qHI-Dp-9Kt"/>
                 <outlet property="view" destination="0qs-YH-PQo" id="run-lC-5MW"/>
             </connections>
         </placeholder>
@@ -150,10 +152,11 @@
                     <color key="textColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzn-eT-0OA">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzn-eT-0OA">
                     <rect key="frame" x="30" y="612" width="315" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="7K5-ky-dqe"/>
+                        <constraint firstAttribute="width" constant="315" id="8jV-0B-gxa"/>
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment content="By signing up you agree to the Terms and conditions of ">
@@ -245,7 +248,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Kr6-o8-n9Q" firstAttribute="trailing" secondItem="Mzn-eT-0OA" secondAttribute="trailing" constant="30" id="0Qg-cJ-izj"/>
                 <constraint firstItem="as0-zK-NVV" firstAttribute="leading" secondItem="I05-iQ-yRa" secondAttribute="leading" id="0xL-eZ-mPh"/>
                 <constraint firstItem="I05-iQ-yRa" firstAttribute="trailing" secondItem="jLs-9q-bpg" secondAttribute="trailing" id="1AM-ws-qOk"/>
                 <constraint firstItem="Kr6-o8-n9Q" firstAttribute="trailing" secondItem="jLs-9q-bpg" secondAttribute="trailing" constant="30" id="34P-KX-Zcc"/>
@@ -269,7 +271,6 @@
                 <constraint firstItem="kQB-Tb-NOh" firstAttribute="top" secondItem="TWu-hK-sM0" secondAttribute="bottom" constant="10" id="PkM-xV-AKI"/>
                 <constraint firstItem="wiN-GH-2Cn" firstAttribute="leading" secondItem="Kr6-o8-n9Q" secondAttribute="leading" constant="30" id="Tdl-Qy-Vaw"/>
                 <constraint firstItem="XQ4-tj-Ue7" firstAttribute="centerX" secondItem="0qs-YH-PQo" secondAttribute="centerX" id="Tqg-yC-uPX"/>
-                <constraint firstItem="Mzn-eT-0OA" firstAttribute="leading" secondItem="Kr6-o8-n9Q" secondAttribute="leading" constant="30" id="WB5-ez-cu2"/>
                 <constraint firstItem="9KA-sj-Jjt" firstAttribute="leading" secondItem="as0-zK-NVV" secondAttribute="leading" id="XJu-6Q-iMW"/>
                 <constraint firstItem="kQB-Tb-NOh" firstAttribute="centerX" secondItem="0qs-YH-PQo" secondAttribute="centerX" id="bcj-x9-xv9"/>
                 <constraint firstItem="wiN-GH-2Cn" firstAttribute="top" secondItem="xfj-Sd-TWW" secondAttribute="bottom" constant="10" id="biT-e0-rR4"/>

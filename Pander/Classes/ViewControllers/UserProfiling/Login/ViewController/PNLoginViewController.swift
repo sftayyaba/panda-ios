@@ -158,7 +158,13 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
-            AppDelegate.sharedInstance()?.moveToHome()
+            PNUserManager.sharedInstance.loginGuestUser(successBlock: {
+                
+                AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                
+            }) { (error) in
+                self.alert(title: "Error", message: error != nil ? error!.localizedDescription : "Something went wrong")
+            }
 
         }
     }
