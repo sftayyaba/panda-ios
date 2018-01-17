@@ -30,11 +30,13 @@ extension AppDelegate{
     }
     
     func moveToLetGetStarted(){
-        let navigationController : UINavigationController = window?.rootViewController as? UINavigationController
-        let vc = PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil)
-        navigationController?.pushViewController(vc, animated: true)
+        if let navigationController : UINavigationController = window?.rootViewController as? UINavigationController {
+            let vc = PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil)
+            navigationController.pushViewController(vc, animated: true)
+            
+        }
     }
-    
+
     func moveToLetGetStartedWithLocation(){
         let navigationController : UINavigationController = UINavigationController(rootViewController: PNGuestLetsGetStartedWithLocationController(nibName: "PNGuestLetsGetStartedWithLocationController", bundle: nil))
         navigationController.navigationController?.setNavigationBarHidden(true, animated: false)
