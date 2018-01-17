@@ -30,8 +30,9 @@ extension AppDelegate{
     }
     
     func moveToLetGetStarted(){
-        let navigationController : UINavigationController = UINavigationController(rootViewController: PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil))
-        window?.rootViewController = navigationController
+        let navigationController : UINavigationController = window?.rootViewController as? UINavigationController
+        let vc = PNGuestLetsGetStartedViewController(nibName: "PNGuestLetsGetStartedViewController", bundle: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func moveToLetGetStartedWithLocation(){

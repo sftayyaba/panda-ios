@@ -70,6 +70,8 @@ class PNForgotPasswordViewController: PNBaseViewController {
             self.alert(title: "Error", message: "Email is required")
         }
     }
+    
+    
     @IBAction func backPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
         

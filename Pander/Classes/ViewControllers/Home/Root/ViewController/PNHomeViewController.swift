@@ -25,6 +25,15 @@ class PNHomeViewController: PNBaseViewController {
     override func configureCallBacks() {
     }
     
+    @IBAction func searchBarTapped(_ sender: UIButton) {
+        self.alert(title: "!!!", message: "Coming Soon!")
+    }
+    
+    
+    
+    
+    
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
 //        if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text, let password =
 //            self.guestLetsGetStartedWithEmailView.passwordTextField.text {
@@ -55,4 +64,8 @@ class PNHomeViewController: PNBaseViewController {
 //            
 //        }
     }    
+    @IBAction func logoutPressed(_ sender: Any) {
+        PNUserManager.sharedInstance.logoutUser()
+        AppDelegate.sharedInstance()?.moveToSingUp()
+    }
 }
