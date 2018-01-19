@@ -155,11 +155,13 @@
                         <constraint firstItem="eIv-jB-Y3M" firstAttribute="leading" secondItem="kaf-EM-1vK" secondAttribute="trailing" id="zox-O6-Zs0"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now let's learn what you like - what are your three favorite cuisines?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
                     <rect key="frame" x="30" y="180" width="315" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="29k-x5-ddh"/>
                     </constraints>
+                    <string key="text">Now let's learn what you like - 
+what are your three favorite cuisines?</string>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

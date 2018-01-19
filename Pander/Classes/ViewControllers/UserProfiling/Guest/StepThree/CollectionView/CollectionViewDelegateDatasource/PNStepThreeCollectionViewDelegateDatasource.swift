@@ -36,7 +36,7 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
             cell.titleLabel.text = tag
             
             if self.selectedCusines.contains(cuisine){
-                cell.backgroundColor = cell.tintColor
+                cell.backgroundColor = AppDelegate.sharedInstance()?.window!.tintColor
                 cell.titleLabel.textColor = UIColor.white
             }else{
                 cell.backgroundColor = UIColor.customTagsBackgroundColor()
@@ -51,6 +51,7 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
         let size = self.sizingCell!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return size;
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCusine = self.cusines[indexPath.row]

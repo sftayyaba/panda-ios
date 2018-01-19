@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +13,6 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
-            <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -24,23 +24,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="PNGuestLetsGetStartedView" customModule="Pander" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_icon" translatesAutoresizingMaskIntoConstraints="NO" id="giG-Lp-1sT">
-                    <rect key="frame" x="103" y="40" width="169" height="169"/>
+                    <rect key="frame" x="103" y="40" width="114" height="114"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="giG-Lp-1sT" secondAttribute="height" multiplier="1:1" id="CS6-kk-ZOo"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Hey! I'm Pander." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDO-hg-atb">
-                    <rect key="frame" x="127" y="214" width="121.5" height="22"/>
+                    <rect key="frame" x="99" y="159" width="122" height="22"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                     <color key="textColor" red="1" green="0.0078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLc-or-JTY">
-                    <rect key="frame" x="50" y="574" width="275" height="40"/>
+                    <rect key="frame" x="50" y="475" width="220" height="40"/>
                     <color key="backgroundColor" red="1" green="0.0078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ezQ-o2-agG"/>
@@ -53,23 +53,35 @@
                         <action selector="letGetStartedButtonTapped:" destination="-1" eventType="touchUpInside" id="MRM-30-g9C"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
-                    <rect key="frame" x="16" y="244" width="343" height="209"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
+                    <rect key="frame" x="16" y="189" width="288" height="268.5"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="209" id="XFs-3B-dp2"/>
                     </constraints>
-                    <string key="text">I learn what you like to eat, and then automatically finds the best meal for you to eat for your mood
-- everytime.
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">I learn what you like to eat, and then automatically finds the best meal for you to eat for your mood
+- every time.
 
-I can search through thousands of menus and pickout exactly the right food for you to order with just one click, And the best part, The more you use me, The better I get!
+I can search through thousands of menus and pick out exactly the right food for you to order with just one click, And the best part? The more you use me, the better I get!
 
-To start with, help learn a bit about you.</string>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                    <nil key="textColor"/>
+</string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="2" paragraphSpacingBefore="2" lineHeightMultiple="1.1799999999999999" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="To start with, help learn a bit about you.">
+                            <attributes>
+                                <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="2" paragraphSpacingBefore="2" lineHeightMultiple="1.1799999999999999" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-l2-ccN">
-                    <rect key="frame" x="88" y="622" width="200" height="34"/>
+                    <rect key="frame" x="60" y="523" width="200" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="2Hh-Tb-cG4"/>
                     </constraints>

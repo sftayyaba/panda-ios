@@ -41,17 +41,26 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     override func configureNavigationBar() {
         
     }
+    @IBAction func panderLinkClicked(_ sender: Any) {
+        //
+        UIApplication.shared.openURL(URL(string: "https://www.pandereats.com/terms/")!)
+    }
     
+    @IBAction func deliveryLinkClicked(_ sender: Any) {
+        //
+        UIApplication.shared.openURL(URL(string: "https://www.delivery.com/info/legal/terms")!)
+
+    }
     override func configureView() {
 //        let text = self.termsLabel.text
 //        //        disclaimerTextView.font = font;
 //        let attrString = self.termsLabel.attributedText?.mutableCopy() as! NSMutableAttributedString
 //        let range1 : NSRange = (text! as NSString).range(of: "Pander")
-//        
-//        
+//
+//
 //        attrString.addAttribute(NSAttributedStringKey.link, value: URL(string: "https://www.pandereats.com/terms/"), range: range1)
-//                
-//        
+//
+//
 //        let range2 = (text! as NSString).range(of: "Delivery")
 //        attrString.addAttribute(NSAttributedStringKey.link, value: URL(string:"https://www.delivery.com/info/legal/terms"), range: range2)
 //
@@ -67,23 +76,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     }
     
     @IBAction func emailButtonTapped(_ sender: Any) {
-        
-//        let loginOperation:PNSignUpOperation = PNSignUpOperation()
-        
-//        loginOperation.email = "sheraz.ipa1@gmail.com"
-//        loginOperation.password = "sjdnej"
-//        loginOperation.firstName = "sheraz"
-//        loginOperation.lastName = "Rasheed"
-//
-//        loginOperation.didFinishSuccessfullyCallback = { response in
-//        
-//        }
-//        
-//        loginOperation.didFinishWithErrorCallback = { error in
-//            
-//        }
-//        
-//        OnebyteNetworkOperationQueue.sharedInstance.addOperation(loginOperation)
+      
         AppDelegate.sharedInstance()?.moveToLetGetStarted()
 
     }
@@ -96,6 +89,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
         {
             fbManager.logOut()
         }
+        
         
         fbManager.logIn(readPermissions: [.email], viewController: self) { (result) in
             
@@ -146,8 +140,17 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     //MARK: Social Login Handlers
     func doLoginWithServerUsingFBData(FBToken fb_token: String , FBUserID fb_user_id: String , Email email: String){
         PNUserManager.sharedInstance.loginFBUser(FBToken: fb_token, FBUserID: fb_user_id, Email: email, successBlock: {
-
-            AppDelegate.sharedInstance()?.moveToLetGetStarted()
+            
+            if let firstSignUp = PNUserManager.sharedInstance.user?.isFirstSignup{
+                if firstSignUp{
+                    AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                }else{
+                    AppDelegate.sharedInstance()?.moveToHome()
+                }
+            }else{
+                AppDelegate.sharedInstance()?.moveToLetGetStarted()
+            }
+            
 
         }) { (error) in
             if let localError = error as? ErrorBaseClass{
@@ -163,6 +166,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     @IBAction func gmailButtonTapped(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
         GIDSignIn.sharedInstance().signIn()
+        
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
             PNUserManager.sharedInstance.loginGuestUser(successBlock: {

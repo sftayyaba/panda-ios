@@ -38,7 +38,7 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
             cell.titleLabel.text = tag
             
             if self.selectedCusines.contains(cuisine){
-                cell.backgroundColor = cell.tintColor
+                cell.backgroundColor = AppDelegate.sharedInstance()?.window!.tintColor
                 cell.titleLabel.textColor = UIColor.white
             }else{
                 cell.backgroundColor = UIColor.customTagsBackgroundColor()
@@ -64,7 +64,7 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
         
         if let alreadySelectedIndex = self.selectedCusines.index(of: selectedCusine){
                 self.selectedCusines.remove(at: alreadySelectedIndex)
-        }else{
+        }else if self.selectedCusines.count < 3{
             self.selectedCusines.append(selectedCusine)
         }
         

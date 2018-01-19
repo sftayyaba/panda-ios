@@ -27,7 +27,12 @@ class PNGuestLetsGetStartedWithDietaryRestrictionView: UIView {
     
     override func awakeFromNib() {
         self.configureNameTextField()
-    }
+        
+        self.glutenFreeButton.isSelected = PNUserManager.sharedInstance.isGlutenFree
+        self.veganButton.isSelected = PNUserManager.sharedInstance.isVegan
+        self.vegetarianButton.isSelected = PNUserManager.sharedInstance.isVegetarian
+        self.noPeanutesButton.isSelected = PNUserManager.sharedInstance.isNoPeanut
+   }
 
     private func configureNameTextField(){
     }

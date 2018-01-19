@@ -82,6 +82,9 @@ final class PNUserManager: PNBaseManager {
         }
     }
     
+    //step 2 & 3 recommendations
+    var recommentations: PNRecommendationsModel?
+    
     //step 2
     var selectedCusines :[JSON]?{
         didSet {
@@ -95,6 +98,7 @@ final class PNUserManager: PNBaseManager {
             }
         }
     }
+
     
     //step 3
     var selectedDishes :[JSON]?{
@@ -109,7 +113,13 @@ final class PNUserManager: PNBaseManager {
             }
         }
     }
+
     
+    //step 4
+    var isVegetarian : Bool = false
+    var isVegan : Bool = false
+    var isGlutenFree : Bool = false
+    var isNoPeanut : Bool = false
 
     
     static let sharedInstance: PNUserManager = {

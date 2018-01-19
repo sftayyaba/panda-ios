@@ -150,7 +150,7 @@
                         <constraint firstItem="4w7-4r-2UX" firstAttribute="leading" secondItem="MPU-WH-00N" secondAttribute="trailing" id="vtS-ys-aAq"/>
                     </constraints>
                 </view>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCk-70-ZA3">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCk-70-ZA3">
                     <rect key="frame" x="309" y="603" width="36" height="34"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                     <state key="normal" title="Next">
@@ -182,6 +182,7 @@
                                     <state key="selected" image="on-switch"/>
                                     <connections>
                                         <action selector="onSelectButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="4C8-Wk-qwl"/>
+                                        <action selector="vegetarianClicked:" destination="-1" eventType="touchUpInside" id="yWd-Hg-oNZ"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMr-VC-Msj">
@@ -201,6 +202,7 @@
                                     <state key="selected" image="on-switch"/>
                                     <connections>
                                         <action selector="onSelectButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="hhc-Sd-uql"/>
+                                        <action selector="veganClicked:" destination="-1" eventType="touchUpInside" id="Vli-bo-aH0"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6I-hs-6bF">
@@ -219,6 +221,7 @@
                                     <state key="normal" image="off-switch"/>
                                     <state key="selected" image="on-switch"/>
                                     <connections>
+                                        <action selector="noPeanutClicked:" destination="-1" eventType="touchUpInside" id="0gj-iJ-y9n"/>
                                         <action selector="onSelectButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="I48-x2-yUb"/>
                                     </connections>
                                 </button>
@@ -238,6 +241,7 @@
                                     <state key="normal" image="off-switch"/>
                                     <state key="selected" image="on-switch"/>
                                     <connections>
+                                        <action selector="glutenFreeClicked:" destination="-1" eventType="touchUpInside" id="liQ-WW-Uh5"/>
                                         <action selector="onSelectButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="FrR-N8-YXG"/>
                                     </connections>
                                 </button>
@@ -274,7 +278,7 @@
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="We cannot guarantee that our suggestions we meet these restrictions ">
+                                <fragment content="We cannot guarantee that our suggestions will meet these restrictions ">
                                     <attributes>
                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="13" name="AvenirNext-Regular"/>

@@ -79,6 +79,9 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
             if selectedCount > 0 {
+                
+                PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
+
                 self.guestLetsGetStartedStepThreeView.nextButton.isEnabled = true
             } else {
                 self.guestLetsGetStartedStepThreeView.nextButton.isEnabled = false
@@ -92,7 +95,11 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
         PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recommendations) in
             if let cuisines = recommendations.deliveryRecs?.dishesByZip?[PNUserManager.sharedInstance.selectedZip!].array{
                 self.collectionView.cusines = cuisines
-
+                
+                if let selectedCuisines = PNUserManager.sharedInstance.selectedCusines{
+                    self.collectionView.selectedCusines = selectedCuisines
+                }
+                
                 self.cusines = cuisines
                 self.mainCuisines = cuisines
                 
