@@ -21,9 +21,9 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
     
     var sizingCell: PNGuestLetGetStartedStepThreeCollectionViewCell?
 
-    var cusines = JSON.init(parseJSON:"[]").array
+    var cusines = [String]()
 
-    var mainCuisines = JSON.init(parseJSON:"[]").array
+    var mainCuisines = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
         
         self.collectionView.sizingCell = self.sizingCell
         
-        self.collectionView.cusines = cusines!
+        self.collectionView.cusines = cusines
         self.collectionView.dataSource = self.collectionView
         self.collectionView.delegate = self.collectionView
         self.collectionView.reloadData()
@@ -53,22 +53,18 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
         
         self.guestLetsGetStartedStepThreeView.textChangedCallback = {
             text in
-            self.cusines = self.mainCuisines?.filter({ (cusineJson) -> Bool in
+            self.cusines = self.mainCuisines.filter({ (cusineJson) -> Bool in
                 
-                let dict = cusineJson.dictionary
-                let cusineName = dict?["dish"]?.string
-                if let tag = cusineName{
-                    if tag.lowercased().contains(text.lowercased()){
+                    if cusineJson.lowercased().contains(text.lowercased()){
                         return true
                     }
-                }
                 return false
             })
-            if let cusines = self.cusines{
-                self.collectionView.cusines = cusines
-            }
+            
+            self.collectionView.cusines = self.cusines
+
             if text == ""{
-                self.collectionView.cusines = self.mainCuisines!
+                self.collectionView.cusines = self.mainCuisines
             }
             self.collectionView.reloadData()
             
@@ -80,23 +76,22 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
             selectedCount in
             if selectedCount > 0 {
                 
-                PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
+                PNUserManager.sharedInstance.selectedDishes = self.collectionView.selectedCusines
 
-                self.guestLetsGetStartedStepThreeView.nextButton.isEnabled = true
+                self.guestLetsGetStartedStepThreeView.nextButton.setTitle("Next", for: UIControlState.normal)
             } else {
-                self.guestLetsGetStartedStepThreeView.nextButton.isEnabled = false
-            }
+                self.guestLetsGetStartedStepThreeView.nextButton.setTitle("Skip", for: UIControlState.normal)            }
         }
 
     }
     
     
     override func doInitialDataLoad() {
-        PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recommendations) in
-            if let cuisines = recommendations.deliveryRecs?.dishesByZip?[PNUserManager.sharedInstance.selectedZip!].array{
+        PNUserManager.sharedInstance.getAllDishes(SuccessBlock: { (recommendations) in
+            if let cuisines = recommendations.dishes{
                 self.collectionView.cusines = cuisines
                 
-                if let selectedCuisines = PNUserManager.sharedInstance.selectedCusines{
+                if let selectedCuisines = PNUserManager.sharedInstance.selectedDishes{
                     self.collectionView.selectedCusines = selectedCuisines
                 }
                 

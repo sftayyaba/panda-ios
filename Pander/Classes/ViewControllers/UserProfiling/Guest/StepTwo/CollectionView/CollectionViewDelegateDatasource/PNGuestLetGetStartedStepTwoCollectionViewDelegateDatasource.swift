@@ -9,9 +9,9 @@ import UIKit
 import SwiftyJSON
 
 class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    var cusines = [JSON]()
+    var cusines = [String]()
 
-    var selectedCusines = [JSON]()
+    var selectedCusines = [String]()
 
     var cuisineSelectedCallback: ((Int)->())?
 
@@ -29,13 +29,11 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
     }
     
     func configureCell(cell: PNGuestLetGetStartedStepTwoCollectionViewCell, forIndexPath indexPath: IndexPath) {
-        let dict = cusines[indexPath.row].dictionary
-        let cusineName = dict?["cuisine"]?.string
-        if let tag = cusineName{
+        
             
             let cuisine = cusines[indexPath.row]
             
-            cell.titleLabel.text = tag
+            cell.titleLabel.text = cuisine.replacingOccurrences(of: "_", with: "/")
             
             if self.selectedCusines.contains(cuisine){
                 cell.backgroundColor = AppDelegate.sharedInstance()?.window!.tintColor
@@ -45,7 +43,7 @@ class PNStepTwoCollectionViewDelegateDatasource: UICollectionView,UICollectionVi
                 cell.titleLabel.textColor = UIColor.black
                 
             }
-        }
+        
         
         
     }

@@ -9,7 +9,9 @@
 import Foundation
 import SwiftyJSON
 
-class PNConnectWithFacebookOperation: OnebyteNetworkOperationBase {
+class PNConnectWithSocialOperation: OnebyteNetworkOperationBase {
+    final let FB_TYPE = 0
+    final let GMAIL_TYPE = 1
     
     
     //MARK: Instance Variables
@@ -17,11 +19,28 @@ class PNConnectWithFacebookOperation: OnebyteNetworkOperationBase {
     var fb_user_id: String
     var email: String
     
+    var type: Int
+    
+    var gmail_token: String
     
     init(FBToken fb_token: String , FBUserID fb_user_id: String , Email email: String ) {
         self.fb_token = fb_token
         self.fb_user_id = fb_user_id
         self.email = email
+        
+        self.type = FB_TYPE
+        
+        self.gmail_token = ""
+    }
+    
+    init(GmailToken gmail_token: String) {
+        self.fb_token = ""
+        self.fb_user_id = ""
+        self.email = ""
+        
+        self.type = GMAIL_TYPE
+        
+        self.gmail_token = gmail_token
     }
     
     //MARK: Overridden Methods
@@ -66,7 +85,7 @@ class PNConnectWithFacebookOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
         
-        let urlWithId:String = AppNetworkEndPoints.kSignUpWithFacebook
+        let urlWithId:String = self.type == GMAIL_TYPE ? AppNetworkEndPoints.kSignUpWithGoogle : AppNetworkEndPoints.kSignUpWithFacebook
         OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
@@ -87,6 +106,12 @@ class PNConnectWithFacebookOperation: OnebyteNetworkOperationBase {
     
     
     private func createBody() -> Dictionary<String, String>{
+        if self.type == GMAIL_TYPE{
+            return [
+                "google_token":     self.gmail_token
+            ]
+        }
+        
         return [
                 "email":     self.email,
                 "fb_token":     self.fb_token,

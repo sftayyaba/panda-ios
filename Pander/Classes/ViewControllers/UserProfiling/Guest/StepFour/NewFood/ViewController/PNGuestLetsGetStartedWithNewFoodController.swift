@@ -42,17 +42,17 @@ class PNGuestLetsGetStartedWithNewFoodController: PNBaseViewController {
             break
         case 2:
             self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Sometimes"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Sometimes - it's nice to get a change"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Sometimes, it's nice to get a change"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         case 3:
             self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Frequently"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Frequently - Most of the time I will try something new"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Frequently, Most of the time I will try something new"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         case 4:
             self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Always"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Always - I try something new with every possible opportunity"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Always, I try something new with every possible opportunity"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         default:

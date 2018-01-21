@@ -141,7 +141,15 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         
         PNUserManager.sharedInstance.loginFBUser(FBToken: fb_token, FBUserID: fb_user_id, Email: email, successBlock: {
             
-            AppDelegate.sharedInstance()?.moveToHome()
+            if let firstSignUp = PNUserManager.sharedInstance.user?.isFirstSignup{
+                if firstSignUp{
+                    AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                }else{
+                    AppDelegate.sharedInstance()?.moveToHome()
+                }
+            }else{
+                AppDelegate.sharedInstance()?.moveToLetGetStarted()
+            }
 
         }) { (error) in
             if let localError = error as? ErrorBaseClass{
@@ -158,12 +166,25 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         (UIApplication.shared.delegate as! AppDelegate).didPressCallAPIButtonCallback = { token in
             print(token)
-            PNUserManager.sharedInstance.loginGuestUser(successBlock: {
+            PNUserManager.sharedInstance.loginGoogleUser(GoogleToken: token,successBlock: {
                 
-                AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                if let firstSignUp = PNUserManager.sharedInstance.user?.isFirstSignup{
+                    if firstSignUp{
+                        AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                    }else{
+                        AppDelegate.sharedInstance()?.moveToHome()
+                    }
+                }else{
+                    AppDelegate.sharedInstance()?.moveToLetGetStarted()
+                }
+                
                 
             }) { (error) in
-                self.alert(title: "Error", message: error != nil ? error!.localizedDescription : "Something went wrong")
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Error", message: localError.localizedDescription)
+                }else{
+                    self.alert(title: "Error", message: "Something went wrong")
+                }
             }
 
         }

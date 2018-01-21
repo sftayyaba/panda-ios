@@ -10,6 +10,10 @@
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
 		AFD386AF756B7E339CD430CF /* Pods_PanderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */; };
+		DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA403978201383490066D843 /* PNAllCuisines.swift */; };
+		DA40397B201383B30066D843 /* PNAllDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40397A201383B30066D843 /* PNAllDishes.swift */; };
+		DA40397D20138B5A0066D843 /* PNGetAllCuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40397C20138B5A0066D843 /* PNGetAllCuisines.swift */; };
+		DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40397E20138CE40066D843 /* PNGetAllDishes.swift */; };
 		DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */; };
 		DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */; };
 		DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */; };
@@ -27,7 +31,7 @@
 		DABB1DB92007FFF1003CD371 /* PNConnectWithFacebookOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB1DB82007FFF1003CD371 /* PNConnectWithFacebookOperation.swift */; };
 		DABB1DBC20081A19003CD371 /* PNCheckAddressIsSupportedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB1DBB20081A19003CD371 /* PNCheckAddressIsSupportedOperation.swift */; };
 		DABB1DBE20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB1DBD20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift */; };
-		DAFBBA2D2008311700B8821F /* PNUserManager+FBAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBBA2C2008311700B8821F /* PNUserManager+FBAuthentication.swift */; };
+		DAFBBA2D2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBBA2C2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift */; };
 		EB186970200192E500C27925 /* PNGuestLetsGetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB186966200192E500C27925 /* PNGuestLetsGetStartedView.swift */; };
 		EB186971200192E500C27925 /* PNGuestLetsGetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB186968200192E500C27925 /* PNGuestLetsGetStartedViewController.swift */; };
 		EB186972200192E500C27925 /* PNGuestLetsGetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB186969200192E500C27925 /* PNGuestLetsGetStartedViewController.xib */; };
@@ -161,6 +165,10 @@
 		ACECFB0E13C5189292F92319 /* Pods_Pander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C885DE9C26661126A8B7E18D /* Pods-Pander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pander.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pander/Pods-Pander.release.xcconfig"; sourceTree = "<group>"; };
 		CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA403978201383490066D843 /* PNAllCuisines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAllCuisines.swift; sourceTree = "<group>"; };
+		DA40397A201383B30066D843 /* PNAllDishes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAllDishes.swift; sourceTree = "<group>"; };
+		DA40397C20138B5A0066D843 /* PNGetAllCuisines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetAllCuisines.swift; sourceTree = "<group>"; };
+		DA40397E20138CE40066D843 /* PNGetAllDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetAllDishes.swift; sourceTree = "<group>"; };
 		DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetRecommendations.swift"; sourceTree = "<group>"; };
 		DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+SignIn.swift"; sourceTree = "<group>"; };
 		DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSignUpOperation.swift; sourceTree = "<group>"; };
@@ -178,7 +186,7 @@
 		DABB1DB82007FFF1003CD371 /* PNConnectWithFacebookOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNConnectWithFacebookOperation.swift; sourceTree = "<group>"; };
 		DABB1DBB20081A19003CD371 /* PNCheckAddressIsSupportedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCheckAddressIsSupportedOperation.swift; sourceTree = "<group>"; };
 		DABB1DBD20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+CheckAddressSupported.swift"; sourceTree = "<group>"; };
-		DAFBBA2C2008311700B8821F /* PNUserManager+FBAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+FBAuthentication.swift"; sourceTree = "<group>"; };
+		DAFBBA2C2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+Gmail+FBAuthentication.swift"; sourceTree = "<group>"; };
 		EB186966200192E500C27925 /* PNGuestLetsGetStartedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedView.swift; sourceTree = "<group>"; };
 		EB186968200192E500C27925 /* PNGuestLetsGetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetsGetStartedViewController.swift; sourceTree = "<group>"; };
 		EB186969200192E500C27925 /* PNGuestLetsGetStartedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNGuestLetsGetStartedViewController.xib; sourceTree = "<group>"; };
@@ -341,6 +349,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DA4CF44C20129942006BA61B /* AllDishes and Cuisines */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "AllDishes and Cuisines";
+			sourceTree = "<group>";
+		};
 		DA6A9AA02008A11E00BE591F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +367,8 @@
 		DA6A9AA52008F70A00BE591F /* Recommendations */ = {
 			isa = PBXGroup;
 			children = (
+				DA40397A201383B30066D843 /* PNAllDishes.swift */,
+				DA403978201383490066D843 /* PNAllCuisines.swift */,
 				DA6A9AA62008F71A00BE591F /* PNCuisine.swift */,
 				DA6A9AA82008F71A00BE591F /* PNCuisinesByZip.swift */,
 				DA6A9AAA2008F71B00BE591F /* PNDeliveryRecs.swift */,
@@ -756,7 +773,7 @@
 				DA6A9AA32008B11900BE591F /* PNUserManager+SignUp.swift */,
 				DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */,
 				DABB1DBD20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift */,
-				DAFBBA2C2008311700B8821F /* PNUserManager+FBAuthentication.swift */,
+				DAFBBA2C2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift */,
 				EBCC566F200DE36B009D865E /* PNUserManager+ForgotPassword.swift */,
 			);
 			path = UserManager;
@@ -1370,6 +1387,8 @@
 			isa = PBXGroup;
 			children = (
 				EBED0A4E1FCE93A500F9F5B8 /* PNGetRecommendationsOperation.swift */,
+				DA40397C20138B5A0066D843 /* PNGetAllCuisines.swift */,
+				DA40397E20138CE40066D843 /* PNGetAllDishes.swift */,
 			);
 			path = GetRecommendations;
 			sourceTree = "<group>";
@@ -1377,6 +1396,7 @@
 		EBFB70E01FCB150E00DB4C58 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				DA4CF44C20129942006BA61B /* AllDishes and Cuisines */,
 				DA6A9AA52008F70A00BE591F /* Recommendations */,
 				EBFB70F51FCB1BB100DB4C58 /* Success */,
 				EBFB70F21FCB1B5000DB4C58 /* GuestAccount */,
@@ -1902,6 +1922,7 @@
 				EBED0A281FCE8A6B00F9F5B8 /* PNRegisterForUpdateOperation.swift in Sources */,
 				EB1869822002297A00C27925 /* PNGuestLetsGetStartedWithEmailView.swift in Sources */,
 				EBFB70FA1FCB1CE800DB4C58 /* PNCodeResponse.swift in Sources */,
+				DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */,
 				EBFB71181FCCAA9A00DB4C58 /* PropertyStoring.swift in Sources */,
 				EB8F01851FCAD714000D790F /* AppDelegate.swift in Sources */,
 				DA6A9AAE2008F71B00BE591F /* PNRecommendationsModel.swift in Sources */,
@@ -1919,6 +1940,7 @@
 				EBCC566D200DDA90009D865E /* PNForgotPasswordViewController.swift in Sources */,
 				DA6A9AA42008B11900BE591F /* PNUserManager+SignUp.swift in Sources */,
 				EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */,
+				DA40397B201383B30066D843 /* PNAllDishes.swift in Sources */,
 				EBFB71071FCCA14200DB4C58 /* PNBaseView.swift in Sources */,
 				EBED0A401FCE918600F9F5B8 /* PNDeletePushNotifactionTokenOperation.swift in Sources */,
 				DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */,
@@ -1939,6 +1961,7 @@
 				EBCC5670200DE36B009D865E /* PNUserManager+ForgotPassword.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
 				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
+				DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */,
 				EB8F01911FCAD8F6000D790F /* PNBaseManager.swift in Sources */,
 				DABB1DB32007FE62003CD371 /* OnebyteNetworkOperationBase.swift in Sources */,
 				EBFB70EF1FCB150E00DB4C58 /* userAppSettings.swift in Sources */,
@@ -1952,6 +1975,7 @@
 				EBFB71121FCCA97300DB4C58 /* ApplicationColors.swift in Sources */,
 				EBC74F0A1FCAC41C00641B48 /* ApplicationConstants.swift in Sources */,
 				EB1869852002297A00C27925 /* PNGuestLetsGetStartedWithLocationView.swift in Sources */,
+				DA40397D20138B5A0066D843 /* PNGetAllCuisines.swift in Sources */,
 				EB8F01861FCAD715000D790F /* AppNavigation.swift in Sources */,
 				EBE05C352006B229009A865C /* PNGuestLetsGetStartedWithNewFoodController.swift in Sources */,
 				EBED0A491FCE92BF00F9F5B8 /* PNSaveTasteOperation.swift in Sources */,
@@ -1976,7 +2000,7 @@
 				DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */,
 				EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */,
 				EB2FD4C52005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift in Sources */,
-				DAFBBA2D2008311700B8821F /* PNUserManager+FBAuthentication.swift in Sources */,
+				DAFBBA2D2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift in Sources */,
 				EBE05BFB2006AE33009A865C /* PNGuestLetsGetStartedStepThreeViewTextFieldDelegate.swift in Sources */,
 				EBE7346F200E96F9001BB651 /* PNHomeViewController.swift in Sources */,
 				EBFB70F01FCB150E00DB4C58 /* userBaseClass.swift in Sources */,

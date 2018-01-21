@@ -84,13 +84,15 @@ final class PNUserManager: PNBaseManager {
     
     //step 2 & 3 recommendations
     var recommentations: PNRecommendationsModel?
-    
+    var allCuisines: PNAllCuisines?
+    var allDishes: PNAllDishes?
+
     //step 2
-    var selectedCusines :[JSON]?{
+    var selectedCusines :[String]?{
         didSet {
             if let selectedCusines = self.selectedCusines{
                 let encodedCuisines = selectedCusines.map({ (json) -> String in
-                    json.rawString()!
+                    json
                 })
 
                 let keyPath = "selectedCusines"
@@ -101,11 +103,11 @@ final class PNUserManager: PNBaseManager {
 
     
     //step 3
-    var selectedDishes :[JSON]?{
+    var selectedDishes :[String]?{
         didSet {
             if let selectedDishes = self.selectedDishes{
                 let encodedDishes = selectedDishes.map({ (json) -> String in
-                    json.rawString()!
+                    json
                 })
                 
                 let keyPath = "selectedDishes"
@@ -150,17 +152,13 @@ final class PNUserManager: PNBaseManager {
         }
         
         if let selectedCusines = PINCache.shared().object(forKey: "selectedCusines") as? [String]{
-               instance.selectedCusines = selectedCusines.map({ (strJson) -> JSON in
-                    JSON(parseJSON: strJson)
-                })
+               instance.selectedCusines = selectedCusines
             
         }
 
 
         if let selectedDishes = PINCache.shared().object(forKey: "selectedDishes") as? [String]{
-            instance.selectedDishes = selectedDishes.map({ (strJson) -> JSON in
-                JSON(parseJSON: strJson)
-            })
+            instance.selectedDishes = selectedDishes
         }
 
         if let isLoggedIn = PINCache.shared().object(forKey: "isLoggedIn") as? Bool{

@@ -9,11 +9,12 @@
 import Foundation
 
 struct AppNetworkConstants {
-    
-   static let kBaseURLProductionString =   "https://www.pandereats.com/api/v2"
-   static let kBaseURLTestingString =   "https://desolate-everglades-24260.herokuapp.com/api/v2"
-   static let kBaseURLDevString =   "https://pandereats-unstable-dev.herokuapp.com/api/v2"
-}
+    static let kBaseURLDevString =   "https://pandereats-unstable-dev.herokuapp.com/api/v2"
+
+    static let kBaseURLProductionString =   "https://www.pandereats.com/api/v2"
+    static let kBaseURLTestingString =   kBaseURLDevString //"https://desolate-everglades-24260.herokuapp.com/api/v2"
+   
+    }
 
 struct AppNetworkEndPoints {
     static let kUserLogin                           = "/login/"
@@ -35,6 +36,8 @@ struct AppNetworkEndPoints {
     static let kUpdateDelivery                      = "/user/ddc/"
     static let kAddPushNotificationToken            = "/user/apn/"
     static let kDeletePushNotificationToken         = "/user/apn/"
+    static let kGetAllCuisines                      = "/all_cuisines/"
+    static let kGetAllDishes                        = "/all_dishes/"
 
 }
 

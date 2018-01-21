@@ -9,9 +9,9 @@ import UIKit
 import SwiftyJSON
 
 class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    var cusines = [JSON]()
+    var cusines = [String]()
     
-    var selectedCusines = [JSON]()
+    var selectedCusines = [String]()
     
     var cuisineSelectedCallback: ((Int)->())?
 
@@ -29,11 +29,10 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
     }
     
     func configureCell(cell: PNGuestLetGetStartedStepThreeCollectionViewCell, forIndexPath indexPath: IndexPath) {
-        if let tag = cusines[indexPath.row].dictionary?["dish"]?.string{
-            
             let cuisine = cusines[indexPath.row]
             
-            cell.titleLabel.text = tag
+        cell.titleLabel.text = cuisine.replacingOccurrences(of: "_", with: "/")
+
             
             if self.selectedCusines.contains(cuisine){
                 cell.backgroundColor = AppDelegate.sharedInstance()?.window!.tintColor
@@ -43,7 +42,6 @@ class PNStepThreeCollectionViewDelegateDatasource: UICollectionView,UICollection
                 cell.titleLabel.textColor = UIColor.black
                 
             }
-        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

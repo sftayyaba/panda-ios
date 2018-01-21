@@ -20,9 +20,9 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     @IBOutlet weak var flowLayout: FlowLayout!
     var sizingCell: PNGuestLetGetStartedStepTwoCollectionViewCell?
     
-    var cusines = JSON.init(parseJSON:"[]").array
+    var cusines = [String]()
 
-    var mainCuisines = JSON.init(parseJSON:"[]").array
+    var mainCuisines = [String]()
     
     
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
         
 //        self.jobsListDataSource = self.jobsListView.jobsListTableView
         
-        self.collectionView.cusines = cusines!
+        self.collectionView.cusines = cusines
         
         self.collectionView.dataSource = self.collectionView
         self.collectionView.delegate = self.collectionView
@@ -53,22 +53,18 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
         
         self.guestLetsGetStartedStepTwoView.textChangedCallback = {
             text in
-            self.cusines = self.mainCuisines?.filter({ (cusineJson) -> Bool in
-                
-                let dict = cusineJson.dictionary
-                let cusineName = dict?["cuisine"]?.string
-                if let tag = cusineName{
-                    if tag.lowercased().contains(text.lowercased()){
-                        return true
-                    }
+            self.cusines = self.mainCuisines.filter({ (cusineJson) -> Bool in
+            
+                if cusineJson.lowercased().contains(text.lowercased()){
+                    return true
                 }
                 return false
             })
-            if let cusines = self.cusines{
-                self.collectionView.cusines = cusines
-            }
+
+            self.collectionView.cusines = self.cusines
+            
             if text == ""{
-                self.collectionView.cusines = self.mainCuisines!
+                self.collectionView.cusines = self.mainCuisines
             }
             self.collectionView.reloadData()
                 
@@ -77,6 +73,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
             if selectedCount > 0 {
+                
                 PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
                 self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = true
             } else {
@@ -87,8 +84,8 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     
     
     override func doInitialDataLoad() {
-        PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recommendations) in
-            if let cuisines = recommendations.deliveryRecs?.cuisinesByZip?[PNUserManager.sharedInstance.selectedZip!].array{
+        PNUserManager.sharedInstance.getAllCuisines(SuccessBlock: { (recommendations) in
+            if let cuisines = recommendations.cuisines{
                 
                 if let selectedCuisines = PNUserManager.sharedInstance.selectedCusines{
                     self.collectionView.selectedCusines = selectedCuisines
