@@ -93,6 +93,14 @@ class PNGuestLetsGetStartedStepThreeController: PNBaseViewController {
                 
                 if let selectedCuisines = PNUserManager.sharedInstance.selectedDishes{
                     self.collectionView.selectedCusines = selectedCuisines
+                    
+                    if selectedCuisines.count > 0 {
+                        
+                        self.guestLetsGetStartedStepThreeView.nextButton.setTitle("Next", for: UIControlState.normal)
+                    } else {
+                        self.guestLetsGetStartedStepThreeView.nextButton.setTitle("Skip", for: UIControlState.normal)
+                        
+                    }
                 }
                 
                 self.cusines = cuisines
