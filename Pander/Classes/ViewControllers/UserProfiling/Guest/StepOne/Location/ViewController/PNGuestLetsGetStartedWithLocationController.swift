@@ -18,6 +18,10 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.guestLetsGetStartedWithLocationView.setNextButtonState()
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
 
         if let zip = self.guestLetsGetStartedWithLocationView.zipCodeTextField.text{

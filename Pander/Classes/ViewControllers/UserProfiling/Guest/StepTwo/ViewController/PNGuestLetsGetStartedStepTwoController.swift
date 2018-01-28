@@ -70,18 +70,21 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
                 
         }
         
+        setupNextButton(count: self.collectionView.selectedCusines.count)
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
-            if selectedCount > 0 {
-                
-                PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
-                self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = true
-            } else {
-                self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = false
-            }
+            self.setupNextButton(count: selectedCount)
         }
     }
     
+    func setupNextButton(count: Int){
+        if count > 2 {
+            PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
+            self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = true
+        } else {
+            self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = false
+        }
+    }
     
     override func doInitialDataLoad() {
         PNUserManager.sharedInstance.getAllCuisines(SuccessBlock: { (recommendations) in
