@@ -70,11 +70,14 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
                 
         }
         
-        setupNextButton(count: self.collectionView.selectedCusines.count)
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
             self.setupNextButton(count: selectedCount)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNextButton(count: self.collectionView.selectedCusines.count)
     }
     
     func setupNextButton(count: Int){
@@ -99,6 +102,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
                 
                 self.collectionView.cusines = cuisines
                 self.collectionView.reloadData()
+                self.setupNextButton(count: self.collectionView.selectedCusines.count)
             }
         }) { (error) in
             if let localError = error as? ErrorBaseClass{

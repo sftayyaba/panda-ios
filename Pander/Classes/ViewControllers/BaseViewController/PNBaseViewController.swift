@@ -25,6 +25,9 @@ class PNBaseViewController : UIViewController, NVActivityIndicatorViewable{
         self.configureNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.networkRequestStarted(notification:)), name: Notification.Name(PNNotificationTypes.networkRequestStarted.rawValue), object: nil)
         

@@ -19,7 +19,6 @@ class PNGuestLetsGetStartedViewController: PNBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = true
-        PNUserManager.sharedInstance.logoutUser() // clear data for new login
     }
 
     @IBAction func letGetStartedButtonTapped(_ sender: Any) {

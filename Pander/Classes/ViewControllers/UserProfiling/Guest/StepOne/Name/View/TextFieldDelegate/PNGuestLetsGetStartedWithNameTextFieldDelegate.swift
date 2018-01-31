@@ -16,12 +16,6 @@ extension PNGuestLetsGetStartedWithNameView : UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if self.nameTextField.text != "" {
-            self.nextButton.titleLabel?.textColor = UIColor.black
-            self.nextButton.isUserInteractionEnabled = true
-        }else {
-            self.nextButton.titleLabel?.textColor = UIColor.lightGray
-            self.nextButton.isUserInteractionEnabled = false
-        }
+        setNextButtonState()
     }
 }

@@ -19,6 +19,10 @@ class PNGuestLetsGetStartedWithEmailController: PNBaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.guestLetsGetStartedWithEmailView.setNextButtonState()
+    }
+    
     override func configureView() {
         self.guestLetsGetStartedWithEmailView.mainTitleText.text = "Nice to meet you, \(PNUserManager.sharedInstance.selectedName!)! Let's setup your account"
     }

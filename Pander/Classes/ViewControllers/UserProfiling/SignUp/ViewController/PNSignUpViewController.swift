@@ -29,6 +29,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        PNUserManager.sharedInstance.logoutUser() // clear data for new login
     }
     
     override func viewWillDisappear(_ animated: Bool) {
