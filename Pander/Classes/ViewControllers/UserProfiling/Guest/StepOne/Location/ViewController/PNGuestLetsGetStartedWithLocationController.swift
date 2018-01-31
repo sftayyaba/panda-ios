@@ -12,6 +12,11 @@ import GoogleSignIn
 
 class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
     
+    @IBOutlet weak var zipView: UIView!
+    @IBOutlet weak var emailLocationView: UIView!
+    @IBOutlet weak var locationErrorLabel: UILabel!
+    @IBOutlet weak var submitEmail: UIButton!
+    @IBOutlet weak var tryAnotherLocation: UILabel!
     @IBOutlet var guestLetsGetStartedWithLocationView: PNGuestLetsGetStartedWithLocationView!
     
     override func viewDidLoad() {
@@ -32,7 +37,12 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
                 
             }, FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Oops", message: localError.localizedDescription)
+                    self.locationErrorLabel.isHidden = false
+// Uncomment the code below to listen tap gestures for label
+                    //                    self.locationErrorLabel.isUserInteractionEnabled = true
+//                    var gesture = UITapGestureRecognizer.init(target: self, action: #selector(self.tapErrorLabel))
+//                    self.locationErrorLabel.addGestureRecognizer(gesture)
+//
                 }else{
                     self.alert(title: "Error", message: "Something went wrong")
                 }
@@ -43,6 +53,20 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
         
     }
     
+    @objc func tapErrorLabel(sender:UITapGestureRecognizer){
+        let text = (locationErrorLabel.text)
+        let termsRange = (text! as NSString).range(of: "tap here")
+//        if sender.didTapAttributedTextInLabel(locationErrorLabel, inRange: termsRange) {
+//            print("Tapped terms")
+//        }  else {
+//            print("Tapped none")
+//        }
+        
+        emailLocationView.isHidden = false
+        locationErrorLabel.isHidden = true
+        guestLetsGetStartedWithLocationView.nextButton.isHidden = true
+        zipView.isHidden = true
+    }
     
     
     func moveToNext(){
