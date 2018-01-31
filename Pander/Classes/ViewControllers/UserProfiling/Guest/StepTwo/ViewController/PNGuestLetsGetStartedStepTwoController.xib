@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNGuestLetsGetStartedStepTwoController" customModule="Pander" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="8Y4-T8-Pb0" id="F0q-sL-9te"/>
                 <outlet property="collectionView" destination="5Kp-os-Q8J" id="eOv-nc-98K"/>
                 <outlet property="flowLayout" destination="dll-wj-r7G" id="fMa-hv-vwu"/>
                 <outlet property="guestLetsGetStartedStepTwoView" destination="i5M-Pr-FkT" id="qEO-kg-z7Z"/>

@@ -15,6 +15,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     
     @IBOutlet var guestLetsGetStartedStepTwoView: PNGuestLetsGetStartedStepTwoView!
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet var collectionView: PNStepTwoCollectionViewDelegateDatasource!
 
     @IBOutlet weak var flowLayout: FlowLayout!
@@ -69,7 +70,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
             self.collectionView.reloadData()
                 
         }
-        
+        backButton.isHidden = PNUserManager.sharedInstance.guestUser == nil ? true : false
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
             self.setupNextButton(count: selectedCount)
