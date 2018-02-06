@@ -58,7 +58,7 @@ class PNForgotPasswordViewController: PNBaseViewController {
                 self.navigationController?.popViewController(animated: true)
             }, failureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Opss", message: localError.devMsg!)
+                    self.alert(title: "Oops", message: localError.devMsg!)
                 }else {
                     self.alert(title: "Error", message: "Something went wrong !")
                 }

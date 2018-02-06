@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         if (error == nil) {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
-            token = user.authentication.accessToken // Safe to send to the server
+            token = user.authentication.idToken // Safe to send to the server
             //print(token)
             if didPressCallAPIButtonCallback != nil {
                 didPressCallAPIButtonCallback!(token)

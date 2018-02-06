@@ -24,6 +24,8 @@ class PNHomeView: UIView {
 
     @IBOutlet weak var findFriendswitch: UISwitch!
     
+    @IBOutlet weak var collectionView: PNHomeCollectionViewDelegateDatasource!
+
     @IBOutlet weak var showAllPropertiesViewHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {

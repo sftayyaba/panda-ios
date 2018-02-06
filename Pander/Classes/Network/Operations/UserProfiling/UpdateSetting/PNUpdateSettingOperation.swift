@@ -13,11 +13,18 @@ class PNUpdateSettingOperation: OnebyteNetworkOperationBase {
     
     
     //MARK: Instance Variables
-    var firstName: String?
-    var lastName: String?
-    var email: String?
-    var password: String?
-    
+    var tip: Int?
+    var group_size: Int?
+    var alcohol: Bool?
+    var dessert: Bool?
+    var drinks: Bool?
+    var confirm: Bool?
+    var edit: Bool?
+    var expand: Bool?
+    var personal_notif: Bool?
+    var special_notif: Bool?
+    var debug: Bool?
+
     //MARK: Overridden Methods
     override func start() {
         super.start()
@@ -39,7 +46,7 @@ class PNUpdateSettingOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
        
-        let urlWithId:String = AppNetworkEndPoints.kUserSignUp
+        let urlWithId:String = AppNetworkEndPoints.kUpdateUserSetting
         OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
@@ -58,11 +65,12 @@ class PNUpdateSettingOperation: OnebyteNetworkOperationBase {
     }
     
     private func createBody() -> Dictionary<String, String>{
-        return ["email":     self.email!,
-                "password":     self.password!,
-                "first_name":     self.firstName!,
-                "last_name":     self.lastName!
-
-        ]
+        return ["sas":"sas"]
+//        ["email":     self.email!,
+//                "password":     self.password!,
+//                "first_name":     self.firstName!,
+//                "last_name":     self.lastName!
+//
+//        ]
     }
 }

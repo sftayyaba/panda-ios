@@ -33,7 +33,8 @@ pod 'PWSwitch'
 pod 'NVActivityIndicatorView'
 pod 'PINCache'
 pod 'ToggleView', '~> 0.0.1'
-
+pod 'TextFieldEffects'
+pod 'CarbonKit'
 
 
   # Pods for Pander

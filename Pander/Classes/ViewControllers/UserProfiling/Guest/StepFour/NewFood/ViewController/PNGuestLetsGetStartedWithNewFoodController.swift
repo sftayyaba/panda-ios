@@ -19,6 +19,16 @@ class PNGuestLetsGetStartedWithNewFoodController: PNBaseViewController {
         
     }
     
+    
+    override func configureView() {
+        self.letsGetStartedWithNewFoodView.sliderView.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.normal)
+        
+        self.letsGetStartedWithNewFoodView.sliderView.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.highlighted)
+        
+        self.letsGetStartedWithNewFoodView.sliderView.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.focused)
+    }
+    
+    
     @IBAction func sliderChangeEnded(_ sender: UISlider) {
         
         let slider = sender

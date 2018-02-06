@@ -16,6 +16,12 @@ class PNHomeViewController: PNBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+
+    override func configureView() {
+        self.configureCollectionView()
     }
     
     override func configureNavigationBar() {
@@ -23,16 +29,64 @@ class PNHomeViewController: PNBaseViewController {
     }
     
     override func configureCallBacks() {
+        self.homeView.collectionView.didDeliveryButtonCallback = {
+            self.deliverASAPButtonPressed(self.homeView)
+        }
+        
+        self.homeView.collectionView.didPeopleButtonCallback = {
+            self.peopleButtonPressed(self.homeView)
+        }
+        
+        self.homeView.collectionView.didBudgetButtonCallback = {
+            self.budgetButtonPressed(self.homeView)
+        }
+        
+        self.homeView.collectionView.didDishesButtonCallback = {
+            self.dishesButtonPressed(self.homeView)
+        }
+        
+        self.homeView.collectionView.didLocationButtonCallback = {
+            self.locationButtonPressed(self.homeView)
+        }
+        
+        self.homeView.collectionView.didFindRestaurentButtonCallback = {
+            self.findRestaurentButtonPressed(self.homeView)
+        }
     }
     
     @IBAction func searchBarTapped(_ sender: UIButton) {
-        self.alert(title: "!!!", message: "Coming Soon!")
+//        self.alert(title: "!!!", message: "Coming Soon!")
+        self.homeView.searchButtonTapped()
     }
     
-    
-    
-    
-    
+    fileprivate func configureCollectionView () {
+        
+        self.homeView.collectionView.delegate = self.homeView.collectionView
+        self.homeView.collectionView.dataSource = self.homeView.collectionView
+        
+        
+        
+        let nib = UINib(nibName: "FindRestuarantCollectionViewCell", bundle: nil)
+        
+        let headerNib = UINib(nibName: "PHHomeFindRestuarantCollectionReusableView", bundle: nil)
+
+        self.homeView.collectionView.register(nib , forCellWithReuseIdentifier: "FindRestuarantCollectionViewCell")
+        
+        self.homeView.collectionView.register(UINib(nibName: "PNHomeMainSeeLessCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "PNHomeMainSeeLessCollectionViewCell")
+
+
+        self.homeView.collectionView.register(UINib(nibName: "PNHomeMainSeeMoreCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "PNHomeMainSeeMoreCollectionViewCell")
+        
+        self.homeView.collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PHHomeFindRestuarantCollectionReusableView")
+   
+        self.homeView.collectionView.register((UINib(nibName: "PNHomeFeaturedItemsCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNHomeFeaturedItemsCollectionReusableView")
+
+        self.homeView.collectionView.register((UINib(nibName: "PHCommonHeaderCollectionView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PHCommonHeaderCollectionView")
+        
+        self.homeView.collectionView.register((UINib(nibName: "PNHomeFeaturedCuisineCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNHomeFeaturedCuisineCollectionReusableView")
+
+        self.homeView.collectionView.reloadData()
+    }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
 //        if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text, let password =
@@ -63,9 +117,41 @@ class PNHomeViewController: PNBaseViewController {
 //            }
 //            
 //        }
-    }    
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         PNUserManager.sharedInstance.logoutUser()
         AppDelegate.sharedInstance()?.moveToSingUp()
     }
+    
+    @IBAction func locationButtonPressed(_ sender: Any) {
+        let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func dishesButtonPressed(_ sender: Any) {
+        let viewController = PNFavoriteDishesController(nibName: "PNFavoriteDishesController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func budgetButtonPressed(_ sender: Any) {
+        let viewController = PNBudgetViewController(nibName: "PNBudgetViewController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func peopleButtonPressed(_ sender: Any) {
+        let viewController = PNPartySizeViewController(nibName: "PNPartySizeViewController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func deliverASAPButtonPressed(_ sender: Any) {
+        let viewController = PNDeliveryTimeViewController(nibName: "PNDeliveryTimeViewController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func findRestaurentButtonPressed(_ sender: Any) {
+        let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
 }

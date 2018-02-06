@@ -36,7 +36,7 @@ class PNGuestLetsGetStartedWithEmailController: PNBaseViewController {
                         
                     }, FailureBlock: { (error) in
                         if let localError = error as? ErrorBaseClass{
-                            self.alert(title: "Opss", message: localError.localizedDescription)
+                            self.alert(title: "Oops", message: localError.localizedDescription)
                         }else {
                             self.alert(title: "Error", message: "Something went wrong !")
                         }

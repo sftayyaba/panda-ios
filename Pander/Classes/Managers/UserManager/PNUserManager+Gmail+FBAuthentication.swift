@@ -27,7 +27,10 @@ extension PNUserManager{
                 weakSelf?.user = guestUser.user
                 weakSelf?.token = guestUser.user?.accessTokenPander
                 weakSelf?.email = guestUser.user?.email
-                
+
+                if let isFirstSignUp = guestUser.user?.isFirstSignup{
+                    weakSelf?.isLoggedIn = !isFirstSignUp
+                }
                 successBlock()
                 
             }else if let errorResponse = response as? ErrorBaseClass{
@@ -72,6 +75,10 @@ extension PNUserManager{
                 weakSelf?.token = guestUser.user?.accessTokenPander
                 weakSelf?.email = guestUser.user?.email
                 
+                if let isFirstSignUp = guestUser.user?.isFirstSignup{
+                    weakSelf?.isLoggedIn = !isFirstSignUp
+                }
+
                 successBlock()
                 
             }else if let errorResponse = response as? ErrorBaseClass{

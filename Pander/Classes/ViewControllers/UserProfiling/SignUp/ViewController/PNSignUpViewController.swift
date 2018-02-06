@@ -187,7 +187,6 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
                     self.alert(title: "Error", message: "Something went wrong")
                 }
             }
-
         }
     }
     
@@ -200,11 +199,15 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
         }) { (error) in
             self.alert(title: "Error", message: error != nil ? error!.localizedDescription : "Something went wrong")
         }
-        
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        AppDelegate.sharedInstance()?.moveToLogin()
+//
+        let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
+
+        self.navigationController?.pushViewController(viewController, animated: true)
+//
+//        AppDelegate.sharedInstance()?.moveToLogin()
     }
 
 }
