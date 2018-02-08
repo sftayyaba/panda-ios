@@ -12,12 +12,6 @@ import UIKit
 extension PNGuestLetsGetStartedWithEmailView : UITextFieldDelegate{
         
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if self.emailTextField.text != "" && self.emailTextField.text!.isEmail && self.passwordTextField.text != ""  && self.passwordTextField.text!.count >= 5{
-            self.nextButton.titleLabel?.textColor = UIColor.black
-            self.nextButton.isUserInteractionEnabled = true
-        }else {
-            self.nextButton.titleLabel?.textColor = UIColor.lightGray
-            self.nextButton.isUserInteractionEnabled = false
-        }
+       setNextButtonState()
     }
 }

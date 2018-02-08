@@ -18,6 +18,10 @@ class PNGuestLetsGetStartedWithNameController: PNBaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.guestLetsGetStartedWithNameView.setNextButtonState()
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         
         

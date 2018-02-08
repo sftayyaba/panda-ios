@@ -40,29 +40,29 @@ class PNGuestLetsGetStartedWithNewFoodController: PNBaseViewController {
         switch(newValue){
         case 0:
             
-            self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = ""
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = ""
-            self.letsGetStartedWithNewFoodView.nextButton.isEnabled = false
+            self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Never"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "I know what I like, why mess with it?"
+            self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         case 1:
             self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Rarely"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Rarely, I like branching out but only occasionally"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "I like branching out, but only occasionally"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
 
             break
         case 2:
             self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Sometimes"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Sometimes, it's nice to get a change"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "It's nice to get a change"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         case 3:
-            self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Frequently"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Frequently, Most of the time I will try something new"
+            self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Often"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "There's so much out there to experience"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         case 4:
             self.letsGetStartedWithNewFoodView.sliderValueSmallDescriptionLabel.text = "Always"
-            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Always, I try something new with every possible opportunity"
+            self.letsGetStartedWithNewFoodView.sliderValueDetailedDescriptionLabel.text = "Why eat the same thing twice?"
             self.letsGetStartedWithNewFoodView.nextButton.isEnabled = true
             break
         default:
