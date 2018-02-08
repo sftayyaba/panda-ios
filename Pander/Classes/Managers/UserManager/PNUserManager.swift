@@ -64,6 +64,7 @@ final class PNUserManager: PNBaseManager {
     var recommendations: PNRecommendationsModel?
     
     //step 1.1
+    var selectedUnsupportedZip:String?
     var selectedZip:String?{
         didSet {
             if let selectedZip = self.selectedZip{
@@ -144,6 +145,8 @@ final class PNUserManager: PNBaseManager {
         if let selectedZip = PINCache.shared().object(forKey: "selectedZip") as? String{
             instance.selectedZip = selectedZip
         }
+
+        
         
         if let userDictionary = PINCache.shared().object(forKey: "user"){
             instance.user = userBaseClass(object: userDictionary as AnyObject)

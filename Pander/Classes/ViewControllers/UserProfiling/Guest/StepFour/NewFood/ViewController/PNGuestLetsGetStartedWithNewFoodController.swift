@@ -36,7 +36,9 @@ class PNGuestLetsGetStartedWithNewFoodController: PNBaseViewController {
         let newValue = Int(slider.value.rounded())
         
         slider.setValue(Float(newValue), animated: false)
-        
+
+        PNUserManager.sharedInstance.adventure = newValue;
+
         switch(newValue){
         case 0:
             

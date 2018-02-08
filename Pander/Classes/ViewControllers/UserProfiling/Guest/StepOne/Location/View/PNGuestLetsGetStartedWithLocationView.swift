@@ -9,6 +9,7 @@ import UIKit
 
 class PNGuestLetsGetStartedWithLocationView: UIView {
 
+    @IBOutlet weak var confirmationLabel: UILabel!
     @IBOutlet var zipCodeTextField: UITextField!
     
     @IBOutlet var nextButton: UIButton!

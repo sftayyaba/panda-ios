@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -152,11 +152,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCk-70-ZA3">
-<<<<<<< HEAD
-                    <rect key="frame" x="254" y="504" width="36" height="34"/>
-=======
-                    <rect key="frame" x="309" y="613" width="36" height="34"/>
->>>>>>> fixes-onboarding
+                    <rect key="frame" x="254" y="514" width="36" height="34"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                     <state key="normal" title="Next">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,7 +162,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Y4-T8-Pb0">
-                    <rect key="frame" x="30" y="613" width="36" height="34"/>
+                    <rect key="frame" x="30" y="514" width="36" height="34"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                     <state key="normal" title="Back">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -176,10 +172,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v12-Ze-1LF">
-                    <rect key="frame" x="30" y="194" width="260" height="168.5"/>
+                    <rect key="frame" x="30" y="194" width="260" height="209"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FhK-HF-kDG">
-                            <rect key="frame" x="69.5" y="9.5" width="120" height="150"/>
+                            <rect key="frame" x="70" y="30" width="120" height="150"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rBx-Gh-8xn">
                                     <rect key="frame" x="0.0" y="0.0" width="115.5" height="37.5"/>
@@ -274,7 +270,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9r-bg-EZf">
-                    <rect key="frame" x="50" y="449" width="275" height="36"/>
+                    <rect key="frame" x="50" y="403" width="220" height="36"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGX-pa-1h5">
                             <rect key="frame" x="-17" y="27" width="254" height="36"/>
@@ -315,7 +311,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqc-pJ-U45">
-                    <rect key="frame" x="169.5" y="515" width="35" height="32"/>
+                    <rect key="frame" x="143" y="469" width="35" height="32"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                     <state key="normal" title="More">
                         <color key="titleColor" red="0.90954399109999995" green="0.1012140736" blue="0.1102230176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -341,7 +337,6 @@
                 <constraint firstItem="MYY-S8-86m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Vud-af-PwO"/>
                 <constraint firstItem="Qqc-pJ-U45" firstAttribute="top" secondItem="N9r-bg-EZf" secondAttribute="bottom" constant="30" id="b9C-8H-tVK"/>
                 <constraint firstItem="8Y4-T8-Pb0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="bxg-5r-es3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Qqc-pJ-U45" secondAttribute="bottom" constant="120" id="dv9-5B-zcI"/>
                 <constraint firstItem="4cI-Fq-ytS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="hKe-w2-6hD"/>
                 <constraint firstItem="4cI-Fq-ytS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pbl-0D-YH5"/>
                 <constraint firstItem="FhK-HF-kDG" firstAttribute="top" secondItem="MYY-S8-86m" secondAttribute="bottom" constant="30" id="piv-Pq-h5m"/>
