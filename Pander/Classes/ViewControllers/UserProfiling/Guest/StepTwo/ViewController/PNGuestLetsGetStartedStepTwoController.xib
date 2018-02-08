@@ -5,11 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-<<<<<<< HEAD
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-=======
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
->>>>>>> fixes-onboarding
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -163,7 +159,7 @@
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="29k-x5-ddh"/>
                     </constraints>
-                    <string key="text">Now let's learn what you like - 
+                    <string key="text">Now let's learn what you like -
 what are your three favorite cuisines?</string>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                     <nil key="textColor"/>
