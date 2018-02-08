@@ -59,34 +59,6 @@ class PNLocationViewController: PNBaseViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-//        if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text, let password =
-//            self.guestLetsGetStartedWithEmailView.passwordTextField.text {
-//            if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text {
-//                if email.isEmail {
-//                    
-//                    
-//                    PNUserManager.sharedInstance.signUp(Email: email, Password: password, SuccessBlock: { (successResponse) in
-//                        
-//                        let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
-//                        self.navigationController?.pushViewController(viewController, animated: true)
-//                        
-//                    }, FailureBlock: { (error) in
-//                        if let localError = error as? ErrorBaseClass{
-//                            self.alert(title: "Opss", message: localError.localizedDescription)
-//                        }else {
-//                            self.alert(title: "Error", message: "Something went wrong !")
-//                        }
-//                    })
-//            
-//                }else{
-//                    self.alert(title: "Error", message: "Enter valid email.")
-//
-//                }
-//            }else{
-//                self.alert(title: "Error", message: "Email and password are required")
-//            }
-//            
-//        }
     }    
     @IBAction func logoutPressed(_ sender: Any) {
         PNUserManager.sharedInstance.logoutUser()
@@ -95,5 +67,91 @@ class PNLocationViewController: PNBaseViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addAddressPressed(_ sender: Any) {
+        if let streetAddress = self.locationView.streetAddressField.text {
+            if streetAddress.count >= 5{
+                
+                if let city = self.locationView.cityField.text {
+                    if city.count >= 2{
+
+                        if let unit_number = self.locationView.unit_numberField.text {
+                            if unit_number.count >= 2{
+                                
+                                if let state = self.locationView.stateField.text {
+                                    if state.count >= 2{
+                                        
+                                        if let zip = self.locationView.zipCodeField.text {
+                                            if zip.count >= 5{
+                                                
+                                                if let phone = self.locationView.phoneNumberField.text {
+                                                    if phone.count >= 10 && phone.count <= 12{
+                                                        
+                                                        PNUserManager.sharedInstance.addLocation(Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number, NickName: self.locationView.addressNickNameField.text, successBlock: {
+                                                            locationResponse in
+                                                            
+                                                            if let errorMsg = locationResponse.message?.first?.localizedDescription{
+                                                                self.alert(title: "Oops", message: errorMsg)
+                                                            }else{
+                                                                self.locationView.showStoredAddressButtonTapped()
+
+                                                                self.alert(title: "Success", message: "Address added to your account")
+                                                            }
+                                                            
+                                                            
+                                                        }, failureBlock: { (error) in
+                                                            if let localError = error as? ErrorBaseClass{
+                                                                self.alert(title: "Oops", message: localError.localizedDescription)
+                                                            }else {
+                                                                self.alert(title: "Error", message: "Something went wrong !")
+                                                            }
+                                                        })
+                                                        
+                                                    }else{
+                                                        self.alert(title: "Oops", message: "Phone number must be atleast 5 letter.");
+                                                    }
+                                                }else{
+                                                    self.alert(title: "Oops", message: "Phone number is required");
+                                                }
+                                                
+                                                
+                                            }else{
+                                                self.alert(title: "Oops", message: "ZipCode must be atleast 5 letter.");
+                                            }
+                                        }else{
+                                            self.alert(title: "Oops", message: "ZipCode is required");
+                                        }
+
+                                        
+                                    }else{
+                                        self.alert(title: "Oops", message: "State must be atleast 2 letter.");
+                                    }
+                                }else{
+                                    self.alert(title: "Oops", message: "State is required");
+                                }
+
+                                
+                            }else{
+                                self.alert(title: "Oops", message: "Unit/Apt/Suite must be atleast 2 letter.");
+                            }
+                        }else{
+                            self.alert(title: "Oops", message: "Unit/Apt/Suite is required");
+                        }
+
+                        
+                    }else{
+                        self.alert(title: "Oops", message: "City must be atleast 2 letter.");
+                    }
+                }else{
+                    self.alert(title: "Oops", message: "City is required");
+                }
+
+            }else{
+                self.alert(title: "Oops", message: "Street Address must be atleast 5 letter.");
+            }
+        }else{
+            self.alert(title: "Oops", message: "Street Address is required");
+        }
     }
 }

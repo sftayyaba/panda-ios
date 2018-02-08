@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,20 +24,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT" customClass="PNLocationView" customModule="Pander" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-Cq-Ayd">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-Tz-vjj">
-                            <rect key="frame" x="0.0" y="115" width="375" height="300"/>
+                            <rect key="frame" x="0.0" y="115" width="320" height="300"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIh-OB-0ay">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoN-b5-MSN">
-                                            <rect key="frame" x="35" y="44" width="305" height="2"/>
+                                            <rect key="frame" x="35" y="44" width="250" height="2"/>
                                             <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="aDe-T3-xae"/>
@@ -71,7 +71,7 @@ Cg
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-rz-eG9">
-                                            <rect key="frame" x="35" y="0.0" width="305" height="46"/>
+                                            <rect key="frame" x="35" y="0.0" width="250" height="46"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +93,7 @@ Cg
                                     <rect key="frame" x="35" y="19" width="13" height="10"/>
                                 </imageView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-L2-8d0" customClass="PNLocationTableViewDelegateDatasource" customModule="Pander" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableView>
                             </subviews>
@@ -113,16 +113,16 @@ Cg
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7U-UV-IB8">
-                            <rect key="frame" x="0.0" y="55" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="55" width="320" height="60"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V86-ag-VWP">
-                                    <rect key="frame" x="15" y="0.0" width="345" height="45"/>
+                                    <rect key="frame" x="15" y="0.0" width="290" height="45"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deliver to Icon" translatesAutoresizingMaskIntoConstraints="NO" id="hxK-6i-SfW">
                                             <rect key="frame" x="10" y="11" width="16" height="23"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-ef-z7T">
-                                            <rect key="frame" x="54" y="13" width="261" height="20"/>
+                                            <rect key="frame" x="54" y="13" width="206" height="20"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Deliver to ">
                                                     <attributes>
@@ -146,10 +146,10 @@ Cg
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow - Big - down - Black" translatesAutoresizingMaskIntoConstraints="NO" id="CEt-xm-ZMp">
-                                            <rect key="frame" x="323" y="19" width="12" height="7"/>
+                                            <rect key="frame" x="268" y="19" width="12" height="7"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTQ-Ny-hJP">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="45"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <connections>
@@ -191,7 +191,7 @@ Cg
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeM-ru-5SS">
-                            <rect key="frame" x="15" y="467" width="345" height="40"/>
+                            <rect key="frame" x="15" y="467" width="290" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-fz-RS7">
                                     <rect key="frame" x="0.0" y="10" width="169" height="20"/>
@@ -218,20 +218,20 @@ Cgo
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO ADD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHz-N5-IF7">
-                                    <rect key="frame" x="286" y="13" width="59" height="14"/>
+                                    <rect key="frame" x="231" y="13" width="59" height="14"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                                     <color key="textColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwV-bE-dMm">
-                                    <rect key="frame" x="0.0" y="38" width="345" height="2"/>
+                                    <rect key="frame" x="0.0" y="38" width="290" height="2"/>
                                     <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="0.5" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="bbq-or-3OS"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-QV-VLh">
-                                    <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="showNewAddressButtonTapped" destination="i5M-Pr-FkT" eventType="touchUpInside" id="OPt-lP-2fV"/>
@@ -255,13 +255,13 @@ Cgo
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6o-Je-g4e">
-                            <rect key="frame" x="15" y="532" width="345" height="270"/>
+                            <rect key="frame" x="15" y="532" width="290" height="300"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Io-do-mMF">
-                                    <rect key="frame" x="0.0" y="4" width="345" height="47"/>
+                                    <rect key="frame" x="0.0" y="-1" width="290" height="47"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-jC-Bq2" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                            <rect key="frame" x="0.0" y="6.3333333333333712" width="345" height="35"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-jC-Bq2" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                            <rect key="frame" x="0.0" y="6.5" width="290" height="35"/>
                                             <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="GfG-mq-N4n"/>
@@ -276,7 +276,7 @@ Cgo
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKQ-PP-kKs">
-                                            <rect key="frame" x="0.0" y="46" width="345" height="1"/>
+                                            <rect key="frame" x="0.0" y="46" width="290" height="1"/>
                                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="CzI-cY-K3g"/>
@@ -295,17 +295,17 @@ Cgo
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGb-Bj-1Zq">
-                                    <rect key="frame" x="0.0" y="145" width="345" height="47"/>
+                                    <rect key="frame" x="0.0" y="140" width="290" height="47"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Kg-S1-Hx8">
-                                            <rect key="frame" x="0.0" y="46" width="345" height="1"/>
+                                            <rect key="frame" x="0.0" y="46" width="290" height="1"/>
                                             <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="pSS-VD-Era"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Knq-ga-xlV" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                            <rect key="frame" x="0.0" y="6.3333333333333712" width="345" height="35"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Knq-ga-xlV" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                            <rect key="frame" x="0.0" y="6.5" width="290" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="Xax-jB-j04"/>
                                             </constraints>
@@ -332,16 +332,16 @@ Cgo
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr0-j9-132">
-                                    <rect key="frame" x="0.0" y="98" width="345" height="47"/>
+                                    <rect key="frame" x="0.0" y="93" width="290" height="47"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6hZ-6B-BgF" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                            <rect key="frame" x="0.0" y="6" width="157.66666666666666" height="35"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6hZ-6B-BgF" customClass="AAPickerView" customModule="AAPickerView">
+                                            <rect key="frame" x="0.0" y="6" width="130.5" height="32"/>
                                             <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="1rS-xd-ZJO"/>
+                                                <constraint firstAttribute="height" constant="32" id="1rS-xd-ZJO"/>
                                             </constraints>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="8"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
@@ -350,14 +350,14 @@ Cgo
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-jm-zHa">
-                                            <rect key="frame" x="0.0" y="46" width="158" height="1"/>
+                                            <rect key="frame" x="0.0" y="46" width="130.5" height="1"/>
                                             <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="mtY-VK-KzN"/>
                                             </constraints>
                                         </view>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCd-yf-Ilu" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                            <rect key="frame" x="187.66666666666663" y="6.3333333333333712" width="157.33333333333337" height="35"/>
+                                            <rect key="frame" x="160" y="6.5" width="130" height="35"/>
                                             <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="jf2-ER-15x"/>
@@ -372,12 +372,15 @@ Cgo
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgz-yY-wc9">
-                                            <rect key="frame" x="187.66666666666663" y="46" width="157.33333333333337" height="1"/>
+                                            <rect key="frame" x="160" y="46" width="130" height="1"/>
                                             <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="4SR-Hz-vhA"/>
                                             </constraints>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow - small - down - Black" translatesAutoresizingMaskIntoConstraints="NO" id="srC-Kx-H6O">
+                                            <rect key="frame" x="119.5" y="21.5" width="6" height="4"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -388,26 +391,28 @@ Cgo
                                         <constraint firstAttribute="height" constant="47" id="GBZ-zx-B37"/>
                                         <constraint firstItem="iCd-yf-Ilu" firstAttribute="leading" secondItem="6hZ-6B-BgF" secondAttribute="trailing" constant="30" id="Is8-lh-Ngm"/>
                                         <constraint firstAttribute="trailing" secondItem="iCd-yf-Ilu" secondAttribute="trailing" id="J5z-9c-7JZ"/>
-                                        <constraint firstItem="6hZ-6B-BgF" firstAttribute="centerY" secondItem="Sr0-j9-132" secondAttribute="centerY" id="RwY-Tf-l8L"/>
+                                        <constraint firstItem="6hZ-6B-BgF" firstAttribute="centerY" secondItem="Sr0-j9-132" secondAttribute="centerY" constant="-1.5" id="RwY-Tf-l8L"/>
                                         <constraint firstItem="dgz-yY-wc9" firstAttribute="leading" secondItem="iCd-yf-Ilu" secondAttribute="leading" id="T05-a1-g0V"/>
                                         <constraint firstAttribute="bottom" secondItem="XsW-jm-zHa" secondAttribute="bottom" id="YMT-Hb-mqf"/>
+                                        <constraint firstItem="srC-Kx-H6O" firstAttribute="trailing" secondItem="6hZ-6B-BgF" secondAttribute="trailing" constant="-5" id="YpO-ST-cVk"/>
                                         <constraint firstItem="dgz-yY-wc9" firstAttribute="trailing" secondItem="iCd-yf-Ilu" secondAttribute="trailing" id="aaS-7h-rlI"/>
+                                        <constraint firstItem="srC-Kx-H6O" firstAttribute="centerY" secondItem="Sr0-j9-132" secondAttribute="centerY" id="gLz-cC-mce"/>
                                         <constraint firstItem="iCd-yf-Ilu" firstAttribute="centerY" secondItem="Sr0-j9-132" secondAttribute="centerY" id="iuq-lz-RVa"/>
                                         <constraint firstItem="6hZ-6B-BgF" firstAttribute="leading" secondItem="Sr0-j9-132" secondAttribute="leading" id="zIY-0u-imP"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIE-sd-y0b">
-                                    <rect key="frame" x="0.0" y="51" width="345" height="47"/>
+                                    <rect key="frame" x="0.0" y="46" width="290" height="47"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7h-lk-PIO">
-                                            <rect key="frame" x="0.0" y="46" width="157.66666666666666" height="1"/>
+                                            <rect key="frame" x="0.0" y="46" width="130" height="1"/>
                                             <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="zRL-63-LF1"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Exp.month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCd-vI-ELF" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                            <rect key="frame" x="0.0" y="6" width="157.66666666666666" height="35"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Unit/Apt/Suite" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCd-vI-ELF" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                            <rect key="frame" x="0.0" y="6" width="130" height="35"/>
                                             <color key="tintColor" red="0.80571931600000002" green="0.19485741849999999" blue="0.25831192730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="Jmg-Xw-lTS"/>
@@ -422,8 +427,8 @@ Cgo
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Exp.Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WNw-Nc-jVW" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                            <rect key="frame" x="187.66666666666663" y="6.3333333333333712" width="157.33333333333337" height="35"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WNw-Nc-jVW" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                            <rect key="frame" x="160" y="6.5" width="130" height="35"/>
                                             <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="Clq-XU-lmx"/>
@@ -441,7 +446,7 @@ Cgo
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMy-FI-md3">
-                                            <rect key="frame" x="188" y="46" width="157" height="1"/>
+                                            <rect key="frame" x="160.5" y="46" width="129.5" height="1"/>
                                             <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="aEs-fl-fDx"/>
@@ -466,7 +471,7 @@ Cgo
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-zZ-69k">
-                                    <rect key="frame" x="0.0" y="227" width="345" height="43"/>
+                                    <rect key="frame" x="0.0" y="257" width="290" height="43"/>
                                     <color key="backgroundColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="43" id="0aB-N5-a33"/>
@@ -475,30 +480,73 @@ Cgo
                                     <state key="normal" title="Add new address">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="addAddressPressed:" destination="-1" eventType="touchUpInside" id="KOp-sm-ZCu"/>
+                                    </connections>
                                 </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTS-IJ-sUZ">
+                                    <rect key="frame" x="0.0" y="195" width="290" height="47"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-Or-jYj">
+                                            <rect key="frame" x="0.0" y="46" width="290" height="1"/>
+                                            <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="1nH-4a-3lr"/>
+                                            </constraints>
+                                        </view>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wyw-FK-ZnG" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                            <rect key="frame" x="0.0" y="6.5" width="290" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="adx-dH-yPK"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="tintColor" red="0.80571931600000002" green="0.19485741849999999" blue="0.25831192730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="Hbi-Or-jYj" firstAttribute="leading" secondItem="nTS-IJ-sUZ" secondAttribute="leading" id="35W-ph-wFf"/>
+                                        <constraint firstAttribute="height" constant="47" id="FnQ-Ox-ff3"/>
+                                        <constraint firstAttribute="trailing" secondItem="wyw-FK-ZnG" secondAttribute="trailing" id="Ghb-tn-FDu"/>
+                                        <constraint firstAttribute="trailing" secondItem="Hbi-Or-jYj" secondAttribute="trailing" id="Gz8-Aq-HZ2"/>
+                                        <constraint firstItem="wyw-FK-ZnG" firstAttribute="centerY" secondItem="nTS-IJ-sUZ" secondAttribute="centerY" id="ogf-qm-qlD"/>
+                                        <constraint firstAttribute="bottom" secondItem="Hbi-Or-jYj" secondAttribute="bottom" id="tUj-nJ-vua"/>
+                                        <constraint firstItem="wyw-FK-ZnG" firstAttribute="leading" secondItem="nTS-IJ-sUZ" secondAttribute="leading" id="u5J-IF-hzP"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="vGb-Bj-1Zq" firstAttribute="leading" secondItem="L6o-Je-g4e" secondAttribute="leading" id="1nE-rp-Pfz"/>
-                                <constraint firstAttribute="height" constant="270" id="7jD-ed-yuw"/>
-                                <constraint firstItem="Hcu-zZ-69k" firstAttribute="top" secondItem="vGb-Bj-1Zq" secondAttribute="bottom" constant="35" id="7ze-JA-51u"/>
+                                <constraint firstAttribute="height" constant="300" id="7jD-ed-yuw"/>
                                 <constraint firstItem="Sr0-j9-132" firstAttribute="top" secondItem="HIE-sd-y0b" secondAttribute="bottom" id="CKv-gp-ffi"/>
                                 <constraint firstItem="Hcu-zZ-69k" firstAttribute="leading" secondItem="L6o-Je-g4e" secondAttribute="leading" id="HBs-8X-25M"/>
+                                <constraint firstAttribute="trailing" secondItem="nTS-IJ-sUZ" secondAttribute="trailing" id="IDq-ND-goD"/>
                                 <constraint firstAttribute="trailing" secondItem="Hcu-zZ-69k" secondAttribute="trailing" id="J8o-eL-a3W"/>
                                 <constraint firstItem="Sr0-j9-132" firstAttribute="leading" secondItem="L6o-Je-g4e" secondAttribute="leading" id="Ky2-hB-Wbb"/>
                                 <constraint firstItem="vGb-Bj-1Zq" firstAttribute="top" secondItem="Sr0-j9-132" secondAttribute="bottom" id="OYp-Hq-DIC"/>
+                                <constraint firstItem="nTS-IJ-sUZ" firstAttribute="leading" secondItem="L6o-Je-g4e" secondAttribute="leading" id="OnW-29-FjT"/>
                                 <constraint firstItem="HIE-sd-y0b" firstAttribute="top" secondItem="6Io-do-mMF" secondAttribute="bottom" id="TtS-le-9vc"/>
                                 <constraint firstAttribute="trailing" secondItem="Sr0-j9-132" secondAttribute="trailing" id="XyW-wf-eiR"/>
                                 <constraint firstAttribute="bottom" secondItem="Hcu-zZ-69k" secondAttribute="bottom" id="aF8-sk-R2f"/>
                                 <constraint firstItem="6Io-do-mMF" firstAttribute="leading" secondItem="L6o-Je-g4e" secondAttribute="leading" id="aJW-m0-stu"/>
                                 <constraint firstAttribute="trailing" secondItem="HIE-sd-y0b" secondAttribute="trailing" id="b55-HR-dnf"/>
                                 <constraint firstAttribute="trailing" secondItem="vGb-Bj-1Zq" secondAttribute="trailing" id="iBQ-oo-VUX"/>
+                                <constraint firstItem="nTS-IJ-sUZ" firstAttribute="top" secondItem="vGb-Bj-1Zq" secondAttribute="bottom" constant="8" id="id8-IM-1Lg"/>
                                 <constraint firstAttribute="trailing" secondItem="6Io-do-mMF" secondAttribute="trailing" id="oUq-hg-MwJ"/>
                                 <constraint firstItem="HIE-sd-y0b" firstAttribute="leading" secondItem="L6o-Je-g4e" secondAttribute="leading" id="sle-XA-xaw"/>
+                                <constraint firstItem="Hcu-zZ-69k" firstAttribute="top" secondItem="nTS-IJ-sUZ" secondAttribute="bottom" constant="15" id="xEY-mF-87W"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNJ-2D-R3i">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8l-Ra-0bk">
                                     <rect key="frame" x="10" y="16" width="22" height="22"/>
@@ -555,15 +603,22 @@ Cgo
                 <constraint firstItem="bbX-Cq-Ayd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pg2-bf-E5N"/>
                 <constraint firstAttribute="trailing" secondItem="bbX-Cq-Ayd" secondAttribute="trailing" id="VOH-aw-QQS"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="addressNickNameField" destination="wyw-FK-ZnG" id="IA7-mN-JAX"/>
                 <outlet property="arrowImageView" destination="CEt-xm-ZMp" id="F8A-uV-7CC"/>
+                <outlet property="cityField" destination="WNw-Nc-jVW" id="VYz-mK-Rn8"/>
                 <outlet property="newAddressButton" destination="N2X-QV-VLh" id="IT5-MT-oHZ"/>
                 <outlet property="newAddressView" destination="L6o-Je-g4e" id="HZ3-bA-l5t"/>
+                <outlet property="phoneNumberField" destination="Knq-ga-xlV" id="dSe-pB-dGC"/>
                 <outlet property="showNewAddressViewHeight" destination="7jD-ed-yuw" id="hUl-4H-HEE"/>
                 <outlet property="showTableViewHeight" destination="oev-EZ-lXQ" id="Vhq-vg-U9S"/>
+                <outlet property="stateField" destination="6hZ-6B-BgF" id="9pF-ik-3Ue"/>
+                <outlet property="stateTextFields" destination="6hZ-6B-BgF" id="awn-eD-W6a"/>
                 <outlet property="storeAddressButton" destination="oTQ-Ny-hJP" id="wm0-8d-7dw"/>
                 <outlet property="storeAddressView" destination="aQY-Tz-vjj" id="pca-rh-ZDN"/>
+                <outlet property="streetAddressField" destination="QEL-jC-Bq2" id="3nK-Gn-ieG"/>
+                <outlet property="unit_numberField" destination="zCd-vI-ELF" id="lpn-4Y-EvN"/>
+                <outlet property="zipCodeField" destination="iCd-yf-Ilu" id="pU1-zx-v6U"/>
                 <outletCollection property="cardNumberTextField" destination="QEL-jC-Bq2" collectionClass="NSMutableArray" id="xJe-fN-oIz"/>
             </connections>
             <point key="canvasLocation" x="142.5" y="-99"/>
@@ -572,6 +627,7 @@ Cgo
     <resources>
         <image name="Arrow - Big - down - Black" width="12" height="7"/>
         <image name="Arrow - Big - left - Black" width="7" height="12"/>
+        <image name="Arrow - small - down - Black" width="6" height="4"/>
         <image name="Budget Copy" width="13" height="10"/>
         <image name="Deliver to Icon" width="16" height="23"/>
     </resources>

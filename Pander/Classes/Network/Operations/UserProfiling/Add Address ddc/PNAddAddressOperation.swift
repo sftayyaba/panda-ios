@@ -9,17 +9,32 @@
 import Foundation
 import SwiftyJSON
 
-class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
+class PNAddAddressOperation: OnebyteNetworkOperationBase {
     
     
     //MARK: Instance Variables
-    var location: String
-    var zip: String?
-    
-    
-    init(Location location: String, Zip zip: String?) {
-        self.location = location
-        self.zip = zip
+
+    public var street: String
+    public var city: String
+    public var state: String
+    public var phone: String
+    public var zipCode: String
+    public var unit_number: String
+
+    init(
+        Street street: String,
+        Zip zip: String,
+        City city: String,
+        State state: String,
+        Phone phone: String,
+        UnitNumber unit_number: String
+        ) {
+        self.street = street
+        self.zipCode = zip
+        self.city = city
+        self.phone = phone
+        self.state = state
+        self.unit_number = unit_number
     }
     
     //MARK: Overridden Methods
@@ -33,18 +48,9 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
         
         let json = JSON(response)
         
-        if let code = json["code"].int{
-            
-            if code >= PNApiResponseCodes.successResponse.rawValue{
-                let codeResponseObject: PNRecommendationsModel = PNRecommendationsModel(json: JSON(response))
-                
-                self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
-            }else if code <= PNApiResponseCodes.errorResponse.rawValue{
-                let errorResponse: ErrorBaseClass = ErrorBaseClass(json: JSON(response))
-                
-                self.safeCallDidFinishSuccessfullyCallback(responseObject: errorResponse)
-            }
-        }
+        let codeResponseObject: PNDDCLocationResponseBaseClass = PNDDCLocationResponseBaseClass(json: JSON(response))
+        
+        self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
         
         self.handleDidFinishedCommon()
     }
@@ -56,9 +62,9 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
        
-        let urlWithId:String = AppNetworkEndPoints.kGetRecommendations
+        let urlWithId:String = AppNetworkEndPoints.kAddAddress
         
-        OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
+        OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkDDCRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
              
             if ((response.response?.statusCode) == 200){
                 switch response.result {
@@ -76,11 +82,13 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     }
     
     private func createBody() -> Dictionary<String, Any>{
-        if let zip = self.zip{
-            return [ "locations" : "{\"US\": [{\"zip\":\"\(zip)\"}]}"
-            ]
-        }
-        return [ "locations" : "{\"US\": \"\"}"
-            ]
+        
+        return [ "street"    : self.street,
+                 "unit_number"     : self.unit_number,
+                 "city"      : self.city,
+                 "state"     : self.state,
+                 "phone"     : self.phone,
+                 "zip_code"  : self.zipCode,
+        ]
     }
 }

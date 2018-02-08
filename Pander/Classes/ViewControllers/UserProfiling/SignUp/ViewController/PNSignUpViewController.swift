@@ -202,12 +202,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-//
-        let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
-
-        self.navigationController?.pushViewController(viewController, animated: true)
-//
-//        AppDelegate.sharedInstance()?.moveToLogin()
+        AppDelegate.sharedInstance()?.moveToLogin()
     }
 
 }

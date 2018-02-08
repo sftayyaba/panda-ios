@@ -23,6 +23,7 @@ public class ErrorBaseClass: NSObject, Error {
 
     // MARK: Properties
 	public var code: Int?
+    public var ddcCode: String?
 	public var devMsg: String?
 	public var userMsg: String?
 
@@ -44,8 +45,19 @@ public class ErrorBaseClass: NSObject, Error {
     */
     public init(json: JSON) {
 		code = json[kErrorBaseClassCodeKey].int
-		devMsg = json[kErrorBaseClassErrorKey][kErrorBaseClassDevMsgKey].string
-		userMsg = json[kErrorBaseClassErrorKey][kErrorBaseClassUserMsgKey].string
+        ddcCode = json[kErrorBaseClassCodeKey].string
+        
+        if let dev_msg = json[kErrorBaseClassErrorKey][kErrorBaseClassDevMsgKey].string{
+            devMsg = dev_msg
+        }else if let dev_msg = json[kErrorBaseClassDevMsgKey].string{
+            devMsg = dev_msg
+        }
+        
+        if let user_msg = json[kErrorBaseClassErrorKey][kErrorBaseClassUserMsgKey].string{
+            userMsg = user_msg
+        }else if let user_msg = json[kErrorBaseClassUserMsgKey].string{
+            userMsg = user_msg
+        }
         
         localizedDescription = userMsg!
     }

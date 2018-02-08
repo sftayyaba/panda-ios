@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import SDWebImage
+import SwiftyJSON
 
 class PNHomeMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+    var cuisines: [JSON] = []
+    var dishes: [JSON] = []
+    
+    var type: PNHomeItemType = PNHomeItemType.cuisine
+    
     @IBOutlet weak var collectionView: PNHomeCollectionSeeLessViewDelegateDatasource!
 
     override func awakeFromNib() {
@@ -32,13 +39,36 @@ class PNHomeMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 6
+        return self.type == .cuisine ? self.cuisines.count : self.dishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell:PNHomeSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "PNHomeSeeLessCollectionViewCell", for: indexPath) as! PNHomeSeeLessCollectionViewCell
+        
+        if self.type == .cuisine{
+            
+            let cuisine = self.cuisines[indexPath.row]
+            
+            let imgUrlStr = cuisine["image_url"].string!
+            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineInline")
+            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+            });
+            
+            cell.itemDetailLabel.text = cuisine["cuisine"].string!
+        }else{
+            
+            let cuisine = self.dishes[indexPath.row]
+            
+            let imgUrlStr = cuisine["image_url"].string!
+            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemInline")
+            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+            });
+            
+            cell.itemDetailLabel.text = cuisine["dish"].string!
+            
+        }
         
         return cell
     }

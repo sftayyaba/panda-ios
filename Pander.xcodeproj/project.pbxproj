@@ -14,6 +14,10 @@
 		DA40397B201383B30066D843 /* PNAllDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40397A201383B30066D843 /* PNAllDishes.swift */; };
 		DA40397D20138B5A0066D843 /* PNGetAllCuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40397C20138B5A0066D843 /* PNGetAllCuisines.swift */; };
 		DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40397E20138CE40066D843 /* PNGetAllDishes.swift */; };
+		DA49D4C9202C332C00F15521 /* PNAddAddressOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4C8202C332C00F15521 /* PNAddAddressOperation.swift */; };
+		DA49D4CD202C556400F15521 /* PNDDCLocationResponseBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4CB202C556300F15521 /* PNDDCLocationResponseBaseClass.swift */; };
+		DA49D4CE202C556400F15521 /* PNDDCLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4CC202C556300F15521 /* PNDDCLocation.swift */; };
+		DA49D4D0202C5DC100F15521 /* PNUserManager+AddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4CF202C5DC100F15521 /* PNUserManager+AddLocation.swift */; };
 		DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */; };
 		DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */; };
 		DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */; };
@@ -110,6 +114,8 @@
 		EB738E762028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB738E702028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.swift */; };
 		EB738E772028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB738E712028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.xib */; };
 		EB738E7F2028F48800A2DC16 /* PNPlaceOrderAddItemMainDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB738E7E2028F48800A2DC16 /* PNPlaceOrderAddItemMainDelegateDatasource.swift */; };
+		EB7AD55A202B8E020082EF96 /* PNUpdateTastePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7AD559202B8E020082EF96 /* PNUpdateTastePreferences.swift */; };
+		EB7AD55C202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7AD55B202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift */; };
 		EB8F01851FCAD714000D790F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F01821FCAD714000D790F /* AppDelegate.swift */; };
 		EB8F01861FCAD715000D790F /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F01841FCAD714000D790F /* AppNavigation.swift */; };
 		EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F01871FCAD844000D790F /* PNLoginViewController.swift */; };
@@ -274,6 +280,10 @@
 		DA40397A201383B30066D843 /* PNAllDishes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAllDishes.swift; sourceTree = "<group>"; };
 		DA40397C20138B5A0066D843 /* PNGetAllCuisines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetAllCuisines.swift; sourceTree = "<group>"; };
 		DA40397E20138CE40066D843 /* PNGetAllDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetAllDishes.swift; sourceTree = "<group>"; };
+		DA49D4C8202C332C00F15521 /* PNAddAddressOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAddAddressOperation.swift; sourceTree = "<group>"; };
+		DA49D4CB202C556300F15521 /* PNDDCLocationResponseBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNDDCLocationResponseBaseClass.swift; sourceTree = "<group>"; };
+		DA49D4CC202C556300F15521 /* PNDDCLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNDDCLocation.swift; sourceTree = "<group>"; };
+		DA49D4CF202C5DC100F15521 /* PNUserManager+AddLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+AddLocation.swift"; sourceTree = "<group>"; };
 		DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetRecommendations.swift"; sourceTree = "<group>"; };
 		DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+SignIn.swift"; sourceTree = "<group>"; };
 		DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSignUpOperation.swift; sourceTree = "<group>"; };
@@ -370,6 +380,8 @@
 		EB738E702028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPlaceOrderAddItemRootViewController.swift; sourceTree = "<group>"; };
 		EB738E712028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNPlaceOrderAddItemRootViewController.xib; sourceTree = "<group>"; };
 		EB738E7E2028F48800A2DC16 /* PNPlaceOrderAddItemMainDelegateDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPlaceOrderAddItemMainDelegateDatasource.swift; sourceTree = "<group>"; };
+		EB7AD559202B8E020082EF96 /* PNUpdateTastePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNUpdateTastePreferences.swift; sourceTree = "<group>"; };
+		EB7AD55B202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNUserManager+UpdateTastePreferences.swift"; sourceTree = "<group>"; };
 		EB8F01821FCAD714000D790F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB8F01841FCAD714000D790F /* AppNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		EB8F01871FCAD844000D790F /* PNLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNLoginViewController.swift; sourceTree = "<group>"; };
@@ -559,9 +571,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DA49D4C5202C32C400F15521 /* Add Address ddc */ = {
+			isa = PBXGroup;
+			children = (
+				DA49D4C8202C332C00F15521 /* PNAddAddressOperation.swift */,
+			);
+			path = "Add Address ddc";
+			sourceTree = "<group>";
+		};
+		DA49D4CA202C539600F15521 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				DA49D4CB202C556300F15521 /* PNDDCLocationResponseBaseClass.swift */,
+				DA49D4CC202C556300F15521 /* PNDDCLocation.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		DA49D4D1202C5F3A00F15521 /* AddNick */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddNick;
+			sourceTree = "<group>";
+		};
 		DA4CF44C20129942006BA61B /* AllDishes and Cuisines */ = {
 			isa = PBXGroup;
 			children = (
+				DA40397A201383B30066D843 /* PNAllDishes.swift */,
+				DA403978201383490066D843 /* PNAllCuisines.swift */,
 			);
 			path = "AllDishes and Cuisines";
 			sourceTree = "<group>";
@@ -577,8 +615,6 @@
 		DA6A9AA52008F70A00BE591F /* Recommendations */ = {
 			isa = PBXGroup;
 			children = (
-				DA40397A201383B30066D843 /* PNAllDishes.swift */,
-				DA403978201383490066D843 /* PNAllCuisines.swift */,
 				DA6A9AA62008F71A00BE591F /* PNCuisine.swift */,
 				DA6A9AA82008F71A00BE591F /* PNCuisinesByZip.swift */,
 				DA6A9AAA2008F71B00BE591F /* PNDeliveryRecs.swift */,
@@ -1331,6 +1367,14 @@
 			path = DelegateDatasource;
 			sourceTree = "<group>";
 		};
+		EB7AD558202B8E020082EF96 /* UpdateTastePreferences */ = {
+			isa = PBXGroup;
+			children = (
+				EB7AD559202B8E020082EF96 /* PNUpdateTastePreferences.swift */,
+			);
+			path = UpdateTastePreferences;
+			sourceTree = "<group>";
+		};
 		EB8F017D1FCAD680000D790F /* UserProfiling */ = {
 			isa = PBXGroup;
 			children = (
@@ -1395,6 +1439,7 @@
 		EB8F018F1FCAD8F6000D790F /* UserManager */ = {
 			isa = PBXGroup;
 			children = (
+				EB7AD55B202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift */,
 				EB8F01901FCAD8F6000D790F /* PNUserManager.swift */,
 				DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */,
 				DA6A9AA32008B11900BE591F /* PNUserManager+SignUp.swift */,
@@ -1402,6 +1447,7 @@
 				DABB1DBD20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift */,
 				DAFBBA2C2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift */,
 				EBCC566F200DE36B009D865E /* PNUserManager+ForgotPassword.swift */,
+				DA49D4CF202C5DC100F15521 /* PNUserManager+AddLocation.swift */,
 			);
 			path = UserManager;
 			sourceTree = "<group>";
@@ -1417,6 +1463,8 @@
 		EB8F01961FCADAD2000D790F /* UserProfiling */ = {
 			isa = PBXGroup;
 			children = (
+				DA49D4D1202C5F3A00F15521 /* AddNick */,
+				DA49D4C5202C32C400F15521 /* Add Address ddc */,
 				EBCC5671200DE40D009D865E /* ForgotPassword */,
 				DA6A9AA02008A11E00BE591F /* SignUp */,
 				DABB1DBA20081989003CD371 /* CheckAddressIsSupported */,
@@ -2389,6 +2437,8 @@
 		EBFB70E01FCB150E00DB4C58 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				DA49D4CA202C539600F15521 /* Location */,
+				EB7AD558202B8E020082EF96 /* UpdateTastePreferences */,
 				DA4CF44C20129942006BA61B /* AllDishes and Cuisines */,
 				DA6A9AA52008F70A00BE591F /* Recommendations */,
 				EBFB70F51FCB1BB100DB4C58 /* Success */,
@@ -2948,6 +2998,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE7346D200E96F9001BB651 /* PNHomeView.swift in Sources */,
+				DA49D4CD202C556400F15521 /* PNDDCLocationResponseBaseClass.swift in Sources */,
 				EBD4CD1120129AA400BAD5E3 /* JiroTextField.swift in Sources */,
 				EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */,
 				EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */,
@@ -2964,6 +3015,7 @@
 				EBFB70FA1FCB1CE800DB4C58 /* PNCodeResponse.swift in Sources */,
 				DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */,
 				EBFB71181FCCAA9A00DB4C58 /* PropertyStoring.swift in Sources */,
+				DA49D4C9202C332C00F15521 /* PNAddAddressOperation.swift in Sources */,
 				EB8F01851FCAD714000D790F /* AppDelegate.swift in Sources */,
 				DA6A9AAE2008F71B00BE591F /* PNRecommendationsModel.swift in Sources */,
 				EBAA67D52028BBDD00DF20D7 /* PNPlaceOrderCurrentLocationTableViewCell.swift in Sources */,
@@ -3017,6 +3069,7 @@
 				EBCC5670200DE36B009D865E /* PNUserManager+ForgotPassword.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
 				EB63DD72201A7FF800737550 /* PNDeliveryDateTableViewDelegateDatasource.swift in Sources */,
+				EB7AD55C202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift in Sources */,
 				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
 				DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */,
 				EB738E7F2028F48800A2DC16 /* PNPlaceOrderAddItemMainDelegateDatasource.swift in Sources */,
@@ -3064,6 +3117,7 @@
 				EBAA67CA2028798000DF20D7 /* PNPlaceOrderLocationHeaderViewTableViewCell.swift in Sources */,
 				EB478BE1201353EA0017E718 /* PNTravisFieldTableViewCell.swift in Sources */,
 				EB9F8EBA20261D5D0044255F /* PHCommonHeaderCollectionView.swift in Sources */,
+				DA49D4D0202C5DC100F15521 /* PNUserManager+AddLocation.swift in Sources */,
 				EB9F8EBC20261D5D0044255F /* PNHomeFeaturedItemsCollectionReusableView.swift in Sources */,
 				EBED0A481FCE92BF00F9F5B8 /* PNUpdateTokenOperation.swift in Sources */,
 				EB9F8ECB202627070044255F /* PNHomeMainSeeLessCollectionViewCell.swift in Sources */,
@@ -3089,6 +3143,7 @@
 				EBD4CD202013388A00BAD5E3 /* PNLocationTableViewDelegateDatasource.swift in Sources */,
 				EB8F01921FCAD8F6000D790F /* PNUserManager.swift in Sources */,
 				EBC74F3B1FCAC41D00641B48 /* NetworkConstants.swift in Sources */,
+				DA49D4CE202C556400F15521 /* PNDDCLocation.swift in Sources */,
 				EBD4CD1020129AA400BAD5E3 /* IsaoTextField.swift in Sources */,
 				DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */,
 				EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */,
@@ -3106,6 +3161,7 @@
 				EBED0A3A1FCE8CB500F9F5B8 /* PNReConfirmPasswordOperation.swift in Sources */,
 				EB9F8EB820261D5D0044255F /* FindRestuarantCollectionViewCell.swift in Sources */,
 				EBE73449200E75AD001BB651 /* PNPartySizeViewController.swift in Sources */,
+				EB7AD55A202B8E020082EF96 /* PNUpdateTastePreferences.swift in Sources */,
 				EBFB70F41FCB1B5000DB4C58 /* PNCreateGuestAccount.swift in Sources */,
 				EBE05BF82006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.swift in Sources */,
 				EBD4CD1520129AA400BAD5E3 /* TextFieldEffects.swift in Sources */,

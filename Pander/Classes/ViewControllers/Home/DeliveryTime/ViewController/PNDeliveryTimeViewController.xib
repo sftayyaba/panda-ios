@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -187,7 +187,7 @@ Cg
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeM-ru-5SS">
-                            <rect key="frame" x="15" y="502.33333333333337" width="345" height="40.000000000000114"/>
+                            <rect key="frame" x="15" y="502.33333333333326" width="345" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-fz-RS7">
                                     <rect key="frame" x="0.0" y="10.000000000000057" width="79" height="20"/>
@@ -236,7 +236,7 @@ Cg
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-QV-VLh">
-                                    <rect key="frame" x="0.0" y="0.0" width="345" height="40.000000000000057"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="selectTimeButtonTapped" destination="i5M-Pr-FkT" eventType="touchUpInside" id="awH-Mv-LKF"/>
@@ -299,7 +299,7 @@ Cg
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your delivery date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1k-5k-d1n">
-                            <rect key="frame" x="15" y="62.999999999999993" width="160.33333333333334" height="19.333333333333321"/>
+                            <rect key="frame" x="15" y="63.000000000000007" width="160.33333333333334" height="19.333333333333336"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

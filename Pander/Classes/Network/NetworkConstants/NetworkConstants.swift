@@ -14,7 +14,8 @@ struct AppNetworkConstants {
     static let kBaseURLProductionString =   "https://www.pandereats.com/api/v2"
     static let kBaseURLTestingString =  "https://desolate-everglades-24260.herokuapp.com/api/v2"
    
-    }
+    static let kBaseDDCURLString =  "https://api.delivery.com"
+}
 
 struct AppNetworkEndPoints {
     static let kUserLogin                           = "/login/"
@@ -38,6 +39,9 @@ struct AppNetworkEndPoints {
     static let kDeletePushNotificationToken         = "/user/apn/"
     static let kGetAllCuisines                      = "/all_cuisines/"
     static let kGetAllDishes                        = "/all_dishes/"
+    
+    static let kAddAddress                        = "/customer/location/"
+    
 
 }
 

@@ -15,7 +15,7 @@ extension PNUserManager {
         if let cachedRecommendations = self.recommendations{
             successBlock(cachedRecommendations)
         }else{
-            let getRecommendationsOperation = PNGetRecommendationsOperation(Location: "US" , Zip: self.selectedZip!)
+            let getRecommendationsOperation = PNGetRecommendationsOperation(Location: "US" , Zip: self.selectedZip)
             
             weak var weakSelf = self
             

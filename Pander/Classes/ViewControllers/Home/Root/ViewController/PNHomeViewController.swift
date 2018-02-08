@@ -28,6 +28,38 @@ class PNHomeViewController: PNBaseViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func doInitialDataLoad() {
+        PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recs) in
+            let cuisines = PNUserManager.sharedInstance.selectedZip != nil ?
+                recs.deliveryRecs!.cuisinesByZip![PNUserManager.sharedInstance.selectedZip!].array! :
+                recs.deliveryRecs!.cuisinesByZip!["00000"].array!
+            
+            let dishes = PNUserManager.sharedInstance.selectedZip != nil ?
+                recs.deliveryRecs!.dishesByZip![PNUserManager.sharedInstance.selectedZip!].array! :
+                recs.deliveryRecs!.dishesByZip!["00000"].array!
+            
+            self.homeView.collectionView.dishes = dishes
+            self.homeView.collectionView.cuisines = cuisines
+            
+            self.homeView.collectionView.reloadData()
+            
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                if (localError.devMsg! == "Invalid Authorization"){
+                    
+                    PNUserManager.sharedInstance.logoutUser()
+                    AppDelegate.sharedInstance()?.moveToSingUp()
+
+                }else{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }
+                
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        }
+    }
+    
     override func configureCallBacks() {
         self.homeView.collectionView.didDeliveryButtonCallback = {
             self.deliverASAPButtonPressed(self.homeView)

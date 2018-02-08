@@ -21,6 +21,7 @@ final class PNUserManager: PNBaseManager {
                 PINCache.shared().setObject(self.isLoggedIn as NSCoding, forKey: keyPath)
         }
     }
+    
     var token:String?{
         didSet {
             if let token = self.token{
@@ -101,7 +102,6 @@ final class PNUserManager: PNBaseManager {
         }
     }
 
-    
     //step 3
     var selectedDishes :[String]?{
         didSet {
@@ -122,6 +122,8 @@ final class PNUserManager: PNBaseManager {
     var isVegan : Bool = false
     var isGlutenFree : Bool = false
     var isNoPeanut : Bool = false
+    var isNoNuts : Bool = false
+    var adventure : Int = 1
 
     
     static let sharedInstance: PNUserManager = {

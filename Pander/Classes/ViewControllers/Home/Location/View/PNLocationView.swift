@@ -7,22 +7,26 @@
 
 import UIKit
 import TextFieldEffects
+import AAPickerView
 
 class PNLocationView: UIView {
     
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var nextButton: UIButton!
+    @IBOutlet weak var streetAddressField: HoshiTextField!
+    @IBOutlet weak var phoneNumberField: HoshiTextField!
+    @IBOutlet weak var stateField: AAPickerView!
+    @IBOutlet weak var zipCodeField: HoshiTextField!
+    @IBOutlet weak var unit_numberField: HoshiTextField!
+    @IBOutlet weak var cityField: HoshiTextField!
+    @IBOutlet weak var addressNickNameField: HoshiTextField!
+    
+    
+    
+    @IBOutlet weak var stateTextFields: AAPickerView!
 
     @IBOutlet private var cardNumberTextField: [TextFieldEffects]!
 
     @IBOutlet var arrowImageView: UIImageView!
 
-    @IBOutlet var numberOfPeople: UILabel!
-    @IBOutlet var deliveryOldLocationLabel: UILabel!
-
-    @IBOutlet var arrowUpImageView: UIView!
-    @IBOutlet var arrowUpButton: UIButton!
 
     @IBOutlet var storeAddressView: UIView!
 
@@ -37,6 +41,23 @@ class PNLocationView: UIView {
 
     override func awakeFromNib() {
         self.configureTextFields()
+        self.configureStateTextFields()
+    }
+    
+    func configureStateTextFields() {
+        stateTextFields.pickerType = .StringPicker
+        
+        let stringData = ApplicationLocalArrays.kStates
+        stateTextFields.stringPickerData = stringData
+        stateTextFields.pickerRow.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        
+        stateTextFields.toolbar.barTintColor = .darkGray
+        stateTextFields.toolbar.tintColor = .black
+        
+        stateTextFields.stringDidChange = { index in
+            
+            self.stateTextFields.text = stringData[index]
+        }
     }
     
     private func configureTextFields(){

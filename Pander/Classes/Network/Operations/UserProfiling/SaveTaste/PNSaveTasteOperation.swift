@@ -11,24 +11,27 @@ import SwiftyJSON
 
 class PNSaveTasteOperation: OnebyteNetworkOperationBase {
     
-    
     //MARK: Instance Variables
-    var firstName: String?
-    var lastName: String?
-    var email: String?
-    var password: String?
+    var adventure:Int?
+    var fav_cuisines:String?
+    var vegan:Bool?
+    var vegetarian:Bool?
+    var peanuts:Bool?
+    var nuts:Bool?
+    var zip:String?
+    var gcm_id:String?
     
     //MARK: Overridden Methods
     override func start() {
         super.start()
         
-        self.startLoginOperation()
+        self.startUpdateTastePreferencesOperation()
     }
     
     override func handleDidFinishedWithResponse(response: AnyObject!) {
-        let loginBaseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
+        let updateTaste: PNUpdateTastePreferences = PNUpdateTastePreferences(json: JSON(response))
         
-        self.safeCallDidFinishSuccessfullyCallback(responseObject: loginBaseObject)
+        self.safeCallDidFinishSuccessfullyCallback(responseObject: updateTaste)
         self.handleDidFinishedCommon()
     }
     
@@ -37,10 +40,10 @@ class PNSaveTasteOperation: OnebyteNetworkOperationBase {
     }
     
     //MARK: Request
-    private func startLoginOperation() {
+    private func startUpdateTastePreferencesOperation() {
        
-        let urlWithId:String = AppNetworkEndPoints.kUserSignUp
-        OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
+        let urlWithId:String = AppNetworkEndPoints.kUpdateTastePreferences
+        OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
                 switch response.result {
@@ -57,12 +60,16 @@ class PNSaveTasteOperation: OnebyteNetworkOperationBase {
         }
     }
     
-    private func createBody() -> Dictionary<String, String>{
-        return ["email":     self.email!,
-                "password":     self.password!,
-                "first_name":     self.firstName!,
-                "last_name":     self.lastName!
-
+    private func createBody() -> Dictionary<String, Any>{
+        return [
+            "adventure": self.adventure!,
+            "fav_cuisines": self.fav_cuisines!,
+            "vegan": self.vegan!,
+            "vegetarian": self.vegetarian!,
+            "peanuts": self.peanuts!,
+            "nuts": self.nuts!,
+            "zip": self.zip!,
+            "gcm_id":self.gcm_id!
         ]
     }
 }

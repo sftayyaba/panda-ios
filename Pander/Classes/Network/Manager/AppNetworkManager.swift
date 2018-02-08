@@ -49,4 +49,20 @@ class AppNetworkManager {
         
         return OnebyteNetworkRequest.InitiateRequest()
     }
+    
+    static func closeNetworkDDCRequest (methodType: Alamofire.HTTPMethod!, path: String?, parameters: [String : Any]?) -> URLRequestConvertible {
+        OnebyteNetworkRequest.baseURLString = AppNetworkConstants.kBaseDDCURLString
+        OnebyteNetworkRequest.path = path
+        OnebyteNetworkRequest.method = methodType
+        OnebyteNetworkRequest.parameters = parameters
+        
+        //Add header dictionary e.g
+        
+        if let token = PNUserManager.sharedInstance.user?.ddcAccessToken, let email = PNUserManager.sharedInstance.email{
+            OnebyteNetworkRequest.headers = ["Authorization": "\(token)", "Content-Type": "application/json"]
+        }
+        
+        return OnebyteNetworkRequest.InitiateRequest()
+    }
+
 }

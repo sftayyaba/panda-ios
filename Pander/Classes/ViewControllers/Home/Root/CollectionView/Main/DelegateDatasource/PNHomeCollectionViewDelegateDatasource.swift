@@ -6,7 +6,12 @@
 //
 
 import UIKit
+import SwiftyJSON
 
+enum PNHomeItemType{
+    case cuisine
+    case dish
+}
 class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     //MARK: Callbacks
@@ -18,6 +23,9 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
     public var didFindRestaurentButtonCallback : (() -> Void)?
 
     //MARK: Properties
+    var cuisines: [JSON] = []
+    var dishes: [JSON] = []
+    
     var isSearchRestuarantHidden = true
     var isfeatureItemShowMore = false
     var isCuisineShowMore = false
@@ -33,11 +41,11 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
         }else if section == 1 && !isfeatureItemShowMore {
             return 1
         }else if section == 1 && isfeatureItemShowMore {
-            return 6
+            return self.dishes.count
         }else if section == 2 && !isCuisineShowMore {
             return 1
         }else if section == 2 && isCuisineShowMore {
-            return 6
+            return self.cuisines.count
         }else {
             return 0
         }
@@ -121,20 +129,56 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
             let cell:PNHomeMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNHomeMainSeeLessCollectionViewCell", for: indexPath) as! PNHomeMainSeeLessCollectionViewCell
             
+            cell.type = .dish
+            
+            cell.cuisines = self.cuisines
+            cell.dishes = self.dishes
+            
+            cell.collectionView.reloadData()
+            
             return cell
         }else if indexPath.section == 1 && isfeatureItemShowMore {
             let cell:PNHomeMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNHomeMainSeeMoreCollectionViewCell", for: indexPath) as! PNHomeMainSeeMoreCollectionViewCell
             
+            let cuisine = self.dishes[indexPath.row]
+            
+            let imgUrlStr = cuisine["image_url"].string!
+            
+            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemExpanded")
+            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+            });
+            
+            cell.itemLabel.text = cuisine["dish"].string!
+            
             return cell
         }else if indexPath.section == 2 && !isCuisineShowMore {
             let cell:PNHomeMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNHomeMainSeeLessCollectionViewCell", for: indexPath) as! PNHomeMainSeeLessCollectionViewCell
+
+            cell.type = .cuisine
+            
+            cell.cuisines = self.cuisines
+            cell.dishes = self.dishes
+            
+            cell.collectionView.reloadData()
             
             return cell
         }else if indexPath.section == 2 && isCuisineShowMore {
             let cell:PNHomeMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNHomeMainSeeMoreCollectionViewCell", for: indexPath) as! PNHomeMainSeeMoreCollectionViewCell
+            
+            let cuisine = self.cuisines[indexPath.row]
+            
+            let imgUrlStr = cuisine["image_url"].string!
+            
+            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineExpanded")
+            
+            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+            
+            });
+            
+            cell.itemLabel.text = cuisine["cuisine"].string!
             
             return cell
         }else {
