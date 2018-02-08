@@ -149,9 +149,11 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
         }
         }
         PNUserManager.sharedInstance.registerForUpdates(Zip: PNUserManager.sharedInstance.selectedUnsupportedZip!, Email: self.emailField.text!, CountryCode: "US", SuccessBlock: { (codeRes) in
+            self.titleLabel.isHidden = true
             self.emailLocationView.isHidden = true
             self.guestLetsGetStartedWithLocationView.confirmationLabel.isHidden = false
         }) { (err) in
+            self.titleLabel.isHidden = true
             self.emailLocationView.isHidden = true
             self.guestLetsGetStartedWithLocationView.confirmationLabel.isHidden = false
         }
