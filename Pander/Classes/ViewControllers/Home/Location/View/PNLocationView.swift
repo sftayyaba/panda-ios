@@ -11,6 +11,7 @@ import AAPickerView
 
 class PNLocationView: UIView {
     
+    @IBOutlet weak var selectedAddressLabel: UILabel!
     @IBOutlet weak var streetAddressField: HoshiTextField!
     @IBOutlet weak var phoneNumberField: HoshiTextField!
     @IBOutlet weak var stateField: AAPickerView!

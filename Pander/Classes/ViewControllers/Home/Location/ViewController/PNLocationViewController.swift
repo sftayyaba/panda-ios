@@ -8,7 +8,11 @@
 import UIKit
 
 class PNLocationViewController: PNBaseViewController {
+
+    //MARK: Instance Variables
+    var addresses: [PNAddresses]?
     
+    //MARK: Properties
     @IBOutlet var locationView: PNLocationView!
     
     @IBOutlet var locationTableView: PNLocationTableViewDelegateDatasource!
@@ -18,6 +22,32 @@ class PNLocationViewController: PNBaseViewController {
         self.configureTableView()
         self.configureNavigationBar()
     }
+    
+    
+    
+    override func doInitialDataLoad() {
+        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+            
+            self.addresses = response.addresses
+
+            if let addresses = response.addresses{
+                self.locationTableView.addresses = addresses
+                self.locationView.selectedAddressLabel.text = PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
+            }
+
+            self.locationTableView.reloadData()
+            
+        }
+            , FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
+        })
+    }
+
     
     override func configureNavigationBar() {
 //        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
@@ -52,14 +82,15 @@ class PNLocationViewController: PNBaseViewController {
     }
 
     override func configureCallBacks() {
+        self.locationTableView.didSelectAddressCallback = {
+            address in
+            PNUserManager.sharedInstance.selectedAddress = address
+            self.locationView.selectedAddressLabel.text = address.nick != nil ? address.nick : address.street 
+        }
+        
     }
     
-    @IBAction func searchBarTapped(_ sender: UIButton) {
-        self.alert(title: "!!!", message: "Coming Soon!")
-    }
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-    }    
+
     @IBAction func logoutPressed(_ sender: Any) {
         PNUserManager.sharedInstance.logoutUser()
         AppDelegate.sharedInstance()?.moveToSingUp()
@@ -94,8 +125,11 @@ class PNLocationViewController: PNBaseViewController {
                                                             if let errorMsg = locationResponse.message?.first?.localizedDescription{
                                                                 self.alert(title: "Oops", message: errorMsg)
                                                             }else{
+                                                                
+                                                                self.doInitialDataLoad()
+                                                                
                                                                 self.locationView.showStoredAddressButtonTapped()
-
+                                                                
                                                                 self.alert(title: "Success", message: "Address added to your account")
                                                             }
                                                             

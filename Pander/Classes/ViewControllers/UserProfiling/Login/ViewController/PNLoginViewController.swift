@@ -64,7 +64,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
 
                     PNUserManager.sharedInstance.signIn(Email: email, Password: password, SuccessBlock: { (successResponse) in
 
-                        AppDelegate.sharedInstance()?.moveToHome()
+                        AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
 
                     }, FailureBlock: { (error) in
                         if let localError = error as? ErrorBaseClass{
@@ -145,7 +145,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
                 if firstSignUp{
                     AppDelegate.sharedInstance()?.moveToLetGetStarted()
                 }else{
-                    AppDelegate.sharedInstance()?.moveToHome()
+                    AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                 }
             }else{
                 AppDelegate.sharedInstance()?.moveToLetGetStarted()
@@ -172,7 +172,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
                     if firstSignUp{
                         AppDelegate.sharedInstance()?.moveToLetGetStarted()
                     }else{
-                        AppDelegate.sharedInstance()?.moveToHome()
+                        AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                     }
                 }else{
                     AppDelegate.sharedInstance()?.moveToLetGetStarted()

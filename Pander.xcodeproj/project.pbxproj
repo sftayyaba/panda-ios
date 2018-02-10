@@ -18,6 +18,10 @@
 		DA49D4CD202C556400F15521 /* PNDDCLocationResponseBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4CB202C556300F15521 /* PNDDCLocationResponseBaseClass.swift */; };
 		DA49D4CE202C556400F15521 /* PNDDCLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4CC202C556300F15521 /* PNDDCLocation.swift */; };
 		DA49D4D0202C5DC100F15521 /* PNUserManager+AddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4CF202C5DC100F15521 /* PNUserManager+AddLocation.swift */; };
+		DA49D4D4202E53A300F15521 /* PNGetAddressesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4D3202E53A300F15521 /* PNGetAddressesOperation.swift */; };
+		DA49D4D8202E55AA00F15521 /* PNGetAddressesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4D6202E55A900F15521 /* PNGetAddressesResponse.swift */; };
+		DA49D4D9202E55AA00F15521 /* PNAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4D7202E55A900F15521 /* PNAddresses.swift */; };
+		DA49D4DB202E564A00F15521 /* PNUserManager+GetAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49D4DA202E564A00F15521 /* PNUserManager+GetAddresses.swift */; };
 		DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */; };
 		DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */; };
 		DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */; };
@@ -27,6 +31,14 @@
 		DA6A9AAD2008F71B00BE591F /* PNCuisinesByZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA82008F71A00BE591F /* PNCuisinesByZip.swift */; };
 		DA6A9AAE2008F71B00BE591F /* PNRecommendationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA92008F71B00BE591F /* PNRecommendationsModel.swift */; };
 		DA6A9AAF2008F71B00BE591F /* PNDeliveryRecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AAA2008F71B00BE591F /* PNDeliveryRecs.swift */; };
+		DA6E7DF7202E7C91004475A3 /* PNGetNicksOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6E7DF6202E7C91004475A3 /* PNGetNicksOperation.swift */; };
+		DA6E7DFD202E7D7E004475A3 /* PNGetNicksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6E7DFA202E7D7B004475A3 /* PNGetNicksResponse.swift */; };
+		DA8B57EC202F320B00572916 /* PNAddCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B57EB202F320B00572916 /* PNAddCardResponse.swift */; };
+		DAA0C3E6202E85BF00B130C8 /* PNUserManager+GetNicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C3E5202E85BF00B130C8 /* PNUserManager+GetNicks.swift */; };
+		DAA0C3E8202E8D5F00B130C8 /* PNGetDefaultsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C3E7202E8D5F00B130C8 /* PNGetDefaultsOperation.swift */; };
+		DAA0C3EB202E8DB200B130C8 /* PNUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C3EA202E8DB200B130C8 /* PNUserDefaults.swift */; };
+		DAA0C3ED202E8DF300B130C8 /* PNUserManager+GetDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C3EC202E8DF300B130C8 /* PNUserManager+GetDefaults.swift */; };
+		DAA0C3EF202EA2DA00B130C8 /* PNAddNickOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C3EE202EA2DA00B130C8 /* PNAddNickOperation.swift */; };
 		DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB1DA82007FE62003CD371 /* OnebyteNetworkSessionManager.swift */; };
 		DABB1DB22007FE62003CD371 /* OnebyteNetworkOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB1DAB2007FE62003CD371 /* OnebyteNetworkOperationQueue.swift */; };
 		DABB1DB32007FE62003CD371 /* OnebyteNetworkOperationBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB1DAD2007FE62003CD371 /* OnebyteNetworkOperationBase.swift */; };
@@ -192,6 +204,12 @@
 		EBD4CD202013388A00BAD5E3 /* PNLocationTableViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CD1D2013388A00BAD5E3 /* PNLocationTableViewDelegateDatasource.swift */; };
 		EBD4CD24201339C800BAD5E3 /* PNCurrentLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CD22201339C800BAD5E3 /* PNCurrentLocationTableViewCell.swift */; };
 		EBD4CD25201339C800BAD5E3 /* PNCurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4CD23201339C800BAD5E3 /* PNCurrentLocationTableViewCell.xib */; };
+		EBD90D7B202E1B45001BB7C5 /* PNUserManager+AddCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90D7A202E1B44001BB7C5 /* PNUserManager+AddCreditCard.swift */; };
+		EBD90D7E202E1BBF001BB7C5 /* PNAddPaymentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90D7D202E1BBE001BB7C5 /* PNAddPaymentOperation.swift */; };
+		EBD90D82202E32B3001BB7C5 /* PNCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90D80202E32B1001BB7C5 /* PNCards.swift */; };
+		EBD90D83202E32B3001BB7C5 /* PNGetCardsBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90D81202E32B1001BB7C5 /* PNGetCardsBaseClass.swift */; };
+		EBD90D86202E342E001BB7C5 /* PNGetCardsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90D85202E342D001BB7C5 /* PNGetCardsOperation.swift */; };
+		EBD90D88202E352E001BB7C5 /* PNUserManager+GetCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90D87202E352D001BB7C5 /* PNUserManager+GetCards.swift */; };
 		EBE05BE52006A6A4009A865C /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05BE42006A6A4009A865C /* FlowLayout.swift */; };
 		EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05BE92006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift */; };
 		EBE05BF72006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE05BEB2006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift */; };
@@ -232,6 +250,15 @@
 		EBED0A4A1FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED0A471FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift */; };
 		EBED0A4F1FCE93A600F9F5B8 /* PNVerifyCredentialsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED0A4C1FCE93A500F9F5B8 /* PNVerifyCredentialsOperation.swift */; };
 		EBED0A501FCE93A600F9F5B8 /* PNGetRecommendationsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED0A4E1FCE93A500F9F5B8 /* PNGetRecommendationsOperation.swift */; };
+		EBF8F12F202E4D0100119BFF /* PNSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8F12B202E4D0000119BFF /* PNSettingView.swift */; };
+		EBF8F130202E4D0100119BFF /* PNSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8F12D202E4D0000119BFF /* PNSettingViewController.swift */; };
+		EBF8F131202E4D0100119BFF /* PNSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF8F12E202E4D0000119BFF /* PNSettingViewController.xib */; };
+		EBF8F13E202E4F2200119BFF /* PNQuickSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8F134202E4F2100119BFF /* PNQuickSearchView.swift */; };
+		EBF8F13F202E4F2200119BFF /* PNQuickSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF8F136202E4F2100119BFF /* PNQuickSearchViewController.xib */; };
+		EBF8F140202E4F2200119BFF /* PNQuickSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8F137202E4F2100119BFF /* PNQuickSearchViewController.swift */; };
+		EBF8F141202E4F2200119BFF /* PNOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8F13A202E4F2100119BFF /* PNOrdersView.swift */; };
+		EBF8F142202E4F2200119BFF /* PNOrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF8F13C202E4F2100119BFF /* PNOrdersViewController.xib */; };
+		EBF8F143202E4F2200119BFF /* PNOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8F13D202E4F2100119BFF /* PNOrdersViewController.swift */; };
 		EBFB70EE1FCB150E00DB4C58 /* ErrorBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB70E71FCB150E00DB4C58 /* ErrorBaseClass.swift */; };
 		EBFB70EF1FCB150E00DB4C58 /* userAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB70E91FCB150E00DB4C58 /* userAppSettings.swift */; };
 		EBFB70F01FCB150E00DB4C58 /* userBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB70EA1FCB150E00DB4C58 /* userBaseClass.swift */; };
@@ -284,6 +311,10 @@
 		DA49D4CB202C556300F15521 /* PNDDCLocationResponseBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNDDCLocationResponseBaseClass.swift; sourceTree = "<group>"; };
 		DA49D4CC202C556300F15521 /* PNDDCLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNDDCLocation.swift; sourceTree = "<group>"; };
 		DA49D4CF202C5DC100F15521 /* PNUserManager+AddLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+AddLocation.swift"; sourceTree = "<group>"; };
+		DA49D4D3202E53A300F15521 /* PNGetAddressesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetAddressesOperation.swift; sourceTree = "<group>"; };
+		DA49D4D6202E55A900F15521 /* PNGetAddressesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGetAddressesResponse.swift; sourceTree = "<group>"; };
+		DA49D4D7202E55A900F15521 /* PNAddresses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAddresses.swift; sourceTree = "<group>"; };
+		DA49D4DA202E564A00F15521 /* PNUserManager+GetAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetAddresses.swift"; sourceTree = "<group>"; };
 		DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetRecommendations.swift"; sourceTree = "<group>"; };
 		DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+SignIn.swift"; sourceTree = "<group>"; };
 		DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSignUpOperation.swift; sourceTree = "<group>"; };
@@ -293,6 +324,14 @@
 		DA6A9AA82008F71A00BE591F /* PNCuisinesByZip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCuisinesByZip.swift; sourceTree = "<group>"; };
 		DA6A9AA92008F71B00BE591F /* PNRecommendationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNRecommendationsModel.swift; sourceTree = "<group>"; };
 		DA6A9AAA2008F71B00BE591F /* PNDeliveryRecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNDeliveryRecs.swift; sourceTree = "<group>"; };
+		DA6E7DF6202E7C91004475A3 /* PNGetNicksOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetNicksOperation.swift; sourceTree = "<group>"; };
+		DA6E7DFA202E7D7B004475A3 /* PNGetNicksResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGetNicksResponse.swift; sourceTree = "<group>"; };
+		DA8B57EB202F320B00572916 /* PNAddCardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAddCardResponse.swift; sourceTree = "<group>"; };
+		DAA0C3E5202E85BF00B130C8 /* PNUserManager+GetNicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetNicks.swift"; sourceTree = "<group>"; };
+		DAA0C3E7202E8D5F00B130C8 /* PNGetDefaultsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGetDefaultsOperation.swift; sourceTree = "<group>"; };
+		DAA0C3EA202E8DB200B130C8 /* PNUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNUserDefaults.swift; sourceTree = "<group>"; };
+		DAA0C3EC202E8DF300B130C8 /* PNUserManager+GetDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetDefaults.swift"; sourceTree = "<group>"; };
+		DAA0C3EE202EA2DA00B130C8 /* PNAddNickOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNAddNickOperation.swift; sourceTree = "<group>"; };
 		DABB1DA82007FE62003CD371 /* OnebyteNetworkSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnebyteNetworkSessionManager.swift; sourceTree = "<group>"; };
 		DABB1DAB2007FE62003CD371 /* OnebyteNetworkOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnebyteNetworkOperationQueue.swift; sourceTree = "<group>"; };
 		DABB1DAD2007FE62003CD371 /* OnebyteNetworkOperationBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnebyteNetworkOperationBase.swift; sourceTree = "<group>"; };
@@ -463,6 +502,12 @@
 		EBD4CD1D2013388A00BAD5E3 /* PNLocationTableViewDelegateDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLocationTableViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		EBD4CD22201339C800BAD5E3 /* PNCurrentLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCurrentLocationTableViewCell.swift; sourceTree = "<group>"; };
 		EBD4CD23201339C800BAD5E3 /* PNCurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNCurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
+		EBD90D7A202E1B44001BB7C5 /* PNUserManager+AddCreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNUserManager+AddCreditCard.swift"; sourceTree = "<group>"; };
+		EBD90D7D202E1BBE001BB7C5 /* PNAddPaymentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNAddPaymentOperation.swift; sourceTree = "<group>"; };
+		EBD90D80202E32B1001BB7C5 /* PNCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCards.swift; sourceTree = "<group>"; };
+		EBD90D81202E32B1001BB7C5 /* PNGetCardsBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGetCardsBaseClass.swift; sourceTree = "<group>"; };
+		EBD90D85202E342D001BB7C5 /* PNGetCardsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGetCardsOperation.swift; sourceTree = "<group>"; };
+		EBD90D87202E352D001BB7C5 /* PNUserManager+GetCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetCards.swift"; sourceTree = "<group>"; };
 		EBE05BE42006A6A4009A865C /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		EBE05BE92006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNStepThreeCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		EBE05BEB2006AE33009A865C /* PNGuestLetGetStartedStepThreeFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGuestLetGetStartedStepThreeFlowLayout.swift; sourceTree = "<group>"; };
@@ -503,6 +548,15 @@
 		EBED0A471FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNUpdateSettingOperation.swift; sourceTree = "<group>"; };
 		EBED0A4C1FCE93A500F9F5B8 /* PNVerifyCredentialsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNVerifyCredentialsOperation.swift; sourceTree = "<group>"; };
 		EBED0A4E1FCE93A500F9F5B8 /* PNGetRecommendationsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGetRecommendationsOperation.swift; sourceTree = "<group>"; };
+		EBF8F12B202E4D0000119BFF /* PNSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNSettingView.swift; sourceTree = "<group>"; };
+		EBF8F12D202E4D0000119BFF /* PNSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNSettingViewController.swift; sourceTree = "<group>"; };
+		EBF8F12E202E4D0000119BFF /* PNSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNSettingViewController.xib; sourceTree = "<group>"; };
+		EBF8F134202E4F2100119BFF /* PNQuickSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNQuickSearchView.swift; sourceTree = "<group>"; };
+		EBF8F136202E4F2100119BFF /* PNQuickSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNQuickSearchViewController.xib; sourceTree = "<group>"; };
+		EBF8F137202E4F2100119BFF /* PNQuickSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNQuickSearchViewController.swift; sourceTree = "<group>"; };
+		EBF8F13A202E4F2100119BFF /* PNOrdersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNOrdersView.swift; sourceTree = "<group>"; };
+		EBF8F13C202E4F2100119BFF /* PNOrdersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PNOrdersViewController.xib; sourceTree = "<group>"; };
+		EBF8F13D202E4F2100119BFF /* PNOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNOrdersViewController.swift; sourceTree = "<group>"; };
 		EBFB70E71FCB150E00DB4C58 /* ErrorBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBaseClass.swift; sourceTree = "<group>"; };
 		EBFB70E91FCB150E00DB4C58 /* userAppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userAppSettings.swift; sourceTree = "<group>"; };
 		EBFB70EA1FCB150E00DB4C58 /* userBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userBaseClass.swift; sourceTree = "<group>"; };
@@ -591,8 +645,26 @@
 		DA49D4D1202C5F3A00F15521 /* AddNick */ = {
 			isa = PBXGroup;
 			children = (
+				DAA0C3EE202EA2DA00B130C8 /* PNAddNickOperation.swift */,
 			);
 			path = AddNick;
+			sourceTree = "<group>";
+		};
+		DA49D4D2202E537A00F15521 /* Get Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				DA49D4D3202E53A300F15521 /* PNGetAddressesOperation.swift */,
+			);
+			path = "Get Addresses";
+			sourceTree = "<group>";
+		};
+		DA49D4D5202E559200F15521 /* Get Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				DA49D4D7202E55A900F15521 /* PNAddresses.swift */,
+				DA49D4D6202E55A900F15521 /* PNGetAddressesResponse.swift */,
+			);
+			path = "Get Addresses";
 			sourceTree = "<group>";
 		};
 		DA4CF44C20129942006BA61B /* AllDishes and Cuisines */ = {
@@ -622,6 +694,39 @@
 				DA6A9AA92008F71B00BE591F /* PNRecommendationsModel.swift */,
 			);
 			path = Recommendations;
+			sourceTree = "<group>";
+		};
+		DA6E7DF5202E7C6E004475A3 /* Get Nicks And Default */ = {
+			isa = PBXGroup;
+			children = (
+				DA6E7DF6202E7C91004475A3 /* PNGetNicksOperation.swift */,
+				DAA0C3E7202E8D5F00B130C8 /* PNGetDefaultsOperation.swift */,
+			);
+			path = "Get Nicks And Default";
+			sourceTree = "<group>";
+		};
+		DA6E7DF8202E7D24004475A3 /* Get Nicks */ = {
+			isa = PBXGroup;
+			children = (
+				DA6E7DFA202E7D7B004475A3 /* PNGetNicksResponse.swift */,
+			);
+			path = "Get Nicks";
+			sourceTree = "<group>";
+		};
+		DA8B57EA202F31AE00572916 /* Add card */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B57EB202F320B00572916 /* PNAddCardResponse.swift */,
+			);
+			path = "Add card";
+			sourceTree = "<group>";
+		};
+		DAA0C3E9202E8D7800B130C8 /* Get Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				DAA0C3EA202E8DB200B130C8 /* PNUserDefaults.swift */,
+			);
+			path = "Get Defaults";
 			sourceTree = "<group>";
 		};
 		DABB1DA42007FE62003CD371 /* OnebyteSwiftNetworkCycle */ = {
@@ -1439,6 +1544,9 @@
 		EB8F018F1FCAD8F6000D790F /* UserManager */ = {
 			isa = PBXGroup;
 			children = (
+				DA49D4DA202E564A00F15521 /* PNUserManager+GetAddresses.swift */,
+				EBD90D87202E352D001BB7C5 /* PNUserManager+GetCards.swift */,
+				EBD90D7A202E1B44001BB7C5 /* PNUserManager+AddCreditCard.swift */,
 				EB7AD55B202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift */,
 				EB8F01901FCAD8F6000D790F /* PNUserManager.swift */,
 				DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */,
@@ -1448,6 +1556,8 @@
 				DAFBBA2C2008311700B8821F /* PNUserManager+Gmail+FBAuthentication.swift */,
 				EBCC566F200DE36B009D865E /* PNUserManager+ForgotPassword.swift */,
 				DA49D4CF202C5DC100F15521 /* PNUserManager+AddLocation.swift */,
+				DAA0C3E5202E85BF00B130C8 /* PNUserManager+GetNicks.swift */,
+				DAA0C3EC202E8DF300B130C8 /* PNUserManager+GetDefaults.swift */,
 			);
 			path = UserManager;
 			sourceTree = "<group>";
@@ -1463,7 +1573,11 @@
 		EB8F01961FCADAD2000D790F /* UserProfiling */ = {
 			isa = PBXGroup;
 			children = (
+				DA6E7DF5202E7C6E004475A3 /* Get Nicks And Default */,
 				DA49D4D1202C5F3A00F15521 /* AddNick */,
+				DA49D4D2202E537A00F15521 /* Get Addresses */,
+				EBD90D84202E342D001BB7C5 /* Get Cards */,
+				EBD90D7C202E1BBE001BB7C5 /* Add Payment ddc */,
 				DA49D4C5202C32C400F15521 /* Add Address ddc */,
 				EBCC5671200DE40D009D865E /* ForgotPassword */,
 				DA6A9AA02008A11E00BE591F /* SignUp */,
@@ -1953,6 +2067,9 @@
 		EBC74F021FCAC41C00641B48 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EBF8F138202E4F2100119BFF /* Orders */,
+				EBF8F132202E4F2100119BFF /* QuickSearch */,
+				EBF8F129202E4D0000119BFF /* Setting */,
 				EB9F8E7D2025CE840044255F /* PlaceOrder */,
 				EBE73440200E756F001BB651 /* Home */,
 				EBFB71001FCCA14100DB4C58 /* BaseViewController */,
@@ -2065,6 +2182,31 @@
 				EBD4CD23201339C800BAD5E3 /* PNCurrentLocationTableViewCell.xib */,
 			);
 			path = CurrentLocation;
+			sourceTree = "<group>";
+		};
+		EBD90D7C202E1BBE001BB7C5 /* Add Payment ddc */ = {
+			isa = PBXGroup;
+			children = (
+				EBD90D7D202E1BBE001BB7C5 /* PNAddPaymentOperation.swift */,
+			);
+			path = "Add Payment ddc";
+			sourceTree = "<group>";
+		};
+		EBD90D7F202E32B1001BB7C5 /* GetCards */ = {
+			isa = PBXGroup;
+			children = (
+				EBD90D80202E32B1001BB7C5 /* PNCards.swift */,
+				EBD90D81202E32B1001BB7C5 /* PNGetCardsBaseClass.swift */,
+			);
+			path = GetCards;
+			sourceTree = "<group>";
+		};
+		EBD90D84202E342D001BB7C5 /* Get Cards */ = {
+			isa = PBXGroup;
+			children = (
+				EBD90D85202E342D001BB7C5 /* PNGetCardsOperation.swift */,
+			);
+			path = "Get Cards";
 			sourceTree = "<group>";
 		};
 		EBE05BE32006A69A009A865C /* CollectionViewLayouts */ = {
@@ -2434,9 +2576,92 @@
 			path = GetRecommendations;
 			sourceTree = "<group>";
 		};
+		EBF8F129202E4D0000119BFF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F12A202E4D0000119BFF /* View */,
+				EBF8F12C202E4D0000119BFF /* ViewController */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		EBF8F12A202E4D0000119BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F12B202E4D0000119BFF /* PNSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBF8F12C202E4D0000119BFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F12D202E4D0000119BFF /* PNSettingViewController.swift */,
+				EBF8F12E202E4D0000119BFF /* PNSettingViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EBF8F132202E4F2100119BFF /* QuickSearch */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F133202E4F2100119BFF /* View */,
+				EBF8F135202E4F2100119BFF /* ViewController */,
+			);
+			path = QuickSearch;
+			sourceTree = "<group>";
+		};
+		EBF8F133202E4F2100119BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F134202E4F2100119BFF /* PNQuickSearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBF8F135202E4F2100119BFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F136202E4F2100119BFF /* PNQuickSearchViewController.xib */,
+				EBF8F137202E4F2100119BFF /* PNQuickSearchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EBF8F138202E4F2100119BFF /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F139202E4F2100119BFF /* View */,
+				EBF8F13B202E4F2100119BFF /* ViewController */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		EBF8F139202E4F2100119BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F13A202E4F2100119BFF /* PNOrdersView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBF8F13B202E4F2100119BFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBF8F13C202E4F2100119BFF /* PNOrdersViewController.xib */,
+				EBF8F13D202E4F2100119BFF /* PNOrdersViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		EBFB70E01FCB150E00DB4C58 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B57EA202F31AE00572916 /* Add card */,
+				DAA0C3E9202E8D7800B130C8 /* Get Defaults */,
+				DA6E7DF8202E7D24004475A3 /* Get Nicks */,
+				DA49D4D5202E559200F15521 /* Get Addresses */,
+				EBD90D7F202E32B1001BB7C5 /* GetCards */,
 				DA49D4CA202C539600F15521 /* Location */,
 				EB7AD558202B8E020082EF96 /* UpdateTastePreferences */,
 				DA4CF44C20129942006BA61B /* AllDishes and Cuisines */,
@@ -2657,7 +2882,7 @@
 				TargetAttributes = {
 					EBC74E471FCAC22000641B48 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					EBC74E5B1FCAC22000641B48 = {
 						CreatedOnToolsVersion = 9.0;
@@ -2702,6 +2927,7 @@
 				EB18699020022A5000C27925 /* PNGuestLetsGetStartedWithNameController.xib in Resources */,
 				EBC74F081FCAC41C00641B48 /* Main.storyboard in Resources */,
 				EB478BE2201353EA0017E718 /* PNTravisFieldTableViewCell.xib in Resources */,
+				EBF8F142202E4F2200119BFF /* PNOrdersViewController.xib in Resources */,
 				EBCC566E200DDA90009D865E /* PNForgotPasswordViewController.xib in Resources */,
 				EBC74F061FCAC41C00641B48 /* Info.plist in Resources */,
 				EBE05BF92006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.xib in Resources */,
@@ -2721,6 +2947,7 @@
 				EBAA67D62028BBDD00DF20D7 /* PNPlaceOrderCurrentLocationTableViewCell.xib in Resources */,
 				EBE05C362006B229009A865C /* PNGuestLetsGetStartedWithNewFoodController.xib in Resources */,
 				EB9F8ED320263D7C0044255F /* PNHomeFeaturedCuisineCollectionReusableView.xib in Resources */,
+				EBF8F13F202E4F2200119BFF /* PNQuickSearchViewController.xib in Resources */,
 				EB1869842002297A00C27925 /* PNGuestLetsGetStartedWithEmailController.xib in Resources */,
 				EB3C23FB201BBBDF00D266FD /* PNChaseCardTableViewCell.xib in Resources */,
 				EBAA67C32028798000DF20D7 /* PNPlaceOrderLocationTableViewCell.xib in Resources */,
@@ -2737,6 +2964,7 @@
 				EB738E742028D8B600A2DC16 /* PNPlaceOrderAddItemMainViewController.xib in Resources */,
 				EB478BD8201351350017E718 /* PNMomLocationTableViewCell.xib in Resources */,
 				EBAA67C72028798000DF20D7 /* PNPlaceOrderImageSliderTableViewCell.xib in Resources */,
+				EBF8F131202E4D0100119BFF /* PNSettingViewController.xib in Resources */,
 				EB2FD4C62005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib in Resources */,
 				EB3C23C3201BAE2900D266FD /* PNFavoriteDishesCollectionViewCell.xib in Resources */,
 				EBAA67C92028798000DF20D7 /* PNPlaceOrderItemsTableViewCell.xib in Resources */,
@@ -2999,14 +3227,18 @@
 			files = (
 				EBE7346D200E96F9001BB651 /* PNHomeView.swift in Sources */,
 				DA49D4CD202C556400F15521 /* PNDDCLocationResponseBaseClass.swift in Sources */,
+				DAA0C3EF202EA2DA00B130C8 /* PNAddNickOperation.swift in Sources */,
 				EBD4CD1120129AA400BAD5E3 /* JiroTextField.swift in Sources */,
 				EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */,
 				EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */,
+				EBF8F141202E4F2200119BFF /* PNOrdersView.swift in Sources */,
 				EB12CCC420113940005E8394 /* FontAnimation.swift in Sources */,
 				EBAA67EE2028C28500DF20D7 /* PNAddLocationTableViewCell.swift in Sources */,
+				DA6E7DF7202E7C91004475A3 /* PNGetNicksOperation.swift in Sources */,
 				EBED0A4F1FCE93A600F9F5B8 /* PNVerifyCredentialsOperation.swift in Sources */,
 				DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */,
 				EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */,
+				EBD90D7E202E1BBF001BB7C5 /* PNAddPaymentOperation.swift in Sources */,
 				EBE73463200E8A32001BB651 /* PNPartySizeTableViewCell.swift in Sources */,
 				EBED0A281FCE8A6B00F9F5B8 /* PNRegisterForUpdateOperation.swift in Sources */,
 				EB478BDC2013526D0017E718 /* PNFriendLocationTableViewCell.swift in Sources */,
@@ -3023,12 +3255,15 @@
 				EBCC5676200DEDC4009D865E /* UIString.swift in Sources */,
 				EBFB71081FCCA14200DB4C58 /* PNBaseViewController.swift in Sources */,
 				EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */,
+				EBF8F12F202E4D0100119BFF /* PNSettingView.swift in Sources */,
 				EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */,
 				EBFB710C1FCCA78600DB4C58 /* ApplicationFonts.swift in Sources */,
+				EBD90D83202E32B3001BB7C5 /* PNGetCardsBaseClass.swift in Sources */,
 				EB18698E20022A5000C27925 /* PNGuestLetsGetStartedWithNameView.swift in Sources */,
 				EB8F01941FCADA2A000D790F /* AppNetworkManager.swift in Sources */,
 				EBE05C372006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionView.swift in Sources */,
 				EB9F8EC6202622600044255F /* PNHomeSeeLessCollectionViewCell.swift in Sources */,
+				DA49D4D9202E55AA00F15521 /* PNAddresses.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
 				EB3C23FC201BBBDF00D266FD /* PNBankOfAmericaTableViewCell.swift in Sources */,
 				EB12CCC520113940005E8394 /* TweeActiveTextField.swift in Sources */,
@@ -3045,6 +3280,7 @@
 				DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */,
 				EBED0A4A1FCE92BF00F9F5B8 /* PNUpdateSettingOperation.swift in Sources */,
 				EBE05C3D2006B824009A865C /* UISwitch.swift in Sources */,
+				DAA0C3E6202E85BF00B130C8 /* PNUserManager+GetNicks.swift in Sources */,
 				EB3C23FA201BBBDF00D266FD /* PNChaseCardTableViewCell.swift in Sources */,
 				EBCC566C200DDA90009D865E /* PNForgotPasswordView.swift in Sources */,
 				EB3C23C6201BAE2900D266FD /* PNFavoriteDishesController.swift in Sources */,
@@ -3086,11 +3322,13 @@
 				EBE7344B200E75AD001BB651 /* PNPartySizeView.swift in Sources */,
 				EBED0A501FCE93A600F9F5B8 /* PNGetRecommendationsOperation.swift in Sources */,
 				EB5CE3562028F89C00625034 /* PNPlaceOrderMainAddItemTableViewCell.swift in Sources */,
+				EBD90D86202E342E001BB7C5 /* PNGetCardsOperation.swift in Sources */,
 				EBAA67CE2028798000DF20D7 /* PNPlaceOrderDelegateDatasource.swift in Sources */,
 				EBFB71151FCCA9AD00DB4C58 /* ApplicationTextfields.swift in Sources */,
 				EB738E762028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.swift in Sources */,
 				DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */,
 				EBE05C392006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.swift in Sources */,
+				DAA0C3EB202E8DB200B130C8 /* PNUserDefaults.swift in Sources */,
 				EB2FD4C42005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoTextFieldDelegate.swift in Sources */,
 				EBFB71121FCCA97300DB4C58 /* ApplicationColors.swift in Sources */,
 				EB3C23C0201BAE2900D266FD /* PNFavoriteDishesCollectionViewDelegateDatasource.swift in Sources */,
@@ -3098,15 +3336,20 @@
 				EB1869852002297A00C27925 /* PNGuestLetsGetStartedWithLocationView.swift in Sources */,
 				DA40397D20138B5A0066D843 /* PNGetAllCuisines.swift in Sources */,
 				EB3C23EB201BB81B00D266FD /* PNBudgetTableViewDelegateDatasource.swift in Sources */,
+				EBD90D7B202E1B45001BB7C5 /* PNUserManager+AddCreditCard.swift in Sources */,
 				EB9F8EB620261D5D0044255F /* PNHomeFeaturedItemsCollectionViewCell.swift in Sources */,
 				EBD4CD1620129AA400BAD5E3 /* YokoTextField.swift in Sources */,
 				EB12CCC620113940005E8394 /* TweeAttributedTextField.swift in Sources */,
+				DA49D4D8202E55AA00F15521 /* PNGetAddressesResponse.swift in Sources */,
+				EBF8F140202E4F2200119BFF /* PNQuickSearchViewController.swift in Sources */,
 				EB8F01861FCAD715000D790F /* AppNavigation.swift in Sources */,
 				EB738E752028D8B600A2DC16 /* PNPlaceOrderAddItemRootView.swift in Sources */,
+				EBD90D88202E352E001BB7C5 /* PNUserManager+GetCards.swift in Sources */,
 				EBE05C352006B229009A865C /* PNGuestLetsGetStartedWithNewFoodController.swift in Sources */,
 				EBED0A491FCE92BF00F9F5B8 /* PNSaveTasteOperation.swift in Sources */,
 				EB738E732028D8B600A2DC16 /* PNPlaceOrderAddItemMainViewController.swift in Sources */,
 				EBD4CD1320129AA400BAD5E3 /* MadokaTextField.swift in Sources */,
+				DA49D4DB202E564A00F15521 /* PNUserManager+GetAddresses.swift in Sources */,
 				EB8F018C1FCAD858000D790F /* PNLogin.swift in Sources */,
 				EB12CCC720113940005E8394 /* TweeBorderedTextField.swift in Sources */,
 				EB186971200192E500C27925 /* PNGuestLetsGetStartedViewController.swift in Sources */,
@@ -3117,6 +3360,7 @@
 				EBAA67CA2028798000DF20D7 /* PNPlaceOrderLocationHeaderViewTableViewCell.swift in Sources */,
 				EB478BE1201353EA0017E718 /* PNTravisFieldTableViewCell.swift in Sources */,
 				EB9F8EBA20261D5D0044255F /* PHCommonHeaderCollectionView.swift in Sources */,
+				DA49D4D4202E53A300F15521 /* PNGetAddressesOperation.swift in Sources */,
 				DA49D4D0202C5DC100F15521 /* PNUserManager+AddLocation.swift in Sources */,
 				EB9F8EBC20261D5D0044255F /* PNHomeFeaturedItemsCollectionReusableView.swift in Sources */,
 				EBED0A481FCE92BF00F9F5B8 /* PNUpdateTokenOperation.swift in Sources */,
@@ -3132,7 +3376,9 @@
 				EBD4CD1420129AA400BAD5E3 /* MinoruTextField.swift in Sources */,
 				EBE05BFC2006AE33009A865C /* PNGuestLetsGetStartedStepThreeController.swift in Sources */,
 				EB63DD34201A7E9F00737550 /* PNDeliveryTimeViewController.swift in Sources */,
+				DAA0C3ED202E8DF300B130C8 /* PNUserManager+GetDefaults.swift in Sources */,
 				EB478BD220134BDD0017E718 /* PNHomeLocationTableViewCell.swift in Sources */,
+				DAA0C3E8202E8D5F00B130C8 /* PNGetDefaultsOperation.swift in Sources */,
 				EB3C23C4201BAE2900D266FD /* PNFavoriteDishesView.swift in Sources */,
 				DA6A9AAD2008F71B00BE591F /* PNCuisinesByZip.swift in Sources */,
 				EBFB71061FCCA14200DB4C58 /* PNBaseTableViewDelegateDataSource.swift in Sources */,
@@ -3146,6 +3392,8 @@
 				DA49D4CE202C556400F15521 /* PNDDCLocation.swift in Sources */,
 				EBD4CD1020129AA400BAD5E3 /* IsaoTextField.swift in Sources */,
 				DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */,
+				EBF8F130202E4D0100119BFF /* PNSettingViewController.swift in Sources */,
+				EBD90D82202E32B3001BB7C5 /* PNCards.swift in Sources */,
 				EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */,
 				EB63DD36201A7E9F00737550 /* PNDeliveryView.swift in Sources */,
 				EB2FD4C52005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift in Sources */,
@@ -3154,7 +3402,9 @@
 				EB52B5EA200FD57C004E7E96 /* PNLocationView.swift in Sources */,
 				EBE05BFB2006AE33009A865C /* PNGuestLetsGetStartedStepThreeViewTextFieldDelegate.swift in Sources */,
 				EB738E632028D1E700A2DC16 /* PNPlaceOrderSuccessViewController.swift in Sources */,
+				EBF8F13E202E4F2200119BFF /* PNQuickSearchView.swift in Sources */,
 				EB63DD6A201A7FF800737550 /* PNDeliveryDateTableViewCell.swift in Sources */,
+				DA8B57EC202F320B00572916 /* PNAddCardResponse.swift in Sources */,
 				EBE7346F200E96F9001BB651 /* PNHomeViewController.swift in Sources */,
 				EBFB70F01FCB150E00DB4C58 /* userBaseClass.swift in Sources */,
 				EBE7345B200E8920001BB651 /* PNPartySizeCollectionViewCell.swift in Sources */,
@@ -3165,6 +3415,7 @@
 				EBFB70F41FCB1B5000DB4C58 /* PNCreateGuestAccount.swift in Sources */,
 				EBE05BF82006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.swift in Sources */,
 				EBD4CD1520129AA400BAD5E3 /* TextFieldEffects.swift in Sources */,
+				DA6E7DFD202E7D7E004475A3 /* PNGetNicksResponse.swift in Sources */,
 				EBFB710F1FCCA92200DB4C58 /* ApplicationButtons.swift in Sources */,
 				EBE73460200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift in Sources */,
 				EBD4CD0F20129AA400BAD5E3 /* HoshiTextField.swift in Sources */,
@@ -3174,6 +3425,7 @@
 				EBD4CD0E20129AA400BAD5E3 /* AkiraTextField.swift in Sources */,
 				EBC74F481FCAC41D00641B48 /* ViewController.swift in Sources */,
 				EB738E622028D1E700A2DC16 /* PNPlaceOrderSuccessView.swift in Sources */,
+				EBF8F143202E4F2200119BFF /* PNOrdersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3341,15 +3593,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6U92U4D62;
 				INFOPLIST_FILE = "$(SRCROOT)/Pander/ProjectSettings/ProjectPlists/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BitWay.Pander;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6767a2ae-9a98-4ff8-8274-1b8d9cfe175d";
-				PROVISIONING_PROFILE_SPECIFIER = "pander dev profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3360,16 +3612,16 @@
 			baseConfigurationReference = C885DE9C26661126A8B7E18D /* Pods-Pander.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6U92U4D62;
 				INFOPLIST_FILE = "$(SRCROOT)/Pander/ProjectSettings/ProjectPlists/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BitWay.Pander;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1f7fbb64-a3a2-493b-a9e5-29795416aecc";
-				PROVISIONING_PROFILE_SPECIFIER = "pander adhoc profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

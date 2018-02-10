@@ -39,10 +39,14 @@ struct AppNetworkEndPoints {
     static let kDeletePushNotificationToken         = "/user/apn/"
     static let kGetAllCuisines                      = "/all_cuisines/"
     static let kGetAllDishes                        = "/all_dishes/"
-    
-    static let kAddAddress                        = "/customer/location/"
+    static let kGetAllCards                         = "/user/cards/"
+    static let kGetAllAddresses                     = "/user/addresses/"
+    static let kGetUserNicks                        = "/user/nicknames/"
+    static let kGetUserDefaults                     = "/user/defaults/"
     
 
+    static let kAddAddress                          = "/customer/location/"
+    static let kAddCreditCard                       = "/customer/cc/"
 }
 
 struct AppNetworkStatusCodes {

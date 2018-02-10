@@ -82,6 +82,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cardType" destination="NHt-pR-DlG" id="8xG-bo-hEQ"/>
                 <outlet property="selectedStateConstratints" destination="F6u-yx-OuT" id="kQm-FB-lpU"/>
                 <outlet property="seletedStateImageView" destination="1qf-je-cs4" id="uc3-w3-DFN"/>
             </connections>

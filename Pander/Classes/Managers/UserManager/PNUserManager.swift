@@ -62,6 +62,17 @@ final class PNUserManager: PNBaseManager {
     
     
     var recommendations: PNRecommendationsModel?
+
+    //Cards of user
+    var cardsBaseObject: PNGetCardsBaseClass?
+    var selectedCard: PNCards?
+    
+    //Addresses of user
+    var addresses: [PNAddresses]?
+    var selectedAddress: PNAddresses?
+    
+    var userNicks: PNGetNicksResponse?
+    var userDefaults: PNUserDefaults?
     
     //step 1.1
     var selectedUnsupportedZip:String?

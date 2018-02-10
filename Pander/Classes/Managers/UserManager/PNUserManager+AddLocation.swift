@@ -34,8 +34,23 @@ extension PNUserManager{
             response in
             weakSelf?.notifyNetworkRequestFinish()
             
-            if (response as? PNDDCLocationResponseBaseClass) != nil{
-                successBlock(response as! PNDDCLocationResponseBaseClass)
+            if let response = response as? PNDDCLocationResponseBaseClass{
+
+                if let nick = nickName{
+
+                    weakSelf?.addNicks(OfType: .address, Id: "\(response.location!.locationId)", FriendlyName: nick, SuccessBlock: { (nickResponse) in
+                        
+                        successBlock(response)
+
+                    }, FailureBlock: { (error) in
+                        failureBlock(error)
+                    })
+
+                    
+                }else{
+                    successBlock(response as! PNDDCLocationResponseBaseClass)
+                    
+                }
             }else if let errorResponse = response as? ErrorBaseClass{
                 failureBlock(errorResponse)
             }

@@ -9,6 +9,8 @@ import UIKit
 
 class PNCurrentLocationTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet var seletedStateImageView: UIImageView!
     @IBOutlet var selectedStateConstratints: NSLayoutConstraint!
     
@@ -23,8 +25,16 @@ class PNCurrentLocationTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
  
-    func setContent(status:Bool) {
-        self.cellContentWith(state: status)
+    func setContent(address: PNAddresses ) {
+        self.cellContentWith(state: address.isSelected)
+        
+        if let nick = address.nick{
+            self.locationLabel.text = nick
+            
+        }else if let streetAddress = address.street{
+            self.locationLabel.text = streetAddress
+        }
+        
     }
     
     func cellContentWith(state: Bool) {

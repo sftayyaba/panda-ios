@@ -48,9 +48,15 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
         
         let json = JSON(response)
         
-        let codeResponseObject: PNDDCLocationResponseBaseClass = PNDDCLocationResponseBaseClass(json: JSON(response))
+        let codeResponseObject: PNDDCLocationResponseBaseClass = PNDDCLocationResponseBaseClass(json: json)
         
-        self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
+        if codeResponseObject.message?.count == 0{
+            self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
+        }else{
+            self.safeCallDidFinishWithErrorCallback(error: codeResponseObject.message?.first)
+            
+        }
+//        self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
         
         self.handleDidFinishedCommon()
     }

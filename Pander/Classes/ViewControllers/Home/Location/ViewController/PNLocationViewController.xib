@@ -11,6 +11,7 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-Bold</string>
+            <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -122,27 +123,20 @@ Cg
                                             <rect key="frame" x="10" y="11" width="16" height="23"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-ef-z7T">
-                                            <rect key="frame" x="54" y="13" width="206" height="20"/>
+                                            <rect key="frame" x="54" y="13" width="66" height="20"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Deliver to ">
                                                     <attributes>
                                                         <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                                     </attributes>
                                                 </fragment>
-                                                <fragment content="current location">
-                                                    <attributes>
-                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment>
-                                                    <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                                    <attributes>
-                                                        <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                                    </attributes>
-                                                </fragment>
                                             </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8B-Wg-213">
+                                            <rect key="frame" x="122" y="13" width="101.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow - Big - down - Black" translatesAutoresizingMaskIntoConstraints="NO" id="CEt-xm-ZMp">
@@ -163,10 +157,11 @@ Cg
                                         <constraint firstAttribute="trailing" secondItem="oTQ-Ny-hJP" secondAttribute="trailing" id="4ms-1F-7zx"/>
                                         <constraint firstItem="xVX-ef-z7T" firstAttribute="leading" secondItem="V86-ag-VWP" secondAttribute="leading" constant="54" id="9eT-yK-GBe"/>
                                         <constraint firstItem="hxK-6i-SfW" firstAttribute="centerY" secondItem="V86-ag-VWP" secondAttribute="centerY" id="IME-ut-v7M"/>
-                                        <constraint firstAttribute="trailing" secondItem="xVX-ef-z7T" secondAttribute="trailing" constant="30" id="McZ-jd-96m"/>
                                         <constraint firstItem="CEt-xm-ZMp" firstAttribute="centerY" secondItem="V86-ag-VWP" secondAttribute="centerY" id="TEK-e7-52h"/>
+                                        <constraint firstItem="K8B-Wg-213" firstAttribute="leading" secondItem="xVX-ef-z7T" secondAttribute="trailing" constant="2" id="UJe-MZ-WXc"/>
                                         <constraint firstItem="xVX-ef-z7T" firstAttribute="centerY" secondItem="V86-ag-VWP" secondAttribute="centerY" id="W4M-fF-CI1"/>
                                         <constraint firstItem="hxK-6i-SfW" firstAttribute="leading" secondItem="V86-ag-VWP" secondAttribute="leading" constant="10" id="WJJ-Cd-gC0"/>
+                                        <constraint firstItem="K8B-Wg-213" firstAttribute="centerY" secondItem="xVX-ef-z7T" secondAttribute="centerY" id="YDz-G4-ajQ"/>
                                         <constraint firstAttribute="height" constant="45" id="cvA-UF-nJP"/>
                                         <constraint firstAttribute="trailing" secondItem="CEt-xm-ZMp" secondAttribute="trailing" constant="10" id="dEV-K3-lR2"/>
                                         <constraint firstAttribute="bottom" secondItem="oTQ-Ny-hJP" secondAttribute="bottom" id="dpi-VM-a77"/>
@@ -610,6 +605,7 @@ Cgo
                 <outlet property="newAddressButton" destination="N2X-QV-VLh" id="IT5-MT-oHZ"/>
                 <outlet property="newAddressView" destination="L6o-Je-g4e" id="HZ3-bA-l5t"/>
                 <outlet property="phoneNumberField" destination="Knq-ga-xlV" id="dSe-pB-dGC"/>
+                <outlet property="selectedAddressLabel" destination="K8B-Wg-213" id="Ayq-aW-deL"/>
                 <outlet property="showNewAddressViewHeight" destination="7jD-ed-yuw" id="hUl-4H-HEE"/>
                 <outlet property="showTableViewHeight" destination="oev-EZ-lXQ" id="Vhq-vg-U9S"/>
                 <outlet property="stateField" destination="6hZ-6B-BgF" id="9pF-ik-3Ue"/>

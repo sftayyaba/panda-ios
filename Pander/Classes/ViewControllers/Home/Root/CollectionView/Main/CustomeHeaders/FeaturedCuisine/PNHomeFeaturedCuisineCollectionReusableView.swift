@@ -22,8 +22,20 @@ class PNHomeFeaturedCuisineCollectionReusableView: UICollectionReusableView {
         super.awakeFromNib()
     }
     
-    func setContent(title: String) {
+    func setContent(title: String, isShowMore: Bool) {
         self.titleLabel.text = title
+        if !isShowMore {
+            
+            
+            self.seeLabel.text = "See more"
+            self.arrowImage.image = UIImage(named: "Arrow - Big - down - Black")
+            self.selectedButton.isSelected = false
+        }else {
+            
+            self.seeLabel.text = "See less"
+            self.arrowImage.image = UIImage(named: "Arrow - Big - Up - Black")
+            self.selectedButton.isSelected = true
+        }
     }
     
     @IBAction func selectionButtonTapped(_ sender: Any) {

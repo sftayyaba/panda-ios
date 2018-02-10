@@ -28,7 +28,7 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
     
     var isSearchRestuarantHidden = true
     var isfeatureItemShowMore = false
-    var isCuisineShowMore = false
+    var isCuisineShowMore = true
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -77,7 +77,7 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
                let headerView:PNHomeFeaturedItemsCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PNHomeFeaturedItemsCollectionReusableView", for: indexPath) as! PNHomeFeaturedItemsCollectionReusableView
 
                 headerView.setContent(title: "Featured Items")
-
+                
                 headerView.didMoveUpButtonCallback = {
                     self.isfeatureItemShowMore = false
                     self.reloadData()
@@ -92,8 +92,8 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
             }else if indexPath.section == 2 {
                 
                 let headerView:PNHomeFeaturedCuisineCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PNHomeFeaturedCuisineCollectionReusableView", for: indexPath) as! PNHomeFeaturedCuisineCollectionReusableView
-                
-                headerView.setContent(title: "Cuisines")
+
+                headerView.setContent(title: "Cuisines", isShowMore: self.isCuisineShowMore)
                 
                 headerView.didMoveUpButtonCallback = {
                     self.isCuisineShowMore = false

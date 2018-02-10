@@ -14,10 +14,11 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
     var isBankofWest = false
     var isBankOfAmerica = false
     var isChase = false
+    var cardsArray = [PNCards]()
     
     //MARK: Callbacks
-    public var didSelectFriendCallback : (() -> Void)?
-    
+    public var didSelectCardCallback : ((PNCards) -> Void)?
+
     override func awakeFromNib() {
         self.configureTableView()
     }
@@ -37,7 +38,7 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return cardsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,71 +57,49 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
         
     //MARK: Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        if indexPath.row == 0 {
-            if self.isBankOfAmerica {
-                self.isBankOfAmerica = false
-            }else {
-                self.isBankOfAmerica = true
-            }
-            self.isBankofWest = false
-            self.isChase = false
-        }else if indexPath.row == 1 {
-            if self.isChase {
-                self.isChase = false
-            }else {
-                self.isChase = true
-            }
-            self.isBankOfAmerica = false
-            self.isBankofWest = false
-        }else if indexPath.row == 2 {
-            if self.isBankofWest {
-                self.isBankofWest = false
-            }else {
-                self.isBankofWest = true
-            }
-            self.isBankOfAmerica = false
-            self.isChase = false
-        }
-        self.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        self.isCurrentLocation = false
-//        self.isMomsHouse = false
-//        self.isHome = false
-//        self.isTravisField = false
-//        self.isJeff = false
+        let card = self.cardsArray[indexPath.row]
+        card.isSelected = !card.isSelected
         
-        if indexPath.row == 0 {
-            self.isBankOfAmerica = false
-        }else if indexPath.row == 1 {
-            self.isChase = false
-        }else if indexPath.row == 2 {
-            self.isBankofWest = false
+        var selectDefault = false
+        
+        if !card.isSelected{
+            selectDefault = true
+        }
+        
+        var selectedCard = card;
+        self.cardsArray = self.cardsArray.map { (currentCard) -> PNCards in
+            
+            if (card.ccId != currentCard.ccId){
+                currentCard.isSelected = false
+            }
+            
+            if selectDefault && currentCard.isDefault{
+                currentCard.isSelected = true;
+                selectedCard = currentCard
+            }
+            
+            return currentCard
+        }
+        
+        if let callback = self.didSelectCardCallback{
+            selectedCard.isSelected = true;
+            callback(selectedCard);
         }
         self.reloadData()
+        
     }
     
     //MARK: Cells
     func tableView(_ tableView: UITableView, cellForResultsRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: PNCurrentLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNCurrentLocationTableViewCell", for: indexPath) as? PNCurrentLocationTableViewCell)!
-        
-        if indexPath.row == 0{
             return self.tableView(tableView, cellForBankOfAmerica: indexPath)
-        }else if indexPath.row == 1 {
-            return self.tableView(tableView, cellChaseCard: indexPath)
-        }else if indexPath.row == 2 {
-            return self.tableView(tableView, cellForBankOfWest: indexPath)
-        }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, cellForBankOfAmerica indexPath: IndexPath) -> UITableViewCell {
         
         let cell: PNBankOfAmericaTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNBankOfAmericaTableViewCell", for: indexPath) as? PNBankOfAmericaTableViewCell)!
         
-        cell.setContent(status: isBankOfAmerica)
+        let card = self.cardsArray[indexPath.row]
+        cell.setContent(card: card)
         return cell
     }
     

@@ -146,7 +146,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
                 if firstSignUp{
                     AppDelegate.sharedInstance()?.moveToLetGetStarted()
                 }else{
-                    AppDelegate.sharedInstance()?.moveToHome()
+                    AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                 }
             }else{
                 AppDelegate.sharedInstance()?.moveToLetGetStarted()
@@ -176,7 +176,7 @@ class PNSignUpViewController: PNBaseViewController,GIDSignInUIDelegate {
                     if firstSignUp{
                         AppDelegate.sharedInstance()?.moveToLetGetStarted()
                     }else{
-                        AppDelegate.sharedInstance()?.moveToHome()
+                        AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                     }
                 }else{
                     AppDelegate.sharedInstance()?.moveToLetGetStarted()

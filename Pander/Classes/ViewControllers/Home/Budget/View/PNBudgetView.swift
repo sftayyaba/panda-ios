@@ -7,14 +7,22 @@
 
 import UIKit
 import TextFieldEffects
+import AAPickerView
 
 class PNBudgetView: UIView {
     
+    @IBOutlet weak var selectedCardLabel: UILabel!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var nextButton: UIButton!
 
-    @IBOutlet private var cardNumberTextField: [TextFieldEffects]!
+    @IBOutlet var cardNumberTextField:UITextField!
+
+    @IBOutlet var expiryMonthTextField: AAPickerView!
+    @IBOutlet var expiryYearTextField: AAPickerView!
+    @IBOutlet var cvvTextField: UITextField!
+    @IBOutlet var nickNameTextField: UITextField!
+    @IBOutlet var zipCodeTextField: UITextField!
 
     @IBOutlet var arrowImageView: UIImageView!
 

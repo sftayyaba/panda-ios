@@ -85,7 +85,7 @@ class PNGuestLetsGetStartedWithNewFoodController: PNBaseViewController {
 //        self.navigationController?.pushViewController(viewController, animated: true)
         
         PNUserManager.sharedInstance.updateTastePreferencesWith(SuccessBlock: { (response) in
-            AppDelegate.sharedInstance()?.moveToHome()
+            AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
         }) { (error) in
             
         }
