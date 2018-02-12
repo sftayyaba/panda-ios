@@ -9,10 +9,14 @@ import UIKit
 
 class FindRestuarantCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var labelBudgetPerPerson: UILabel!
+    @IBOutlet weak var labelPeopleEating: UILabel!
+    @IBOutlet weak var labelDeliverToLocation: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    
     public var didLocationButtonCallback : (() -> Void)?
     public var didDishesButtonCallback : (() -> Void)?
     public var didBudgetButtonCallback : (() -> Void)?
@@ -59,5 +63,55 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    
+    func setContent(){
+        setLabelDeliverToLocation()
+        setLabelPeopleEating()
+        setLabelBudgetPerPerson()
+    }
+    
+    private func setLabelDeliverToLocation() {
+        let normalText = "Deliver to "
+        var boldText = "current location"
+        if let address = PNUserManager.sharedInstance.selectedAddress, let nick = address.nick {
+            boldText = nick
+        }
+        labelDeliverToLocation.attributedText = NSMutableAttributedString()
+                .normal(normalText)
+                .bold(boldText)
+    }
 
+    private func setLabelPeopleEating() {
+        let normalText = "People eating "
+        let boldText = "\(PNUserManager.sharedInstance.groupSize) person"
+        labelPeopleEating.attributedText = NSMutableAttributedString()
+            .normal(normalText)
+            .bold(boldText)
+    }
+    
+    private func setLabelBudgetPerPerson() {
+        let normalText = "Budget per person "
+        let boldText = "$\(PNUserManager.sharedInstance.budgetPerPerson)"
+        labelBudgetPerPerson.attributedText = NSMutableAttributedString()
+            .normal(normalText)
+            .bold(boldText)
+    }
+
+}
+
+extension NSMutableAttributedString {
+    @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont(name: "AvenirNext-DemiBold", size: 14)!]
+        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+        append(boldString)
+        
+        return self
+    }
+    
+    @discardableResult func normal(_ text: String) -> NSMutableAttributedString {
+        let normal = NSAttributedString(string: text)
+        append(normal)
+        
+        return self
+    }
 }

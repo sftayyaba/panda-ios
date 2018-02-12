@@ -70,7 +70,7 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
                 self.isSearchRestuarantHidden = true
                 self.reloadData()
             }
-                
+            headerView.setContent()
             return headerView
                 
             }else if indexPath.section == 1 {
@@ -196,7 +196,7 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
             cell.didDishesButtonCallback = self.didDishesButtonCallback
             cell.didLocationButtonCallback = self.didLocationButtonCallback
             cell.didFindRestaurentButtonCallback = self.didFindRestaurentButtonCallback
-            
+            cell.setContent()
             return cell
         }
     }

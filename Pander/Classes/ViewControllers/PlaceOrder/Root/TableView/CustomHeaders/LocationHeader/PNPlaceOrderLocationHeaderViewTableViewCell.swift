@@ -58,4 +58,17 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    func setContent(){
+        if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+        } else {
+            self.paymentLabel.text = " - "
+        }
+        
+        if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
+            self.locationLabel.text =
+                PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
+        }
+    }
 }

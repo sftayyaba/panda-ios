@@ -47,6 +47,7 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
             
             let gesture = UITapGestureRecognizer.init(target: self, action: #selector(self.tapAnotherLocationLabel))
             self.tryAnotherLocation.addGestureRecognizer(gesture)
+            self.tryAnotherLocation.isUserInteractionEnabled = true
             
         }
     }
@@ -97,19 +98,8 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
     
     
     @objc func tapAnotherLocationLabel(sender:UITapGestureRecognizer){
-        let text = (tryAnotherLocation.text)
-        let termsRange = (text! as NSString).range(of: "try another location")
-        if sender.didTapAttributedTextInLabel(label: tryAnotherLocation, inRange: termsRange) {
-            
-            backButtonTapped(sender)
-            
-        }  else {
-            print("Tapped none")
-        }
-        
+           backButtonTapped(sender)
     }
-    
-    
     
     
     func moveToSubscribeWithEmail(){
@@ -131,9 +121,21 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
     
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        if !locationErrorLabel.isHidden {
+            locationErrorLabel.isHidden = true
+            return
+        }
 //        let viewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)
         if mode == .email{
-            AppDelegate.sharedInstance()?.moveToSingUp()
+////            AppDelegate.sharedInstance()?.moveToSingUp()
+//            emailLocationView.isHidden = true
+//            locationErrorLabel.isHidden = true
+//            zipView.isHidden = false
+//            mode = .zipCode
+//            guestLetsGetStartedWithLocationView.nextButton.isHidden = false
+//            titleLabel.text = "First, some housekeping: where are you located?"
+//            titleLabel.textAlignment = NSTextAlignment.center
+            self.navigationController?.popViewController(animated:true)
         }else{
             self.navigationController?.popViewController(animated:true)
         }

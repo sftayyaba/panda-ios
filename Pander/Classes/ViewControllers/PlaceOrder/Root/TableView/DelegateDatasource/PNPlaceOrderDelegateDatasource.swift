@@ -110,6 +110,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         }
         
         cell.locationButton.isSelected = self.isLocationSelected
+        cell.setContent()
         return cell
     }
     

@@ -19,8 +19,11 @@ class PNHomeViewController: PNBaseViewController {
         
     }
     
-
-   
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.homeView.collectionView.reloadData()
+    }
+    
     //MARK: Loading/Methods
     override func doInitialDataLoad() {
         PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recs) in
