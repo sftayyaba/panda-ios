@@ -38,6 +38,10 @@ extension PNUserManager {
                                 weakSelf?.selectedAddress = address
                             }
                             
+                            if (weakSelf?.selectedAddress != nil && weakSelf?.selectedAddress!.locationId! == address.locationId!){
+                                address.isSelected = true
+                            }
+                            
                             return address
                         })
                         

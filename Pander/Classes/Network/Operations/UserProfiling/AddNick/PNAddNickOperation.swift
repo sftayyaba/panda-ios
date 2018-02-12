@@ -62,7 +62,7 @@ class PNAddNickOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
         
-        let urlWithId:String = AppNetworkEndPoints.kGetRecommendations
+        let urlWithId:String = AppNetworkEndPoints.kAddNicks
         
         OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
             

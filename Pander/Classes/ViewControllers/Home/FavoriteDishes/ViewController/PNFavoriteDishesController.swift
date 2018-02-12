@@ -72,7 +72,7 @@ class PNFavoriteDishesController: PNBaseViewController {
             selectedCount in
             if selectedCount > 0 {
                 
-                PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
+                PNUserManager.sharedInstance.homeSelectedCuisines = self.collectionView.selectedCusines
             } else {
             }
         }
@@ -83,7 +83,7 @@ class PNFavoriteDishesController: PNBaseViewController {
         PNUserManager.sharedInstance.getAllCuisines(SuccessBlock: { (recommendations) in
             if let cuisines = recommendations.cuisines{
                 
-                if let selectedCuisines = PNUserManager.sharedInstance.selectedCusines{
+                if let selectedCuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
                     self.collectionView.selectedCusines = selectedCuisines
                 }
 

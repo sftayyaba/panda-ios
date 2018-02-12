@@ -15,6 +15,8 @@ class PNPartySizeView: UIView {
 
     @IBOutlet var numberOfPeople: UILabel!
 
+    @IBOutlet weak var numberOfPeopleSlider: UISlider!
+    
     @IBOutlet weak var switchButton: UIButton!
 
     @IBOutlet weak var facebookFriendSearchViewHeight: NSLayoutConstraint!
@@ -27,14 +29,29 @@ class PNPartySizeView: UIView {
         
         self.facebookFriendSearchViewHeight.constant = 0
         self.facebookFriendSearchView.isHidden = true
+        
+        self.numberOfPeopleSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.normal)
+        
+        self.numberOfPeopleSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.highlighted)
+        
+        self.numberOfPeopleSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.focused)
+        
+        self.numberOfPeopleSlider.setValue(Float(PNUserManager.sharedInstance.groupSize), animated: false)
+        self.numberOfPeople.text = String(PNUserManager.sharedInstance.groupSize)
+
     }
     
     private func configureTextFields(){
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        let currentValue = Int(sender.value)
+        let currentValue = Int(sender.value.rounded())
+
+        numberOfPeopleSlider.setValue(Float(currentValue), animated: false)
+
         self.numberOfPeople.text = String(currentValue)
+        
+        PNUserManager.sharedInstance.groupSize = currentValue
     }
     
     @IBAction func switchButtonTapped(_ sender: Any) {

@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import MGSwipeTableCell
 
-class PNLocationTableViewDelegateDatasource: UITableView, UITableViewDataSource, UITableViewDelegate {
+class PNLocationTableViewDelegateDatasource: UITableView, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
     
     //MARK: Members
     var addresses: [PNAddresses] = []
@@ -21,6 +22,11 @@ class PNLocationTableViewDelegateDatasource: UITableView, UITableViewDataSource,
     
     //MARK: Callbacks
     public var didSelectAddressCallback : ((PNAddresses) -> Void)?
+
+    public var didSelectEditAddressCallback : ((PNAddresses) -> Void)?
+    public var didSelectRemoveAddressCallback : ((PNAddresses) -> Void)?
+    public var didSelectSetAsDefaultAddressCallback : ((PNAddresses) -> Void)?
+
     
     override func awakeFromNib() {
         self.configureTableView()
@@ -49,6 +55,32 @@ class PNLocationTableViewDelegateDatasource: UITableView, UITableViewDataSource,
     }
     
     //MARK: Delegates
+    //MARK: MGSwipe delegate for buttons
+    func swipeTableCell(_ cell: MGSwipeTableCell, tappedButtonAt index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
+        let indexPath = self.indexPath(for: cell)
+    
+        switch index {
+        case 2:
+            if let callBack = self.didSelectSetAsDefaultAddressCallback{
+                callBack(self.addresses[indexPath!.row])
+            }
+        case 1:
+            if let callBack = self.didSelectEditAddressCallback{
+                callBack(self.addresses[indexPath!.row])
+            }
+        case 0:
+            if let callBack = self.didSelectRemoveAddressCallback{
+                callBack(self.addresses[indexPath!.row])
+            }
+
+        default:
+            print("something pressed for item \(indexPath!.row)")
+        }
+        
+        return true
+        
+    }
+    
     //MARK: Rows
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         return 53
@@ -92,20 +124,7 @@ class PNLocationTableViewDelegateDatasource: UITableView, UITableViewDataSource,
 
     }
     
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        let address = self.addresses[indexPath.row]
-//        address.isSelected = false
-//
-//        self.addresses = self.addresses.map { (currentAddress) -> PNAddresses in
-//            if (address.locationId != currentAddress.locationId){
-//                currentAddress.isSelected = false
-//            }
-//            return currentAddress
-//        }
-//
-//        self.reloadData()
-//
-//    }
+
     
     //MARK: Cells
     func tableView(_ tableView: UITableView, cellForResultsRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,6 +142,8 @@ class PNLocationTableViewDelegateDatasource: UITableView, UITableViewDataSource,
 
         cell.setSelected(address.isSelected, animated: false)
 
+        cell.delegate = self
+        
         return cell
     }
     

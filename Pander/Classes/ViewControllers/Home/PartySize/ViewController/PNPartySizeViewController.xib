@@ -38,7 +38,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-Dv-Ee0">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-Dv-Ee0">
                     <rect key="frame" x="28" y="137" width="266" height="31"/>
                     <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="thumbTintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -226,6 +226,7 @@
                 <outlet property="facebookFriendSearchView" destination="Gtd-vJ-Kcz" id="Lt5-r5-war"/>
                 <outlet property="facebookFriendSearchViewHeight" destination="y9p-vr-Dh3" id="Kbo-7W-lOp"/>
                 <outlet property="numberOfPeople" destination="5Gu-ZE-PhO" id="iwY-eZ-AUu"/>
+                <outlet property="numberOfPeopleSlider" destination="oDk-Dv-Ee0" id="LfT-7h-8RL"/>
                 <outlet property="selectedFriendsViewHeight" destination="Xq1-U9-nhr" id="uBV-9T-q12"/>
                 <outlet property="switchButton" destination="N6d-Ni-Mqf" id="DA0-gY-uOt"/>
             </connections>

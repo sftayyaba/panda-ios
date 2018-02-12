@@ -52,16 +52,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide left" translatesAutoresizingMaskIntoConstraints="NO" id="1Xa-VM-Nlc">
+                                        <rect key="frame" x="224" y="16" width="26" height="19"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vjK-TA-nek" firstAttribute="leading" secondItem="cLu-dQ-aua" secondAttribute="leading" id="Bkf-5C-35B"/>
                                     <constraint firstItem="9JR-fy-pta" firstAttribute="leading" secondItem="cLu-dQ-aua" secondAttribute="leading" constant="30" id="KaS-iu-9Zb"/>
                                     <constraint firstItem="9JR-fy-pta" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="NUH-nM-ZGL"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Xa-VM-Nlc" secondAttribute="trailing" id="QIJ-D7-Z8o"/>
                                     <constraint firstItem="vjK-TA-nek" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="Ra5-tJ-ogQ"/>
                                     <constraint firstItem="eug-VR-U8u" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="VCd-IU-x08"/>
                                     <constraint firstAttribute="trailing" secondItem="eug-VR-U8u" secondAttribute="trailing" id="Yyz-0T-UUc"/>
                                     <constraint firstItem="eug-VR-U8u" firstAttribute="leading" secondItem="9JR-fy-pta" secondAttribute="trailing" constant="10" id="hox-Ms-JSg"/>
+                                    <constraint firstItem="1Xa-VM-Nlc" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="vNp-VH-NMu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -97,5 +102,6 @@
     <resources>
         <image name="Budget Copy" width="13" height="10"/>
         <image name="current location arrow" width="15" height="15"/>
+        <image name="slide left" width="26" height="19"/>
     </resources>
 </document>

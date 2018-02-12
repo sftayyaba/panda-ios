@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import MGSwipeTableCell
 
-class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, UITableViewDelegate {
+class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, UITableViewDelegate , MGSwipeTableCellDelegate {
     
     //MARK: Members
     var isBankofWest = false
@@ -19,9 +20,17 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
     //MARK: Callbacks
     public var didSelectCardCallback : ((PNCards) -> Void)?
 
+    public var didSelectEditCardCallback : ((PNCards) -> Void)?
+    public var didSelectRemoveCardCallback : ((PNCards) -> Void)?
+    public var didSelectSetAsDefaultCardCallback : ((PNCards) -> Void)?
+
+    
+    
     override func awakeFromNib() {
         self.configureTableView()
     }
+    
+    
     
     // MARK: Private Methods
     // MARK: View
@@ -46,6 +55,29 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
     }
     
     //MARK: Delegates
+    //MARK: MGSwipe delegate for buttons
+    func swipeTableCell(_ cell: MGSwipeTableCell, tappedButtonAt index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
+        let indexPath = self.indexPath(for: cell)
+        
+        switch index {
+        case 1:
+            if let callBack = self.didSelectSetAsDefaultCardCallback{
+                callBack(self.cardsArray[indexPath!.row])
+            }
+        case 0:
+            if let callBack = self.didSelectRemoveCardCallback{
+                callBack(self.cardsArray[indexPath!.row])
+            }
+            
+        default:
+            print("something pressed for item \(indexPath!.row)")
+        }
+        
+        return true
+        
+    }
+    
+    
     //MARK: Rows
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         return 53
@@ -100,6 +132,7 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
         
         let card = self.cardsArray[indexPath.row]
         cell.setContent(card: card)
+        cell.delegate = self
         return cell
     }
     

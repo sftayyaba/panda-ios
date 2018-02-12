@@ -20,6 +20,7 @@ class PNLocationView: UIView {
     @IBOutlet weak var cityField: HoshiTextField!
     @IBOutlet weak var addressNickNameField: HoshiTextField!
     
+    @IBOutlet weak var addNewAddressButton: UIButton!
     
     
     @IBOutlet weak var stateTextFields: AAPickerView!
@@ -59,6 +60,19 @@ class PNLocationView: UIView {
             
             self.stateTextFields.text = stringData[index]
         }
+    }
+    
+    
+    func refreshForm(){
+        
+        self.addressNickNameField.text = ""
+        self.streetAddressField.text = ""
+        self.cityField.text = ""
+        self.unit_numberField.text = ""
+        self.zipCodeField.text = ""
+        self.phoneNumberField.text = ""
+        self.stateField.text = "state"
+        
     }
     
     private func configureTextFields(){

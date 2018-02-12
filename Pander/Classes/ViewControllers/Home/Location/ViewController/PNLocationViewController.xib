@@ -599,6 +599,7 @@ Cgo
                 <constraint firstAttribute="trailing" secondItem="bbX-Cq-Ayd" secondAttribute="trailing" id="VOH-aw-QQS"/>
             </constraints>
             <connections>
+                <outlet property="addNewAddressButton" destination="Hcu-zZ-69k" id="ZdV-Q6-ae2"/>
                 <outlet property="addressNickNameField" destination="wyw-FK-ZnG" id="IA7-mN-JAX"/>
                 <outlet property="arrowImageView" destination="CEt-xm-ZMp" id="F8A-uV-7CC"/>
                 <outlet property="cityField" destination="WNw-Nc-jVW" id="VYz-mK-Rn8"/>

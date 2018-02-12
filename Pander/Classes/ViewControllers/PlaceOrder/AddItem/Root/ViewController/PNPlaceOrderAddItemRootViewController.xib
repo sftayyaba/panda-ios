@@ -105,6 +105,10 @@
                 <constraint firstItem="AGx-1I-72H" firstAttribute="top" secondItem="cfp-vF-Y9D" secondAttribute="bottom" constant="5" id="wD0-pe-dPW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="XXZ-RE-ikI"/>
+            <connections>
+                <outlet property="minimumOrderLabel" destination="AGx-1I-72H" id="PTI-9h-mUs"/>
+                <outlet property="restaurentNameLabel" destination="cfp-vF-Y9D" id="Uuv-5f-bU6"/>
+            </connections>
         </view>
     </objects>
     <resources>

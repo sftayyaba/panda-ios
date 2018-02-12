@@ -10,7 +10,16 @@ import Alamofire
 import FacebookLogin
 import GoogleSignIn
 
+enum PNMenuTab: Int{
+    case  main = 0
+    case  appetizer = 1
+    case  drink = 3
+    case  dessert = 2
+}
+
 class PNPlaceOrderAddItemMainViewController: PNBaseViewController {
+    
+    var type: PNMenuTab!
     
     @IBOutlet var placeOrderAddItemMainView: PNPlaceOrderAddItemMainView!
     
@@ -27,9 +36,15 @@ class PNPlaceOrderAddItemMainViewController: PNBaseViewController {
         
         self.placeOrderAddItemMainDelegateDatasource.dataSource = self.placeOrderAddItemMainDelegateDatasource
 
+        
+        self.placeOrderAddItemMainDelegateDatasource.register(UINib(nibName: "PNMenuAddedDishTableViewCell", bundle: nil), forCellReuseIdentifier: "PNMenuAddedDishTableViewCell")
+
         self.placeOrderAddItemMainDelegateDatasource.register(UINib(nibName: "PNPlaceOrderMainAddItemTableViewCell", bundle: nil), forCellReuseIdentifier: "PNPlaceOrderMainAddItemTableViewCell")
         
+        self.placeOrderAddItemMainDelegateDatasource.type = self.type
+        
         self.placeOrderAddItemMainDelegateDatasource.reloadData()
+
     }
     
     override func configureCallBacks() {

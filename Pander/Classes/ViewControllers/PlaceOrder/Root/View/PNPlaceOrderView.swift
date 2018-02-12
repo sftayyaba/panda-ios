@@ -9,6 +9,7 @@ import UIKit
 
 class PNPlaceOrderView: UIView {
     
+    @IBOutlet weak var totalPriceLabel: UILabel!
     override func awakeFromNib() {
     }
 }

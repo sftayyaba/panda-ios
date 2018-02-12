@@ -15,9 +15,9 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     var isPaymentSelected = false
     
     
-    var numberofLocations = 5
+    var numberofLocations = PNUserManager.sharedInstance.addresses!.count
     
-    var numberofSectionHeaders = 5
+    var numberofSectionHeaders = 3
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return numberofSectionHeaders
@@ -27,7 +27,13 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         
         if section == 0 && isLocationSelected {
             return numberofLocations
-        }else {
+        }else if section == 2{
+            if let count = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.count{
+                return count
+            }else{
+                return 0
+            }
+        }else{
             return 0
         }
     }
@@ -47,21 +53,17 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         }else if section == 1 {
             return 320
         }else {
-            return 70
+            return 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 && isLocationSelected {
-            if indexPath.row == 0 {
-                return self.tableView(tableView, cellForCurrentLocationOptionAt: indexPath)
-            }else if indexPath.row == (numberofLocations - 1) {
-                return self.tableView(tableView, cellForAddLocationOptionAt: indexPath)
-            }else {
-                return self.tableView(tableView, cellForLocationsOptionAt: indexPath)
-            }
-        }else {
+            return self.tableView(tableView, cellForLocationsOptionAt: indexPath)
+        }else if indexPath.section == 2{
             return self.tableView(tableView, cellForPaymentOptionAt: indexPath)
+        }else{
+            return UITableViewCell()
         }
     }
     
@@ -72,7 +74,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         }else if section == 1{
             return self.tableView(tableView, headerForAddItemsOptionAt: section)
         }else {
-            return self.tableView(tableView, headerForItemsOptionAt: section)
+            return UIView()
         }
     }
     
@@ -121,6 +123,9 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, cellForLocationsOptionAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PNPlaceOrderLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderLocationTableViewCell") as? PNPlaceOrderLocationTableViewCell)!
         
+        let address = PNUserManager.sharedInstance.addresses![indexPath.row]
+        cell.setContent(address: address)
+
         return cell
     }
 
@@ -132,9 +137,19 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, cellForPaymentOptionAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PNPlaceOrderPaymentTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderPaymentTableViewCell") as? PNPlaceOrderPaymentTableViewCell)!
+        if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
+            cell.setContent(dish: dish)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, cellForItemsOptionAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: PNPlaceOrderItemsTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderItemsTableViewCell") as? PNPlaceOrderItemsTableViewCell)!
         
         return cell
     }
+    
     
     //MARK: Section Headers
     func tableView(_ tableView: UITableView, headerForAddItemsOptionAt section: Int) -> UITableViewCell {
@@ -146,10 +161,42 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, headerForItemsOptionAt section: Int) -> UITableViewCell {
-        
-        let cell: PNPlaceOrderItemsTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderItemsTableViewCell") as? PNPlaceOrderItemsTableViewCell)!
-        
-        return cell
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let address = PNUserManager.sharedInstance.addresses![indexPath.row]
+            address.isSelected = !address.isSelected
+            
+            var selectDefault = false
+            
+            if !address.isSelected{
+                selectDefault = true
+            }
+            
+            var selectedAddress = address;
+            PNUserManager.sharedInstance.addresses = PNUserManager.sharedInstance.addresses?.map { (currentAddress) -> PNAddresses in
+                
+                if (address.locationId != currentAddress.locationId){
+                    currentAddress.isSelected = false
+                }
+                
+                if selectDefault && currentAddress.isDefault{
+                    currentAddress.isSelected = true;
+                    selectedAddress = currentAddress
+                }
+                
+                return currentAddress
+            }
+            
+            PNUserManager.sharedInstance.selectedAddress = selectedAddress
+            self.reloadData()
+        }else if indexPath.section == 2{
+            if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
+                dish.isSelected = !dish.isSelected
+                
+                reloadData()
+            }
+        }
     }
 }

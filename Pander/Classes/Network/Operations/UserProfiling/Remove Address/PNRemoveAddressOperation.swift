@@ -9,32 +9,17 @@
 import Foundation
 import SwiftyJSON
 
-class PNAddAddressOperation: OnebyteNetworkOperationBase {
+class PNRemoveAddressOperation: OnebyteNetworkOperationBase {
     
     
     //MARK: Instance Variables
-
-    public var street: String
-    public var city: String
-    public var state: String
-    public var phone: String
-    public var zipCode: String
-    public var unit_number: String
-
+    
+    public var locationId: String
+    
     init(
-        Street street: String,
-        Zip zip: String,
-        City city: String,
-        State state: String,
-        Phone phone: String,
-        UnitNumber unit_number: String
+        LocationId locationId: String
         ) {
-        self.street = street
-        self.zipCode = zip
-        self.city = city
-        self.phone = phone
-        self.state = state
-        self.unit_number = unit_number
+        self.locationId = locationId
     }
     
     //MARK: Overridden Methods
@@ -56,7 +41,7 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
             self.safeCallDidFinishWithErrorCallback(error: codeResponseObject.message?.first)
             
         }
-//        self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
+        //        self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
         
         self.handleDidFinishedCommon()
     }
@@ -67,11 +52,11 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
     
     //MARK: Request
     private func startLoginOperation() {
-       
-        let urlWithId:String = AppNetworkEndPoints.kAddAddress
         
-        OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkDDCRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
-             
+        let urlWithId:String = AppNetworkEndPoints.kAddAddress+self.locationId
+        
+        OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkDDCRequest(methodType: .delete, path: urlWithId, parameters: nil)).responseJSON {response in
+            
             if ((response.response?.statusCode) == 200){
                 switch response.result {
                 case .success(let data):
@@ -87,14 +72,5 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
         }
     }
     
-    private func createBody() -> Dictionary<String, Any>{
-        
-        return [ "street"    : self.street,
-                 "unit_number"     : self.unit_number,
-                 "city"      : self.city,
-                 "state"     : self.state,
-                 "phone"     : self.phone,
-                 "zip_code"  : self.zipCode,
-        ]
-    }
 }
+

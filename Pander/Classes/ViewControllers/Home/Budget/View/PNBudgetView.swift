@@ -16,6 +16,8 @@ class PNBudgetView: UIView {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var nextButton: UIButton!
 
+    @IBOutlet weak var budgetPerPersonLabel: UILabel!
+    @IBOutlet weak var budgetPerPersonSlider: UISlider!
     @IBOutlet var cardNumberTextField:UITextField!
 
     @IBOutlet var expiryMonthTextField: AAPickerView!
@@ -44,13 +46,33 @@ class PNBudgetView: UIView {
 
     override func awakeFromNib() {
         self.configureTextFields()
+        
+        self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.normal)
+        
+        self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.highlighted)
+        
+        self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.focused)
+        
+        
+        self.budgetPerPersonSlider.setValue(Float(PNUserManager.sharedInstance.budgetPerPerson), animated: false)
+        self.budgetPerPersonLabel.text = "$\(PNUserManager.sharedInstance.budgetPerPerson)"
+        
     }
     
     private func configureTextFields(){
         self.showTableViewHeight.constant = 35
         self.newAddressView.isHidden = true
         self.storeAddressView.isHidden = true
-//        self.newAddressButton.isSelected = true
+    }
+    
+    @IBAction func budgetPerPersonValueChanged(_ sender: UISlider) {
+        let currentValue = Int(sender.value.rounded())
+        self.budgetPerPersonLabel.text = "$\(currentValue)"
+        
+        sender.setValue(Float(currentValue), animated: false)
+        
+        
+        PNUserManager.sharedInstance.budgetPerPerson = currentValue
     }
     
     @IBAction func showStoredAddressButtonTapped() {

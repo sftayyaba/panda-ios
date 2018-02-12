@@ -42,14 +42,12 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
 //                self.alert(title: "Oops", message: errorMsg)
 //            }else{
                 //self.locationView.showStoredAddressButtonTapped()
-                
-                for i in 0..<(response.cards?.count)! {
-                    
-                    self.cardsArray.append(response.cards![i])
-                }
             
-            self.budgetView.selectedCardLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+            self.cardsArray = response.cards!
             
+            if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                self.budgetView.selectedCardLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+            }
                 self.budgetTableView.cardsArray = self.cardsArray
                 self.budgetTableView.reloadData()
                 
@@ -91,6 +89,46 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             PNUserManager.sharedInstance.selectedCard = card
             self.budgetView.selectedCardLabel.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
         }
+        
+        
+        
+        self.budgetTableView.didSelectRemoveCardCallback = {
+            card in
+            PNUserManager.sharedInstance.removeCard(CCId: card.ccId!, successBlock: { (locationResponse) in
+                
+                self.doInitialDataLoad()
+                
+            }, failureBlock: { (error) in
+                
+                self.doInitialDataLoad()
+                
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "!!!", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+        }
+        
+        self.budgetTableView.didSelectSetAsDefaultCardCallback = {
+            card in
+            PNUserManager.sharedInstance.addDefaults(CardId: card.ccId! , AddressId: nil, SuccessBlock: { (locationResponse) in
+                
+                self.doInitialDataLoad()
+                
+            }, FailureBlock: { (error) in
+                
+                self.doInitialDataLoad()
+                
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "!!!", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+        }
+        
+        
     }
     
     @IBAction func searchBarTapped(_ sender: UIButton) {

@@ -7,10 +7,20 @@
 
 import UIKit
 
+
+enum PNFormMode{
+    case edit
+    case add
+}
+
 class PNLocationViewController: PNBaseViewController {
 
     //MARK: Instance Variables
     var addresses: [PNAddresses]?
+    
+    var currentEditAddress: PNAddresses?
+    
+    var currentMode: PNFormMode = .add
     
     //MARK: Properties
     @IBOutlet var locationView: PNLocationView!
@@ -88,9 +98,67 @@ class PNLocationViewController: PNBaseViewController {
             self.locationView.selectedAddressLabel.text = address.nick != nil ? address.nick : address.street 
         }
         
+        self.locationTableView.didSelectRemoveAddressCallback = {
+            address in
+            PNUserManager.sharedInstance.removeLocation(LocationId: "\(address.locationId!)", successBlock: { (locationResponse) in
+                
+                self.doInitialDataLoad()
+                
+            }, failureBlock: { (error) in
+                
+                self.doInitialDataLoad()
+
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "!!!", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+        }
+        
+        self.locationTableView.didSelectSetAsDefaultAddressCallback = {
+            address in
+            PNUserManager.sharedInstance.addDefaults(CardId: nil , AddressId: "\(address.locationId!)", SuccessBlock: { (locationResponse) in
+                
+                self.doInitialDataLoad()
+                
+            }, FailureBlock: { (error) in
+                
+                self.doInitialDataLoad()
+                
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "!!!", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+        }
+        
+        
+        self.locationTableView.didSelectEditAddressCallback = {
+            address in
+            
+            self.currentMode = .edit
+            
+            self.locationView.addressNickNameField.text = address.nick
+            self.locationView.streetAddressField.text = address.street
+            self.locationView.cityField.text = address.city
+            self.locationView.unit_numberField.text = address.unitNumber
+            self.locationView.zipCodeField.text = address.zipCode
+            self.locationView.phoneNumberField.text = address.phone
+            self.locationView.stateField.text = address.state
+            
+            self.locationView.addNewAddressButton.setTitle("Save", for: UIControlState.normal)
+            
+            self.currentEditAddress = address
+            
+            self.locationView.showNewAddressButtonTapped()
+        }
     }
     
 
+    
+    
     @IBAction func logoutPressed(_ sender: Any) {
         PNUserManager.sharedInstance.logoutUser()
         AppDelegate.sharedInstance()?.moveToSingUp()
@@ -119,29 +187,75 @@ class PNLocationViewController: PNBaseViewController {
                                                 if let phone = self.locationView.phoneNumberField.text {
                                                     if phone.count >= 10 && phone.count <= 12{
                                                         
-                                                        PNUserManager.sharedInstance.addLocation(Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number, NickName: self.locationView.addressNickNameField.text, successBlock: {
-                                                            locationResponse in
+                                                        if currentMode == .add{
                                                             
-                                                            if let errorMsg = locationResponse.message?.first?.localizedDescription{
-                                                                self.alert(title: "Oops", message: errorMsg)
-                                                            }else{
+                                                            PNUserManager.sharedInstance.addLocation(Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number, NickName: self.locationView.addressNickNameField.text == "" ? nil : self.locationView.addressNickNameField.text , successBlock: {
+                                                                locationResponse in
                                                                 
-                                                                self.doInitialDataLoad()
+                                                                if let errorMsg = locationResponse.message?.first?.localizedDescription{
+                                                                    self.alert(title: "!!!", message: errorMsg)
+                                                                }else{
+                                                                    
+                                                                    self.doInitialDataLoad()
+                                                                    
+                                                                    self.locationView.refreshForm()
+                                                                    
+                                                                    self.locationView.showStoredAddressButtonTapped()
+                                                                    
+                                                                    self.alert(title: "Success", message: "Address added to your account")
+                                                                }
                                                                 
-                                                                self.locationView.showStoredAddressButtonTapped()
                                                                 
-                                                                self.alert(title: "Success", message: "Address added to your account")
-                                                            }
+                                                            }, failureBlock: { (error) in
+                                                                if let localError = error as? ErrorBaseClass{
+                                                                    self.alert(title: "Oops", message: localError.localizedDescription)
+                                                                }else {
+                                                                    self.alert(title: "Error", message: "Something went wrong !")
+                                                                }
+                                                            })
                                                             
+                                                        }else if currentMode == .edit{
                                                             
-                                                        }, failureBlock: { (error) in
-                                                            if let localError = error as? ErrorBaseClass{
-                                                                self.alert(title: "Oops", message: localError.localizedDescription)
-                                                            }else {
-                                                                self.alert(title: "Error", message: "Something went wrong !")
-                                                            }
-                                                        })
-                                                        
+                                                            PNUserManager.sharedInstance.updateLocation(LocationId: "\(currentEditAddress!.locationId!)" ,Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number, NickName: self.locationView.addressNickNameField.text == "" ? nil : self.locationView.addressNickNameField.text , successBlock: {
+                                                                locationResponse in
+                                                                
+                                                                if let errorMsg = locationResponse.message?.first?.localizedDescription{
+                                                                    
+                                                                    self.alert(title: "!!!", message: errorMsg)
+                                                                }else{
+                                                                    
+                                                                    self.doInitialDataLoad()
+                                                                    
+                                                                    self.locationView.refreshForm()
+                                                                    
+                                                                    self.currentMode = .add
+                                                                    self.currentEditAddress = nil
+                                                                    
+                                                                    self.locationView.addNewAddressButton.setTitle("Add new address", for: UIControlState.normal)
+                                                                    
+                                                                    self.locationView.showStoredAddressButtonTapped()
+                                                                    
+                                                                    self.alert(title: "Success", message: "Address added to your account")
+                                                                }
+                                                                
+                                                                
+                                                            }, failureBlock: { (error) in
+                                                                
+                                                                self.locationView.refreshForm()
+                                                                
+                                                                self.currentMode = .add
+                                                                self.currentEditAddress = nil
+                                                                
+                                                                self.locationView.addNewAddressButton.setTitle("Add new address", for: UIControlState.normal)
+                                                                
+                                                                if let localError = error as? ErrorBaseClass{
+                                                                    self.alert(title: "Oops", message: localError.localizedDescription)
+                                                                }else {
+                                                                    self.alert(title: "Error", message: "Something went wrong !")
+                                                                }
+                                                            })
+
+                                                        }
                                                     }else{
                                                         self.alert(title: "Oops", message: "Phone number must be atleast 5 letter.");
                                                     }

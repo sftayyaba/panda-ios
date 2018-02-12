@@ -20,6 +20,20 @@ class PNPlaceOrderViewController: PNBaseViewController {
         super.viewDidLoad()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+        
+        updateTotalPrice()
+    }
+    
+    func updateTotalPrice(){
+        if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( 0 , { (result, dish) -> Int in
+            return result + dish.price!
+        }){
+            self.placeOrderView.totalPriceLabel.text = "\(totalPrice)"
+            
+        }
+    }
     
     override func configureView() {
         self.configureTableView()
@@ -66,5 +80,59 @@ class PNPlaceOrderViewController: PNBaseViewController {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func getNewSuggestionsTapped(_ sender: Any) {
+        var searchAddress = ""
+        var city = ""
+        var zip = ""
+        var addressId = ""
+        let category = 2
+        var cuisine = ""
+        let groupSize = PNUserManager.sharedInstance.groupSize
+        let budgetPerPerson = PNUserManager.sharedInstance.budgetPerPerson
+        let orderMode = 0
+        let restsTried = "[" +  PNOrderManager.sharedInstance.prevRestaurentIds.joined(separator: ",") + "]"
+        
+        if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
+            searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
+            city = selectedAddress.city!
+            zip = selectedAddress.zipCode!
+            addressId = "\(selectedAddress.locationId!)"
+        }else{
+            self.alert(title: "Oops", message: "No Delivery address is selected.")
+            return
+        }
+        
+        if let selectedCuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
+            cuisine = selectedCuisines.joined(separator: ",")
+        }else{
+            self.alert(title: "Oops", message: "No Cuisine is selected.")
+            return
+        }
+        
+        PNOrderManager.sharedInstance.generateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, Catergory: category, Cuisine: cuisine, GroupSize: groupSize, BudgetPerPerson: budgetPerPerson, OrderMode: orderMode, RestsTried: restsTried, SuccessBlock: { (generatedOrderResponse) in
+            
+            PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
+                
+                
+                self.tableView.reloadData()
+                self.updateTotalPrice()
+                
+            }, FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else{
+                    self.alert(title: "Error", message: "Something went wrong")
+                }
+            })
+            
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        }
+        
     }
 }

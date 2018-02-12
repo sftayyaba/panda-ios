@@ -59,7 +59,7 @@ public class ErrorBaseClass: NSObject, Error {
             userMsg = user_msg
         }
         
-        localizedDescription = userMsg!
+        localizedDescription = userMsg != nil ? userMsg! : "Something went wrong."
     }
 
 

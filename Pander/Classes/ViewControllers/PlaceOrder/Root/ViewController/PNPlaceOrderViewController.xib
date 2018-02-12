@@ -77,6 +77,9 @@
                             <color key="value" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="getNewSuggestionsTapped:" destination="-1" eventType="touchUpInside" id="vuu-kn-ag0"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19e-vK-OxU">
                     <rect key="frame" x="15" y="510" width="37.5" height="21"/>
@@ -128,6 +131,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aze-U3-5uv" secondAttribute="trailing" constant="15" id="yKg-h0-UQK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <connections>
+                <outlet property="totalPriceLabel" destination="Wtv-bs-klp" id="p3j-Xt-3Xs"/>
+            </connections>
             <point key="canvasLocation" x="90.5" y="24.5"/>
         </view>
     </objects>

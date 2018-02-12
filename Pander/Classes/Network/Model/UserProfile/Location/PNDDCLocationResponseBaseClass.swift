@@ -35,7 +35,7 @@ public final class PNDDCLocationResponseBaseClass: NSCoding {
   public required init(json: JSON) {
     location = PNDDCLocation(json: json[SerializationKeys.location])
     if let items = json[SerializationKeys.message].array {
-        message = items.map { ErrorBaseClass(json: $0.object as! JSON) }
+        message = items.map { ErrorBaseClass(json: $0 as! JSON) }
     }
   }
 

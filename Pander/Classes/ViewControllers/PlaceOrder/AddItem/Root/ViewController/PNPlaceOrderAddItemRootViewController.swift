@@ -18,20 +18,18 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
     
     @IBOutlet weak var navigationBarView: UIView!
 
-    var numberOfImages: Int = 3
+    var numberOfImages: Int = 1
     
     var contentWidth:CGFloat = 0.0
 
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         
-        return PNPlaceOrderAddItemMainViewController(nibName: "PNPlaceOrderAddItemMainViewController", bundle: nil)
-//        PNPlaceOrderAddItemMainViewController(coder: CGRect(x: 15, y: 282, width: screenSize.width, height: 30))
+        let vc = PNPlaceOrderAddItemMainViewController(nibName: "PNPlaceOrderAddItemMainViewController", bundle: nil)
+
+        vc.type = PNMenuTab(rawValue: Int(index))
+
+        return vc
     }
-    
-    
-//    func barPosition(for carbonTabSwipeNavigation: CarbonTabSwipeNavigation) -> UIBarPosition {
-//        return UIBarPo
-//    }
     
     var items = NSArray()
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
@@ -41,9 +39,6 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
   
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let items = ["Features", "Products", "About"]
-//        let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
-//        carbonTabSwipeNavigation.insert(intoRootViewController: self)
         self.configureCarbonSwipeNavigation()
        
         self.scrollView.delegate = self
@@ -51,17 +46,17 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
         self.configurePageControl()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-    }
     
-    override func viewWillLayoutSubviews() {
-    }
-    
-    override func viewDidLayoutSubviews() {
-    }
-    
+   
     override func configureCallBacks() {
         
+    }
+    
+    override func configureView(){
+        self.placeOrderAddItemRootView.restaurentNameLabel.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
+        if let minOrder = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.minOrder{
+            self.placeOrderAddItemRootView.minimumOrderLabel.text = "Minimum order $\(minOrder)"
+        }
     }
 
     func configurePageControl() {
@@ -70,6 +65,16 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
             
             let imageToDisplay = UIImage(named: "bg_photo")
             let imageView = UIImageView(image: imageToDisplay)
+            
+            if let imgUrlStr = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.imageUrl{
+                
+                let imgUrl = URL(string: imgUrlStr)
+                
+                imageView.sd_setImage(with: imgUrl , completed: { (img, err, type, url) in
+                    print("image loaded")
+                })
+                
+            }
             
             let xCoordinate = self.view.frame.width * CGFloat(image)
             
@@ -87,11 +92,14 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.pageControll.currentPage = self.scrollView.currentPage
     }
+    
+    
+    
     // MARK: Carboon swipe Navigation
     func configureCarbonSwipeNavigation() -> Void {
         items = ["Main", "Appetizer & small bites", "Dessert", "Drinks"]
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items as [AnyObject], delegate: self)
-//        carbonTabSwipeNavigation.insert(intoRootViewController: self)
+
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.navigationBarView)
         self.style()
     }

@@ -33,9 +33,15 @@ extension PNUserManager {
                                 }
                                 card.isSelected = defaults.card == "\(card.ccId!)"
                                 card.isDefault = card.isSelected
+                                
                                 if( weakSelf?.selectedCard == nil && card.isSelected){
                                     weakSelf?.selectedCard = card
                                 }
+                                
+                                if (weakSelf?.selectedCard != nil && weakSelf?.selectedCard!.ccId! == card.ccId!){
+                                    card.isSelected = true
+                                }
+                                
                                 return card
                             })
                             

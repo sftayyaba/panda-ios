@@ -70,9 +70,15 @@ final class PNUserManager: PNBaseManager {
     //Addresses of user
     var addresses: [PNAddresses]?
     var selectedAddress: PNAddresses?
-    
+    //Nicks of User
     var userNicks: PNGetNicksResponse?
+    //Defaults of User
     var userDefaults: PNUserDefaults?
+    //Home Selected Cuisines
+    var homeSelectedCuisines:[String]?
+    
+    var groupSize: Int = 1
+    var budgetPerPerson: Int = 25
     
     //step 1.1
     var selectedUnsupportedZip:String?

@@ -40,6 +40,41 @@ extension PNUserManager {
         
         OnebyteNetworkOperationQueue.sharedInstance.addOperation(getAddressesOperation)
     }
+ 
+    
+    
+    func addDefaults(CardId cardId: String?, AddressId addressId: String?, SuccessBlock successBlock: @escaping ((_ successResponse: PNCodeResponse ) -> Void), FailureBlock failureBlock: @escaping ((_ error: Error?) -> Void)){
+        
+        let getAddressesOperation:PNSetDefaultsOperation = PNSetDefaultsOperation()
+        
+        getAddressesOperation.addressId = addressId
+        getAddressesOperation.cardId = cardId
+        
+        weak var weakSelf = self
+        
+        weakSelf?.notifyNetworkRequestStarted()
+        
+        getAddressesOperation.didFinishSuccessfullyCallback = {
+            response in
+            
+            weakSelf?.notifyNetworkRequestFinish()
+            
+            if let successResponse = response as? PNCodeResponse{
+                successBlock(successResponse)
+            }else if let errorResponse = response as? ErrorBaseClass{
+                failureBlock(errorResponse)
+            }
+            
+        }
+        
+        getAddressesOperation.didFinishWithErrorCallback = {
+            error in
+            weakSelf?.notifyNetworkRequestFinish()
+            failureBlock(error)
+        }
+        
+        OnebyteNetworkOperationQueue.sharedInstance.addOperation(getAddressesOperation)
+    }
     
 }
 

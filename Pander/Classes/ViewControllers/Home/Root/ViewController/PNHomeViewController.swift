@@ -20,14 +20,8 @@ class PNHomeViewController: PNBaseViewController {
     }
     
 
-    override func configureView() {
-        self.configureCollectionView()
-    }
-    
-    override func configureNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
+   
+    //MARK: Loading/Methods
     override func doInitialDataLoad() {
         PNUserManager.sharedInstance.getRecommendationsForSelectedZip(SuccessBlock: { (recs) in
             let cuisines = PNUserManager.sharedInstance.selectedZip != nil ?
@@ -60,6 +54,17 @@ class PNHomeViewController: PNBaseViewController {
         }
     }
     
+    
+    //MARK: Configuration/Methods
+    override func configureView() {
+        self.configureCollectionView()
+    }
+    
+    override func configureNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    
     override func configureCallBacks() {
         self.homeView.collectionView.didDeliveryButtonCallback = {
             self.deliverASAPButtonPressed(self.homeView)
@@ -84,12 +89,19 @@ class PNHomeViewController: PNBaseViewController {
         self.homeView.collectionView.didFindRestaurentButtonCallback = {
             self.findRestaurentButtonPressed(self.homeView)
         }
+        
+        self.homeView.collectionView.didSelectCuisineCallback = {
+            cuisine in
+            if var cuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
+                cuisines.append(cuisine)
+            }else{
+                PNUserManager.sharedInstance.homeSelectedCuisines = [cuisine]
+            }
+            
+            self.findRestaurentButtonPressed(self.homeView)
+        }
     }
     
-    @IBAction func searchBarTapped(_ sender: UIButton) {
-//        self.alert(title: "!!!", message: "Coming Soon!")
-        self.homeView.searchButtonTapped()
-    }
     
     fileprivate func configureCollectionView () {
         
@@ -101,60 +113,35 @@ class PNHomeViewController: PNBaseViewController {
         let nib = UINib(nibName: "FindRestuarantCollectionViewCell", bundle: nil)
         
         let headerNib = UINib(nibName: "PHHomeFindRestuarantCollectionReusableView", bundle: nil)
-
+        
         self.homeView.collectionView.register(nib , forCellWithReuseIdentifier: "FindRestuarantCollectionViewCell")
         
         self.homeView.collectionView.register(UINib(nibName: "PNHomeMainSeeLessCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "PNHomeMainSeeLessCollectionViewCell")
-
-
+        
+        
         self.homeView.collectionView.register(UINib(nibName: "PNHomeMainSeeMoreCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "PNHomeMainSeeMoreCollectionViewCell")
         
         self.homeView.collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PHHomeFindRestuarantCollectionReusableView")
-   
+        
         self.homeView.collectionView.register((UINib(nibName: "PNHomeFeaturedItemsCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNHomeFeaturedItemsCollectionReusableView")
-
+        
         self.homeView.collectionView.register((UINib(nibName: "PHCommonHeaderCollectionView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PHCommonHeaderCollectionView")
         
         self.homeView.collectionView.register((UINib(nibName: "PNHomeFeaturedCuisineCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNHomeFeaturedCuisineCollectionReusableView")
-
+        
         self.homeView.collectionView.reloadData()
     }
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
-//        if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text, let password =
-//            self.guestLetsGetStartedWithEmailView.passwordTextField.text {
-//            if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text {
-//                if email.isEmail {
-//                    
-//                    
-//                    PNUserManager.sharedInstance.signUp(Email: email, Password: password, SuccessBlock: { (successResponse) in
-//                        
-//                        let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
-//                        self.navigationController?.pushViewController(viewController, animated: true)
-//                        
-//                    }, FailureBlock: { (error) in
-//                        if let localError = error as? ErrorBaseClass{
-//                            self.alert(title: "Opss", message: localError.localizedDescription)
-//                        }else {
-//                            self.alert(title: "Error", message: "Something went wrong !")
-//                        }
-//                    })
-//            
-//                }else{
-//                    self.alert(title: "Error", message: "Enter valid email.")
-//
-//                }
-//            }else{
-//                self.alert(title: "Error", message: "Email and password are required")
-//            }
-//            
-//        }
+    
+    
+    
+    //MARK: Action/Methods
+    
+    @IBAction func searchBarTapped(_ sender: UIButton) {
+//        self.alert(title: "!!!", message: "Coming Soon!")
+        self.homeView.searchButtonTapped()
     }
     
-    @IBAction func logoutPressed(_ sender: Any) {
-        PNUserManager.sharedInstance.logoutUser()
-        AppDelegate.sharedInstance()?.moveToSingUp()
-    }
     
     @IBAction func locationButtonPressed(_ sender: Any) {
         let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
@@ -182,8 +169,59 @@ class PNHomeViewController: PNBaseViewController {
     }
     
     @IBAction func findRestaurentButtonPressed(_ sender: Any) {
-        let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
-        self.navigationController?.pushViewController(viewController, animated: true)
+        var searchAddress = ""
+        var city = ""
+        var zip = ""
+        var addressId = ""
+        let category = 2
+        var cuisine = ""
+        let groupSize = PNUserManager.sharedInstance.groupSize
+        let budgetPerPerson = PNUserManager.sharedInstance.budgetPerPerson
+        let orderMode = 0
+        
+        if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
+            searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
+            city = selectedAddress.city!
+            zip = selectedAddress.zipCode!
+            addressId = "\(selectedAddress.locationId!)"
+        }else{
+            self.alert(title: "Oops", message: "No Delivery address is selected.")
+            return
+        }
+        
+        if let selectedCuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
+            cuisine = selectedCuisines.joined(separator: ",")
+        }else{
+            self.alert(title: "Oops", message: "No Cuisine is selected.")
+            return
+        }
+        
+        PNOrderManager.sharedInstance.generateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, Catergory: category, Cuisine: cuisine, GroupSize: groupSize, BudgetPerPerson: budgetPerPerson, OrderMode: orderMode, RestsTried: nil, SuccessBlock: { (generatedOrderResponse) in
+            
+            PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
+
+
+                let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
+                
+                self.navigationController?.pushViewController(viewController, animated: true)
+
+            }, FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else{
+                    self.alert(title: "Error", message: "Something went wrong")
+                }
+            })
+            
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        }
+        
+        
     }
 
 }

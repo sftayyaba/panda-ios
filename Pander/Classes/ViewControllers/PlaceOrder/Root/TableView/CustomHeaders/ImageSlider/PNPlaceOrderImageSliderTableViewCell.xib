@@ -87,7 +87,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="minimumOrderLabel" destination="WqD-oz-a5S" id="4a4-Fl-LAJ"/>
                 <outlet property="pageControll" destination="9TP-7k-Ra6" id="Td7-wI-BFW"/>
+                <outlet property="restaurentNameLabel" destination="o7W-4t-NHB" id="rUM-Lv-HVc"/>
                 <outlet property="scrollView" destination="aOy-qs-nlD" id="ypw-Wi-ODA"/>
             </connections>
         </tableViewCell>

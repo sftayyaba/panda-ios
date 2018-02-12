@@ -27,6 +27,8 @@ class PNPartySizeViewController: PNBaseViewController {
         self.configureTableView()
     }
     
+    
+    
     override func configureCallBacks() {
         self.tableView.didSelectFriendCallback = {
             self.partySizeView.selectedFriendsViewHeight.constant = 50

@@ -56,6 +56,42 @@ extension PNUserManager{
         }
         OnebyteNetworkOperationQueue.sharedInstance.addOperation(apiOpertaion)
     }
+    
+    
+    
+    
+    func removeCard(CCId ccId: String,
+                        successBlock: @escaping ((_ locationAddResponse: PNDDCLocationResponseBaseClass) -> Void),
+                        failureBlock: @escaping ((_ error: Error?) -> Void)){
+        
+        let apiOpertaion = PNRemoveDDCCardOperation( CCId: ccId)
+        
+        weak var weakSelf = self
+        
+        weakSelf?.notifyNetworkRequestStarted()
+        
+        apiOpertaion.didFinishSuccessfullyCallback = {
+            response in
+            weakSelf?.notifyNetworkRequestFinish()
+            
+            if let response = response as? PNDDCLocationResponseBaseClass{
+                
+                successBlock(response)
+                
+            }else if let errorResponse = response as? ErrorBaseClass{
+                failureBlock(errorResponse)
+            }
+        }
+        
+        apiOpertaion.didFinishWithErrorCallback = {
+            error in
+            
+            weakSelf?.notifyNetworkRequestFinish()
+            failureBlock(error)
+            
+        }
+        OnebyteNetworkOperationQueue.sharedInstance.addOperation(apiOpertaion)
+    }
 }
 
 

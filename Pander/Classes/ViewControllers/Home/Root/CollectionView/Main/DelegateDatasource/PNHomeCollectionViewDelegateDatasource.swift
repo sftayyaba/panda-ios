@@ -21,6 +21,7 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
     public var didPeopleButtonCallback : (() -> Void)?
     public var didDeliveryButtonCallback : (() -> Void)?
     public var didFindRestaurentButtonCallback : (() -> Void)?
+    public var didSelectCuisineCallback : ((String) -> Void)?
 
     //MARK: Properties
     var cuisines: [JSON] = []
@@ -134,6 +135,8 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
             cell.cuisines = self.cuisines
             cell.dishes = self.dishes
             
+            cell.didSelectCuisineCallback = self.didSelectCuisineCallback
+            
             cell.collectionView.reloadData()
             
             return cell
@@ -160,6 +163,8 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
             
             cell.cuisines = self.cuisines
             cell.dishes = self.dishes
+            
+            cell.didSelectCuisineCallback = self.didSelectCuisineCallback
             
             cell.collectionView.reloadData()
             
@@ -213,5 +218,23 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
         }else {
             return CGSize(width: self.frame.size.width, height: 320)
         }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 && isfeatureItemShowMore {
+            let cuisine = self.dishes[indexPath.row]
+            if let callback = didSelectCuisineCallback{
+                callback(cuisine["cuisine"].string!)
+            }
+
+        }else if indexPath.section == 2 && isCuisineShowMore {
+            let cuisine = self.cuisines[indexPath.row]
+            if let callback = didSelectCuisineCallback{
+                callback(cuisine["cuisine"].string!)
+            }
+        }
+        
     }
 }

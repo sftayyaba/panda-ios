@@ -43,6 +43,10 @@ struct AppNetworkEndPoints {
     static let kGetAllAddresses                     = "/user/addresses/"
     static let kGetUserNicks                        = "/user/nicknames/"
     static let kGetUserDefaults                     = "/user/defaults/"
+    static let kAddUserDefaults                     = "/user/defaults/"
+    static let kAddNicks                            = "/user/nicknames/"
+    static let kOrder                               = "/order/"
+    static let kOrderStatus                         = "/order/status/"
     
 
     static let kAddAddress                          = "/customer/location/"

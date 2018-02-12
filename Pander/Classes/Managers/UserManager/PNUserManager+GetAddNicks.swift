@@ -43,7 +43,7 @@ extension PNUserManager {
  
     
     
-    func addNicks(OfType type: PNNickOperationType, Id id: String, FriendlyName friendlyName: String, SuccessBlock successBlock: @escaping ((_ successResponse: PNGetNicksResponse ) -> Void), FailureBlock failureBlock: @escaping ((_ error: Error?) -> Void)){
+    func addNicks(OfType type: PNNickOperationType, Id id: String, FriendlyName friendlyName: String, SuccessBlock successBlock: @escaping ((_ successResponse: PNCodeResponse ) -> Void), FailureBlock failureBlock: @escaping ((_ error: Error?) -> Void)){
         
         let getAddressesOperation:PNAddNickOperation = PNAddNickOperation(OfType: type,Id: id, FriendlyName:  friendlyName)
         
@@ -56,8 +56,7 @@ extension PNUserManager {
             
             weakSelf?.notifyNetworkRequestFinish()
             
-            if let successResponse = response as? PNGetNicksResponse{
-                weakSelf?.userNicks = successResponse
+            if let successResponse = response as? PNCodeResponse{
                 successBlock(successResponse)
             }else if let errorResponse = response as? ErrorBaseClass{
                 failureBlock(errorResponse)

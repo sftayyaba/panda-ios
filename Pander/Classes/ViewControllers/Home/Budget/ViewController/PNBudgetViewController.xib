@@ -512,12 +512,15 @@ Cgo
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kOW-r4-oXt">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="25" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="kOW-r4-oXt">
                                             <rect key="frame" x="23" y="94" width="275" height="31"/>
                                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="maximumTrackTintColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="thumbTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="budgetPerPersonValueChanged:" destination="i5M-Pr-FkT" eventType="valueChanged" id="rlV-cY-C9G"/>
+                                            </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFY-xG-BaC">
                                             <rect key="frame" x="334.33333333333331" y="100" width="25.666666666666686" height="19.333333333333329"/>
@@ -614,6 +617,8 @@ Cgo
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="arrowImageView" destination="CEt-xm-ZMp" id="F8A-uV-7CC"/>
+                <outlet property="budgetPerPersonLabel" destination="NFY-xG-BaC" id="lBn-8L-GR5"/>
+                <outlet property="budgetPerPersonSlider" destination="kOW-r4-oXt" id="gG7-ag-Ub7"/>
                 <outlet property="cardNumberTextField" destination="QEL-jC-Bq2" id="qmT-c0-GoN"/>
                 <outlet property="cvvTextField" destination="6hZ-6B-BgF" id="6YB-9T-tuG"/>
                 <outlet property="expiryMonthTextField" destination="zCd-vI-ELF" id="Uf9-7s-21f"/>
