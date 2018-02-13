@@ -15,7 +15,7 @@ extension PNUserManager{
                      City city: String,
                      State state: String,
                      Phone phone: String,
-                     UnitNumber unit_number: String,
+                     UnitNumber unit_number: String?,
                      NickName nickName: String?,
                      successBlock: @escaping ((_ locationAddResponse: PNDDCLocationResponseBaseClass) -> Void),
                      failureBlock: @escaping ((_ error: Error?) -> Void)){
@@ -79,7 +79,7 @@ extension PNUserManager{
                      City city: String,
                      State state: String,
                      Phone phone: String,
-                     UnitNumber unit_number: String,
+                     UnitNumber unit_number: String?,
                      NickName nickName: String?,
                      successBlock: @escaping ((_ locationAddResponse: PNDDCLocationResponseBaseClass) -> Void),
                      failureBlock: @escaping ((_ error: Error?) -> Void)){

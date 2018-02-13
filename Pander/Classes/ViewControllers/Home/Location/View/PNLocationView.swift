@@ -45,6 +45,7 @@ class PNLocationView: UIView {
     override func awakeFromNib() {
         self.configureTextFields()
         self.configureStateTextFields()
+        self.phoneNumberField.delegate = self
     }
     
     func configureStateTextFields() {

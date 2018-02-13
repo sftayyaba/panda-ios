@@ -109,7 +109,7 @@ class PNLocationViewController: PNBaseViewController {
                 self.doInitialDataLoad()
 
                 if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "!!!", message: localError.localizedDescription)
+                    self.alert(title: "Success", message: localError.localizedDescription)
                 }else {
                     self.alert(title: "Error", message: "Something went wrong !")
                 }
@@ -169,6 +169,7 @@ class PNLocationViewController: PNBaseViewController {
     }
     
     @IBAction func addAddressPressed(_ sender: Any) {
+        
         if let streetAddress = self.locationView.streetAddressField.text {
             if streetAddress.count >= 5{
                 
@@ -176,20 +177,22 @@ class PNLocationViewController: PNBaseViewController {
                     if city.count >= 2{
 
                         if let unit_number = self.locationView.unit_numberField.text {
-                            if unit_number.count >= 2{
-                                
+//                            if unit_number.count >= 2{
+                            
                                 if let state = self.locationView.stateField.text {
                                     if state.count >= 2{
                                         
                                         if let zip = self.locationView.zipCodeField.text {
-                                            if zip.count >= 5{
+                                            if zip.count == 5{
                                                 
                                                 if let phone = self.locationView.phoneNumberField.text {
                                                     if phone.count >= 10 && phone.count <= 12{
-                                                        
+                                                        if self.locationView.addressNickNameField.text == "" {
+                                                            self.alert(title: "Alert", message: "Nick name field is empty!")
+                                                        }else{
                                                         if currentMode == .add{
                                                             
-                                                            PNUserManager.sharedInstance.addLocation(Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number, NickName: self.locationView.addressNickNameField.text == "" ? nil : self.locationView.addressNickNameField.text , successBlock: {
+                                                            PNUserManager.sharedInstance.addLocation(Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number == "" ? nil : unit_number, NickName: self.locationView.addressNickNameField.text == "" ? nil : self.locationView.addressNickNameField.text , successBlock: {
                                                                 locationResponse in
                                                                 
                                                                 if let errorMsg = locationResponse.message?.first?.localizedDescription{
@@ -217,7 +220,7 @@ class PNLocationViewController: PNBaseViewController {
                                                             
                                                         }else if currentMode == .edit{
                                                             
-                                                            PNUserManager.sharedInstance.updateLocation(LocationId: "\(currentEditAddress!.locationId!)" ,Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number, NickName: self.locationView.addressNickNameField.text == "" ? nil : self.locationView.addressNickNameField.text , successBlock: {
+                                                            PNUserManager.sharedInstance.updateLocation(LocationId: "\(currentEditAddress!.locationId!)" ,Street: streetAddress, Zip: zip, City: city, State: state, Phone: phone, UnitNumber: unit_number == "" ? nil : unit_number, NickName: self.locationView.addressNickNameField.text == "" ? nil : self.locationView.addressNickNameField.text , successBlock: {
                                                                 locationResponse in
                                                                 
                                                                 if let errorMsg = locationResponse.message?.first?.localizedDescription{
@@ -257,8 +260,10 @@ class PNLocationViewController: PNBaseViewController {
                                                             })
 
                                                         }
+                                                            
+                                                        }
                                                     }else{
-                                                        self.alert(title: "Oops", message: "Phone number must be atleast 5 letter.");
+                                                        self.alert(title: "Oops", message: "Phone number must be 10 digits.");
                                                     }
                                                 }else{
                                                     self.alert(title: "Oops", message: "Phone number is required");
@@ -266,7 +271,7 @@ class PNLocationViewController: PNBaseViewController {
                                                 
                                                 
                                             }else{
-                                                self.alert(title: "Oops", message: "ZipCode must be atleast 5 letter.");
+                                                self.alert(title: "Oops", message: "ZipCode must be 5 digits.");
                                             }
                                         }else{
                                             self.alert(title: "Oops", message: "ZipCode is required");
@@ -281,9 +286,9 @@ class PNLocationViewController: PNBaseViewController {
                                 }
 
                                 
-                            }else{
-                                self.alert(title: "Oops", message: "Unit/Apt/Suite must be atleast 2 letter.");
-                            }
+//                            }else{
+//                                self.alert(title: "Oops", message: "Unit/Apt/Suite must be atleast 2 letter.");
+//                            }
                         }else{
                             self.alert(title: "Oops", message: "Unit/Apt/Suite is required");
                         }

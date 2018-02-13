@@ -31,10 +31,10 @@ extension PNUserManager {
                                 if let nick = nicks.cards["\(card.ccId!)"]{
                                     card.nick = nick
                                 }
-                                card.isSelected = defaults.card == "\(card.ccId!)"
-                                card.isDefault = card.isSelected
+                                card.isDefault = defaults.card == "\(card.ccId!)"
+//                                card.isDefault = card.isSelected
                                 
-                                if( weakSelf?.selectedCard == nil && card.isSelected){
+                                if( weakSelf?.selectedCard == nil && card.isDefault){
                                     weakSelf?.selectedCard = card
                                 }
                                 

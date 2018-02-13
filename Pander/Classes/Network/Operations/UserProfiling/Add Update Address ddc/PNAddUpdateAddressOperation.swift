@@ -19,7 +19,7 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
     public var state: String
     public var phone: String
     public var zipCode: String
-    public var unit_number: String
+    public var unit_number: String?
 
     init(
         Street street: String,
@@ -27,7 +27,7 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
         City city: String,
         State state: String,
         Phone phone: String,
-        UnitNumber unit_number: String
+        UnitNumber unit_number: String?
         ) {
         self.street = street
         self.zipCode = zip
@@ -89,13 +89,17 @@ class PNAddAddressOperation: OnebyteNetworkOperationBase {
     
     private func createBody() -> Dictionary<String, Any>{
         
-        return [ "street"    : self.street,
-                 "unit_number"     : self.unit_number,
-                 "city"      : self.city,
-                 "state"     : self.state,
-                 "phone"     : self.phone,
-                 "zip_code"  : self.zipCode,
-        ]
+        var body = [ "street"    : self.street,
+                     "city"      : self.city,
+                     "state"     : self.state,
+                     "phone"     : self.phone,
+                     "zip_code"  : self.zipCode,
+                     ]
+        
+        if let unit_number = self.unit_number{
+            body["unit_number"] = unit_number
+        }
+        return body
     }
 }
 
@@ -112,7 +116,7 @@ class PNUpdateAddressOperation: OnebyteNetworkOperationBase {
     public var state: String
     public var phone: String
     public var zipCode: String
-    public var unit_number: String
+    public var unit_number: String?
     
     init(
         LocationId locationId: String,
@@ -121,7 +125,7 @@ class PNUpdateAddressOperation: OnebyteNetworkOperationBase {
         City city: String,
         State state: String,
         Phone phone: String,
-        UnitNumber unit_number: String
+        UnitNumber unit_number: String?
         ) {
         self.locationId = locationId
         self.street = street
@@ -184,12 +188,17 @@ class PNUpdateAddressOperation: OnebyteNetworkOperationBase {
     
     private func createBody() -> Dictionary<String, Any>{
         
-        return [ "street"    : self.street,
-                 "unit_number"     : self.unit_number,
+        var body = [ "street"    : self.street,
                  "city"      : self.city,
                  "state"     : self.state,
                  "phone"     : self.phone,
                  "zip_code"  : self.zipCode,
         ]
+        
+        if let unit_number = self.unit_number{
+            body["unit_number"] = unit_number
+        }
+        
+        return body
     }
 }

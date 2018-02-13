@@ -31,14 +31,15 @@ extension PNUserManager {
                             if let nick = nicks.addresses["\(address.locationId!)"]{
                                 address.nick = nick
                             }
-                            address.isSelected = defaults.address == "\(address.locationId!)"
-                            address.isDefault = address.isSelected
+                            address.isDefault = defaults.address == "\(address.locationId!)"
+//                            address.isDefault = address.isSelected
                             
-                            if ( weakSelf?.selectedAddress == nil && address.isSelected){
+                            if ( weakSelf?.selectedAddress == nil && address.isDefault){
                                 weakSelf?.selectedAddress = address
                             }
                             
                             if (weakSelf?.selectedAddress != nil && weakSelf?.selectedAddress!.locationId! == address.locationId!){
+                                weakSelf?.selectedAddress = address
                                 address.isSelected = true
                             }
                             
