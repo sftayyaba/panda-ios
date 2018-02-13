@@ -68,6 +68,11 @@ class PNBudgetView: UIView {
     
     @IBAction func budgetPerPersonValueChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value.rounded())
+        
+        if currentValue % 5 != 0 {
+           return
+        }
+        
         self.budgetPerPersonLabel.text = "$\(currentValue)"
         
         sender.setValue(Float(currentValue), animated: false)

@@ -78,7 +78,7 @@ final class PNUserManager: PNBaseManager {
     var homeSelectedCuisines:[String]?
     
     var groupSize: Int = 1
-    var budgetPerPerson: Int = 25
+    var budgetPerPerson: Int = 20
     
     //step 1.1
     var selectedUnsupportedZip:String?
