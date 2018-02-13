@@ -19,7 +19,8 @@ class PNLocationView: UIView {
     @IBOutlet weak var unit_numberField: HoshiTextField!
     @IBOutlet weak var cityField: HoshiTextField!
     @IBOutlet weak var addressNickNameField: HoshiTextField!
-    
+    @IBOutlet weak var labelTapToAdd: UILabel!
+
     @IBOutlet weak var addNewAddressButton: UIButton!
     
     
@@ -108,6 +109,7 @@ class PNLocationView: UIView {
             self.newAddressView.isHidden = true
             self.newAddressButton.isSelected = true
             self.storeAddressButton.isSelected = true
+            self.labelTapToAdd.text = "TAP TO ADD"
 
         }else {
             //            self.storeAddressButton.isSelected = true
@@ -116,6 +118,7 @@ class PNLocationView: UIView {
             self.newAddressButton.isSelected = false
             self.newAddressView.isHidden = false
             self.arrowImageView.image = UIImage(named: "Arrow - Big - down - Black")
+            self.labelTapToAdd.text = "HIDE"
         }
     }
 }

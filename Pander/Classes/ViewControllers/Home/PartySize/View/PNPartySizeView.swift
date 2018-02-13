@@ -47,6 +47,10 @@ class PNPartySizeView: UIView {
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Int(sender.value.rounded())
 
+        if currentValue == 0{
+            numberOfPeopleSlider.setValue(Float(1), animated: false)
+            return
+        }
         numberOfPeopleSlider.setValue(Float(currentValue), animated: false)
 
         self.numberOfPeople.text = String(currentValue)

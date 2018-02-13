@@ -38,7 +38,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-Dv-Ee0">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-Dv-Ee0">
                     <rect key="frame" x="28" y="137" width="266" height="31"/>
                     <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="thumbTintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

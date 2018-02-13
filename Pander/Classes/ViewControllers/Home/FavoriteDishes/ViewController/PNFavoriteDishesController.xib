@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what are some of your favorite dishes?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are some of your favorite dishes?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
                     <rect key="frame" x="30" y="70" width="315" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="29k-x5-ddh"/>
@@ -40,7 +40,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jY4-8W-5bH">
                     <rect key="frame" x="30" y="131" width="315" height="40"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your favorite cuisine here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-Z1-TwU">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type dishes here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-Z1-TwU">
                             <rect key="frame" x="28" y="10" width="279" height="20"/>
                             <color key="tintColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="textColor"/>
@@ -54,7 +54,7 @@
                                 <constraint firstAttribute="height" constant="1" id="F89-Ua-rNN"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Payment method Icond" translatesAutoresizingMaskIntoConstraints="NO" id="hZd-qL-vyC">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search icon black" translatesAutoresizingMaskIntoConstraints="NO" id="hZd-qL-vyC">
                             <rect key="frame" x="0.0" y="12" width="18" height="17"/>
                         </imageView>
                     </subviews>
@@ -123,6 +123,6 @@
     </objects>
     <resources>
         <image name="Arrow - Big - left - Black" width="7" height="12"/>
-        <image name="Payment method Icond" width="18" height="17"/>
+        <image name="Search icon black" width="18" height="17"/>
     </resources>
 </document>

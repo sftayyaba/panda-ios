@@ -15,6 +15,7 @@ class PNBudgetView: UIView {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var nextButton: UIButton!
+    @IBOutlet weak var labelTapToAdd: UILabel!
 
     @IBOutlet weak var budgetPerPersonLabel: UILabel!
     @IBOutlet weak var budgetPerPersonSlider: UISlider!
@@ -98,7 +99,7 @@ class PNBudgetView: UIView {
         if !self.newAddressButton.isSelected {
             self.newAddressView.isHidden = true
             self.newAddressButton.isSelected = true
-            
+            self.labelTapToAdd.text = "TAP TO ADD"
         }else {
             //            self.storeAddressButton.isSelected = true
             self.storeAddressView.isHidden = true
@@ -106,6 +107,7 @@ class PNBudgetView: UIView {
             self.newAddressButton.isSelected = false
             self.newAddressView.isHidden = false
             self.arrowImageView.image = UIImage(named: "Arrow - Big - down - Black")
+            self.labelTapToAdd.text = "HIDE"
         }
     }
 }
