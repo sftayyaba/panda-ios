@@ -127,7 +127,7 @@ extension AppDelegate{
     func initialiseTabBarControllerWithViewController(viewControllers: [UIViewController]) -> UITabBarController {
         let scheduleItem : UITabBarItem = UITabBarItem(title: "", image: UIImage(named:"home_icon_black"), tag: 0)
         scheduleItem.image = UIImage(named:"home_icon_black")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        scheduleItem.selectedImage = UIImage(named:"home_icon_black active")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        scheduleItem.selectedImage = UIImage(named:"home_icon_black")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         
         scheduleItem.imageInsets = UIEdgeInsets(top: ApplicationNumberConstants.kTabBarItemImageTopPadding, left: 0, bottom: -1*ApplicationNumberConstants.kTabBarItemImageTopPadding, right: 0)
         
@@ -175,7 +175,7 @@ extension AppDelegate{
 //        tabController.tabBar.selectionIndicatorImage = UIImage.selectedTabBackgroundImage(width: (window?.frame.size.width)!/4.0, height: 49)
         
         tabController.viewControllers = viewControllers
-        
+        tabController.tabBar.tintColor = UIColor.customRedColor()
         return tabController
     }
 }

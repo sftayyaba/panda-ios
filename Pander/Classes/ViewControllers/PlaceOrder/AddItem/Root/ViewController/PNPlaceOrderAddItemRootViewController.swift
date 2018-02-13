@@ -97,7 +97,7 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
     
     // MARK: Carboon swipe Navigation
     func configureCarbonSwipeNavigation() -> Void {
-        items = ["Main", "Appetizer & small bites", "Dessert", "Drinks"]
+        items = ["Main", "Appetizers & small bites", "Dessert", "Drinks"]
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items as [AnyObject], delegate: self)
 
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.navigationBarView)
