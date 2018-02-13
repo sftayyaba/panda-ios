@@ -201,7 +201,8 @@ class PNLocationViewController: PNBaseViewController {
                                                                     self.locationView.refreshForm()
                                                                     
                                                                     self.locationView.showStoredAddressButtonTapped()
-                                                                    
+                                                                    self.locationView.showStoredAddressButtonTapped()
+
                                                                     self.alert(title: "Success", message: "Address added to your account")
                                                                 }
                                                                 
