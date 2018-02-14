@@ -23,6 +23,7 @@ class PNDeliveryView: UIView {
     
     @IBOutlet var deliveryLabel: UILabel!
 
+    @IBOutlet weak var deliveryTimeLabel: UILabel!
     @IBOutlet var arrowUpImageView: UIView!
     @IBOutlet var arrowUpButton: UIButton!
 

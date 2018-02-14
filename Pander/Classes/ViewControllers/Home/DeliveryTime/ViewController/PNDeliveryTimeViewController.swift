@@ -14,15 +14,26 @@ class PNDeliveryTimeViewController: PNBaseViewController {
 //    @IBOutlet var deliveryTimeTableView: PNDeliveryTimeTableViewDelegateDatasource!
     @IBOutlet var deliveryDateTableView: PNDeliveryDateTableViewDelegateDatasource!
 
-     var dateArray = [String]()
-     var dateState = [Bool]()
+    @IBOutlet weak var deliveryTimeTableView: PNDeliveryDateTableViewDelegateDatasource!
+    var dateArray = [String]()
+    
+    var timeArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
         self.configureNavigationBar()
+        
     }
     
+    override func doInitialDataLoad() {
+        
+        self.deliveryView.deliveryTimeLabel.attributedText = NSMutableAttributedString().normal("When: ").redbold(PNUserManager.sharedInstance.selectedTime)
+
+        self.deliveryView.deliveryLabel.attributedText = NSMutableAttributedString().normal("Deliver ").redbold(PNUserManager.sharedInstance.selectedDate)
+
+        
+    }
     override func configureNavigationBar() {
 //        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 
@@ -33,21 +44,96 @@ class PNDeliveryTimeViewController: PNBaseViewController {
         UINavigationBar.appearance().shadowImage = UIImage()
     }
     
+    func resetTimesTableView(){
+        self.deliveryTimeTableView.timesArray = self.configureTimesArray()
+        self.deliveryTimeTableView.reloadData()
+    }
+    
     fileprivate func configureTableView() {
-        
+        //Date Setup
         let nib = UINib(nibName: "PNDeliveryDateTableViewCell", bundle: nil)
         self.deliveryDateTableView.register(nib, forCellReuseIdentifier: "PNDeliveryDateTableViewCell")
         
-        self.deliveryDateTableView.dateArray = self.configureArray()
-        self.deliveryDateTableView.dateState = self.dateState
+        self.deliveryDateTableView.dateArray = self.configureDaysArray()
+        self.deliveryTimeTableView.type = .date
+        
         self.deliveryDateTableView.dataSource = self.deliveryDateTableView
         self.deliveryDateTableView.delegate = self.deliveryDateTableView
+        
         self.deliveryDateTableView.reloadData()
+        
+        self.deliveryDateTableView.didSelectDateCallback = {
+            
+            self.resetTimesTableView()
+            
+            self.deliveryView.deliveryLabel.attributedText = NSMutableAttributedString().normal("Deliver ").redbold(PNUserManager.sharedInstance.selectedDate)
+            
+            self.deliveryView.deliveryTimeLabel.attributedText = NSMutableAttributedString().normal("When:")
+        }
+        
+        
+        
+        
+        //Time Setup
+        let nib2 = UINib(nibName: "PNDeliveryDateTableViewCell", bundle: nil)
+        self.deliveryTimeTableView.register(nib2, forCellReuseIdentifier: "PNDeliveryDateTableViewCell")
+        
+        
+        self.deliveryTimeTableView.timesArray = self.configureTimesArray()
+        self.deliveryTimeTableView.type = .time
+        
+        self.deliveryTimeTableView.dataSource = self.deliveryTimeTableView
+        self.deliveryTimeTableView.delegate = self.deliveryTimeTableView
+        
+        self.deliveryTimeTableView.didSelectTimeCallback = {
+            self.deliveryView.deliveryTimeLabel.attributedText = NSMutableAttributedString().normal("When: ").redbold(PNUserManager.sharedInstance.selectedTime)
+
+        }
+        self.deliveryTimeTableView.reloadData()
     }
 
-    func configureArray()-> [String] {
+    func configureTimesArray()-> [String]{
+        var date = Date()
+        let minutes = DateUtils.getMinutes(date)
+        
+        var numberOfSlots = 6
+        if PNUserManager.sharedInstance.selectedDate == "Today"{
+            if minutes > 30{
+                date = date.addingTimeInterval(60.0 * (60.0 - Double(minutes)))
+                
+            }else {
+                date = date.addingTimeInterval(60.0 * (30.0 - Double(minutes)))
+            }
+        }else{
+            let hours = DateUtils.getHours(date)
+            let minutes = DateUtils.getMinutes(date) + 60*hours
+            
+            date = date.addingTimeInterval(-60.0 *  Double(minutes))
+            numberOfSlots = (24 - DateUtils.getHours(date)) * 2
+
+        }
+
+        self.timeArray = [String]()
+        self.timeArray.append("ASAP")
+        
+        for i in 0..<numberOfSlots{
+            
+            let startSlotTime = date.timeWithPeriod
+            let endSlotTime = date.addingTimeInterval(60.0*30.0).timeWithPeriod
+            let slotStr = "\(startSlotTime)  -  \(endSlotTime)"
+        
+            date = date.addingTimeInterval(60.0 * 30.0)
+
+            self.timeArray.append(slotStr)
+        }
+        
+        return self.timeArray
+    }
+    
+    
+    func configureDaysArray()-> [String] {
         for i in 0..<7{
-            self.dateState.append(false)
+
             if i == 0{
                 self.dateArray.append("Today")
             }else if i == 1 {

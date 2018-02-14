@@ -80,6 +80,10 @@ final class PNUserManager: PNBaseManager {
     var groupSize: Int = 1
     var budgetPerPerson: Int = 20
     
+    //Selected Time And Date for order
+    var selectedDate: String = "Today"
+    var selectedTime: String = "ASAP"
+    
     //step 1.1
     var selectedUnsupportedZip:String?
     var selectedZip:String?{

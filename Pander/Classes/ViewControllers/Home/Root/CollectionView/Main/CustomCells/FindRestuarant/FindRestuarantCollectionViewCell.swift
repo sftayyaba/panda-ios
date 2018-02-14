@@ -100,6 +100,15 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
 }
 
 extension NSMutableAttributedString {
+    
+    @discardableResult func redbold(_ text: String) -> NSMutableAttributedString {
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont(name: "AvenirNext-DemiBold", size: 14)!, .foregroundColor: UIColor.customRedColor()]
+        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+        append(boldString)
+        
+        return self
+    }
+
     @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
         let attrs: [NSAttributedStringKey: Any] = [.font: UIFont(name: "AvenirNext-DemiBold", size: 14)!]
         let boldString = NSMutableAttributedString(string:text, attributes: attrs)

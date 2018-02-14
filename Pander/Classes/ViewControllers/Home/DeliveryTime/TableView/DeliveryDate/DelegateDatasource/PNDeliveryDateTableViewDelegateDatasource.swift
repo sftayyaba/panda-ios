@@ -8,9 +8,14 @@
 import Foundation
 import UIKit
 
+enum PNDeliveryTableViewType{
+    case time
+    case date
+}
 class PNDeliveryDateTableViewDelegateDatasource: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: Members
+    var type : PNDeliveryTableViewType = .date
     var isCurrentLocation = false
     var isMomsHouse = false
     var isHome = false
@@ -18,10 +23,15 @@ class PNDeliveryDateTableViewDelegateDatasource: UITableView, UITableViewDataSou
     var isJeff = false
     
     var dateArray = [String]()
-    var dateState = [Bool]()
+
+    var timesArray = [String]()
+    
+
 
     //MARK: Callbacks
-    public var didSelectFriendCallback : (() -> Void)?
+    public var didSelectDateCallback : (() -> Void)?
+    public var didSelectTimeCallback : (() -> Void)?
+
     
     override func awakeFromNib() {
         self.configureTableView()
@@ -38,11 +48,12 @@ class PNDeliveryDateTableViewDelegateDatasource: UITableView, UITableViewDataSou
     
     // MARK: Datasource
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dateArray.count
+        return self.type == .date ? self.dateArray.count : self.timesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,18 +79,37 @@ class PNDeliveryDateTableViewDelegateDatasource: UITableView, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForDeliveryDate indexPath: IndexPath) -> UITableViewCell {
         
         let cell: PNDeliveryDateTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNDeliveryDateTableViewCell", for: indexPath) as? PNDeliveryDateTableViewCell)!
-            cell.setContent(status: self.dateState[indexPath.row], title: self.dateArray[indexPath.row])
+        
+        let title = type == .date ? self.dateArray[indexPath.row] : self.timesArray[indexPath.row]
+        
+        var state = false
+
+        state = type == .date ? PNUserManager.sharedInstance.selectedDate == title : PNUserManager.sharedInstance.selectedTime == title
+        cell.setContent(status: state , title:title )
+
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for i in 0..<self.dateState.count {
-            if indexPath.row == i {
-                self.dateState[i] = true
-            }else {
-                self.dateState[i] = false
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+    
+        if type == .date {
+            if PNUserManager.sharedInstance.selectedDate != self.dateArray[indexPath.row]{
+                PNUserManager.sharedInstance.selectedDate = self.dateArray[indexPath.row]
+                
+                PNUserManager.sharedInstance.selectedTime = ""
+                if let callback = self.didSelectDateCallback{
+                    callback()
+                }
+            }
+        }else {
+
+            PNUserManager.sharedInstance.selectedTime = self.timesArray[indexPath.row]
+            if let callback = self.didSelectTimeCallback{
+                callback()
             }
         }
+
         self.reloadData()
     }
     

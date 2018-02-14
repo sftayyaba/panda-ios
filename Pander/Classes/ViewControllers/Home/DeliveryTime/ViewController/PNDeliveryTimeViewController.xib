@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNDeliveryTimeViewController" customModule="Pander" customModuleProvider="target">
             <connections>
                 <outlet property="deliveryDateTableView" destination="e0h-L2-8d0" id="kNR-nh-4t5"/>
+                <outlet property="deliveryTimeTableView" destination="8d4-uX-08q" id="Z8Q-fB-y6D"/>
                 <outlet property="deliveryView" destination="i5M-Pr-FkT" id="toi-Sn-FkB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="RGT-lg-AID"/>
             </connections>
@@ -127,7 +128,7 @@ Cg
                                                 </fragment>
                                                 <fragment content="Today">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.84419447183609009" green="0.090763621032238007" blue="0.14129087328910828" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
                                                     </attributes>
                                                 </fragment>
@@ -190,9 +191,9 @@ Cg
                             <rect key="frame" x="15" y="502.33333333333326" width="345" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvn-fz-RS7">
-                                    <rect key="frame" x="0.0" y="10.000000000000057" width="79" height="20"/>
+                                    <rect key="frame" x="0.0" y="10.000000000000057" width="82" height="20"/>
                                     <attributedString key="attributedText">
-                                        <fragment content="when: ">
+                                        <fragment content="When: ">
                                             <attributes>
                                                 <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -200,7 +201,7 @@ Cg
                                         </fragment>
                                         <fragment content="ASAP">
                                             <attributes>
-                                                <color key="NSColor" red="0.84419447183609009" green="0.090763621032238007" blue="0.14129087328910828" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
@@ -262,7 +263,7 @@ Cg
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6o-Je-g4e">
                             <rect key="frame" x="15" y="567.33333333333337" width="345" height="270"/>
                             <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8d4-uX-08q">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8d4-uX-08q" customClass="PNDeliveryDateTableViewDelegateDatasource" customModule="Pander" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="345" height="270"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableView>
@@ -352,6 +353,7 @@ Cg
             <connections>
                 <outlet property="dateArrowImageView" destination="CEt-xm-ZMp" id="Bfa-df-qye"/>
                 <outlet property="deliveryLabel" destination="xVX-ef-z7T" id="dqG-Dr-0CS"/>
+                <outlet property="deliveryTimeLabel" destination="Lvn-fz-RS7" id="FgT-Bv-PrV"/>
                 <outlet property="newAddressView" destination="L6o-Je-g4e" id="HZ3-bA-l5t"/>
                 <outlet property="selectDateButton" destination="oTQ-Ny-hJP" id="3ai-as-utZ"/>
                 <outlet property="selectTimeButton" destination="N2X-QV-VLh" id="H5x-6Y-OEX"/>

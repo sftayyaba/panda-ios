@@ -45,6 +45,7 @@
 		DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */; };
 		DA4D9FBC2009135A007F61A0 /* PNUserManager+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */; };
 		DA5604042033A02C00393159 /* PNLocationPhoneNumberFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5604032033A02C00393159 /* PNLocationPhoneNumberFieldFormatter.swift */; };
+		DA560406203493B100393159 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA560405203493B000393159 /* DateUtils.swift */; };
 		DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */; };
 		DA6A9AA42008B11900BE591F /* PNUserManager+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA32008B11900BE591F /* PNUserManager+SignUp.swift */; };
 		DA6A9AAB2008F71B00BE591F /* PNCuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A9AA62008F71A00BE591F /* PNCuisine.swift */; };
@@ -362,6 +363,7 @@
 		DA4D9FB92008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+GetRecommendations.swift"; sourceTree = "<group>"; };
 		DA4D9FBB2009135A007F61A0 /* PNUserManager+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+SignIn.swift"; sourceTree = "<group>"; };
 		DA5604032033A02C00393159 /* PNLocationPhoneNumberFieldFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNLocationPhoneNumberFieldFormatter.swift; sourceTree = "<group>"; };
+		DA560405203493B000393159 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		DA6A9AA12008A13300BE591F /* PNSignUpOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNSignUpOperation.swift; sourceTree = "<group>"; };
 		DA6A9AA32008B11900BE591F /* PNUserManager+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNUserManager+SignUp.swift"; sourceTree = "<group>"; };
 		DA6A9AA62008F71A00BE591F /* PNCuisine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCuisine.swift; sourceTree = "<group>"; };
@@ -1513,6 +1515,7 @@
 		EB63DD73201A91FD00737550 /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				DA560405203493B000393159 /* DateUtils.swift */,
 				EB63DD74201A921100737550 /* NSDate.swift */,
 			);
 			path = Date;
@@ -3506,6 +3509,7 @@
 				EB5CE3562028F89C00625034 /* PNPlaceOrderMainAddItemTableViewCell.swift in Sources */,
 				EBD90D86202E342E001BB7C5 /* PNGetCardsOperation.swift in Sources */,
 				EBAA67CE2028798000DF20D7 /* PNPlaceOrderDelegateDatasource.swift in Sources */,
+				DA560406203493B100393159 /* DateUtils.swift in Sources */,
 				EBFB71151FCCA9AD00DB4C58 /* ApplicationTextfields.swift in Sources */,
 				EB738E762028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.swift in Sources */,
 				DA4D9FBA2008FB7A007F61A0 /* PNUserManager+GetRecommendations.swift in Sources */,
