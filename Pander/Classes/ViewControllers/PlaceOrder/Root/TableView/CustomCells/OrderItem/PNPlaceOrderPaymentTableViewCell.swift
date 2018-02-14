@@ -27,7 +27,7 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     func setContent(dish: PNOrderDish){
         self.dish = dish
         if let price = dish.price{
-            self.redPriceLabel.text = "\(price)"
+            self.redPriceLabel.text = price.format(f: "")
         }
         self.itemTitleLabel.text = dish.name
         self.detailLabel.text = dish.descriptionValue

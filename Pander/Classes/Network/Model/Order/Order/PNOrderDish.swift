@@ -32,14 +32,14 @@ public final class PNOrderDish: NSCoding {
   public var id: String?
   public var minQty: Int?
   public var increment: Int?
-  public var unitPrice: Int?
+  public var unitPrice: Float?
   public var descriptionValue: String?
   public var approved: Bool? = false
   public var qty: Int?
   public var maxQty: Int?
   public var type: Int?
   public var submission: PNOrderSubmission?
-  public var price: Int?
+  public var price: Float?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -58,14 +58,14 @@ public final class PNOrderDish: NSCoding {
     id = json[SerializationKeys.id].string
     minQty = json[SerializationKeys.minQty].int
     increment = json[SerializationKeys.increment].int
-    unitPrice = json[SerializationKeys.unitPrice].int
+    unitPrice = json[SerializationKeys.unitPrice].float
     descriptionValue = json[SerializationKeys.descriptionValue].string
     approved = json[SerializationKeys.approved].boolValue
     qty = json[SerializationKeys.qty].int
     maxQty = json[SerializationKeys.maxQty].int
     type = json[SerializationKeys.type].int
     submission = PNOrderSubmission(json: json[SerializationKeys.submission])
-    price = json[SerializationKeys.price].int
+    price = json[SerializationKeys.price].float
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -94,14 +94,14 @@ public final class PNOrderDish: NSCoding {
     self.id = aDecoder.decodeObject(forKey: SerializationKeys.id) as? String
     self.minQty = aDecoder.decodeObject(forKey: SerializationKeys.minQty) as? Int
     self.increment = aDecoder.decodeObject(forKey: SerializationKeys.increment) as? Int
-    self.unitPrice = aDecoder.decodeObject(forKey: SerializationKeys.unitPrice) as? Int
+    self.unitPrice = aDecoder.decodeObject(forKey: SerializationKeys.unitPrice) as? Float
     self.descriptionValue = aDecoder.decodeObject(forKey: SerializationKeys.descriptionValue) as? String
     self.approved = aDecoder.decodeBool(forKey: SerializationKeys.approved)
     self.qty = aDecoder.decodeObject(forKey: SerializationKeys.qty) as? Int
     self.maxQty = aDecoder.decodeObject(forKey: SerializationKeys.maxQty) as? Int
     self.type = aDecoder.decodeObject(forKey: SerializationKeys.type) as? Int
     self.submission = aDecoder.decodeObject(forKey: SerializationKeys.submission) as? PNOrderSubmission
-    self.price = aDecoder.decodeObject(forKey: SerializationKeys.price) as? Int
+    self.price = aDecoder.decodeObject(forKey: SerializationKeys.price) as? Float
   }
 
   public func encode(with aCoder: NSCoder) {

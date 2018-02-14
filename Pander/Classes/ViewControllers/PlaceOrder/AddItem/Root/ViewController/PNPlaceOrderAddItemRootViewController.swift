@@ -82,6 +82,7 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
             
             scrollView.addSubview(imageView)
             imageView.frame = CGRect(x: xCoordinate, y: 0, width: self.view.frame.width, height: 171)
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
         }
         
         scrollView.contentSize = CGSize(width: contentWidth, height: 171)

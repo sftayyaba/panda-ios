@@ -319,6 +319,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="320" height="320"/>
             <connections>
+                <outlet property="deliverAtTimeLabel" destination="gcQ-RD-gHV" id="gQY-gw-yye"/>
                 <outlet property="labelBudgetPerPerson" destination="DUU-vl-x6j" id="jY8-DZ-KiL"/>
                 <outlet property="labelDeliverToLocation" destination="rAp-jZ-aJm" id="uYb-dL-JBS"/>
                 <outlet property="labelPeopleEating" destination="upG-gt-Nu4" id="T0N-Ez-lJq"/>

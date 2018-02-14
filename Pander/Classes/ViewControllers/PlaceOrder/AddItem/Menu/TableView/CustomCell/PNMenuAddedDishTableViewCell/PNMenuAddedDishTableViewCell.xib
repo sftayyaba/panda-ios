@@ -34,13 +34,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creamy Creamy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQr-ha-pdO">
-                        <rect key="frame" x="58" y="17" width="103.5" height="19.5"/>
+                        <rect key="frame" x="58" y="17" width="184" height="19.5"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xH-1p-TLp">
-                        <rect key="frame" x="273.5" y="15.5" width="31.5" height="23.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xH-1p-TLp">
+                        <rect key="frame" x="255.5" y="15.5" width="50" height="23.5"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                         <color key="textColor" red="1" green="0.0078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,9 +57,9 @@
                     <constraint firstAttribute="bottom" secondItem="dtd-Ve-qqT" secondAttribute="bottom" constant="3" id="7DG-oH-oP6"/>
                     <constraint firstItem="TQr-ha-pdO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="7Ej-Hl-ad3"/>
                     <constraint firstItem="dtd-Ve-qqT" firstAttribute="top" secondItem="TQr-ha-pdO" secondAttribute="bottom" constant="1" id="DvR-Cz-mgh"/>
-                    <constraint firstItem="2xH-1p-TLp" firstAttribute="leading" secondItem="TQr-ha-pdO" secondAttribute="trailing" constant="10" id="F3A-L5-GUa"/>
                     <constraint firstItem="TQr-ha-pdO" firstAttribute="leading" secondItem="X18-Te-2gV" secondAttribute="trailing" constant="30" id="QJV-xB-gwQ"/>
                     <constraint firstItem="dtd-Ve-qqT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="58" id="S9K-9N-a1b"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TQr-ha-pdO" secondAttribute="trailing" constant="70" id="Ygc-nF-rKx"/>
                     <constraint firstItem="X18-Te-2gV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bch-CK-aJh"/>
                     <constraint firstItem="2xH-1p-TLp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="h5T-na-k5c"/>
                     <constraint firstItem="X18-Te-2gV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="wlf-gY-rmD"/>

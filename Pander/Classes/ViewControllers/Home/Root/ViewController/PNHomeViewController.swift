@@ -199,6 +199,12 @@ class PNHomeViewController: PNBaseViewController {
             return
         }
         
+        if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+//            cuisine = selectedCuisines.joined(separator: ",")
+        }else{
+            self.alert(title: "Oops", message: "No Card is selected.")
+            return
+        }
         PNOrderManager.sharedInstance.generateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, Catergory: category, Cuisine: cuisine, GroupSize: groupSize, BudgetPerPerson: budgetPerPerson, OrderMode: orderMode, RestsTried: nil, SuccessBlock: { (generatedOrderResponse) in
             
             PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in

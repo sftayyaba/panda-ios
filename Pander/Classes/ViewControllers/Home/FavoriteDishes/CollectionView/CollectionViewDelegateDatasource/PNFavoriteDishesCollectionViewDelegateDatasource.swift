@@ -55,7 +55,8 @@ class PNFavoriteDishesCollectionViewDelegateDatasource: UICollectionView,UIColle
         
         if let alreadySelectedIndex = self.selectedCusines.index(of: selectedCusine){
             self.selectedCusines.remove(at: alreadySelectedIndex)
-        }else if self.selectedCusines.count < 3{
+        }else {
+//            if self.selectedCusines.count < 3
             self.selectedCusines.append(selectedCusine)
         }
         if let callBack = cuisineSelectedCallback{

@@ -21,7 +21,7 @@ class PNMenuAddedDishTableViewCell: UITableViewCell {
         
         self.itemTitleLabel.text = dish.name
         if let price = dish.price{
-            self.priceLabel.text = "\(price)"
+            self.priceLabel.text = price.format(f: "")
         }
         
     }

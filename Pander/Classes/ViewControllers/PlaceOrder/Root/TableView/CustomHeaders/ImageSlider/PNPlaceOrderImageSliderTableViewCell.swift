@@ -70,10 +70,12 @@ class PNPlaceOrderImageSliderTableViewCell: UITableViewCell, UIScrollViewDelegat
             
             scrollView.addSubview(imageView)
             imageView.frame = CGRect(x: xCoordinate, y: 0, width: self.frame.width, height: 171)
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
         }
         
         scrollView.contentSize = CGSize(width: contentWidth, height: 171)
-       
+        scrollView.isScrollEnabled = false
+        scrollView.isPagingEnabled = false
         self.pageControll.numberOfPages = self.numberOfImages
     }
     

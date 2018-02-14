@@ -13,6 +13,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelPeopleEating: UILabel!
     @IBOutlet weak var labelDeliverToLocation: UILabel!
 
+    @IBOutlet weak var deliverAtTimeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -68,6 +69,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         setLabelDeliverToLocation()
         setLabelPeopleEating()
         setLabelBudgetPerPerson()
+        setLabelDeliverWhen()
     }
     
     private func setLabelDeliverToLocation() {
@@ -97,6 +99,13 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
             .bold(boldText)
     }
 
+    private func setLabelDeliverWhen() {
+        let normalText = "When to deliver "
+        let boldText = "\(PNUserManager.sharedInstance.selectedDate)"
+        deliverAtTimeLabel.attributedText = NSMutableAttributedString()
+            .normal(normalText)
+            .bold(boldText)
+    }
 }
 
 extension NSMutableAttributedString {

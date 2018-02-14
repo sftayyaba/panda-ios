@@ -27,10 +27,10 @@ class PNPlaceOrderViewController: PNBaseViewController {
     }
     
     func updateTotalPrice(){
-        if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( 0 , { (result, dish) -> Int in
+        if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
             return result + dish.price!
         }){
-            self.placeOrderView.totalPriceLabel.text = "\(totalPrice)"
+            self.placeOrderView.totalPriceLabel.text = totalPrice.format(f: "")
             
         }
     }
@@ -81,6 +81,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func getNewSuggestionsTapped(_ sender: Any) {
         var searchAddress = ""
         var city = ""
@@ -134,5 +135,11 @@ class PNPlaceOrderViewController: PNBaseViewController {
             }
         }
         
+    }
+}
+
+extension Float {
+    func format(f: String) -> String {
+        return String(format: "%\(f).02f", self)
     }
 }

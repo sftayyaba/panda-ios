@@ -157,7 +157,7 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
         }else if self.budgetView.zipCodeTextField.text?.count != 5 {
             self.alert(title: "Alert", message: "ZIP code should be of 5 digits!")
         }
-        else if (self.budgetView.cardNumberTextField.text?.count)! != 19 {
+        else if (self.budgetView.cardNumberTextField.text?.count)! != 16 {
             self.alert(title: "Alert", message: "Credit Card number is invalid!")
         }
         else if (self.budgetView.cvvTextField.text?.count)! > 4 || (self.budgetView.cvvTextField.text?.characters.count)! < 3   {
@@ -181,7 +181,7 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
                     self.budgetView.storeAddressButton.isSelected = true
                     self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
 
-                    self.alert(title: "Success", message: "Pay Successfully")
+                    self.alert(title: "Success", message: "Successfully added your card.")
                 }
             }, failureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
