@@ -16,12 +16,13 @@ class PNHomeViewController: PNBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.homeView.collectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.homeView.collectionView.reloadData()
+        self.doInitialDataLoad()
     }
     
     //MARK: Loading/Methods
@@ -209,10 +210,16 @@ class PNHomeViewController: PNBaseViewController {
             
             PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
 
-
-                let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
+                if(orderReponse.internalStatus == -1) {
+                    self.alert(title: "Oops", message: "There seems to be no restaurants available. Please choose another address");
+                }
+                else
+                {
+                    let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
+                    
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
                 
-                self.navigationController?.pushViewController(viewController, animated: true)
 
             }, FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{

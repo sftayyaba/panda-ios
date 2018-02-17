@@ -30,7 +30,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
             return result + dish.price!
         }){
-            self.placeOrderView.totalPriceLabel.text = totalPrice.format(f: "")
+            self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
             
         }
     }
@@ -75,6 +75,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
     
     @IBAction func placeOrderPressed(_ sender: UIButton) {
         let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
+        viewController.price = self.placeOrderView.totalPriceLabel.text!;
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 extension PNOrderManager{
     
@@ -27,15 +28,21 @@ extension PNOrderManager{
             response in
             
             weakSelf?.notifyNetworkRequestFinish()
-
+            
             if let successResponse = response as? PNOrderBaseClass{
                 
                 weakSelf?.generatedOrder = successResponse
-            weakSelf?.prevRestaurentIds.append(successResponse.recommendation!.restaurantInfo!.id!)
-                
-                successBlock(successResponse)
-                
-            }else if let errorResponse = response as? ErrorBaseClass{
+                if(successResponse.internalStatus != -1) {
+                weakSelf?.prevRestaurentIds.append(successResponse.recommendation!.restaurantInfo!.id!)
+                    
+                    successBlock(successResponse)
+                }
+                else {
+                    weakSelf?.prevRestaurentIds.append("")
+
+                    successBlock(successResponse)
+                }
+            } else if let errorResponse = response as? ErrorBaseClass{
 
                 if let errorCode = errorResponse.code {
                     if errorCode == -3 || errorCode == -4{

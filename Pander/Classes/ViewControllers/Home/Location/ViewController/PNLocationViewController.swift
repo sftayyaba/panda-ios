@@ -60,8 +60,6 @@ class PNLocationViewController: PNBaseViewController {
 
     
     override func configureNavigationBar() {
-//        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.edgesForExtendedLayout = []
         UINavigationBar.appearance().isTranslucent = false
@@ -302,7 +300,7 @@ class PNLocationViewController: PNBaseViewController {
                 }
 
             }else{
-                self.alert(title: "Oops", message: "Street Address must be atleast 5 letter.");
+                self.alert(title: "Oops", message: "Street Address must be At least 5 letters.");
             }
         }else{
             self.alert(title: "Oops", message: "Street Address is required");

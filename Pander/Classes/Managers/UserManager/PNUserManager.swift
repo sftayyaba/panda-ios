@@ -104,7 +104,6 @@ final class PNUserManager: PNBaseManager {
             }
         }
     }
-    
     //step 2 & 3 recommendations
     var recommentations: PNRecommendationsModel?
     var allCuisines: PNAllCuisines?
@@ -261,6 +260,7 @@ final class PNUserManager: PNBaseManager {
         self.selectedDishes = nil
         
         self.isLoggedIn = false
+        self.userNicks = nil
 
         PINCache.shared().removeAllObjects()
         

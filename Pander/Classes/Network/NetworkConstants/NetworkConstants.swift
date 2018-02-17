@@ -9,7 +9,7 @@
 import Foundation
 
 struct AppNetworkConstants {
-    static let kBaseURLDevString =   "https://pandereats-unstable-dev.herokuapp.com/api/v2"
+    static let kBaseURLDevString =   "https://desolate-everglades-24260.herokuapp.com/api/v2"
 
     static let kBaseURLProductionString =   "https://www.pandereats.com/api/v2"
     static let kBaseURLTestingString =  "https://desolate-everglades-24260.herokuapp.com/api/v2"
