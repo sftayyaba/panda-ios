@@ -18,6 +18,17 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var detailLabelMaxHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet var viewMaxHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var plusBtn: UIButton!
+    @IBOutlet var counterLbl: UILabel!
+    @IBOutlet var minusBtn: UIButton!
+    @IBOutlet var chagneBtn: UIButton!
+    @IBOutlet var refreshBtn: UIButton!
+    
+    var counter = Int()
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,10 +43,69 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
         self.itemTitleLabel.text = dish.name
         self.detailLabel.text = dish.descriptionValue
         
+        
         if dish.isSelected{
-            self.detailLabelMaxHeightConstraint.constant = 200
+            if dish.descriptionValue != "" {
+                self.detailLabelMaxHeightConstraint.constant = 200
+                self.viewMaxHeightConstraint.constant = 40
+                plusBtn.isHidden = false
+                minusBtn.isHidden = false
+                counterLbl.isHidden = false
+                chagneBtn.isHidden = false
+                refreshBtn.isHidden = false
+            }
         }else{
             self.detailLabelMaxHeightConstraint.constant = 0
+            self.viewMaxHeightConstraint.constant = 0
+            plusBtn.isHidden = true
+            minusBtn.isHidden = true
+            counterLbl.isHidden = true
+            chagneBtn.isHidden = true
+            refreshBtn.isHidden = true
+        }
+    }
+    
+    @IBAction func plusBtnTarget(_ sender: Any) {
+        counter = counter + 1
+        self.counterLbl.text = String(format: "%d",counter)
+        if let price = dish.price{
+            self.greyPriceLabel.isHidden = false
+            let adjustedPrice = price * Float(counter)
+            self.greyPriceLabel.text = adjustedPrice.format(f: "")
+            PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.append(dish)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plusMinus"), object: nil)
+        }
+    }
+    
+    @IBAction func minusBtntarget(_ sender: Any) {
+        counter = counter - 1
+        if counter < 0 {
+            counter = 0
+            self.counterLbl.text = String(format: "%d",counter)
+            if let price = dish.price{
+                self.greyPriceLabel.isHidden = true
+                self.greyPriceLabel.text = price.format(f: "")
+            }
+        }else {
+            self.counterLbl.text = String(format: "%d",counter)
+            if let price = dish.price{
+                self.greyPriceLabel.isHidden = false
+                let adjustedPrice = price * Float(counter)
+                self.greyPriceLabel.text = adjustedPrice.format(f: "")
+                //                let isAdded = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.first(where: { (currentDish) -> Bool in
+                //                    return dish.id == currentDish.id
+                //                }) != nil
+                //
+                //                if isAdded{
+                //                    PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.filter({ (currentDish) -> Bool in
+                //                        return dish.id != currentDish.id
+                //                    })
+                //                }
+                
+                
+                
+                //                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plusMinus"), object: nil)
+            }
         }
     }
     

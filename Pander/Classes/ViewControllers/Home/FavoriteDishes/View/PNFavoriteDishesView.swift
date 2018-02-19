@@ -15,5 +15,17 @@ class PNFavoriteDishesView: UIView {
     var textChangedCallback: ((String)->())?
     
     override func awakeFromNib() {
+        self.configureTextFields()
+    }
+    
+    
+    private func configureTextFields(){
+        self.cuisineTextField.delegate = self
+    }
+    
+    func textChanged(text: String){
+        if let callback = textChangedCallback{
+            callback(text)
+        }
     }
 }

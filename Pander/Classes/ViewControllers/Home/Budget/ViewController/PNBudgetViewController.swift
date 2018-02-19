@@ -17,9 +17,11 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
     var selectedMonthIndex: Int?
     var yearArray = [String]()
     var cardsArray = [PNCards]()
+    var isNewCardAdded = Bool()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        isNewCardAdded = false
         self.configureTableView()
         self.configureNavigationBar()
         self.handleYearEvent()
@@ -50,6 +52,10 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             }
                 self.budgetTableView.cardsArray = self.cardsArray
                 self.budgetTableView.reloadData()
+            
+            if self.isNewCardAdded {
+                self.navigationController?.popViewController(animated: true)
+            }
                 
 //                self.alert(title: "Success", message: "Address added to your account")
         //    }
@@ -173,15 +179,16 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
                 }else{
                     //self.locationView.showStoredAddressButtonTapped()
 
+                    self.isNewCardAdded = true
                     self.doInitialDataLoad()
                     
-                    self.budgetView.storeAddressView.isHidden = false
-                    self.budgetView.newAddressView.isHidden = true
-                    self.budgetView.showTableViewHeight.constant = 200
-                    self.budgetView.storeAddressButton.isSelected = true
-                    self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
+//                    self.budgetView.storeAddressView.isHidden = false
+//                    self.budgetView.newAddressView.isHidden = true
+//                    self.budgetView.showTableViewHeight.constant = 200
+//                    self.budgetView.storeAddressButton.isSelected = true
+//                    self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
 
-                    self.alert(title: "Success", message: "Successfully added your card.")
+//                    self.alert(title: "Success", message: "Successfully added your card.")
                 }
             }, failureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{

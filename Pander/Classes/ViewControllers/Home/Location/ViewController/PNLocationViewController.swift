@@ -22,6 +22,8 @@ class PNLocationViewController: PNBaseViewController {
     
     var currentMode: PNFormMode = .add
     
+    var isNewAddressAdded = Bool()
+    
     //MARK: Properties
     @IBOutlet var locationView: PNLocationView!
     
@@ -29,6 +31,7 @@ class PNLocationViewController: PNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        isNewAddressAdded = false
         self.configureTableView()
         self.configureNavigationBar()
     }
@@ -46,6 +49,9 @@ class PNLocationViewController: PNBaseViewController {
             }
 
             self.locationTableView.reloadData()
+            if self.isNewAddressAdded {
+                self.navigationController?.popViewController(animated: true)
+            }
             
         }
             , FailureBlock: { (error) in
@@ -196,7 +202,7 @@ class PNLocationViewController: PNBaseViewController {
                                                                 if let errorMsg = locationResponse.message?.first?.localizedDescription{
                                                                     self.alert(title: "!!!", message: errorMsg)
                                                                 }else{
-                                                                    
+                                                                    self.isNewAddressAdded = true
                                                                     self.doInitialDataLoad()
                                                                     
                                                                     self.locationView.refreshForm()
@@ -204,7 +210,7 @@ class PNLocationViewController: PNBaseViewController {
                                                                     self.locationView.showStoredAddressButtonTapped()
                                                                     self.locationView.showStoredAddressButtonTapped()
 
-                                                                    self.alert(title: "Success", message: "Address added to your account")
+//                                                                    self.alert(title: "Success", message: "Address added to your account")
                                                                 }
                                                                 
                                                                 

@@ -18,11 +18,15 @@ class PNPlaceOrderViewController: PNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(plusMinusObserver), name: NSNotification.Name(rawValue: "plusMinus"), object: nil)
         
     }
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        
+        updateTotalPrice()
+    }
+    
+    @objc func plusMinusObserver() {
         updateTotalPrice()
     }
     
