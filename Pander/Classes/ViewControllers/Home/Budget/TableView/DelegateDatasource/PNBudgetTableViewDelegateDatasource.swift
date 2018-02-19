@@ -60,8 +60,12 @@ class PNBudgetTableViewDelegateDatasource: UITableView, UITableViewDataSource, U
         let indexPath = self.indexPath(for: cell)
         
         switch index {
-        case 1:
+        case 2:
             if let callBack = self.didSelectSetAsDefaultCardCallback{
+                callBack(self.cardsArray[indexPath!.row])
+            }
+        case 1:
+            if let callBack = self.didSelectEditCardCallback{
                 callBack(self.cardsArray[indexPath!.row])
             }
         case 0:

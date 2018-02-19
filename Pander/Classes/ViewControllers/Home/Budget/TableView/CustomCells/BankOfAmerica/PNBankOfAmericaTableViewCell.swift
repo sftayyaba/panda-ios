@@ -22,6 +22,7 @@ class PNBankOfAmericaTableViewCell: MGSwipeTableCell {
         
         self.rightButtons = [
             MGSwipeButton(title: "Set as default", backgroundColor: UIColor.customRedColor()),
+            MGSwipeButton(title: "Edit", backgroundColor: UIColor.customRedColor()),
             MGSwipeButton(title: "Remove",backgroundColor: UIColor.customRedColor())
             ].reversed()
         

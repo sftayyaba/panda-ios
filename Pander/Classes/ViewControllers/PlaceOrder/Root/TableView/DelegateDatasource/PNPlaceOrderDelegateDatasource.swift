@@ -103,7 +103,6 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                 self.isLocationSelected = false
                 self.isPaymentSelected = true
             }
-//
             self.isLocationSelected = true
 
             self.reloadData()
@@ -166,32 +165,50 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let address = PNUserManager.sharedInstance.addresses![indexPath.row]
-            address.isSelected = !address.isSelected
+            let alertController = UIAlertController(title: "Title", message: "Are you sure you wnat to change your address?", preferredStyle: .alert)
             
-            var selectDefault = false
-            
-            if !address.isSelected{
-                selectDefault = true
-            }
-            
-            var selectedAddress = address;
-            PNUserManager.sharedInstance.addresses = PNUserManager.sharedInstance.addresses?.map { (currentAddress) -> PNAddresses in
+            // Create the actions
+            let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
+                let address = PNUserManager.sharedInstance.addresses![indexPath.row]
+                address.isSelected = !address.isSelected
                 
-                if (address.locationId != currentAddress.locationId){
-                    currentAddress.isSelected = false
+                var selectDefault = false
+                
+                if !address.isSelected{
+                    selectDefault = true
                 }
                 
-                if selectDefault && currentAddress.isDefault{
-                    currentAddress.isSelected = true;
-                    selectedAddress = currentAddress
+                var selectedAddress = address;
+                PNUserManager.sharedInstance.addresses = PNUserManager.sharedInstance.addresses?.map { (currentAddress) -> PNAddresses in
+                    
+                    if (address.locationId != currentAddress.locationId){
+                        currentAddress.isSelected = false
+                    }
+                    
+                    if selectDefault && currentAddress.isDefault{
+                        currentAddress.isSelected = true;
+                        selectedAddress = currentAddress
+                    }
+                    
+                    return currentAddress
                 }
                 
-                return currentAddress
+                PNUserManager.sharedInstance.selectedAddress = selectedAddress
+                self.reloadData()
+                
             }
             
-            PNUserManager.sharedInstance.selectedAddress = selectedAddress
-            self.reloadData()
+            let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+                UIAlertAction in
+                NSLog("Cancel Pressed")
+            }
+            
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            
         }else if indexPath.section == 2{
             if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
                 dish.isSelected = !dish.isSelected

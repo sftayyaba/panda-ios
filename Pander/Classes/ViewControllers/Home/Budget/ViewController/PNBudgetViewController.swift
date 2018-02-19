@@ -124,6 +124,8 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
                 
             }, FailureBlock: { (error) in
                 
+                PNUserManager.sharedInstance.selectedCard = card
+                self.budgetView.selectedCardLabel.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
                 self.doInitialDataLoad()
                 
                 if let localError = error as? ErrorBaseClass{
@@ -135,7 +137,12 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
         }
         
         
+        self.budgetTableView.didSelectEditCardCallback = {
+            card in
+        }
     }
+    
+    
     
     @IBAction func searchBarTapped(_ sender: UIButton) {
         self.alert(title: "!!!", message: "Coming Soon!")
@@ -248,14 +255,14 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             }
         }
         
-        self.budgetView.expiryMonthTextField.pickerType = .StringPicker
-        self.budgetView.expiryMonthTextField.stringPickerData =  self.monthArray
-        self.budgetView.expiryMonthTextField.toolbar.tintColor = UIColor.navigationColor()
-        
-        self.budgetView.expiryMonthTextField.stringDidChange = { index in
-            self.budgetView.expiryMonthTextField.text = self.monthArray[index]
-            self.selectedMonthIndex = index
-        }
+//        self.budgetView.expiryMonthTextField.pickerType = .StringPicker
+//        self.budgetView.expiryMonthTextField.stringPickerData =  self.monthArray
+//        self.budgetView.expiryMonthTextField.toolbar.tintColor = UIColor.navigationColor()
+//
+//        self.budgetView.expiryMonthTextField.stringDidChange = { index in
+//            self.budgetView.expiryMonthTextField.text = self.monthArray[index]
+//            self.selectedMonthIndex = index
+//        }
     }
     
     private func handleYearEvent() {
@@ -269,13 +276,13 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             self.yearArray.append("\(year + i)")
         }
 
-        self.budgetView.expiryYearTextField.pickerType = .StringPicker
-        self.budgetView.expiryYearTextField.stringPickerData =  self.yearArray
-        self.budgetView.expiryYearTextField.toolbar.tintColor = UIColor.navigationColor()
-
-        self.budgetView.expiryYearTextField.stringDidChange = { index in
-            self.budgetView.expiryYearTextField.text =  self.yearArray[index]
-        }
+//        self.budgetView.expiryYearTextField.pickerType = .StringPicker
+//        self.budgetView.expiryYearTextField.stringPickerData =  self.yearArray
+//        self.budgetView.expiryYearTextField.toolbar.tintColor = UIColor.navigationColor()
+//
+//        self.budgetView.expiryYearTextField.stringDidChange = { index in
+//            self.budgetView.expiryYearTextField.text =  self.yearArray[index]
+//        }
     }
  
     @IBAction func backButtonPressed(_ sender: Any) {

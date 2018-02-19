@@ -51,17 +51,20 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
                 callBack(1)
             }
         }else {
-            self.paymentButton.isSelected = true
-            self.paymentImage.image = UIImage(named: "Arrow - Big - Up - Black")
             if let callBack = didOpenButtonCallback {
                 callBack(1)
             }
+            
+            self.paymentButton.isSelected = true
+            self.paymentImage.image = UIImage(named: "Arrow - Big - Up - Black")
         }
     }
     
     func setContent(){
         if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+//            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard!.lastFour!
+
         } else {
             self.paymentLabel.text = " - "
         }

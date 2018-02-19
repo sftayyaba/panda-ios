@@ -115,7 +115,7 @@ class PNLocationViewController: PNBaseViewController {
                 if let localError = error as? ErrorBaseClass{
                     self.alert(title: "Success", message: localError.localizedDescription)
                 }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
+                    self.alert(title: "Error", message : "Something went wrong !")
                 }
             })
         }
@@ -123,7 +123,8 @@ class PNLocationViewController: PNBaseViewController {
         self.locationTableView.didSelectSetAsDefaultAddressCallback = {
             address in
             PNUserManager.sharedInstance.addDefaults(CardId: nil , AddressId: "\(address.locationId!)", SuccessBlock: { (locationResponse) in
-                
+                PNUserManager.sharedInstance.selectedAddress = address
+                self.locationView.selectedAddressLabel.text = address.nick != nil ? address.nick : address.street
                 self.doInitialDataLoad()
                 
             }, FailureBlock: { (error) in
@@ -210,7 +211,6 @@ class PNLocationViewController: PNBaseViewController {
                                                                     self.locationView.showStoredAddressButtonTapped()
                                                                     self.locationView.showStoredAddressButtonTapped()
 
-//                                                                    self.alert(title: "Success", message: "Address added to your account")
                                                                 }
                                                                 
                                                                 
@@ -240,9 +240,7 @@ class PNLocationViewController: PNBaseViewController {
                                                                     self.currentEditAddress = nil
                                                                     
                                                                     self.locationView.addNewAddressButton.setTitle("Add new address", for: UIControlState.normal)
-                                                                    
                                                                     self.locationView.showStoredAddressButtonTapped()
-                                                                    
                                                                     self.alert(title: "Success", message: "Address added to your account")
                                                                 }
                                                                 
@@ -283,7 +281,7 @@ class PNLocationViewController: PNBaseViewController {
 
                                         
                                     }else{
-                                        self.alert(title: "Oops", message: "State must be atleast 2 letter.");
+                                        self.alert(title: "Oops", message: "State must be at least 2 letters.");
                                     }
                                 }else{
                                     self.alert(title: "Oops", message: "State is required");
@@ -306,7 +304,7 @@ class PNLocationViewController: PNBaseViewController {
                 }
 
             }else{
-                self.alert(title: "Oops", message: "Street Address must be At least 5 letters.");
+                self.alert(title: "Oops", message: "Street Address must be at least 5 letters.");
             }
         }else{
             self.alert(title: "Oops", message: "Street Address is required");

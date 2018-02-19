@@ -108,7 +108,7 @@
                 <outlet property="paymentImage" destination="lHd-s6-ETs" id="2TK-V4-eLr"/>
                 <outlet property="paymentLabel" destination="4Fe-ge-9It" id="mXj-Dt-ILj"/>
             </connections>
-            <point key="canvasLocation" x="32.5" y="104"/>
+            <point key="canvasLocation" x="-264" y="27"/>
         </tableViewCell>
     </objects>
     <resources>

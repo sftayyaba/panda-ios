@@ -48,6 +48,7 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

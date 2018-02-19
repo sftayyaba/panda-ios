@@ -9,7 +9,12 @@ import UIKit
 import TextFieldEffects
 import AAPickerView
 
-class PNBudgetView: UIView {
+class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
+    var expireMonthPickerView : UIPickerView!
+    var expireYearPickerView : UIPickerView!
+    var monthArray = [String]()
+    var yearArray = [String]()
     
     @IBOutlet weak var selectedCardLabel: UILabel!
     @IBOutlet var emailTextField: UITextField!
@@ -21,8 +26,8 @@ class PNBudgetView: UIView {
     @IBOutlet weak var budgetPerPersonSlider: UISlider!
     @IBOutlet var cardNumberTextField:UITextField!
 
-    @IBOutlet var expiryMonthTextField: AAPickerView!
-    @IBOutlet var expiryYearTextField: AAPickerView!
+    @IBOutlet var expiryMonthTextField: UITextField!
+    @IBOutlet var expiryYearTextField: UITextField!
     @IBOutlet var cvvTextField: UITextField!
     @IBOutlet var nickNameTextField: UITextField!
     @IBOutlet var zipCodeTextField: UITextField!
@@ -104,13 +109,92 @@ class PNBudgetView: UIView {
             self.newAddressButton.isSelected = true
             self.labelTapToAdd.text = "TAP TO ADD"
         }else {
-            //            self.storeAddressButton.isSelected = true
             self.storeAddressView.isHidden = true
             self.showTableViewHeight.constant = 35
             self.newAddressButton.isSelected = false
             self.newAddressView.isHidden = false
             self.arrowImageView.image = UIImage(named: "Arrow - Big - down - Black")
             self.labelTapToAdd.text = "HIDE"
+            
+            handleMonthEvent()
+            expireMonthPickerView = UIPickerView(frame:CGRect(x: 0, y: 0, width: self.frame.size.width, height: 216))
+            expireMonthPickerView.delegate = self
+            expireMonthPickerView.dataSource = self
+            expireMonthPickerView.backgroundColor = UIColor.white
+            expiryMonthTextField.inputView = expireMonthPickerView
+            
+            
+            handleYearEvent()
+            expireYearPickerView = UIPickerView(frame:CGRect(x: 0, y: 0, width: self.frame.size.width, height: 216))
+            expireYearPickerView.delegate = self
+            expireYearPickerView.dataSource = self
+            expireYearPickerView.backgroundColor = UIColor.white
+            expiryYearTextField.inputView = expireYearPickerView
+      
         }
     }
+    
+    
+    private func handleMonthEvent() {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let month = calendar.component(.month, from: date)
+        
+        for i in month..<12 {
+            
+            if i <= 9 {
+                self.monthArray.append("0\(i)")
+            }else {
+                self.monthArray.append("\(i)")
+            }
+        }
+    }
+    
+    
+    private func handleYearEvent() {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        
+        for i in 0..<20 {
+            self.yearArray.append("\(year + i)")
+        }
+    }
+    
+    
+    //MARK:- PickerView Delegate & DataSource
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if pickerView == expireMonthPickerView {
+            return self.monthArray.count
+        }else {
+           return self.yearArray.count
+        }
+        
+        
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == expireMonthPickerView {
+           return self.monthArray[row]
+        }else {
+           return self.yearArray[row]
+        }
+        
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == expireMonthPickerView {
+           self.expiryMonthTextField.text = self.monthArray[row]
+        }else {
+            self.expiryYearTextField.text = self.yearArray[row]
+        }
+        
+    }
+
 }

@@ -102,6 +102,13 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGg-dQ-0sL">
                     <rect key="frame" x="15" y="505.5" width="345" height="30"/>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Refresh" translatesAutoresizingMaskIntoConstraints="NO" id="QBI-19-wYj">
+                    <rect key="frame" x="43" y="574" width="20" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="11M-nP-Uv1"/>
+                        <constraint firstAttribute="width" constant="20" id="7wt-mJ-tu6"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <accessibility key="accessibilityConfiguration">
@@ -109,6 +116,7 @@
             </accessibility>
             <constraints>
                 <constraint firstItem="cVF-Wo-Qn7" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-172" id="2Si-yu-ajg"/>
+                <constraint firstItem="QBI-19-wYj" firstAttribute="top" secondItem="wGg-dQ-0sL" secondAttribute="bottom" constant="38.5" id="3B5-tL-TZI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aze-U3-5uv" secondAttribute="bottom" constant="16" id="4O8-Gt-vaz"/>
                 <constraint firstItem="wGg-dQ-0sL" firstAttribute="leading" secondItem="19e-vK-OxU" secondAttribute="leading" id="76C-88-4kP"/>
                 <constraint firstItem="wEt-ck-9oW" firstAttribute="centerY" secondItem="19e-vK-OxU" secondAttribute="centerY" id="95y-bk-POj"/>
@@ -124,8 +132,10 @@
                 <constraint firstItem="pr9-lx-ubf" firstAttribute="top" secondItem="19e-vK-OxU" secondAttribute="bottom" constant="30" id="fPl-xX-S0c"/>
                 <constraint firstItem="6b7-TA-biz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-5" id="fU6-KN-2BG"/>
                 <constraint firstItem="pr9-lx-ubf" firstAttribute="leading" secondItem="aze-U3-5uv" secondAttribute="leading" id="hGF-OC-bFN"/>
+                <constraint firstItem="aze-U3-5uv" firstAttribute="top" secondItem="QBI-19-wYj" secondAttribute="bottom" constant="17" id="krL-Cx-SgF"/>
                 <constraint firstItem="pr9-lx-ubf" firstAttribute="trailing" secondItem="aze-U3-5uv" secondAttribute="trailing" id="lQt-rz-Lv2"/>
                 <constraint firstItem="wGg-dQ-0sL" firstAttribute="trailing" secondItem="Wtv-bs-klp" secondAttribute="trailing" id="leb-u1-GRG"/>
+                <constraint firstItem="QBI-19-wYj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="mCO-aW-81L"/>
                 <constraint firstItem="wGg-dQ-0sL" firstAttribute="centerY" secondItem="19e-vK-OxU" secondAttribute="centerY" id="rnx-qW-bI4"/>
                 <constraint firstItem="6b7-TA-biz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="xOo-B4-yXS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aze-U3-5uv" secondAttribute="trailing" constant="15" id="yKg-h0-UQK"/>
@@ -139,5 +149,6 @@
     </objects>
     <resources>
         <image name="Arrow - Big - left - Black" width="7" height="12"/>
+        <image name="Refresh" width="20" height="17"/>
     </resources>
 </document>
