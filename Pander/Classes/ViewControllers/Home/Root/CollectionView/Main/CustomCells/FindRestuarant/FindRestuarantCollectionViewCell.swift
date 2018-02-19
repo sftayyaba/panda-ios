@@ -78,10 +78,37 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         if let address = PNUserManager.sharedInstance.selectedAddress, let nick = address.nick {
             boldText = nick
         }
-        labelDeliverToLocation.attributedText = NSMutableAttributedString()
+        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+            
+           // self.addresses = response.addresses
+            
+            if let addresses = response.addresses{
+                //self.locationTableView.addresses = addresses
+                self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
                 .normal(normalText)
-                .bold(boldText)
+                    .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
+            }
+            
+//            if self.isNewAddressAdded {
+//                self.navigationController?.popViewController(animated: true)
+//            }
+            
+        }
+            , FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    //self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                   // self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
+        })
+
+       // labelDeliverToLocation.attributedText = NSMutableAttributedString()
+                //.normal(normalText)
+                //.bold(boldText)
     }
+   
+    
 
     private func setLabelPeopleEating() {
         let normalText = "People eating "
@@ -97,6 +124,43 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         labelBudgetPerPerson.attributedText = NSMutableAttributedString()
             .normal(normalText)
             .bold(boldText)
+        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+          print(PNUserManager.sharedInstance.selectedCard?.nick!)
+            var cardarray = response.cards
+            self.labelBudgetPerPerson.attributedText  = NSMutableAttributedString()
+                .normal(normalText)
+                .bold(cardarray![0].nick != nil ? cardarray![0].nick! : cardarray![0].type! + cardarray![0].lastFour!)
+            if let cards = response.cards{
+                print(cards)
+                print(PNUserManager.sharedInstance.budgetPerPerson)
+                //self.labelBudgetPerPerson.attributedText = NSMutableAttributedString()
+                       // .normal(normalText)
+                       // .bold((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type!)!)
+            }
+            if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                self.labelBudgetPerPerson.attributedText = NSMutableAttributedString()
+                    .normal(normalText)
+                    .bold((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
+            }
+            //self.budgetTableView.cardsArray = self.cardsArray
+            //self.budgetTableView.reloadData()
+            
+//            if self.isNewCardAdded {
+//                self.navigationController?.popViewController(animated: true)
+//            }
+            
+            //                self.alert(title: "Success", message: "Address added to your account")
+            //    }
+            
+        }
+            , FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    //self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                   // self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
+        })
     }
 
     private func setLabelDeliverWhen() {

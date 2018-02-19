@@ -37,9 +37,9 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
         self.ResturantAddress.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address
         self.numberuser.text = PNUserManager.sharedInstance.selectedAddress?.phone
         var string = PNUserManager.sharedInstance.selectedAddress?.city!
-        string = string! + (PNUserManager.sharedInstance.selectedAddress?.state!)!
-        string = string! + (PNUserManager.sharedInstance.selectedAddress?.street!)!
-        string = string! + (PNUserManager.sharedInstance.selectedAddress?.postalCode!)!
+        string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.state!)!
+        string = string! +  ", " + (PNUserManager.sharedInstance.selectedAddress?.street!)!
+        string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.postalCode!)!
         self.buddinsaddress.text = string
         print(PNUserManager.sharedInstance.selectedAddress?.nick!)
        // print(string)
