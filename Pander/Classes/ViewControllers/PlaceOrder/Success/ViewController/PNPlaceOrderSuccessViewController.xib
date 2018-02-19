@@ -20,6 +20,7 @@
             <connections>
                 <outlet property="Explanation" destination="wG4-uq-GfR" id="e2R-Gl-qrb"/>
                 <outlet property="ResturantAddress" destination="e6z-Sl-wNB" id="OVy-40-HqQ"/>
+                <outlet property="ResturantAddress1" destination="XF3-C5-l8q" id="Ryi-NN-qem"/>
                 <outlet property="ResturantName" destination="1hM-Jc-jZr" id="TX9-po-aBr"/>
                 <outlet property="UserName" destination="0ZY-35-uIx" id="8eq-ev-ln8"/>
                 <outlet property="buddinsaddress" destination="v0U-eE-fhF" id="Dux-qH-m6l"/>
@@ -41,7 +42,7 @@
                     <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FES-Bw-NJi">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="557.66666666666663"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="559.66666666666663"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dP-Id-zTM">
                                     <rect key="frame" x="10" y="15" width="30" height="30"/>
@@ -137,7 +138,7 @@ consectetuer adipiscing elit.</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3557 W 3rd St" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF3-C5-l8q">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3557 W 3rd St" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF3-C5-l8q">
                                     <rect key="frame" x="56.000000000000007" y="364" width="77.666666666666686" height="16.666666666666686"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                     <nil key="textColor"/>
@@ -149,32 +150,32 @@ consectetuer adipiscing elit.</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Inbox icon" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-TX-Qda">
-                                    <rect key="frame" x="15" y="422" width="21" height="21"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-TX-Qda">
+                                    <rect key="frame" x="15" y="422" width="15" height="23"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="283-475-5702" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeA-1k-8AR">
-                                    <rect key="frame" x="56.000000000000007" y="423" width="94.666666666666686" height="19.666666666666686"/>
+                                    <rect key="frame" x="50.000000000000007" y="424" width="94.666666666666686" height="19.666666666666686"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deliver to Icon" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-9C-7BV">
-                                    <rect key="frame" x="15" y="463" width="16" height="23"/>
+                                    <rect key="frame" x="15" y="465" width="16" height="23"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-vt-bAN">
-                                    <rect key="frame" x="50.999999999999993" y="465" width="26.666666666666664" height="19.666666666666686"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-vt-bAN">
+                                    <rect key="frame" x="51" y="467" width="63.666666666666657" height="19.666666666666686"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="278 Koss Port" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0U-eE-fhF">
-                                    <rect key="frame" x="51.000000000000007" y="489" width="73.666666666666686" height="16.666666666666686"/>
+                                    <rect key="frame" x="51.000000000000007" y="491" width="73.666666666666686" height="16.666666666666686"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA 90020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZX-EH-pm5">
-                                    <rect key="frame" x="51" y="511.00000000000006" width="127" height="16.666666666666686"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA 90020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZX-EH-pm5">
+                                    <rect key="frame" x="51" y="513" width="127" height="16.666666666666629"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -265,5 +266,6 @@ consectetuer adipiscing elit.</string>
         <image name="Arrow - Big - left - Black" width="7" height="12"/>
         <image name="Deliver to Icon" width="16" height="23"/>
         <image name="Inbox icon" width="21" height="21"/>
+        <image name="call" width="15" height="23"/>
     </resources>
 </document>

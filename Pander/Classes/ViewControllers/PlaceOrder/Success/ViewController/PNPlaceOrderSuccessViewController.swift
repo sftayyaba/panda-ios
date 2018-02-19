@@ -16,6 +16,7 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
     @IBOutlet weak var UserName: UILabel!
     @IBOutlet weak var Explanation: UILabel!
     
+    @IBOutlet weak var  ResturantAddress1:UILabel!
     @IBOutlet weak var orderNumber: UILabel!
     @IBOutlet var placeOrderSuccessView: PNPlaceOrderSuccessView!
     @IBOutlet weak var totalPrice: UILabel!
@@ -34,13 +35,17 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
         
         self.UserName.text = "Hi, \((PNUserManager.sharedInstance.user?.firstName)!)"
         self.ResturantName.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
-        self.ResturantAddress.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address
+        var val = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address
+      let chekc = val?.split(separator: "-")
+        val = String(chekc![0]) + String(chekc![1])
+        self.ResturantAddress.text = String(chekc![2])
+        self.ResturantAddress1.text = val
         self.numberuser.text = PNUserManager.sharedInstance.selectedAddress?.phone
         var string = PNUserManager.sharedInstance.selectedAddress?.city!
         string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.state!)!
-        string = string! +  ", " + (PNUserManager.sharedInstance.selectedAddress?.street!)!
-        string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.postalCode!)!
-        self.buddinsaddress.text = string
+        string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.zipCode!)!
+        self.buddinsaddress2.text = string
+        self.buddinsaddress.text = (PNUserManager.sharedInstance.selectedAddress?.street!)!
         print(PNUserManager.sharedInstance.selectedAddress?.nick!)
        // print(string)
         //self.buddinsaddress.text = "\(PNUserManager.sharedInstance.selectedAddress?.city,PNUserManager.sharedInstance.selectedAddress?.state)"

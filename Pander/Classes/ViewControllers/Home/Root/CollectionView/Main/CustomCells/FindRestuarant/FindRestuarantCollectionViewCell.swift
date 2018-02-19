@@ -125,37 +125,19 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
             .normal(normalText)
             .bold(boldText)
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
-          print(PNUserManager.sharedInstance.selectedCard?.nick!)
+         
             var cardarray = response.cards
-            self.labelBudgetPerPerson.attributedText  = NSMutableAttributedString()
-                .normal(normalText)
-                .bold(cardarray![0].nick != nil ? cardarray![0].nick! : cardarray![0].type! + cardarray![0].lastFour!)
-            if let cards = response.cards{
-                print(cards)
-                print(PNUserManager.sharedInstance.budgetPerPerson)
-                //self.labelBudgetPerPerson.attributedText = NSMutableAttributedString()
-                       // .normal(normalText)
-                       // .bold((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type!)!)
-            }
+            
+            PNUserManager.sharedInstance.selectedCard=response.cards?[0]
             if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-                self.labelBudgetPerPerson.attributedText = NSMutableAttributedString()
-                    .normal(normalText)
-                    .bold((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
+               
+                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
             }
-            //self.budgetTableView.cardsArray = self.cardsArray
-            //self.budgetTableView.reloadData()
-            
-//            if self.isNewCardAdded {
-//                self.navigationController?.popViewController(animated: true)
-//            }
-            
-            //                self.alert(title: "Success", message: "Address added to your account")
-            //    }
             
         }
             , FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
-                    //self.alert(title: "Oops", message: localError.localizedDescription)
+                    //(self.alert(title: "Oops", message: localError.localizedDescription)
                 }else {
                    // self.alert(title: "Error", message: "Something went wrong !")
                 }
