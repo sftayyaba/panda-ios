@@ -9,6 +9,7 @@ import UIKit
 
 class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
 
+    public var didAddItemButtonCallback : (() -> Void)?
     var dish: PNOrderDish!
     @IBOutlet weak var redPriceLabel: UILabel!
     @IBOutlet weak var greyPriceLabel: UILabel!
@@ -68,13 +69,8 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     @IBAction func plusBtnTarget(_ sender: Any) {
         counter = counter + 1
         self.counterLbl.text = String(format: "%d",counter)
-        if let price = dish.price{
-            self.greyPriceLabel.isHidden = false
-            let adjustedPrice = price * Float(counter)
-            self.greyPriceLabel.text = adjustedPrice.format(f: "")
-            PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.append(dish)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plusMinus"), object: nil)
-        }
+        let dishDic : [String: PNOrderDish] = ["dish":dish]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
     }
     
     @IBAction func minusBtntarget(_ sender: Any) {
@@ -82,32 +78,23 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
         if counter < 0 {
             counter = 0
             self.counterLbl.text = String(format: "%d",counter)
-            if let price = dish.price{
-                self.greyPriceLabel.isHidden = true
-                self.greyPriceLabel.text = price.format(f: "")
-            }
+//            let dishDic : [String: PNOrderDish] = ["dish":dish]
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
         }else {
             self.counterLbl.text = String(format: "%d",counter)
-            if let price = dish.price{
-                self.greyPriceLabel.isHidden = false
-                let adjustedPrice = price * Float(counter)
-                self.greyPriceLabel.text = adjustedPrice.format(f: "")
-                //                let isAdded = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.first(where: { (currentDish) -> Bool in
-                //                    return dish.id == currentDish.id
-                //                }) != nil
-                //
-                //                if isAdded{
-                //                    PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.filter({ (currentDish) -> Bool in
-                //                        return dish.id != currentDish.id
-                //                    })
-                //                }
-                
-                
-                
-                //                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plusMinus"), object: nil)
-            }
+            let dishDic : [String: PNOrderDish] = ["dish":dish]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "minus"), object: nil, userInfo: dishDic)
         }
     }
+    
+    
+    
+    @IBAction func changeTarget(_ sender: Any) {
+        if let callBack = didAddItemButtonCallback{
+            callBack()
+        }
+    }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

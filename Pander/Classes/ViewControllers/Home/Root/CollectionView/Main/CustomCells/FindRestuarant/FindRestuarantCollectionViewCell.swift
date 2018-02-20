@@ -78,34 +78,35 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         if let address = PNUserManager.sharedInstance.selectedAddress, let nick = address.nick {
             boldText = nick
         }
-        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
-            
-           // self.addresses = response.addresses
-            
-            if let addresses = response.addresses{
-                //self.locationTableView.addresses = addresses
-                self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
-                .normal(normalText)
-                    .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
-            }
-            
-//            if self.isNewAddressAdded {
-//                self.navigationController?.popViewController(animated: true)
-//            }
-            
-        }
-            , FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    //self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                   // self.alert(title: "Error", message: "Something went wrong !")
-                }
-                
-        })
+        
+        
+        if self.labelDeliverToLocation.text == "Deliver to current location" {
+               PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
 
-       // labelDeliverToLocation.attributedText = NSMutableAttributedString()
-                //.normal(normalText)
-                //.bold(boldText)
+                    if let addresses = response.addresses{
+                       //self.locationTableView.addresses = addresses
+                       if addresses.count != 0 {
+                           self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
+                               .normal(normalText)
+                              .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
+                       }
+                    }
+
+                }
+                    , FailureBlock: { (error) in
+                        if let localError = error as? ErrorBaseClass{
+                          //self.alert(title: "Oops", message: localError.localizedDescription)
+                        }else {
+                          // self.alert(title: "Error", message: "Something went wrong !")
+                        }
+
+               })
+        }else {
+            self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
+                .normal(normalText)
+                .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
+
+        }
     }
    
     
@@ -127,13 +128,15 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
          
             var cardarray = response.cards
-            
-            PNUserManager.sharedInstance.selectedCard=response.cards?[0]
-            if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-               
+           
+            if response.cards?.count != 0 {
+                PNUserManager.sharedInstance.selectedCard=response.cards?[0]
+                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                    
                     //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
+                }
             }
-            
+      
         }
             , FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{

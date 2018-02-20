@@ -47,6 +47,7 @@ extension PNUserManager {
                             
                             weakSelf?.cardsBaseObject = successResponse
                             
+                            
                             successBlock(successResponse)
                         }else if let errorResponse = response as? ErrorBaseClass{
                             failureBlock(errorResponse)

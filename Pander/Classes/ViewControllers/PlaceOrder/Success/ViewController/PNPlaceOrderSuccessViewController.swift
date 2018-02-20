@@ -31,12 +31,12 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.totalPrice.text=price
+        self.totalPrice.text = price
         
         self.UserName.text = "Hi, \((PNUserManager.sharedInstance.user?.firstName)!)"
         self.ResturantName.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
         var val = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address
-      let chekc = val?.split(separator: "-")
+        let chekc = val?.split(separator: "-")
         val = String(chekc![0]) + String(chekc![1])
         self.ResturantAddress.text = String(chekc![2])
         self.ResturantAddress1.text = val

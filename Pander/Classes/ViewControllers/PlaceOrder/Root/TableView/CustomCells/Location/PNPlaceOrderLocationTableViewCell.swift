@@ -27,6 +27,12 @@ class PNPlaceOrderLocationTableViewCell: UITableViewCell {
         }
     }
     
+    
+    func setCardContent(card:PNCards) {
+        self.addressLabelView.text = card.lastFour
+    }
+    
+    
     func setSelected(){
         self.tickViewWidthContraint.constant = 13
     }

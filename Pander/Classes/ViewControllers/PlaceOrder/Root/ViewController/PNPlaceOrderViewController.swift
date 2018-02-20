@@ -18,7 +18,8 @@ class PNPlaceOrderViewController: PNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(plusMinusObserver), name: NSNotification.Name(rawValue: "plusMinus"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(plusObserver), name: NSNotification.Name(rawValue: "plus"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(minusObserver), name: NSNotification.Name(rawValue: "minus"), object: nil)
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -26,16 +27,54 @@ class PNPlaceOrderViewController: PNBaseViewController {
         updateTotalPrice()
     }
     
-    @objc func plusMinusObserver() {
-        updateTotalPrice()
+    
+    @objc func plusObserver(notification:NSNotification) {
+        
+        if let dish = notification.userInfo?["dish"] as? PNOrderDish {
+            let unitPrice = dish.unitPrice
+            
+            if UserDefaults.standard.object(forKey: "myTotalPrice") != nil{
+                var totalPrice = UserDefaults.standard.object(forKey: "myTotalPrice") as! Float
+                totalPrice = totalPrice + unitPrice!
+                UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
+                self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+            }else {
+                if var totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
+                    return result + dish.price!
+                }){
+                    totalPrice = totalPrice + unitPrice!
+                    self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+                    UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
+                }
+            }
+        }
     }
+    
+    @objc func minusObserver(notification:NSNotification) {
+        
+        if let dish = notification.userInfo?["dish"] as? PNOrderDish {
+            let unitPrice = dish.unitPrice
+            var totalPrice = UserDefaults.standard.object(forKey: "myTotalPrice") as! Float
+            totalPrice = totalPrice - unitPrice!
+            
+            self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+            UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
+            
+//            if var totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
+//                return result + dish.price!
+//            }){
+//                totalPrice = totalPrice - unitPrice!
+//                self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+//            }
+        }
+    }
+
     
     func updateTotalPrice(){
         if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
             return result + dish.price!
         }){
             self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
-            
         }
     }
     
@@ -84,6 +123,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(nil, forKey: "myTotalPrice")
         self.navigationController?.popViewController(animated: true)
     }
     

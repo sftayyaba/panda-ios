@@ -106,6 +106,8 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
                 
             }, failureBlock: { (error) in
                 
+                PNUserManager.sharedInstance.selectedCard = nil
+                self.budgetView.selectedCardLabel.text = "Chase card"
                 self.doInitialDataLoad()
                 
                 if let localError = error as? ErrorBaseClass{

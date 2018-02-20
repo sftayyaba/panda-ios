@@ -24,6 +24,8 @@ class PNLocationViewController: PNBaseViewController {
     
     var isNewAddressAdded = Bool()
     
+    var locationId: Int?
+    
     //MARK: Properties
     @IBOutlet var locationView: PNLocationView!
     
@@ -47,20 +49,26 @@ class PNLocationViewController: PNBaseViewController {
                 self.locationTableView.addresses = addresses
                 self.locationView.selectedAddressLabel.text = PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
             }
-
+            
             self.locationTableView.reloadData()
             if self.isNewAddressAdded {
+                
+                for address in self.addresses! {
+                    if address.locationId == self.locationId {
+                        PNUserManager.sharedInstance.selectedAddress = address
+                        self.locationView.selectedAddressLabel.text = address.nick != nil ? address.nick : address.street
+                    }
+                }
+
                 self.navigationController?.popViewController(animated: true)
             }
             
-        }
-            , FailureBlock: { (error) in
+        }, FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
                     self.alert(title: "Oops", message: localError.localizedDescription)
                 }else {
                     self.alert(title: "Error", message: "Something went wrong !")
                 }
-                
         })
     }
 
@@ -204,9 +212,14 @@ class PNLocationViewController: PNBaseViewController {
                                                                     self.alert(title: "!!!", message: errorMsg)
                                                                 }else{
                                                                     self.isNewAddressAdded = true
+                                                                    
+                                                                
+                                                                    
                                                                     self.doInitialDataLoad()
                                                                     
                                                                     self.locationView.refreshForm()
+                                                                    
+                                                                    self.locationId =  locationResponse.location?.locationId
                                                                     
                                                                     self.locationView.showStoredAddressButtonTapped()
                                                                     self.locationView.showStoredAddressButtonTapped()
