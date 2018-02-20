@@ -125,27 +125,32 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         labelBudgetPerPerson.attributedText = NSMutableAttributedString()
             .normal(normalText)
             .bold(boldText)
-        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
-         
-            var cardarray = response.cards
-           
-            if response.cards?.count != 0 {
-                PNUserManager.sharedInstance.selectedCard=response.cards?[0]
-                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-                    
-                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
-                }
-            }
-      
-        }
-            , FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    //(self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                   // self.alert(title: "Error", message: "Something went wrong !")
+        if(PNUserManager.sharedInstance.selectedCard==nil){
+            PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+                
+                var cardarray = response.cards
+                
+                if response.cards?.count != 0 {
+                    PNUserManager.sharedInstance.selectedCard=response.cards?[0]
+                    if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                        
+                        //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
+                    }
                 }
                 
-        })
+            }
+                , FailureBlock: { (error) in
+                    if let localError = error as? ErrorBaseClass{
+                        //(self.alert(title: "Oops", message: localError.localizedDescription)
+                    }else {
+                        // self.alert(title: "Error", message: "Something went wrong !")
+                    }
+                    
+            })
+        }else{
+            
+        }
+        
     }
 
     private func setLabelDeliverWhen() {
