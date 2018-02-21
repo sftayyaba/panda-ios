@@ -61,6 +61,9 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
     }
     
     func setContent(){
+        if let callBack = didCloseButtonCallback {
+            
+        }
         if let selectedCard = PNUserManager.sharedInstance.selectedCard{
 //            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
             self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard!.lastFour!

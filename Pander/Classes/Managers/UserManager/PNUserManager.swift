@@ -241,26 +241,28 @@ final class PNUserManager: PNBaseManager {
     
     func logoutUser(){
         
-        self.token = nil
+        PNUserManager.sharedInstance.selectedCard=nil;
+        PNUserManager.sharedInstance.addresses=nil;
+       // self.token = nil
         
-        self.email = nil
+        //self.email = nil
         
-        self.selectedName = nil
+       // self.selectedName = nil
         
         
-        self.selectedZip = nil
+       // self.selectedZip = nil
     
-        self.user = nil
+       // self.user = nil
         
-        self.guestUser = nil
+       // self.guestUser = nil
         
-        self.selectedCusines = nil
+       // self.selectedCusines = nil
         
         
-        self.selectedDishes = nil
+       // self.selectedDishes = nil
         
-        self.isLoggedIn = false
-        self.userNicks = nil
+        //self.isLoggedIn = false
+        //self.userNicks = nil
 
         PINCache.shared().removeAllObjects()
         
