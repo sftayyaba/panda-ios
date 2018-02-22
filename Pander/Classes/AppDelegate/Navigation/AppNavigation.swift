@@ -88,8 +88,9 @@ extension AppDelegate{
         jobsNavController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 //        jobsNavController.navigationItem.title = "Jobs"
         
-        
-        let applicantionsViewController = PNOrdersViewController(nibName:"PNOrdersViewController", bundle:nil)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let applicantionsViewController = PNOrdersViewController(nibName:"PNOrdersViewController", bundle:nil)
+        let applicantionsViewController = mainStoryboard.instantiateViewController(withIdentifier: "PNOrdersViewController") as! PNOrdersViewController
         let applicantionsNavController = UINavigationController(rootViewController: applicantionsViewController)
         applicantionsNavController.navigationBar.barTintColor = UIColor.customRedColor()
         

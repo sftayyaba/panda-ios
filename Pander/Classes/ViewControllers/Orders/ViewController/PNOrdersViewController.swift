@@ -20,8 +20,6 @@ class PNOrdersViewController: PNBaseViewController {
     }
     
     override func configureNavigationBar() {
-        //        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.edgesForExtendedLayout = []
         UINavigationBar.appearance().isTranslucent = false
