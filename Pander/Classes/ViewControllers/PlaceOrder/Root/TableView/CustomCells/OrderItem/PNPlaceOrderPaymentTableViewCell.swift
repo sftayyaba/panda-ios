@@ -32,6 +32,13 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.detailLabelMaxHeightConstraint.constant = 0
+        self.viewMaxHeightConstraint.constant = 0
+        plusBtn.isHidden = true
+        minusBtn.isHidden = true
+        counterLbl.isHidden = true
+        chagneBtn.isHidden = true
+        refreshBtn.isHidden = true
         // Initialization code
     }
 
@@ -54,16 +61,17 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
                 counterLbl.isHidden = false
                 chagneBtn.isHidden = false
                 refreshBtn.isHidden = false
+                
             }
         }else{
-            self.detailLabelMaxHeightConstraint.constant = 0
-            self.viewMaxHeightConstraint.constant = 0
-            plusBtn.isHidden = true
-            minusBtn.isHidden = true
-            counterLbl.isHidden = true
-            chagneBtn.isHidden = true
-            refreshBtn.isHidden = true
-        }
+            self.detailLabelMaxHeightConstraint.constant = 200
+            self.viewMaxHeightConstraint.constant = 40
+            plusBtn.isHidden = false
+            minusBtn.isHidden = false
+            counterLbl.isHidden = false
+            chagneBtn.isHidden = false
+            refreshBtn.isHidden = false
+       }
     }
     
     @IBAction func plusBtnTarget(_ sender: Any) {
