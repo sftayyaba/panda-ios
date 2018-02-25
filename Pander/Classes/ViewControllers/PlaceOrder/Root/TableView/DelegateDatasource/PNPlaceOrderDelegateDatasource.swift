@@ -183,6 +183,36 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             // Create the actions
+            if self.isPaymentSelected{
+                let card = PNUserManager.sharedInstance.cardsBaseObject;
+                var mycard = card?.cards![indexPath.row];
+               
+                
+                let payment = PNUserManager.sharedInstance.selectedCard
+                payment?.isSelected=false
+                payment?.isDefault=false
+                mycard?.isSelected=true
+                mycard?.isDefault=true
+                payment?.isSelected = !(payment?.isSelected)!
+                
+                
+                var selectDefault = false
+                if !(payment?.isSelected)!{
+                    selectDefault = true
+                }
+                if(payment?.ccId != mycard?.ccId){
+                    payment?.isSelected=false
+                }
+                if selectDefault && (payment?.isDefault)!{
+                    payment?.isSelected = true;
+                    mycard = payment
+                }
+                PNUserManager.sharedInstance.selectedCard = mycard
+                self.refreshData()
+                self.reloadData()
+                
+                
+            }
             if self.isLocationSelected {
                 let alertController = UIAlertController(title: "", message: "Are you sure you want to change your address?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
@@ -190,6 +220,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                     NSLog("OK Pressed")
                     let address = PNUserManager.sharedInstance.addresses![indexPath.row]
                     address.isSelected = !address.isSelected
+                    
                     
                     var selectDefault = false
                     if !address.isSelected{
