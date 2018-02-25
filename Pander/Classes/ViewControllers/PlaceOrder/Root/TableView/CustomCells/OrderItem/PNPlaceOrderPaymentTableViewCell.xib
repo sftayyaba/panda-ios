@@ -56,7 +56,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="7.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjp-r5-2rr">
-                        <rect key="frame" x="230" y="15.666666666666666" width="31.666666666666686" height="20.666666666666671"/>
+                        <rect key="frame" x="243.33333333333334" y="15.666666666666666" width="31.666666666666657" height="20.666666666666671"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                         <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                     <constraint firstItem="1VS-PJ-eMf" firstAttribute="top" secondItem="14s-55-vLN" secondAttribute="bottom" constant="10" id="hJN-7f-jig"/>
                     <constraint firstAttribute="trailingMargin" secondItem="FSJ-fV-eq5" secondAttribute="trailing" constant="4" id="rzA-pd-Emn"/>
                     <constraint firstAttribute="trailing" secondItem="ydq-b5-VV4" secondAttribute="trailing" constant="17" id="xcA-3H-mEB"/>
-                    <constraint firstItem="ydq-b5-VV4" firstAttribute="leading" secondItem="Pjp-r5-2rr" secondAttribute="trailing" constant="10" id="yZD-mo-jJL"/>
+                    <constraint firstItem="ydq-b5-VV4" firstAttribute="leading" secondItem="Pjp-r5-2rr" secondAttribute="trailing" constant="-3.3333333333333712" id="yZD-mo-jJL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
