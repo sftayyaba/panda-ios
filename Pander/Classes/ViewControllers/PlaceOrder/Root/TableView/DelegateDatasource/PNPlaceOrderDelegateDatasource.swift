@@ -137,7 +137,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         }else {
             let card = PNUserManager.sharedInstance.cardsBaseObject?.cards![indexPath.row]
             cell.setCardContent(card: card!)
-
+            
         }
         
        
@@ -208,9 +208,10 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                     mycard = payment
                 }
                 PNUserManager.sharedInstance.selectedCard = mycard
+                numberofCards=0;
                 self.refreshData()
                 self.reloadData()
-                
+                 numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
                 
             }
             if self.isLocationSelected {
