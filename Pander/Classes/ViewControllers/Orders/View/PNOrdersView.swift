@@ -9,6 +9,10 @@ import UIKit
 
 class PNOrdersView: UIView {
     
+    
+    
+    @IBOutlet var collectionView: PNOrdersCollectionViewDelegateDatasource!
+    
     override func awakeFromNib() {
     }
 }
