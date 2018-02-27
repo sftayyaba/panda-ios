@@ -9,6 +9,10 @@ import UIKit
 
 class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+    
+    public var didSelectCuisineCallback : ((String) -> Void)?
+    
+    
     var isfeatureItemShowMore = false
     var isCuisineShowMore = true
     
@@ -114,7 +118,7 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
 //            cell.cuisines = self.cuisines
 //            cell.dishes = self.dishes
 //
-//            cell.didSelectCuisineCallback = self.didSelectCuisineCallback
+            cell.didSelectCuisineCallback = self.didSelectCuisineCallback
             
             cell.collectionView.reloadData()
             
@@ -143,7 +147,7 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
 //            cell.cuisines = self.cuisines
 //            cell.dishes = self.dishes
 //
-//            cell.didSelectCuisineCallback = self.didSelectCuisineCallback
+            cell.didSelectCuisineCallback = self.didSelectCuisineCallback
             
             cell.collectionView.reloadData()
             
@@ -186,6 +190,25 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
         }else {
             return CGSize(width: self.frame.size.width, height: 320)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 && isfeatureItemShowMore {
+//            let cuisine = self.dishes[indexPath.row]
+            if let callback = didSelectCuisineCallback{
+//                callback(cuisine["cuisine"].string!)
+                callback("Scheduled Order")
+            }
+            
+        }else if indexPath.section == 2 && isCuisineShowMore {
+//            let cuisine = self.cuisines[indexPath.row]
+            if let callback = didSelectCuisineCallback{
+//                callback(cuisine["cuisine"].string!)
+                callback("Past Orders")
+            }
+        }
+        
     }
  
 }

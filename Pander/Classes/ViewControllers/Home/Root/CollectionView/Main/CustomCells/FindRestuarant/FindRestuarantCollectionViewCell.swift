@@ -125,6 +125,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         labelBudgetPerPerson.attributedText = NSMutableAttributedString()
             .normal(normalText)
             .bold(boldText)
+        
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
          
             var cardarray = response.cards

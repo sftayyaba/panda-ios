@@ -22,6 +22,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(minusObserver), name: NSNotification.Name(rawValue: "minus"), object: nil)
         
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
         updateTotalPrice()
@@ -60,12 +61,6 @@ class PNPlaceOrderViewController: PNBaseViewController {
             self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
             UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
             
-//            if var totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
-//                return result + dish.price!
-//            }){
-//                totalPrice = totalPrice - unitPrice!
-//                self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
-//            }
         }
     }
 
@@ -81,6 +76,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
     override func configureView() {
         self.configureTableView()
     }
+    
     override func configureCallBacks() {
         
         self.tableView.didAddItemButtonCallback={

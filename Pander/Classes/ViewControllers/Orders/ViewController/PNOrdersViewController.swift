@@ -16,7 +16,51 @@ class PNOrdersViewController: PNBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+            
+            var cardarray = response.cards
+            
+            if response.cards?.count != 0 {
+                PNUserManager.sharedInstance.selectedCard=response.cards?[0]
+                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                    
+                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
+                }
+            }
+            
+        }
+            , FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    //(self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    // self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
+        })
+        
+        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+            
+            if let addresses = response.addresses{
+                //self.locationTableView.addresses = addresses
+                if addresses.count != 0 {
+//                    self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
+//                        .normal(normalText)
+//                        .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
+                }
+            }
+            
+        }
+            , FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    //self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    // self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
+        })
+        
         self.ordersView.collectionView.reloadData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +116,23 @@ class PNOrdersViewController: PNBaseViewController {
 //            }
 //        }
     }
+    
+    override func configureCallBacks() {
+        
+        self.ordersView.collectionView.didSelectCuisineCallback = {
+            cuisine in
+//            if var cuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
+//                cuisines.append(cuisine)
+//            }else{
+//                PNUserManager.sharedInstance.homeSelectedCuisines = [cuisine]
+//            }
+            
+//            self.findRestaurentButtonPressed(self.homeView)
+            let viewController = PNOrderDetailViewController(nibName: "PNOrderDetailViewController", bundle: nil)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     
     
     //MARK: Configuration/Methods

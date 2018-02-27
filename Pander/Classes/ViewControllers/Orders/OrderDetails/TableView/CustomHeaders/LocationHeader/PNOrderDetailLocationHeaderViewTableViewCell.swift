@@ -1,24 +1,25 @@
 //
-//  PNPlaceOrderLocationHeaderViewTableViewCell.swift
+//  PNOrderDetailLocationHeaderViewTableViewCell.swift
 //  Pander
 //
-//  Created by Shery on 03/02/2018.
+//  Created by umaid naeem on 2/27/18.
 //
 
 import UIKit
 
-class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
+class PNOrderDetailLocationHeaderViewTableViewCell: UITableViewCell {
+
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var paymentLabel: UILabel!
     @IBOutlet var locationImage: UIImageView!
     @IBOutlet var paymentImage: UIImageView!
-
+    
     //MARK: Callbacks
     public var didCloseButtonCallback : ((_ index: Int) -> Void)?
     public var didOpenButtonCallback : ((_ index: Int) -> Void)?
-
+    
     @IBAction func locationButtonTapped(_ sender: Any) {
         
         if locationButton.isSelected {
@@ -31,7 +32,7 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
             if let callBack = didOpenButtonCallback {
                 callBack(0)
             }
-
+            
             self.locationButton.isSelected = true
             self.locationImage.image = UIImage(named: "Arrow - Big - Up - Black")
         }
@@ -57,9 +58,9 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
     
     func setContent(){
         if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-//            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+            //            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
             self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard!.lastFour!
-
+            
         } else {
             self.paymentLabel.text = " - "
         }
@@ -69,4 +70,5 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
                 PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
         }
     }
+    
 }

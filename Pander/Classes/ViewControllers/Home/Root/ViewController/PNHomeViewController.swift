@@ -216,7 +216,6 @@ class PNHomeViewController: PNBaseViewController {
                 else
                 {
                     let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
-                    
                     self.navigationController?.pushViewController(viewController, animated: true)
                 }
                 
