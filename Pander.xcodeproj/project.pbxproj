@@ -37,6 +37,26 @@
 		1E331C612044031C00311B41 /* PNOrderCollectionSeeLessViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E331C602044031C00311B41 /* PNOrderCollectionSeeLessViewDelegateDatasource.swift */; };
 		1E331C652044200000311B41 /* PNOrderMainHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E331C632044200000311B41 /* PNOrderMainHeaderCollectionReusableView.swift */; };
 		1E331C662044200000311B41 /* PNOrderMainHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E331C642044200000311B41 /* PNOrderMainHeaderCollectionReusableView.xib */; };
+		1E96744B20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E96744A20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift */; };
+		1E96744E20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E96744C20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift */; };
+		1E96744F20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E96744D20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib */; };
+		1E9674562046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674542046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.swift */; };
+		1E9674572046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674552046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.xib */; };
+		1E96745A2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674582046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift */; };
+		1E96745B2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674592046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.xib */; };
+		1E96745E2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E96745C2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.swift */; };
+		1E96745F2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E96745D2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.xib */; };
+		1E9674662046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674642046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift */; };
+		1E9674672046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674652046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.xib */; };
+		1E96746A2046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674682046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift */; };
+		1E96746B2046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674692046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.xib */; };
+		1E96746E2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E96746C2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.swift */; };
+		1E96746F2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E96746D2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.xib */; };
+		1E9674712046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */; };
+		1E9674752046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */; };
+		1E9674762046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */; };
+		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
+		1ED481702046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */; };
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
@@ -382,6 +402,26 @@
 		1E331C602044031C00311B41 /* PNOrderCollectionSeeLessViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderCollectionSeeLessViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		1E331C632044200000311B41 /* PNOrderMainHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderMainHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		1E331C642044200000311B41 /* PNOrderMainHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNOrderMainHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		1E96744A20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift; sourceTree = "<group>"; };
+		1E96744C20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchSeeLessCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E96744D20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQuickSearchSeeLessCollectionViewCell.xib; sourceTree = "<group>"; };
+		1E9674542046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchFeaturedItemsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E9674552046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQuickSearchFeaturedItemsCollectionViewCell.xib; sourceTree = "<group>"; };
+		1E9674582046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchMainSeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E9674592046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQuickSearchMainSeeMoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		1E96745C2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchMainSeeLessCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E96745D2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQuickSearchMainSeeLessCollectionViewCell.xib; sourceTree = "<group>"; };
+		1E9674642046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQucikSearchFeaturedCuisineCollectionReusableView.swift; sourceTree = "<group>"; };
+		1E9674652046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQucikSearchFeaturedCuisineCollectionReusableView.xib; sourceTree = "<group>"; };
+		1E9674682046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchFeaturedItemsCollectionReusableView.swift; sourceTree = "<group>"; };
+		1E9674692046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQuickSearchFeaturedItemsCollectionReusableView.xib; sourceTree = "<group>"; };
+		1E96746C2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHQuickSearchFindRestuarantCollectionReusableView.swift; sourceTree = "<group>"; };
+		1E96746D2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PHQuickSearchFindRestuarantCollectionReusableView.xib; sourceTree = "<group>"; };
+		1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
+		1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQucikSearchCategoriesCollectionReusableView.swift; sourceTree = "<group>"; };
+		1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQucikSearchCategoriesCollectionReusableView.xib; sourceTree = "<group>"; };
+		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
+		1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSearchFindRestuarantCollectionViewCell.xib; sourceTree = "<group>"; };
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
 		31A2A6AE5F5089AD6E00B2F7 /* Pods-PanderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -948,6 +988,161 @@
 				1E331C642044200000311B41 /* PNOrderMainHeaderCollectionReusableView.xib */,
 			);
 			path = MainHeader;
+			sourceTree = "<group>";
+		};
+		1E96744220469A4A006B4E35 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				1E96744320469A61006B4E35 /* Main */,
+				1E96744420469A6B006B4E35 /* SeeLess */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		1E96744320469A61006B4E35 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1E96744720469AEC006B4E35 /* CustomCells */,
+				1E96744820469AF8006B4E35 /* CustomHeaders */,
+				1E96744920469B0A006B4E35 /* DelegateDatasource */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1E96744420469A6B006B4E35 /* SeeLess */ = {
+			isa = PBXGroup;
+			children = (
+				1E96744620469ABB006B4E35 /* DelegateDatasource */,
+				1E96744520469AAE006B4E35 /* CustomCells */,
+			);
+			path = SeeLess;
+			sourceTree = "<group>";
+		};
+		1E96744520469AAE006B4E35 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				1E96744C20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift */,
+				1E96744D20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		1E96744620469ABB006B4E35 /* DelegateDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				1E96744A20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift */,
+			);
+			path = DelegateDatasource;
+			sourceTree = "<group>";
+		};
+		1E96744720469AEC006B4E35 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674512046A106006B4E35 /* FeaturedItems */,
+				1E9674522046A11C006B4E35 /* FindRestaurant */,
+				1E9674532046A130006B4E35 /* SeeLess */,
+				1E9674502046A0FA006B4E35 /* SeeMore */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		1E96744820469AF8006B4E35 /* CustomHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674722046CAB4006B4E35 /* SuggestedCateogries */,
+				1E9674602046AA8D006B4E35 /* CommonDummyHeader */,
+				1E9674612046AAA3006B4E35 /* FeaturedCuisine */,
+				1E9674622046AABC006B4E35 /* FeaturedItems */,
+				1E9674632046AACA006B4E35 /* FindReaurant */,
+			);
+			path = CustomHeaders;
+			sourceTree = "<group>";
+		};
+		1E96744920469B0A006B4E35 /* DelegateDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */,
+			);
+			path = DelegateDatasource;
+			sourceTree = "<group>";
+		};
+		1E9674502046A0FA006B4E35 /* SeeMore */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674582046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift */,
+				1E9674592046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.xib */,
+			);
+			path = SeeMore;
+			sourceTree = "<group>";
+		};
+		1E9674512046A106006B4E35 /* FeaturedItems */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674542046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.swift */,
+				1E9674552046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.xib */,
+			);
+			path = FeaturedItems;
+			sourceTree = "<group>";
+		};
+		1E9674522046A11C006B4E35 /* FindRestaurant */ = {
+			isa = PBXGroup;
+			children = (
+				1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */,
+				1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */,
+			);
+			path = FindRestaurant;
+			sourceTree = "<group>";
+		};
+		1E9674532046A130006B4E35 /* SeeLess */ = {
+			isa = PBXGroup;
+			children = (
+				1E96745C2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.swift */,
+				1E96745D2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.xib */,
+			);
+			path = SeeLess;
+			sourceTree = "<group>";
+		};
+		1E9674602046AA8D006B4E35 /* CommonDummyHeader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonDummyHeader;
+			sourceTree = "<group>";
+		};
+		1E9674612046AAA3006B4E35 /* FeaturedCuisine */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674642046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift */,
+				1E9674652046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.xib */,
+			);
+			path = FeaturedCuisine;
+			sourceTree = "<group>";
+		};
+		1E9674622046AABC006B4E35 /* FeaturedItems */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674682046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift */,
+				1E9674692046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.xib */,
+			);
+			path = FeaturedItems;
+			sourceTree = "<group>";
+		};
+		1E9674632046AACA006B4E35 /* FindReaurant */ = {
+			isa = PBXGroup;
+			children = (
+				1E96746C2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.swift */,
+				1E96746D2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.xib */,
+			);
+			path = FindReaurant;
+			sourceTree = "<group>";
+		};
+		1E9674722046CAB4006B4E35 /* SuggestedCateogries */ = {
+			isa = PBXGroup;
+			children = (
+				1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */,
+				1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */,
+			);
+			path = SuggestedCateogries;
 			sourceTree = "<group>";
 		};
 		1EFBAFC5203AA7A900885D4D /* TextFielDelegate */ = {
@@ -2105,10 +2300,10 @@
 		EB9F8E9B20261D5D0044255F /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				EB9F8EC8202626CD0044255F /* SeeMore */,
 				EB9F8E9D20261D5D0044255F /* FeaturedItems */,
 				EB9F8EA020261D5D0044255F /* FindRestuarant */,
 				EB9F8EA320261D5D0044255F /* SeeLess */,
+				EB9F8EC8202626CD0044255F /* SeeMore */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -3074,6 +3269,7 @@
 		EBF8F132202E4F2100119BFF /* QuickSearch */ = {
 			isa = PBXGroup;
 			children = (
+				1E96744220469A4A006B4E35 /* CollectionView */,
 				EBF8F133202E4F2100119BFF /* View */,
 				EBF8F135202E4F2100119BFF /* ViewController */,
 			);
@@ -3091,8 +3287,8 @@
 		EBF8F135202E4F2100119BFF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EBF8F136202E4F2100119BFF /* PNQuickSearchViewController.xib */,
 				EBF8F137202E4F2100119BFF /* PNQuickSearchViewController.swift */,
+				EBF8F136202E4F2100119BFF /* PNQuickSearchViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3413,10 +3609,12 @@
 				EBAA67D12028798000DF20D7 /* PNPlaceOrderViewController.xib in Resources */,
 				EBC74F071FCAC41C00641B48 /* LaunchScreen.storyboard in Resources */,
 				1E331C402043ED0900311B41 /* PNOrdersMainSeeMoreCollectionViewCell.xib in Resources */,
+				1E96745F2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.xib in Resources */,
 				EB9F8EBD20261D5D0044255F /* PNHomeFeaturedItemsCollectionReusableView.xib in Resources */,
 				1E331C442043ED3700311B41 /* PNOrderdItemsCollectionViewCell.xib in Resources */,
 				EB9F8ED020262CF80044255F /* PNHomeMainSeeMoreCollectionViewCell.xib in Resources */,
 				EB3C23C7201BAE2900D266FD /* PNFavoriteDishesController.xib in Resources */,
+				1E96746F2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.xib in Resources */,
 				1E331C662044200000311B41 /* PNOrderMainHeaderCollectionReusableView.xib in Resources */,
 				EB8F018A1FCAD844000D790F /* PNLoginViewController.xib in Resources */,
 				EBE05BFD2006AE33009A865C /* PNGuestLetsGetStartedStepThreeController.xib in Resources */,
@@ -3429,10 +3627,12 @@
 				EB1869842002297A00C27925 /* PNGuestLetsGetStartedWithEmailController.xib in Resources */,
 				EB3C23FB201BBBDF00D266FD /* PNChaseCardTableViewCell.xib in Resources */,
 				EBAA67C32028798000DF20D7 /* PNPlaceOrderLocationTableViewCell.xib in Resources */,
+				1E96745B2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.xib in Resources */,
 				EBD4CD25201339C800BAD5E3 /* PNCurrentLocationTableViewCell.xib in Resources */,
 				EBAA67EF2028C28500DF20D7 /* PNAddLocationTableViewCell.xib in Resources */,
 				EB52B5EC200FD57C004E7E96 /* PNLocationViewController.xib in Resources */,
 				EB9F8EBB20261D5D0044255F /* PHCommonHeaderCollectionView.xib in Resources */,
+				1E9674572046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.xib in Resources */,
 				EBE05C3A2006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.xib in Resources */,
 				EB9F8EB920261D5D0044255F /* FindRestuarantCollectionViewCell.xib in Resources */,
 				EB478BDD2013526D0017E718 /* PNFriendLocationTableViewCell.xib in Resources */,
@@ -3440,13 +3640,16 @@
 				EB738E642028D1E700A2DC16 /* PNPlaceOrderSuccessViewController.xib in Resources */,
 				1E1D816720455F6C005DB9C9 /* PNOrderDetailImageSliderTableViewCell.xib in Resources */,
 				1E1D816B20456328005DB9C9 /* PNOrderDetailItemsTableViewCell.xib in Resources */,
+				1E9674672046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.xib in Resources */,
 				EB1869872002297A00C27925 /* PNGuestLetsGetStartedWithLocationController.xib in Resources */,
 				EB738E742028D8B600A2DC16 /* PNPlaceOrderAddItemMainViewController.xib in Resources */,
 				EB478BD8201351350017E718 /* PNMomLocationTableViewCell.xib in Resources */,
 				EBAA67C72028798000DF20D7 /* PNPlaceOrderImageSliderTableViewCell.xib in Resources */,
 				EBF8F131202E4D0100119BFF /* PNSettingViewController.xib in Resources */,
 				EB2FD4C62005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.xib in Resources */,
+				1E9674762046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib in Resources */,
 				1E331C482043EECC00311B41 /* PNPastOrderCollectionReusableView.xib in Resources */,
+				1ED481702046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib in Resources */,
 				1E1D817D20457013005DB9C9 /* PNOrderDetailPaymentTableViewCell.xib in Resources */,
 				EB3C23C3201BAE2900D266FD /* PNFavoriteDishesCollectionViewCell.xib in Resources */,
 				EBAA67C92028798000DF20D7 /* PNPlaceOrderItemsTableViewCell.xib in Resources */,
@@ -3455,6 +3658,7 @@
 				EB478BD320134BDD0017E718 /* PNHomeLocationTableViewCell.xib in Resources */,
 				EBE73470200E96F9001BB651 /* PNHomeViewController.xib in Resources */,
 				EBE7345C200E8920001BB651 /* PNPartySizeCollectionViewCell.xib in Resources */,
+				1E96746B2046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.xib in Resources */,
 				DA7A126B2031031F00DEC686 /* PNMenuAddedDishTableViewCell.xib in Resources */,
 				EB9F8EC7202622600044255F /* PNHomeSeeLessCollectionViewCell.xib in Resources */,
 				1E1D816F20456485005DB9C9 /* PNOrderDetailTotalTableViewCell.xib in Resources */,
@@ -3468,6 +3672,7 @@
 				EB3C23EE201BB81B00D266FD /* PNBudgetViewController.xib in Resources */,
 				EB5CE3572028F89C00625034 /* PNPlaceOrderMainAddItemTableViewCell.xib in Resources */,
 				EB3C23FD201BBBDF00D266FD /* PNBankOfAmericaTableViewCell.xib in Resources */,
+				1E96744F20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3716,6 +3921,7 @@
 				DAA0C3EF202EA2DA00B130C8 /* PNAddNickOperation.swift in Sources */,
 				EBD4CD1120129AA400BAD5E3 /* JiroTextField.swift in Sources */,
 				1E1D815B2045329E005DB9C9 /* PNOrderDetailView.swift in Sources */,
+				1E9674662046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift in Sources */,
 				EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */,
 				DA42093C20308A0800327A28 /* PNOrderDiscounts.swift in Sources */,
 				EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */,
@@ -3734,9 +3940,11 @@
 				EB478BDC2013526D0017E718 /* PNFriendLocationTableViewCell.swift in Sources */,
 				EB1869822002297A00C27925 /* PNGuestLetsGetStartedWithEmailView.swift in Sources */,
 				EBD4CD1720129AA400BAD5E3 /* YoshikoTextField.swift in Sources */,
+				1E96746A2046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift in Sources */,
 				EBFB70FA1FCB1CE800DB4C58 /* PNCodeResponse.swift in Sources */,
 				DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */,
 				EBFB71181FCCAA9A00DB4C58 /* PropertyStoring.swift in Sources */,
+				1E9674752046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift in Sources */,
 				DA49D4C9202C332C00F15521 /* PNAddUpdateAddressOperation.swift in Sources */,
 				EB8F01851FCAD714000D790F /* AppDelegate.swift in Sources */,
 				DA6A9AAE2008F71B00BE591F /* PNRecommendationsModel.swift in Sources */,
@@ -3756,6 +3964,7 @@
 				EB9F8EC6202622600044255F /* PNHomeSeeLessCollectionViewCell.swift in Sources */,
 				1E331C4B2043EF0000311B41 /* PNScheduledCollectionReusableView.swift in Sources */,
 				DA49D4D9202E55AA00F15521 /* PNAddresses.swift in Sources */,
+				1E96745A2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift in Sources */,
 				1E331C5A2044011700311B41 /* PNOrdersMainSeeLessCollectionViewCell.swift in Sources */,
 				DA42092A203085B200327A28 /* PNOrderStatusOperation.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
@@ -3794,6 +4003,7 @@
 				DABB1DB52007FE62003CD371 /* OnebyteNetworkRequest.swift in Sources */,
 				EB738E722028D8B600A2DC16 /* PNPlaceOrderAddItemMainView.swift in Sources */,
 				EBAA67C22028798000DF20D7 /* PNPlaceOrderLocationTableViewCell.swift in Sources */,
+				1E96745E2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.swift in Sources */,
 				EB186970200192E500C27925 /* PNGuestLetsGetStartedView.swift in Sources */,
 				1E331C4E2043EFF100311B41 /* PNOrdersCollectionViewDelegateDatasource.swift in Sources */,
 				DA42094B203096D000327A28 /* PNOrderManager+OrderStatus.swift in Sources */,
@@ -3836,6 +4046,7 @@
 				EB5CE3562028F89C00625034 /* PNPlaceOrderMainAddItemTableViewCell.swift in Sources */,
 				EBD90D86202E342E001BB7C5 /* PNGetCardsOperation.swift in Sources */,
 				1E331C652044200000311B41 /* PNOrderMainHeaderCollectionReusableView.swift in Sources */,
+				1E9674562046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.swift in Sources */,
 				EBAA67CE2028798000DF20D7 /* PNPlaceOrderDelegateDatasource.swift in Sources */,
 				DA560406203493B100393159 /* DateUtils.swift in Sources */,
 				EBFB71151FCCA9AD00DB4C58 /* ApplicationTextfields.swift in Sources */,
@@ -3859,6 +4070,7 @@
 				EB12CCC620113940005E8394 /* TweeAttributedTextField.swift in Sources */,
 				DA42094220308A0800327A28 /* PNOrderDish.swift in Sources */,
 				DA49D4D8202E55AA00F15521 /* PNGetAddressesResponse.swift in Sources */,
+				1E96744E20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift in Sources */,
 				EBF8F140202E4F2200119BFF /* PNQuickSearchViewController.swift in Sources */,
 				EB8F01861FCAD715000D790F /* AppNavigation.swift in Sources */,
 				EB738E752028D8B600A2DC16 /* PNPlaceOrderAddItemRootView.swift in Sources */,
@@ -3871,7 +4083,9 @@
 				EBD4CD1320129AA400BAD5E3 /* MadokaTextField.swift in Sources */,
 				DA49D4DB202E564A00F15521 /* PNUserManager+GetAddresses.swift in Sources */,
 				EB8F018C1FCAD858000D790F /* PNLogin.swift in Sources */,
+				1E96746E2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.swift in Sources */,
 				EB12CCC720113940005E8394 /* TweeBorderedTextField.swift in Sources */,
+				1E9674712046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift in Sources */,
 				EB186971200192E500C27925 /* PNGuestLetsGetStartedViewController.swift in Sources */,
 				DA42094020308A0800327A28 /* PNOrderSubmission.swift in Sources */,
 				EB1869832002297A00C27925 /* PNGuestLetsGetStartedWithEmailController.swift in Sources */,
@@ -3918,7 +4132,9 @@
 				EBD4CD1020129AA400BAD5E3 /* IsaoTextField.swift in Sources */,
 				DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */,
 				EBF8F130202E4D0100119BFF /* PNSettingViewController.swift in Sources */,
+				1E96744B20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift in Sources */,
 				EBD90D82202E32B3001BB7C5 /* PNCards.swift in Sources */,
+				1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */,
 				EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */,
 				EB63DD36201A7E9F00737550 /* PNDeliveryView.swift in Sources */,
 				EB2FD4C52005348D00CE76A6 /* PNGuestLetsGetStartedStepTwoController.swift in Sources */,

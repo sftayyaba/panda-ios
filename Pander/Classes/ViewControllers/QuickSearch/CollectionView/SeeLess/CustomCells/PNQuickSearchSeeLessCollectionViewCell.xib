@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hvy-cW-dWS" customClass="PNQuickSearchSeeLessCollectionViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="132" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="132" height="173"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5dg-Yy-NqO">
+                        <rect key="frame" x="0.0" y="0.0" width="132" height="173"/>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.71372549019999998" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="132" id="Qvj-S3-6l6"/>
+                            <constraint firstAttribute="height" constant="173" id="siV-RR-dvc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salad" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWc-bk-Eg1">
+                        <rect key="frame" x="11" y="139" width="46" height="23.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5dg-Yy-NqO" secondAttribute="trailing" id="8lk-Sg-eTl"/>
+                <constraint firstItem="QWc-bk-Eg1" firstAttribute="leading" secondItem="Hvy-cW-dWS" secondAttribute="leading" constant="11" id="F9c-t7-Maa"/>
+                <constraint firstItem="5dg-Yy-NqO" firstAttribute="top" secondItem="Hvy-cW-dWS" secondAttribute="top" id="XBd-5e-j8X"/>
+                <constraint firstAttribute="bottom" secondItem="QWc-bk-Eg1" secondAttribute="bottom" constant="11" id="gVH-1i-XI9"/>
+                <constraint firstAttribute="bottom" secondItem="5dg-Yy-NqO" secondAttribute="bottom" id="hJc-hA-486"/>
+                <constraint firstItem="5dg-Yy-NqO" firstAttribute="leading" secondItem="Hvy-cW-dWS" secondAttribute="leading" id="jjv-zh-nHk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="gzr-bX-zlA"/>
+            <size key="customSize" width="179" height="117"/>
+            <connections>
+                <outlet property="itemDetailLabel" destination="QWc-bk-Eg1" id="fMM-1E-qyl"/>
+                <outlet property="itemImageView" destination="5dg-Yy-NqO" id="0QG-jv-zAC"/>
+            </connections>
+            <point key="canvasLocation" x="-488" y="-24.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
