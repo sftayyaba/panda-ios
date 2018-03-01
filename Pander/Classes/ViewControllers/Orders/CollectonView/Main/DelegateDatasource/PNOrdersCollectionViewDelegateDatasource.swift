@@ -43,7 +43,7 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-             return CGSize(width: self.frame.size.width, height: 150)
+             return CGSize(width: self.frame.size.width, height: 80)
         }else {
            return CGSize(width: self.frame.size.width, height: 50)
         }

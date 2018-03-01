@@ -75,7 +75,7 @@ class QuickSearchFindRestuarantCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLabelDeliverToLocation() {
-        let normalText = "Deliver to "
+     /*   let normalText = "Deliver to "
         var boldText = "current location"
         if let address = PNUserManager.sharedInstance.selectedAddress, let nick = address.nick {
             boldText = nick
@@ -104,21 +104,23 @@ class QuickSearchFindRestuarantCollectionViewCell: UICollectionViewCell {
                     
             })
         }else {
-//            self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
-//                .normal(normalText)
-//                .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
+            self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
+                .normal(normalText)
+                .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
             
         }
+ */
     }
     
     
     
     private func setLabelPeopleEating() {
-        let normalText = "People eating "
+       /* let normalText = "People eating "
         let boldText = "\(PNUserManager.sharedInstance.groupSize) person"
         labelPeopleEating.attributedText = NSMutableAttributedString()
             .normal(normalText)
             .bold(boldText)
+        */
     }
     
     private func setLabelBudgetPerPerson() {
@@ -128,35 +130,35 @@ class QuickSearchFindRestuarantCollectionViewCell: UICollectionViewCell {
             .normal(normalText)
             .bold(boldText)
         
-        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
-            
-            var cardarray = response.cards
-            
-            if response.cards?.count != 0 {
-                PNUserManager.sharedInstance.selectedCard=response.cards?[0]
-                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-                    
-                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
-                }
-            }
-            
-        }
-            , FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    //(self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                    // self.alert(title: "Error", message: "Something went wrong !")
-                }
-                
-        })
+//        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+//
+//            var cardarray = response.cards
+//
+//            if response.cards?.count != 0 {
+//                PNUserManager.sharedInstance.selectedCard=response.cards?[0]
+//                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+//
+//                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
+//                }
+//            }
+//
+//        }
+//            , FailureBlock: { (error) in
+//                if let localError = error as? ErrorBaseClass{
+//                    //(self.alert(title: "Oops", message: localError.localizedDescription)
+//                }else {
+//                    // self.alert(title: "Error", message: "Something went wrong !")
+//                }
+//
+//        })
     }
     
     private func setLabelDeliverWhen() {
-        let normalText = "When to deliver "
+    /*    let normalText = "When to deliver "
         let boldText = "\(PNUserManager.sharedInstance.selectedDate)"
         deliverAtTimeLabel.attributedText = NSMutableAttributedString()
             .normal(normalText)
             .bold(boldText)
+         */
     }
-
 }

@@ -19,7 +19,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     var numberofLocations = PNUserManager.sharedInstance.addresses!.count
     
     
-     var numberofSectionHeaders = 3
+     var numberofSectionHeaders = 4
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return numberofSectionHeaders
@@ -60,6 +60,8 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
             return 50
         }else if section == 1 {
             return 320
+        }else if section == 3 {
+            return 180
         }else {
             return 0
         }
@@ -81,8 +83,12 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
             return self.tableView(tableView, headerForLocationOptionAt: section)
         }else if section == 1{
             return self.tableView(tableView, headerForAddItemsOptionAt: section)
-        }else {
+        }else if section == 2 {
             return UIView()
+        }else if (section == 3){
+            return self.tableView(tableView, headerForOrderDetailTotalOptionAt: section)
+        }else {
+           return UIView()
         }
     }
     
@@ -175,9 +181,15 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, headerForAddItemsOptionAt section: Int) -> UITableViewCell {
         
         let cell: PNOrderDetailImageSliderTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailImageSliderTableViewCell") as? PNOrderDetailImageSliderTableViewCell)!
-        
         cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, headerForOrderDetailTotalOptionAt section: Int) -> UITableViewCell {
         
+        let cell: PNOrderDetailTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailTotalTableViewCell") as? PNOrderDetailTotalTableViewCell)!
+//        cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
         return cell
     }
     

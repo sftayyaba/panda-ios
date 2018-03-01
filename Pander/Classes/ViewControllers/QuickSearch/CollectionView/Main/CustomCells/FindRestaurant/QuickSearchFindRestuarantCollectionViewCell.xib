@@ -12,6 +12,7 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -28,14 +29,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsD-0s-U9N">
                         <rect key="frame" x="20" y="5" width="280" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deliver to Icon" translatesAutoresizingMaskIntoConstraints="NO" id="G1z-Yb-PlC">
-                                <rect key="frame" x="15" y="11" width="20" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="YDT-ME-lgF"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for Atmosphere" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8M-xN-g7A">
-                                <rect key="frame" x="50" y="13" width="147" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search for Atmosphere..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8M-xN-g7A">
+                                <rect key="frame" x="20" y="13" width="252" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,11 +39,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97637790440000005" green="0.97653752569999996" blue="0.97634404900000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="I8M-xN-g7A" firstAttribute="centerY" secondItem="G1z-Yb-PlC" secondAttribute="centerY" id="2xL-2Q-fUY"/>
-                            <constraint firstItem="I8M-xN-g7A" firstAttribute="leading" secondItem="G1z-Yb-PlC" secondAttribute="trailing" constant="15" id="Sgi-TF-tkA"/>
                             <constraint firstAttribute="height" constant="45" id="bMg-i6-WzU"/>
-                            <constraint firstItem="G1z-Yb-PlC" firstAttribute="leading" secondItem="WsD-0s-U9N" secondAttribute="leading" constant="15" id="fvF-Lh-lTo"/>
-                            <constraint firstItem="G1z-Yb-PlC" firstAttribute="centerY" secondItem="WsD-0s-U9N" secondAttribute="centerY" id="hKY-wU-SNh"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laU-9o-rBt">
@@ -59,32 +51,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2c-Xu-Eev">
                         <rect key="frame" x="20" y="55" width="280" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Food icon" translatesAutoresizingMaskIntoConstraints="NO" id="305-cV-zen">
-                                <rect key="frame" x="15" y="14.5" width="21" height="16"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiI-vP-m6g">
-                                <rect key="frame" x="51" y="13" width="175" height="19.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Search for">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" dishes or cuisine">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search for Cusine/Dishes..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiI-vP-m6g">
+                                <rect key="frame" x="20" y="13" width="252" height="19.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97637790440000005" green="0.97653752569999996" blue="0.97634404900000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QiI-vP-m6g" firstAttribute="centerY" secondItem="305-cV-zen" secondAttribute="centerY" id="68f-wt-ZoT"/>
-                            <constraint firstItem="305-cV-zen" firstAttribute="centerY" secondItem="d2c-Xu-Eev" secondAttribute="centerY" id="EpQ-ng-8Rr"/>
-                            <constraint firstItem="305-cV-zen" firstAttribute="leading" secondItem="d2c-Xu-Eev" secondAttribute="leading" constant="15" id="XR5-yA-7wI"/>
-                            <constraint firstItem="QiI-vP-m6g" firstAttribute="leading" secondItem="305-cV-zen" secondAttribute="trailing" constant="15" id="aXc-Hn-VPe"/>
                             <constraint firstAttribute="height" constant="45" id="mCb-9N-LWn"/>
                         </constraints>
                     </view>
@@ -97,44 +73,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLL-iu-JUw">
                         <rect key="frame" x="20" y="105" width="280" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Payment method Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DY8-4f-a8l">
-                                <rect key="frame" x="15" y="13" width="20" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="QM0-KB-WiO"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxN-HJ-mAk">
-                                <rect key="frame" x="50" y="13" width="150.5" height="19.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Budget per person">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="$20">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Budget per person..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxN-HJ-mAk">
+                                <rect key="frame" x="20" y="13" width="252" height="19.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97637790440000005" green="0.97653752569999996" blue="0.97634404900000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MxN-HJ-mAk" firstAttribute="leading" secondItem="DY8-4f-a8l" secondAttribute="trailing" constant="15" id="GS9-X6-AFe"/>
-                            <constraint firstItem="DY8-4f-a8l" firstAttribute="leading" secondItem="BLL-iu-JUw" secondAttribute="leading" constant="15" id="Mad-xs-yHu"/>
-                            <constraint firstItem="DY8-4f-a8l" firstAttribute="centerY" secondItem="BLL-iu-JUw" secondAttribute="centerY" id="q6d-VO-qIX"/>
                             <constraint firstAttribute="height" constant="45" id="rHt-Ot-h3i"/>
-                            <constraint firstItem="MxN-HJ-mAk" firstAttribute="centerY" secondItem="DY8-4f-a8l" secondAttribute="centerY" id="v0h-Xd-MY9"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fec-uL-RQk">
@@ -147,41 +96,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4au-jR-uEv">
                         <rect key="frame" x="20" y="155" width="280" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Party size icon" translatesAutoresizingMaskIntoConstraints="NO" id="PBn-tD-en1">
-                                <rect key="frame" x="15" y="12.5" width="18" height="20"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7b-JY-MVQ">
-                                <rect key="frame" x="48" y="13.5" width="149" height="19.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="People eating">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="1 person">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7b-JY-MVQ">
+                                <rect key="frame" x="20" y="13.5" width="252" height="19.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97637790440000005" green="0.97653752569999996" blue="0.97634404900000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PBn-tD-en1" firstAttribute="leading" secondItem="4au-jR-uEv" secondAttribute="leading" constant="15" id="UYH-es-twl"/>
                             <constraint firstAttribute="height" constant="45" id="Up6-cj-mn5"/>
-                            <constraint firstItem="PBn-tD-en1" firstAttribute="centerY" secondItem="4au-jR-uEv" secondAttribute="centerY" id="cVK-5E-c4Q"/>
-                            <constraint firstItem="S7b-JY-MVQ" firstAttribute="leading" secondItem="PBn-tD-en1" secondAttribute="trailing" constant="15" id="khO-8Q-GoY"/>
-                            <constraint firstItem="S7b-JY-MVQ" firstAttribute="centerY" secondItem="PBn-tD-en1" secondAttribute="centerY" id="mJm-DM-F4B"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ec-hF-0Dr">
@@ -193,40 +118,24 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCf-jS-3Gv">
                         <rect key="frame" x="20" y="205" width="280" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar icon" translatesAutoresizingMaskIntoConstraints="NO" id="qpK-Gn-XtC">
-                                <rect key="frame" x="15" y="12.5" width="20" height="20"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJN-8l-6Rs">
-                                <rect key="frame" x="50" y="13" width="142.5" height="22"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="When to deliver">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="ASAP">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gh-M0-Soj">
+                                <rect key="frame" x="229" y="3" width="31" height="39"/>
+                                <state key="normal" image="on-switch"/>
+                                <state key="selected" image="off-switch"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Open Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJN-8l-6Rs">
+                                <rect key="frame" x="20" y="15" width="102" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97637790440000005" green="0.97653752569999996" blue="0.97634404900000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qpK-Gn-XtC" firstAttribute="centerY" secondItem="YCf-jS-3Gv" secondAttribute="centerY" id="6yi-iD-sF4"/>
-                            <constraint firstItem="qpK-Gn-XtC" firstAttribute="leading" secondItem="YCf-jS-3Gv" secondAttribute="leading" constant="15" id="AIe-pe-r2i"/>
-                            <constraint firstItem="vJN-8l-6Rs" firstAttribute="centerY" secondItem="qpK-Gn-XtC" secondAttribute="centerY" constant="1" id="VaG-jC-hq1"/>
-                            <constraint firstItem="vJN-8l-6Rs" firstAttribute="leading" secondItem="qpK-Gn-XtC" secondAttribute="trailing" constant="15" id="sSk-UN-I91"/>
+                            <constraint firstAttribute="trailing" secondItem="8Gh-M0-Soj" secondAttribute="trailing" constant="20" id="CLX-1f-Euz"/>
+                            <constraint firstAttribute="bottom" secondItem="8Gh-M0-Soj" secondAttribute="bottom" constant="3" id="CT3-OZ-C7B"/>
+                            <constraint firstItem="8Gh-M0-Soj" firstAttribute="top" secondItem="YCf-jS-3Gv" secondAttribute="top" constant="3" id="ji3-wR-5Mx"/>
                             <constraint firstAttribute="height" constant="45" id="wdc-2Q-Ikc"/>
                         </constraints>
                     </view>
@@ -310,14 +219,11 @@
                 <outlet property="labelDeliverToLocation" destination="I8M-xN-g7A" id="TAe-dh-2Wj"/>
                 <outlet property="labelPeopleEating" destination="S7b-JY-MVQ" id="5OZ-im-7iX"/>
             </connections>
-            <point key="canvasLocation" x="-141" y="51"/>
+            <point key="canvasLocation" x="-502" y="-73"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Calendar icon" width="20" height="20"/>
-        <image name="Deliver to Icon" width="16" height="23"/>
-        <image name="Food icon" width="21" height="16"/>
-        <image name="Party size icon" width="18" height="20"/>
-        <image name="Payment method Icon" width="10" height="19"/>
+        <image name="off-switch" width="31" height="14"/>
+        <image name="on-switch" width="31" height="14"/>
     </resources>
 </document>
