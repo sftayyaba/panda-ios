@@ -17,7 +17,7 @@ final class PNOrderManager: PNBaseManager {
     var generatedOrderId: String?
     
     var generatedOrder: PNOrderBaseClass?
-    
+    var placedOrderclear: PNOrderBaseClass?
     var prevRestaurentIds: [String] = [String]()
     //MARK: Shared Instance
     static let sharedInstance: PNOrderManager = {

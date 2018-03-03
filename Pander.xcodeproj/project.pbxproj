@@ -11,6 +11,8 @@
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
 		AFD386AF756B7E339CD430CF /* Pods_PanderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */; };
+		B33BBE09204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */; };
+		B33BBE0C204B5224005C5404 /* PNOrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BBE0B204B5224005C5404 /* PNOrderPlaced.swift */; };
 		DA068AF3202F7A6A00377725 /* PNRemoveAddressOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA068AF2202F7A6A00377725 /* PNRemoveAddressOperation.swift */; };
 		DA068AF6202F85EC00377725 /* PNSetDefaultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA068AF5202F85EC00377725 /* PNSetDefaultOperation.swift */; };
 		DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA403978201383490066D843 /* PNAllCuisines.swift */; };
@@ -327,6 +329,8 @@
 		5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BEF31003DB5D0C4B3F475C /* Pods-PanderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanderTests/Pods-PanderTests.release.xcconfig"; sourceTree = "<group>"; };
 		ACECFB0E13C5189292F92319 /* Pods_Pander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+OrderPlaced.swift"; sourceTree = "<group>"; };
+		B33BBE0B204B5224005C5404 /* PNOrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderPlaced.swift; sourceTree = "<group>"; };
 		BDF4BE66D589EF59CA21CEDD /* Pods-Pander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pander.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pander/Pods-Pander.release.xcconfig"; sourceTree = "<group>"; };
 		CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADAD55070F9612A39CC507 /* Pods-PanderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -672,6 +676,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B33BBE0A204B5201005C5404 /* OrderPlaced */ = {
+			isa = PBXGroup;
+			children = (
+				B33BBE0B204B5224005C5404 /* PNOrderPlaced.swift */,
+			);
+			path = OrderPlaced;
+			sourceTree = "<group>";
+		};
 		DA068AEE202F799D00377725 /* Remove address */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +713,7 @@
 				DA4209222030846C00327A28 /* PNOrderManager.swift */,
 				DA420948203096B200327A28 /* PNOrderManager+GenerateOrder.swift */,
 				DA42094A203096D000327A28 /* PNOrderManager+OrderStatus.swift */,
+				B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */,
 			);
 			path = OrderManager;
 			sourceTree = "<group>";
@@ -708,6 +721,7 @@
 		DA4209242030855E00327A28 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				B33BBE0A204B5201005C5404 /* OrderPlaced */,
 				DA4209262030857100327A28 /* OrderStatus */,
 				DA4209252030856600327A28 /* Order */,
 			);
@@ -3421,6 +3435,7 @@
 				DA6E7DF7202E7C91004475A3 /* PNGetNicksOperation.swift in Sources */,
 				EBED0A4F1FCE93A600F9F5B8 /* PNVerifyCredentialsOperation.swift in Sources */,
 				DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */,
+				B33BBE0C204B5224005C5404 /* PNOrderPlaced.swift in Sources */,
 				DA7A126A2031031F00DEC686 /* PNMenuAddedDishTableViewCell.swift in Sources */,
 				EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */,
 				EBD90D7E202E1BBF001BB7C5 /* PNAddPaymentOperation.swift in Sources */,
@@ -3440,6 +3455,7 @@
 				DABB1DBC20081A19003CD371 /* PNCheckAddressIsSupportedOperation.swift in Sources */,
 				EBCC5676200DEDC4009D865E /* UIString.swift in Sources */,
 				EBFB71081FCCA14200DB4C58 /* PNBaseViewController.swift in Sources */,
+				B33BBE09204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift in Sources */,
 				EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */,
 				EBF8F12F202E4D0100119BFF /* PNSettingView.swift in Sources */,
 				EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */,
