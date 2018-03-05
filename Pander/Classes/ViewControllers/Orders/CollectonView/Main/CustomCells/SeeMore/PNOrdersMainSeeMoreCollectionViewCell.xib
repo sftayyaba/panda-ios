@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="205"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osn-jp-rML">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osn-jp-rML">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="138"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -28,7 +28,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImD-JU-aVT">
-                        <rect key="frame" x="0.0" y="138" width="100" height="67"/>
+                        <rect key="frame" x="0.0" y="143" width="100" height="62"/>
                         <attributedString key="attributedText">
                             <fragment content="Tues Sep 12">
                                 <attributes>
@@ -54,7 +54,7 @@
                 <constraint firstItem="osn-jp-rML" firstAttribute="top" secondItem="EdY-ZV-SYZ" secondAttribute="top" id="CYj-Nj-WJG"/>
                 <constraint firstAttribute="bottom" secondItem="ImD-JU-aVT" secondAttribute="bottom" id="M4h-pc-0Y9"/>
                 <constraint firstItem="osn-jp-rML" firstAttribute="leading" secondItem="EdY-ZV-SYZ" secondAttribute="leading" id="VeK-rE-aSc"/>
-                <constraint firstItem="ImD-JU-aVT" firstAttribute="top" secondItem="osn-jp-rML" secondAttribute="bottom" id="jO1-FJ-Is0"/>
+                <constraint firstItem="ImD-JU-aVT" firstAttribute="top" secondItem="osn-jp-rML" secondAttribute="bottom" constant="5" id="jO1-FJ-Is0"/>
                 <constraint firstItem="ImD-JU-aVT" firstAttribute="leading" secondItem="EdY-ZV-SYZ" secondAttribute="leading" id="obl-Um-hfo"/>
                 <constraint firstAttribute="trailing" secondItem="ImD-JU-aVT" secondAttribute="trailing" id="sAh-P6-T6O"/>
                 <constraint firstAttribute="trailing" secondItem="osn-jp-rML" secondAttribute="trailing" id="xsy-fu-gnj"/>

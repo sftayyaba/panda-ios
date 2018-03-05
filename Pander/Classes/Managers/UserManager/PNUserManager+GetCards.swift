@@ -75,6 +75,5 @@ extension PNUserManager {
             
             OnebyteNetworkOperationQueue.sharedInstance.addOperation(getCardsOperation)
         }
-//    }
 }
 

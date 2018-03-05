@@ -59,6 +59,14 @@ class PNOrdersViewController: PNBaseViewController {
                 
         })
         
+        
+        PNOrderManager.sharedInstance.getPastOrder(SuccessBlock: { (response) in
+            print("Response is ",response);
+        }) { (error) in
+            print("Error is ",error);
+        }
+        
+        
         self.ordersView.collectionView.reloadData()
         
     }

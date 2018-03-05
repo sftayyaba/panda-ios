@@ -55,10 +55,10 @@ class PNQuickSearchMainSeeLessCollectionViewCell: UICollectionViewCell,UICollect
             
 //            let cuisine = self.cuisines[indexPath.row]
 //
-//            let imgUrlStr = cuisine["image_url"].string!
-//            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineInline")
-//            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
-//            });
+            let imgUrlStr = "https://desolate-everglades-24260.herokuapp.com/api/v2/image/bg_greek"
+            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineInline")
+            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+            });
             
 //            cell.itemDetailLabel.text = cuisine["cuisine"].string!
 //            cell.itemDetailLabel.text = "Cuisine"
@@ -66,10 +66,10 @@ class PNQuickSearchMainSeeLessCollectionViewCell: UICollectionViewCell,UICollect
             
 //            let cuisine = self.dishes[indexPath.row]
 //
-//            let imgUrlStr = cuisine["image_url"].string!
-//            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemInline")
-//            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
-//            });
+            let imgUrlStr = "https://desolate-everglades-24260.herokuapp.com/api/v2/image/bg_greek"
+            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemInline")
+            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+            });
             
 //            cell.itemDetailLabel.text = cuisine["dish"].string!
 //            cell.itemDetailLabel.text = "Umaid"
