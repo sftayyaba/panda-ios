@@ -130,8 +130,8 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, cellForLocationsOptionAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PNPlaceOrderLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderLocationTableViewCell") as? PNPlaceOrderLocationTableViewCell)!
-        
 
+        
         if self.isLocationSelected {
             let locations = numberofLocations 
             if(indexPath.row==locations){
@@ -202,7 +202,15 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             if self.isPaymentSelected{
                 let cards = numberofCards
                 if(indexPath.row==cards){
+                 
+                    
+                    let viewController = PNBudgetViewController(nibName: "PNBudgetVC", bundle: nil)
+                    
+                    UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
+
+                   
                     print("add new")
+                    
                     
                 }else{
                     
@@ -244,9 +252,15 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                     NSLog("OK Pressed")
                     let selected = self.numberofLocations
                     if(indexPath.row==selected){
+                        let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
+                        UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
+                        
+                        
+                        //self.navigationController?.pushViewController(viewController, animated: true)
                         print("add new location")
                         
                     }else{
+                        
                     let address = PNUserManager.sharedInstance.addresses![indexPath.row]
                     address.isSelected = !address.isSelected
                     

@@ -630,7 +630,7 @@ Cgo
                 <outlet property="storeAddressView" destination="aQY-Tz-vjj" id="pca-rh-ZDN"/>
                 <outlet property="zipCodeTextField" destination="iCd-yf-Ilu" id="GoO-4b-s8h"/>
             </connections>
-            <point key="canvasLocation" x="-259" y="-292"/>
+            <point key="canvasLocation" x="-259.5" y="-292"/>
         </view>
     </objects>
     <resources>
