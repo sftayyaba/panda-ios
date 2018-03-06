@@ -194,14 +194,14 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
 //            let cuisine = self.dishes[indexPath.row]
             if let callback = didSelectCuisineCallback{
 //                callback(cuisine["cuisine"].string!)
-                callback("Scheduled Order")
+                callback("0")
             }
             
         }else if indexPath.section == 2 && isCuisineShowMore {
 //            let cuisine = self.cuisines[indexPath.row]
             if let callback = didSelectCuisineCallback{
 //                callback(cuisine["cuisine"].string!)
-                callback("Past Orders")
+                callback("1")
             }
         }
         

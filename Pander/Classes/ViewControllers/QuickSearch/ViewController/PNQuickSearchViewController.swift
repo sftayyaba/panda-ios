@@ -137,6 +137,8 @@ class PNQuickSearchViewController: PNBaseViewController {
         
         self.quickSearchView.collectionView.register((UINib(nibName: "PHCommonHeaderCollectionView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PHCommonHeaderCollectionView")
         
+        self.quickSearchView.collectionView.register((UINib(nibName: "PNQucikSearchReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNQucikSearchReusableView")
+        
         self.quickSearchView.collectionView.register((UINib(nibName: "PNQucikSearchFeaturedCuisineCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNQucikSearchFeaturedCuisineCollectionReusableView")
         
         self.quickSearchView.collectionView.register((UINib(nibName: "PNQucikSearchCategoriesCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNQucikSearchCategoriesCollectionReusableView")

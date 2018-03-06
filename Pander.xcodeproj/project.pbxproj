@@ -41,6 +41,10 @@
 		1E3E6327204D228D009A0DAB /* PNPastOrderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E6326204D228D009A0DAB /* PNPastOrderOperation.swift */; };
 		1E3E632A204D2BA1009A0DAB /* PNPastOrderBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E6329204D2BA1009A0DAB /* PNPastOrderBaseClass.swift */; };
 		1E3E632C204D4364009A0DAB /* PNOrderItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E632B204D4364009A0DAB /* PNOrderItems.swift */; };
+		1E4209D9204E75F0004D35D1 /* PNOrderManager+Edit&Reorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4209D8204E75F0004D35D1 /* PNOrderManager+Edit&Reorder.swift */; };
+		1E4209DC204E79FE004D35D1 /* PNEditReorderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4209DB204E79FE004D35D1 /* PNEditReorderOperation.swift */; };
+		1E4209E0204EADF6004D35D1 /* PNQucikSearchReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4209DE204EADF6004D35D1 /* PNQucikSearchReusableView.swift */; };
+		1E4209E1204EADF6004D35D1 /* PNQucikSearchReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4209DF204EADF6004D35D1 /* PNQucikSearchReusableView.xib */; };
 		1E96744B20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E96744A20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift */; };
 		1E96744E20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E96744C20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift */; };
 		1E96744F20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E96744D20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib */; };
@@ -410,6 +414,10 @@
 		1E3E6326204D228D009A0DAB /* PNPastOrderOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPastOrderOperation.swift; sourceTree = "<group>"; };
 		1E3E6329204D2BA1009A0DAB /* PNPastOrderBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPastOrderBaseClass.swift; sourceTree = "<group>"; };
 		1E3E632B204D4364009A0DAB /* PNOrderItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderItems.swift; sourceTree = "<group>"; };
+		1E4209D8204E75F0004D35D1 /* PNOrderManager+Edit&Reorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+Edit&Reorder.swift"; sourceTree = "<group>"; };
+		1E4209DB204E79FE004D35D1 /* PNEditReorderOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNEditReorderOperation.swift; sourceTree = "<group>"; };
+		1E4209DE204EADF6004D35D1 /* PNQucikSearchReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQucikSearchReusableView.swift; sourceTree = "<group>"; };
+		1E4209DF204EADF6004D35D1 /* PNQucikSearchReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQucikSearchReusableView.xib; sourceTree = "<group>"; };
 		1E96744A20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		1E96744C20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchSeeLessCollectionViewCell.swift; sourceTree = "<group>"; };
 		1E96744D20469C54006B4E35 /* PNQuickSearchSeeLessCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQuickSearchSeeLessCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1015,6 +1023,23 @@
 			path = PastOrder;
 			sourceTree = "<group>";
 		};
+		1E4209DA204E78C2004D35D1 /* Edit&Reorder */ = {
+			isa = PBXGroup;
+			children = (
+				1E4209DB204E79FE004D35D1 /* PNEditReorderOperation.swift */,
+			);
+			path = "Edit&Reorder";
+			sourceTree = "<group>";
+		};
+		1E4209DD204EAD6C004D35D1 /* QuickSearchHeader */ = {
+			isa = PBXGroup;
+			children = (
+				1E4209DE204EADF6004D35D1 /* PNQucikSearchReusableView.swift */,
+				1E4209DF204EADF6004D35D1 /* PNQucikSearchReusableView.xib */,
+			);
+			path = QuickSearchHeader;
+			sourceTree = "<group>";
+		};
 		1E96744220469A4A006B4E35 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,6 +1099,7 @@
 		1E96744820469AF8006B4E35 /* CustomHeaders */ = {
 			isa = PBXGroup;
 			children = (
+				1E4209DD204EAD6C004D35D1 /* QuickSearchHeader */,
 				1E9674722046CAB4006B4E35 /* SuggestedCateogries */,
 				1E9674602046AA8D006B4E35 /* CommonDummyHeader */,
 				1E9674612046AAA3006B4E35 /* FeaturedCuisine */,
@@ -1218,6 +1244,7 @@
 				DA420948203096B200327A28 /* PNOrderManager+GenerateOrder.swift */,
 				DA42094A203096D000327A28 /* PNOrderManager+OrderStatus.swift */,
 				1E3E6323204D1F7D009A0DAB /* PNOrderManager+PastOrders.swift */,
+				1E4209D8204E75F0004D35D1 /* PNOrderManager+Edit&Reorder.swift */,
 			);
 			path = OrderManager;
 			sourceTree = "<group>";
@@ -1225,6 +1252,7 @@
 		DA4209242030855E00327A28 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				1E4209DA204E78C2004D35D1 /* Edit&Reorder */,
 				1E3E6325204D2251009A0DAB /* PastOrder */,
 				DA4209262030857100327A28 /* OrderStatus */,
 				DA4209252030856600327A28 /* Order */,
@@ -3670,6 +3698,7 @@
 				1E1D816B20456328005DB9C9 /* PNOrderDetailItemsTableViewCell.xib in Resources */,
 				1E9674672046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.xib in Resources */,
 				EB1869872002297A00C27925 /* PNGuestLetsGetStartedWithLocationController.xib in Resources */,
+				1E4209E1204EADF6004D35D1 /* PNQucikSearchReusableView.xib in Resources */,
 				EB738E742028D8B600A2DC16 /* PNPlaceOrderAddItemMainViewController.xib in Resources */,
 				EB478BD8201351350017E718 /* PNMomLocationTableViewCell.xib in Resources */,
 				EBAA67C72028798000DF20D7 /* PNPlaceOrderImageSliderTableViewCell.xib in Resources */,
@@ -4001,6 +4030,7 @@
 				EB12CCC520113940005E8394 /* TweeActiveTextField.swift in Sources */,
 				1E1D816620455F6C005DB9C9 /* PNOrderDetailImageSliderTableViewCell.swift in Sources */,
 				1E331C432043ED3700311B41 /* PNOrderdItemsCollectionViewCell.swift in Sources */,
+				1E4209D9204E75F0004D35D1 /* PNOrderManager+Edit&Reorder.swift in Sources */,
 				EBAA67C42028798000DF20D7 /* PNPlaceOrderPaymentTableViewCell.swift in Sources */,
 				EB3C23C2201BAE2900D266FD /* PNFavoriteDishesCollectionViewCell.swift in Sources */,
 				EBE7344C200E75AD001BB651 /* PNPartySizeTextFieldDelegate.swift in Sources */,
@@ -4125,6 +4155,7 @@
 				EBED0A321FCE8BCB00F9F5B8 /* PNConvertGuestUserOperation.swift in Sources */,
 				DABB1DB42007FE62003CD371 /* OnebyteNetworkOperationBase+Subclassing.swift in Sources */,
 				EBAA67CA2028798000DF20D7 /* PNPlaceOrderLocationHeaderViewTableViewCell.swift in Sources */,
+				1E4209DC204E79FE004D35D1 /* PNEditReorderOperation.swift in Sources */,
 				EB478BE1201353EA0017E718 /* PNTravisFieldTableViewCell.swift in Sources */,
 				EB9F8EBA20261D5D0044255F /* PHCommonHeaderCollectionView.swift in Sources */,
 				DA49D4D4202E53A300F15521 /* PNGetAddressesOperation.swift in Sources */,
@@ -4166,6 +4197,7 @@
 				EBF8F130202E4D0100119BFF /* PNSettingViewController.swift in Sources */,
 				1E96744B20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift in Sources */,
 				EBD90D82202E32B3001BB7C5 /* PNCards.swift in Sources */,
+				1E4209E0204EADF6004D35D1 /* PNQucikSearchReusableView.swift in Sources */,
 				1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */,
 				EB2FD4DD20054BFA00CE76A6 /* PNGuestLetGetStartedStepTwoCollectionViewDelegateDatasource.swift in Sources */,
 				EB63DD36201A7E9F00737550 /* PNDeliveryView.swift in Sources */,

@@ -129,6 +129,8 @@ class PNOrdersViewController: PNBaseViewController {
         
         self.ordersView.collectionView.didSelectCuisineCallback = {
             cuisine in
+            
+            print(cuisine);
 //            if var cuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
 //                cuisines.append(cuisine)
 //            }else{

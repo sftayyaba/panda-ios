@@ -39,10 +39,52 @@ class PNOrderDetailViewController: PNBaseViewController {
     
     override func configureCallBacks() {
         
-//        self.tableView.didAddItemButtonCallback={
-//            let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
-//            self.navigationController?.pushViewController(viewController, animated: true)
-//        }
+        self.tableView.editAndReorderButtonCallback = {
+            print("Edit Button pressed")
+            var searchAddress = ""
+            var city = ""
+            var zip = ""
+            var addressId = ""
+            
+            let dishesArray : NSMutableArray = NSMutableArray ()
+            for i in 0..<3 {
+                let dishDictionary :NSMutableDictionary = NSMutableDictionary()
+                dishDictionary.setValue("name", forKey: "name")
+                dishDictionary.setValue("1", forKey: "id")
+                dishDictionary.setValue("3", forKey: "quantity")
+                dishesArray.add(dishDictionary)
+            }
+            
+            let dishJsonData = try? JSONSerialization.data(withJSONObject: dishesArray, options: [])
+            let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
+            
+            
+            let reorderInfoJsonObject: NSMutableDictionary = NSMutableDictionary()
+            reorderInfoJsonObject.setValue("value1", forKey: "restId")
+            reorderInfoJsonObject.setValue("value2", forKey: "restName")
+            reorderInfoJsonObject.setValue(dishesjsonString!, forKey: "dishes")
+            let reorderInfoJsonData = try? JSONSerialization.data(withJSONObject: reorderInfoJsonObject, options: [])
+            let reorderInfoJsonString = String(data: reorderInfoJsonData!, encoding: .utf8)
+            
+            
+            
+            if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
+                searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
+                city = selectedAddress.city!
+                zip = selectedAddress.zipCode!
+                addressId = "\(selectedAddress.locationId!)"
+            }else{
+                self.alert(title: "Oops", message: "No Delivery address is selected.")
+                return
+            }
+            
+            
+            PNOrderManager.sharedInstance.recreateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, ReorderInfo: reorderInfoJsonString!, SuccessBlock: { (response) in
+                
+            }, FailureBlock: { (error) in
+                
+            });
+        }
         
     }
     

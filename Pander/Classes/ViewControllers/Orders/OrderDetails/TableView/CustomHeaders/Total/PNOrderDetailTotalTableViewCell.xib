@@ -43,7 +43,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-XW-vJK">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-XW-vJK">
                         <rect key="frame" x="-2" y="79" width="345" height="43"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43" id="BXg-7E-WN4"/>
@@ -63,8 +63,11 @@
                                 <color key="value" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="editAndReorderAction:" destination="Jn1-Dh-5tI" eventType="touchUpInside" id="xIu-q6-RHJ"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-R1-KNH">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-R1-KNH">
                         <rect key="frame" x="-2" y="130" width="345" height="43"/>
                         <color key="backgroundColor" red="1" green="0.0078431372550000003" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -92,7 +95,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="BAb-ic-ebn"/>
-            <point key="canvasLocation" x="26.5" y="96"/>
+            <point key="canvasLocation" x="-204" y="75"/>
         </tableViewCell>
     </objects>
 </document>

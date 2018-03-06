@@ -9,6 +9,9 @@ import UIKit
 
 class PNOrderDetailTotalTableViewCell: UITableViewCell {
 
+    public var editAndReorderButtonCallback : (() -> Void)?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +23,9 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func editAndReorderAction(_ sender: Any) {
+        if let callBack = editAndReorderButtonCallback{
+            callBack()
+        }
+    }
 }

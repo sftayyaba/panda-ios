@@ -92,21 +92,21 @@ class PNQuickSearchMainSeeLessCollectionViewCell: UICollectionViewCell,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if self.type == .cuisine{
-            
-            let cuisine = self.cuisines[indexPath.row]
-            if let callback = didSelectCuisineCallback{
-//                callback(cuisine["cuisine"].string!)
-                callback("Cuisine")
-            }
-        }else{
-            
-            let cuisine = self.dishes[indexPath.row]
-            if let callback = didSelectCuisineCallback{
-//                callback(cuisine["cuisine"].string!)
-                callback("Umaid")
-            }
-        }
+//        if self.type == .cuisine{
+//
+//            let cuisine = self.cuisines[indexPath.row]
+//            if let callback = didSelectCuisineCallback{
+////                callback(cuisine["cuisine"].string!)
+//                callback("Cuisine")
+//            }
+//        }else{
+//
+//            let cuisine = self.dishes[indexPath.row]
+//            if let callback = didSelectCuisineCallback{
+////                callback(cuisine["cuisine"].string!)
+//                callback("Umaid")
+//            }
+//        }
     }
 
 }

@@ -86,14 +86,14 @@ class PNOrdersMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionVi
 //            let cuisine = self.cuisines[indexPath.row]
             if let callback = didSelectCuisineCallback{
 //                callback(cuisine["cuisine"].string!)
-                callback("Scheduled Order")
+                callback("0")
             }
         }else{
 
 //            let cuisine = self.dishes[indexPath.row]
             if let callback = didSelectCuisineCallback{
 //                callback(cuisine["cuisine"].string!)
-                callback("Past Order")
+                callback("1")
             }
         }
     }

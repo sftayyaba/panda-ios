@@ -36,7 +36,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
     var isCategories = false
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return 5
     }
     
     
@@ -44,21 +44,33 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
         
         if (section == 0) && !isSearchRestuarantHidden {
             return 1
-        }else if section == 1 && !isfeatureItemShowMore {
+        }else
+        if (section == 1) {
+            return 0
+        }else if section == 2 && !isfeatureItemShowMore {
             return 1
-        }else if section == 1 && isfeatureItemShowMore {
+        }else if section == 2 && isfeatureItemShowMore {
 //            return self.dishes.count
             return 10
-        }else if section == 2 && !isCuisineShowMore {
+        }else if section == 3 && !isCuisineShowMore {
             return 1
-        }else if section == 2 && isCuisineShowMore {
+        }else if section == 3 && isCuisineShowMore {
             return 10
-        }else if section == 3 && !isCategories {
+        }else if section == 4 && !isCategories {
             return 1
-        }else if section == 3 && isCategories {
+        }else if section == 4 && isCategories {
             return 10
         }else {
             return 0
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 1 {
+            return CGSize(width: self.frame.size.width, height: 70)
+        }else {
+            return CGSize(width: self.frame.size.width, height: 50)
         }
     }
     
@@ -84,6 +96,11 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
                 
             }else if indexPath.section == 1 {
                 
+                let headerView:PNQucikSearchReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PNQucikSearchReusableView", for: indexPath) as! PNQucikSearchReusableView
+                
+                return headerView
+            }else if indexPath.section == 2 {
+                
                 let headerView:PNQuickSearchFeaturedItemsCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PNQuickSearchFeaturedItemsCollectionReusableView", for: indexPath) as! PNQuickSearchFeaturedItemsCollectionReusableView
                 
                 headerView.setContent(title: "filtered by ambience...")
@@ -99,7 +116,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
                 }
                 
                 return headerView
-            }else if indexPath.section == 2 {
+            }else if indexPath.section == 3 {
                 
                 let headerView:PNQucikSearchFeaturedCuisineCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PNQucikSearchFeaturedCuisineCollectionReusableView", for: indexPath) as! PNQucikSearchFeaturedCuisineCollectionReusableView
                 
@@ -116,7 +133,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
                 }
                 
                 return headerView
-            }else if indexPath.section == 3 {
+            }else if indexPath.section == 4 {
                 
                 let headerView:PNQucikSearchCategoriesCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PNQucikSearchCategoriesCollectionReusableView", for: indexPath) as! PNQucikSearchCategoriesCollectionReusableView
                 
@@ -152,7 +169,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.section == 1 && !isfeatureItemShowMore {
+        if indexPath.section == 2 && !isfeatureItemShowMore {
             let cell:PNQuickSearchMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNQuickSearchMainSeeLessCollectionViewCell", for: indexPath) as! PNQuickSearchMainSeeLessCollectionViewCell
             cell.backgroundColor = UIColor.yellow
@@ -167,7 +184,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
             cell.collectionView.reloadData()
             
             return cell
-        }else if indexPath.section == 1 && isfeatureItemShowMore {
+        }else if indexPath.section == 2 && isfeatureItemShowMore {
             let cell:PNQuickSearchMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNQuickSearchMainSeeMoreCollectionViewCell", for: indexPath) as! PNQuickSearchMainSeeMoreCollectionViewCell
             
@@ -182,7 +199,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
 //            cell.itemLabel.text = cuisine["dish"].string!
             
             return cell
-        }else if indexPath.section == 2 && !isCuisineShowMore {
+        }else if indexPath.section == 3 && !isCuisineShowMore {
             let cell:PNQuickSearchMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNQuickSearchMainSeeLessCollectionViewCell", for: indexPath) as! PNQuickSearchMainSeeLessCollectionViewCell
             
@@ -196,7 +213,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
             cell.collectionView.reloadData()
             
             return cell
-        }else if indexPath.section == 2 && isCuisineShowMore {
+        }else if indexPath.section == 3 && isCuisineShowMore {
             let cell:PNQuickSearchMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNQuickSearchMainSeeMoreCollectionViewCell", for: indexPath) as! PNQuickSearchMainSeeMoreCollectionViewCell
             
@@ -213,7 +230,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
 //            cell.itemLabel.text = cuisine["cuisine"].string!
             
             return cell
-        }else if indexPath.section == 3 && !isCategories {
+        }else if indexPath.section == 4 && !isCategories {
             let cell:PNQuickSearchMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNQuickSearchMainSeeLessCollectionViewCell", for: indexPath) as! PNQuickSearchMainSeeLessCollectionViewCell
             
@@ -227,7 +244,7 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
             cell.collectionView.reloadData()
             
             return cell
-        }else if indexPath.section == 3 && isCategories {
+        }else if indexPath.section == 4 && isCategories {
             let cell:PNQuickSearchMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNQuickSearchMainSeeMoreCollectionViewCell", for: indexPath) as! PNQuickSearchMainSeeMoreCollectionViewCell
             
@@ -244,7 +261,12 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
             //            cell.itemLabel.text = cuisine["cuisine"].string!
             
             return cell
-        }else {
+        }
+//        else if indexPath.section == 1 {
+//            let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+//            return cell
+//        }
+        else {
             let cell:QuickSearchFindRestuarantCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "QuickSearchFindRestuarantCollectionViewCell", for: indexPath) as! QuickSearchFindRestuarantCollectionViewCell
             
@@ -264,17 +286,17 @@ class PNQuickSearchCollectionViewDelegateDatasource: UICollectionView,UICollecti
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPath.section == 1 && isfeatureItemShowMore {
+        if indexPath.section == 2 && isfeatureItemShowMore {
             let sidelength = self.frame.size.width / 2 - 23;
             return CGSize(width: sidelength , height: sidelength)
-        }else if indexPath.section == 1 && !isfeatureItemShowMore {
+        }else if indexPath.section == 2 && !isfeatureItemShowMore {
             return CGSize(width: self.frame.size.width, height: 172)
-        }else if indexPath.section == 2 && isCuisineShowMore {
+        }else if indexPath.section == 3 && isCuisineShowMore {
             let sideLength = self.frame.size.width / 2 - 23;
             return CGSize(width: sideLength, height: sideLength)
-        }else if indexPath.section == 2 && !isCuisineShowMore {
+        }else if indexPath.section == 3 && !isCuisineShowMore {
             return CGSize(width: self.frame.size.width, height: 172)
-        }else if indexPath.section == 3 && isCategories {
+        }else if indexPath.section == 4 && isCategories {
             let sideLength = self.frame.size.width / 2 - 23;
             return CGSize(width: sideLength, height: sideLength)
         }else if indexPath.section == 3 && !isCategories {

@@ -10,6 +10,7 @@ import UIKit
 class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     public var didAddItemButtonCallback : (() -> Void)?
+    public var editAndReorderButtonCallback : (() -> Void)?
     
     
     var isLocationSelected = false
@@ -189,7 +190,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, headerForOrderDetailTotalOptionAt section: Int) -> UITableViewCell {
         
         let cell: PNOrderDetailTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailTotalTableViewCell") as? PNOrderDetailTotalTableViewCell)!
-//        cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+        cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
         return cell
     }
     
