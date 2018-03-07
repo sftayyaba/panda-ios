@@ -87,7 +87,12 @@ class PNPlaceOrderViewController: PNBaseViewController {
             let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
-        
+        self.tableView.didPressShowAddressCallback = {
+            let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+
+        }
     }
     
 

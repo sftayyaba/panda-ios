@@ -10,6 +10,8 @@ import UIKit
 class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
     public var didAddItemButtonCallback : (() -> Void)?
 
+    public var didPressShowAddressCallback : (() -> Void)?
+
     
     
     var isLocationSelected = false
@@ -252,11 +254,11 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                     NSLog("OK Pressed")
                     let selected = self.numberofLocations
                     if(indexPath.row==selected){
-                        let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
-                        UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
                         
+                        if let callback = self.didPressShowAddressCallback{
+                            callback();
+                        }
                         
-                        //self.navigationController?.pushViewController(viewController, animated: true)
                         print("add new location")
                         
                     }else{
