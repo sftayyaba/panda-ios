@@ -95,10 +95,10 @@ class PNQuickSearchMainSeeLessCollectionViewCell: UICollectionViewCell,UICollect
 //        if self.type == .cuisine{
 //
 //            let cuisine = self.cuisines[indexPath.row]
-//            if let callback = didSelectCuisineCallback{
-////                callback(cuisine["cuisine"].string!)
-//                callback("Cuisine")
-//            }
+            if let callback = didSelectCuisineCallback{
+//                callback(cuisine["cuisine"].string!)
+                callback("Cuisine")
+            }
 //        }else{
 //
 //            let cuisine = self.dishes[indexPath.row]

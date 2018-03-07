@@ -15,12 +15,13 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     
     var isLocationSelected = false
     var isPaymentSelected = false
+    var cuisine = String()
     
     var numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
     var numberofLocations = PNUserManager.sharedInstance.addresses!.count
     
     
-     var numberofSectionHeaders = 4
+     var numberofSectionHeaders = 5
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return numberofSectionHeaders
@@ -61,6 +62,12 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
             return 50
         }else if section == 1 {
             return 320
+        }else if section == 2 {
+            if cuisine == "0" {
+                return 60
+            }else {
+               return 0
+            }
         }else if section == 3 {
             return 180
         }else {
@@ -85,7 +92,9 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         }else if section == 1{
             return self.tableView(tableView, headerForAddItemsOptionAt: section)
         }else if section == 2 {
-            return UIView()
+            let cell: PNOrderDetailAddItemTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailAddItemTableViewCell") as? PNOrderDetailAddItemTableViewCell)!
+//            cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+            return cell
         }else if (section == 3){
             return self.tableView(tableView, headerForOrderDetailTotalOptionAt: section)
         }else {
@@ -191,6 +200,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         
         let cell: PNOrderDetailTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailTotalTableViewCell") as? PNOrderDetailTotalTableViewCell)!
         cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
+        cell.setContent(cuisine: cuisine)
         return cell
     }
     

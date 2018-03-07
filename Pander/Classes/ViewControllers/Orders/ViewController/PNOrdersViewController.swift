@@ -139,6 +139,7 @@ class PNOrdersViewController: PNBaseViewController {
             
 //            self.findRestaurentButtonPressed(self.homeView)
             let viewController = PNOrderDetailViewController(nibName: "PNOrderDetailViewController", bundle: nil)
+            viewController.cuisine = cuisine
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

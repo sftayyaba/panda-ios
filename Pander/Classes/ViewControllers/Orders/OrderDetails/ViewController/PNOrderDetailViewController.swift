@@ -14,10 +14,13 @@ class PNOrderDetailViewController: PNBaseViewController {
     
     @IBOutlet var tableView: PNOrderDetailDelegateDatasource!
     
+    var cuisine = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.cuisine = self.cuisine
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,6 +105,8 @@ class PNOrderDetailViewController: PNBaseViewController {
         self.tableView.register(UINib(nibName: "PNPlaceOrderPaymentTableViewCell", bundle: nil), forCellReuseIdentifier: "PNPlaceOrderPaymentTableViewCell")
         
         self.tableView.register(UINib(nibName: "PNOrderDetailTotalTableViewCell", bundle: nil), forCellReuseIdentifier: "PNOrderDetailTotalTableViewCell")
+        
+        self.tableView.register(UINib(nibName: "PNOrderDetailAddItemTableViewCell", bundle: nil), forCellReuseIdentifier: "PNOrderDetailAddItemTableViewCell")
         
         
         //MARK: Location Cells

@@ -102,13 +102,17 @@ class PNQuickSearchViewController: PNBaseViewController {
         
         self.quickSearchView.collectionView.didSelectCuisineCallback = {
             cuisine in
-            if var cuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
-                cuisines.append(cuisine)
-            }else{
-                PNUserManager.sharedInstance.homeSelectedCuisines = [cuisine]
-            }
+//            if var cuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
+//                cuisines.append(cuisine)
+//            }else{
+//                PNUserManager.sharedInstance.homeSelectedCuisines = [cuisine]
+//            }
             
-//            self.findRestaurentButtonPressed(self.homeView)
+            
+            let viewController = PNQuickSearchDetailViewController(nibName: "PNQuickSearchDetailViewController", bundle: nil)
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
+            
         }
     }
     

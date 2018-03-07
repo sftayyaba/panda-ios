@@ -11,6 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
             <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
         </array>
@@ -43,12 +44,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-XW-vJK">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-XW-vJK">
                         <rect key="frame" x="-2" y="79" width="345" height="43"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43" id="BXg-7E-WN4"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                         <state key="normal" title="Edit and reorder">
                             <color key="titleColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -73,7 +74,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="43" id="IT0-3P-qTv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                         <state key="normal" title="Re-Order">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -86,15 +87,19 @@
                     <constraint firstItem="iBa-Qi-aZE" firstAttribute="leading" secondItem="GZc-JN-u79" secondAttribute="leading" constant="17" id="JGf-ZV-dIh"/>
                     <constraint firstItem="cl2-R1-KNH" firstAttribute="top" secondItem="TUq-XW-vJK" secondAttribute="bottom" constant="8" id="Jsc-xG-gHx"/>
                     <constraint firstAttribute="trailing" secondItem="m8m-4q-UlB" secondAttribute="trailing" constant="17" id="TWM-cb-mmY"/>
-                    <constraint firstItem="TUq-XW-vJK" firstAttribute="leading" secondItem="GZc-JN-u79" secondAttribute="leading" constant="15" id="cjI-fN-aKW"/>
+                    <constraint firstItem="TUq-XW-vJK" firstAttribute="leading" secondItem="GZc-JN-u79" secondAttribute="leading" constant="-2" id="cjI-fN-aKW"/>
                     <constraint firstItem="Sbs-i6-19w" firstAttribute="leading" secondItem="iBa-Qi-aZE" secondAttribute="trailing" constant="10" id="j8b-cJ-Naw"/>
                     <constraint firstItem="Sbs-i6-19w" firstAttribute="centerY" secondItem="iBa-Qi-aZE" secondAttribute="centerY" id="jnt-iK-IHc"/>
                     <constraint firstItem="m8m-4q-UlB" firstAttribute="centerY" secondItem="Sbs-i6-19w" secondAttribute="centerY" id="ouR-gW-sNa"/>
                     <constraint firstAttribute="trailing" secondItem="cl2-R1-KNH" secondAttribute="trailing" constant="15" id="rZ2-zm-hAM"/>
-                    <constraint firstAttribute="trailing" secondItem="TUq-XW-vJK" secondAttribute="trailing" constant="15" id="sEn-DQ-fgq"/>
+                    <constraint firstAttribute="trailing" secondItem="TUq-XW-vJK" secondAttribute="trailing" constant="-2" id="sEn-DQ-fgq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="BAb-ic-ebn"/>
+            <connections>
+                <outlet property="editAndReorderBtn" destination="TUq-XW-vJK" id="sgO-5F-MjU"/>
+                <outlet property="reorderBtn" destination="cl2-R1-KNH" id="yLr-Lp-z08"/>
+            </connections>
             <point key="canvasLocation" x="-204" y="75"/>
         </tableViewCell>
     </objects>
