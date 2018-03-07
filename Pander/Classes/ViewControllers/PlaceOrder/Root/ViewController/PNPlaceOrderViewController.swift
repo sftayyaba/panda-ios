@@ -93,6 +93,13 @@ class PNPlaceOrderViewController: PNBaseViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
 
         }
+        
+        self.tableView.didPressShowCardCallback = {
+            let viewController = PNBudgetVC(nibName: "PNBudgetVC", bundle: nil)
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
+        }
     }
     
 

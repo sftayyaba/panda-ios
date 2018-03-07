@@ -16,6 +16,7 @@
 		B38316AE204F3A75001263CB /* PNBudgetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38316AD204F3A75001263CB /* PNBudgetVC.xib */; };
 		B38316B0204F3B00001263CB /* PNBudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38316AF204F3B00001263CB /* PNBudgetVC.swift */; };
 		B38316B2204F4A1B001263CB /* PNBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38316B1204F4A1B001263CB /* PNBudget.swift */; };
+		B388FD64205095EA004BE3C2 /* MyLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B388FD63205095EA004BE3C2 /* MyLocationView.xib */; };
 		DA068AF3202F7A6A00377725 /* PNRemoveAddressOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA068AF2202F7A6A00377725 /* PNRemoveAddressOperation.swift */; };
 		DA068AF6202F85EC00377725 /* PNSetDefaultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA068AF5202F85EC00377725 /* PNSetDefaultOperation.swift */; };
 		DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA403978201383490066D843 /* PNAllCuisines.swift */; };
@@ -336,6 +337,7 @@
 		B38316AD204F3A75001263CB /* PNBudgetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNBudgetVC.xib; sourceTree = "<group>"; };
 		B38316AF204F3B00001263CB /* PNBudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNBudgetVC.swift; sourceTree = "<group>"; };
 		B38316B1204F4A1B001263CB /* PNBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNBudget.swift; sourceTree = "<group>"; };
+		B388FD63205095EA004BE3C2 /* MyLocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLocationView.xib; sourceTree = "<group>"; };
 		BDF4BE66D589EF59CA21CEDD /* Pods-Pander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pander.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pander/Pods-Pander.release.xcconfig"; sourceTree = "<group>"; };
 		CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADAD55070F9612A39CC507 /* Pods-PanderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1472,6 +1474,7 @@
 			children = (
 				EB52B5E8200FD57C004E7E96 /* PNLocationViewController.swift */,
 				EB52B5E9200FD57C004E7E96 /* PNLocationViewController.xib */,
+				B388FD63205095EA004BE3C2 /* MyLocationView.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3139,6 +3142,7 @@
 				EB18699020022A5000C27925 /* PNGuestLetsGetStartedWithNameController.xib in Resources */,
 				EBC74F081FCAC41C00641B48 /* Main.storyboard in Resources */,
 				EB478BE2201353EA0017E718 /* PNTravisFieldTableViewCell.xib in Resources */,
+				B388FD64205095EA004BE3C2 /* MyLocationView.xib in Resources */,
 				EBF8F142202E4F2200119BFF /* PNOrdersViewController.xib in Resources */,
 				EBCC566E200DDA90009D865E /* PNForgotPasswordViewController.xib in Resources */,
 				EBE05BF92006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.xib in Resources */,

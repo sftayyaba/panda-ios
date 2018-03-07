@@ -11,7 +11,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     public var didAddItemButtonCallback : (() -> Void)?
 
     public var didPressShowAddressCallback : (() -> Void)?
-
+    public var didPressShowCardCallback : (() -> Void)?
     
     
     var isLocationSelected = false
@@ -206,10 +206,12 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                 if(indexPath.row==cards){
                  
                     
-                    let viewController = PNBudgetViewController(nibName: "PNBudgetVC", bundle: nil)
-                    
-                    UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
-
+//                    let viewController = PNBudgetViewController(nibName: "PNBudgetVC", bundle: nil)
+//
+//                    UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
+                    if let callback = self.didPressShowCardCallback{
+                        callback();
+                    }
                    
                     print("add new")
                     

@@ -22,10 +22,10 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         isNewCardAdded = false
-        self.configureTableView()
+       // self.configureTableView()
         self.configureNavigationBar()
-        self.handleYearEvent()
-        self.handleMonthEvent()
+        //self.handleYearEvent()
+       // self.handleMonthEvent()
     }
     
     override func configureNavigationBar() {
@@ -37,113 +37,113 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
     }
     
-    override func doInitialDataLoad() {
-        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+    //override func doInitialDataLoad() {
+       // PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
             
             //            if let errorMsg = response.message?.first?.localizedDescription{
             //                self.alert(title: "Oops", message: errorMsg)
             //            }else{
             //self.locationView.showStoredAddressButtonTapped()
             
-            self.cardsArray = response.cards!
+           // self.cardsArray = response.cards!
             
-            if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-                self.budgetView.selectedCardLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
-            }
-            self.budgetTableView.cardsArray = self.cardsArray
-            self.budgetTableView.reloadData()
+            //if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+//                self.budgetView.selectedCardLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+          //  }
+            //self.budgetTableView.cardsArray = self.cardsArray
+            //self.budgetTableView.reloadData()
             
-            if self.isNewCardAdded {
-                self.navigationController?.popViewController(animated: true)
-            }
+//            if self.isNewCardAdded {
+//                self.navigationController?.popViewController(animated: true)
+//            }
             
             //                self.alert(title: "Success", message: "Address added to your account")
             //    }
             
-        }
-            , FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
-                }
-                
-        })
-    }
+       // }
+//            , FailureBlock: { (error) in
+//                if let localError = error as? ErrorBaseClass{
+//                    self.alert(title: "Oops", message: localError.localizedDescription)
+//                }else {
+//                    self.alert(title: "Error", message: "Something went wrong !")
+//                }
+//
+//        })
+  //  }
     
-    fileprivate func configureTableView() {
-        let cellNib = UINib(nibName: "PNBankOfAmericaTableViewCell", bundle: nil)
-        self.budgetTableView.register(cellNib, forCellReuseIdentifier: "PNBankOfAmericaTableViewCell")
-        
-        let homeLocationNib = UINib(nibName: "PNBankOfWestTableViewCell", bundle: nil)
-        self.budgetTableView.register(homeLocationNib, forCellReuseIdentifier: "PNBankOfWestTableViewCell")
-        
-        let momLocationNib = UINib(nibName: "PNChaseCardTableViewCell", bundle: nil)
-        self.budgetTableView.register(momLocationNib, forCellReuseIdentifier: "PNChaseCardTableViewCell")
-        
-        
-        self.budgetTableView.cardsArray = self.cardsArray
-        
-        self.budgetTableView.dataSource = self.budgetTableView
-        self.budgetTableView.delegate = self.budgetTableView
-        self.budgetTableView.reloadData()
-    }
+//    fileprivate func configureTableView() {
+//        let cellNib = UINib(nibName: "PNBankOfAmericaTableViewCell", bundle: nil)
+//        self.budgetTableView.register(cellNib, forCellReuseIdentifier: "PNBankOfAmericaTableViewCell")
+//
+//        let homeLocationNib = UINib(nibName: "PNBankOfWestTableViewCell", bundle: nil)
+//        self.budgetTableView.register(homeLocationNib, forCellReuseIdentifier: "PNBankOfWestTableViewCell")
+//
+//        let momLocationNib = UINib(nibName: "PNChaseCardTableViewCell", bundle: nil)
+//        self.budgetTableView.register(momLocationNib, forCellReuseIdentifier: "PNChaseCardTableViewCell")
+//
+//
+//        self.budgetTableView.cardsArray = self.cardsArray
+//
+//        self.budgetTableView.dataSource = self.budgetTableView
+//        self.budgetTableView.delegate = self.budgetTableView
+//        self.budgetTableView.reloadData()
+//    }
     
-    override func configureCallBacks() {
-        self.budgetTableView.didSelectCardCallback = {
-            card in
-            PNUserManager.sharedInstance.selectedCard = card
-            self.budgetView.selectedCardLabel.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
-        }
-        
-        
-        
-        self.budgetTableView.didSelectRemoveCardCallback = {
-            card in
-            PNUserManager.sharedInstance.removeCard(CCId: card.ccId!, successBlock: { (locationResponse) in
-                
-                self.doInitialDataLoad()
-                
-            }, failureBlock: { (error) in
-                
-                PNUserManager.sharedInstance.selectedCard = nil
-                self.budgetView.selectedCardLabel.text = "Chase card"
-                self.doInitialDataLoad()
-                
-                if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Success", message: localError.localizedDescription)
-                }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
-                }
-            })
-        }
-        
-        self.budgetTableView.didSelectSetAsDefaultCardCallback = {
-            card in
-            PNUserManager.sharedInstance.addDefaults(CardId: card.ccId! , AddressId: nil, SuccessBlock: { (locationResponse) in
-                
-                self.doInitialDataLoad()
-                
-            }, FailureBlock: { (error) in
-                
-                PNUserManager.sharedInstance.selectedCard = card
-                self.budgetView.selectedCardLabel.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
-                self.doInitialDataLoad()
-                
-                if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "!!!", message: localError.localizedDescription)
-                }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
-                }
-            })
-        }
-        
-        
-        self.budgetTableView.didSelectEditCardCallback = {
-            card in
-        }
-    }
-    
+//    override func configureCallBacks() {
+//       // self.budgetTableView.didSelectCardCallback = {
+//           // card in
+//          //  PNUserManager.sharedInstance.selectedCard = card
+////            self.budgetView.selectedCardLabel.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
+//      //  }
+//
+//
+//
+//        self.budgetTableView.didSelectRemoveCardCallback = {
+//            card in
+//            PNUserManager.sharedInstance.removeCard(CCId: card.ccId!, successBlock: { (locationResponse) in
+//
+//                self.doInitialDataLoad()
+//
+//            }, failureBlock: { (error) in
+//
+//                PNUserManager.sharedInstance.selectedCard = nil
+//              //  self.budgetView.selectedCardLabel.text = "Chase card"
+//                self.doInitialDataLoad()
+//
+//                if let localError = error as? ErrorBaseClass{
+//                    self.alert(title: "Success", message: localError.localizedDescription)
+//                }else {
+//                    self.alert(title: "Error", message: "Something went wrong !")
+//                }
+//            })
+//        }
+//
+//        self.budgetTableView.didSelectSetAsDefaultCardCallback = {
+//            card in
+//            PNUserManager.sharedInstance.addDefaults(CardId: card.ccId! , AddressId: nil, SuccessBlock: { (locationResponse) in
+//
+//                self.doInitialDataLoad()
+//
+//            }, FailureBlock: { (error) in
+//
+//                PNUserManager.sharedInstance.selectedCard = card
+//               // self.budgetView.selectedCardLabel.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
+//                self.doInitialDataLoad()
+//
+//                if let localError = error as? ErrorBaseClass{
+//                    self.alert(title: "!!!", message: localError.localizedDescription)
+//                }else {
+//                    self.alert(title: "Error", message: "Something went wrong !")
+//                }
+//            })
+//        }
+//
+//
+//        self.budgetTableView.didSelectEditCardCallback = {
+//            card in
+//        }
+//    }
+//
     
     
     @IBAction func searchBarTapped(_ sender: UIButton) {
@@ -151,66 +151,66 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func addNewAddressButtonTapped(_ sender: Any) {
-        
-        if self.budgetView.nickNameTextField.text == "" {
-            self.alert(title: "Alert", message: "Nick name field is empty!")
-        }else if self.budgetView.zipCodeTextField.text == "" {
-            self.alert(title: "Alert", message: "Zip field is empty!")
-        }else if self.budgetView.cardNumberTextField.text == "" {
-            self.alert(title: "Alert", message: "Card number field is empty!")
-            
-        }else if self.budgetView.cvvTextField.text == "" {
-            self.alert(title: "Alert", message: "CVV field is empty!")
-            
-        }else if self.budgetView.expiryMonthTextField.text == "" {
-            self.alert(title: "Alert", message: "Month field is empty!")
-            
-        }else if self.budgetView.expiryYearTextField.text == "" {
-            self.alert(title: "Alert", message: "Year field is empty!")
-            
-        }else if self.budgetView.zipCodeTextField.text?.count != 5 {
-            self.alert(title: "Alert", message: "ZIP code should be of 5 digits!")
-        }
-        else if (self.budgetView.cardNumberTextField.text?.count)! < 15 || (self.budgetView.cardNumberTextField.text?.count)! > 16 {
-            self.alert(title: "Alert", message: "Credit Card number is invalid!")
-        }
-        else if (self.budgetView.cvvTextField.text?.count)! > 4 || (self.budgetView.cvvTextField.text?.count)! < 3   {
-            self.alert(title: "Alert", message: "CVV should be of 3 or 4 digits!")
-            
-        }else {
-            let nick = self.budgetView.nickNameTextField.text == "" ? nil : self.budgetView.nickNameTextField.text;
-            let cardText = self.budgetView.cardNumberTextField.text!.replacingOccurrences(of: "-", with: "")
-            
-            PNUserManager.sharedInstance.addCreditCard(CardNumber: cardText, Zip: self.budgetView.zipCodeTextField.text!, Year: self.budgetView.expiryYearTextField.text!, ClientId: "ZmYxNjAxZjdmMDVhZWFkYTFkMDE3OTRmYmEzMDc1ZmIy", Cvv: self.budgetView.cvvTextField.text!, Month: self.budgetView.expiryMonthTextField.text!, NickName: nick,  successBlock: { (paymentResponse) in
-                if let errorMsg = paymentResponse.message?.first?.localizedDescription{
-                    self.alert(title: "Oops", message: errorMsg)
-                }else{
-                    //self.locationView.showStoredAddressButtonTapped()
-                    
-                    self.isNewCardAdded = true
-                    self.doInitialDataLoad()
-                    
-                    //                    self.budgetView.storeAddressView.isHidden = false
-                    //                    self.budgetView.newAddressView.isHidden = true
-                    //                    self.budgetView.showTableViewHeight.constant = 200
-                    //                    self.budgetView.storeAddressButton.isSelected = true
-                    //                    self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
-                    
-                    //                    self.alert(title: "Success", message: "Successfully added your card.")
-                }
-            }, failureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
-                }
-            })
-            
-            
-        }
-        
-    }
+//    @IBAction func addNewAddressButtonTapped(_ sender: Any) {
+//
+////        if self.budgetView.nickNameTextField.text == "" {
+////            self.alert(title: "Alert", message: "Nick name field is empty!")
+////        }else if self.budgetView.zipCodeTextField.text == "" {
+////            self.alert(title: "Alert", message: "Zip field is empty!")
+////        }else if self.budgetView.cardNumberTextField.text == "" {
+////            self.alert(title: "Alert", message: "Card number field is empty!")
+////
+////        }else if self.budgetView.cvvTextField.text == "" {
+////            self.alert(title: "Alert", message: "CVV field is empty!")
+////
+////        }else if self.budgetView.expiryMonthTextField.text == "" {
+////            self.alert(title: "Alert", message: "Month field is empty!")
+////
+////        }else if self.budgetView.expiryYearTextField.text == "" {
+////            self.alert(title: "Alert", message: "Year field is empty!")
+////
+////        }else if self.budgetView.zipCodeTextField.text?.count != 5 {
+////            self.alert(title: "Alert", message: "ZIP code should be of 5 digits!")
+////        }
+////        else if (self.budgetView.cardNumberTextField.text?.count)! < 15 || (self.budgetView.cardNumberTextField.text?.count)! > 16 {
+////            self.alert(title: "Alert", message: "Credit Card number is invalid!")
+////        }
+////        else if (self.budgetView.cvvTextField.text?.count)! > 4 || (self.budgetView.cvvTextField.text?.count)! < 3   {
+////            self.alert(title: "Alert", message: "CVV should be of 3 or 4 digits!")
+////
+////        }else {
+////            let nick = self.budgetView.nickNameTextField.text == "" ? nil : self.budgetView.nickNameTextField.text;
+////            let cardText = self.budgetView.cardNumberTextField.text!.replacingOccurrences(of: "-", with: "")
+////
+//           // PNUserManager.sharedInstance.addCreditCard(CardNumber: cardText, Zip: self.budgetView.zipCodeTextField.text!, Year: self.budgetView.expiryYearTextField.text!, ClientId: "ZmYxNjAxZjdmMDVhZWFkYTFkMDE3OTRmYmEzMDc1ZmIy", Cvv: self.budgetView.cvvTextField.text!, Month: self.budgetView.expiryMonthTextField.text!, NickName: nick,  successBlock: { (paymentResponse) in
+//                if let errorMsg = paymentResponse.message?.first?.localizedDescription{
+//                    self.alert(title: "Oops", message: errorMsg)
+//                }else{
+//                    //self.locationView.showStoredAddressButtonTapped()
+//
+//                    self.isNewCardAdded = true
+//                    self.doInitialDataLoad()
+//
+//                    //                    self.budgetView.storeAddressView.isHidden = false
+//                    //                    self.budgetView.newAddressView.isHidden = true
+//                    //                    self.budgetView.showTableViewHeight.constant = 200
+//                    //                    self.budgetView.storeAddressButton.isSelected = true
+//                    //                    self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
+//
+//                    //                    self.alert(title: "Success", message: "Successfully added your card.")
+//                }
+//            }, failureBlock: { (error) in
+//                if let localError = error as? ErrorBaseClass{
+//                    self.alert(title: "Oops", message: localError.localizedDescription)
+//                }else {
+//                    self.alert(title: "Error", message: "Something went wrong !")
+//                }
+//            })
+//
+//
+//        }
+//
+//    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
