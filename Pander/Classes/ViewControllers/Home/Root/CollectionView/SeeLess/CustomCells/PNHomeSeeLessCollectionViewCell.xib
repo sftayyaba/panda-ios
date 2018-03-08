@@ -26,7 +26,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-ad-Mvy">
                         <rect key="frame" x="0.0" y="0.0" width="175" height="101"/>
-                        <color key="backgroundColor" red="0.25098039220000001" green="0.71372549019999998" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="101" id="j57-ep-kLZ"/>
                         </constraints>
