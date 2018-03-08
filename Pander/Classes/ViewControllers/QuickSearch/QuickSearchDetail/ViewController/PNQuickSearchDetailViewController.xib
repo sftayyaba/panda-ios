@@ -112,6 +112,13 @@
                     <rect key="frame" x="20" y="59" width="335" height="390"/>
                     <color key="backgroundColor" red="0.4676265121" green="0.17335054280000001" blue="0.1864964962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99h-z1-QlO">
+                    <rect key="frame" x="35" y="79" width="79" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sm6-0S-LLO">
                     <rect key="frame" x="16" y="26" width="29" height="22"/>
                     <constraints>
@@ -120,9 +127,8 @@
                     </constraints>
                     <state key="normal" image="Arrow - Big - left - Black"/>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1CI-rU-QVn">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CI-rU-QVn">
                     <rect key="frame" x="20" y="460" width="335" height="116"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyw-TA-BcH">
                             <rect key="frame" x="0.0" y="1" width="335" height="50"/>
@@ -238,14 +244,20 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="116" id="Lwj-eh-Efw"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Sm6-0S-LLO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="6" id="3In-cP-XQw"/>
+                <constraint firstItem="1CI-rU-QVn" firstAttribute="top" secondItem="z3C-JM-Rn4" secondAttribute="bottom" constant="11" id="3ei-5r-Bew"/>
                 <constraint firstItem="HyX-LY-Eoj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8JJ-Tq-Kny"/>
                 <constraint firstItem="Sm6-0S-LLO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="9v6-vn-Nse"/>
                 <constraint firstAttribute="trailing" secondItem="AKd-6R-Vh8" secondAttribute="trailing" id="AsK-2h-8dm"/>
+                <constraint firstItem="1CI-rU-QVn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BWI-j8-Mew"/>
+                <constraint firstItem="1CI-rU-QVn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.893333" id="CcY-rD-373"/>
                 <constraint firstItem="HyX-LY-Eoj" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Iio-cD-uhp"/>
                 <constraint firstItem="HyX-LY-Eoj" firstAttribute="top" secondItem="AKd-6R-Vh8" secondAttribute="bottom" id="KeG-Fz-UL4"/>
                 <constraint firstItem="HyX-LY-Eoj" firstAttribute="leading" secondItem="AKd-6R-Vh8" secondAttribute="leading" id="Kkj-3b-nVp"/>
