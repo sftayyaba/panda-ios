@@ -116,7 +116,10 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
 
     private func setLabelPeopleEating() {
         let normalText = "People eating "
-        let boldText = "\(PNUserManager.sharedInstance.groupSize) person"
+        var boldText = "\(PNUserManager.sharedInstance.groupSize) person"
+        if (PNUserManager.sharedInstance.groupSize != 1){
+            boldText = "\(PNUserManager.sharedInstance.groupSize) people"
+        }
         labelPeopleEating.attributedText = NSMutableAttributedString()
             .normal(normalText)
             .bold(boldText)

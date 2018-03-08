@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are some of your favorite dishes?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYY-S8-86m">
-                    <rect key="frame" x="30" y="70" width="315" height="41"/>
+                    <rect key="frame" x="30" y="79" width="315" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="29k-x5-ddh"/>
                     </constraints>
@@ -38,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jY4-8W-5bH">
-                    <rect key="frame" x="30" y="131" width="315" height="40"/>
+                    <rect key="frame" x="30" y="140" width="315" height="40"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type dishes here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-Z1-TwU">
                             <rect key="frame" x="28" y="10" width="279" height="20"/>
@@ -72,18 +72,18 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5Kp-os-Q8J" customClass="PNFavoriteDishesCollectionViewDelegateDatasource" customModule="Pander" customModuleProvider="target">
-                    <rect key="frame" x="30" y="186" width="315" height="471"/>
+                    <rect key="frame" x="30" y="195" width="315" height="462"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewLayout key="collectionViewLayout" id="dll-wj-r7G" customClass="FlowLayout" customModule="Pander" customModuleProvider="target"/>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kiz-gN-3bp">
-                    <rect key="frame" x="0.0" y="15" width="375" height="55"/>
+                    <rect key="frame" x="0.0" y="15" width="375" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edp-VY-ag0">
-                            <rect key="frame" x="15" y="17" width="20" height="20"/>
+                            <rect key="frame" x="15" y="16.5" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="20" id="1Lm-KA-SzB"/>
-                                <constraint firstAttribute="height" constant="20" id="hLW-L7-vUr"/>
+                                <constraint firstAttribute="width" constant="30" id="1Lm-KA-SzB"/>
+                                <constraint firstAttribute="height" constant="30" id="hLW-L7-vUr"/>
                             </constraints>
                             <state key="normal" image="Arrow - Big - left - Black"/>
                             <connections>
@@ -94,7 +94,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Edp-VY-ag0" firstAttribute="centerY" secondItem="Kiz-gN-3bp" secondAttribute="centerY" id="8Sm-5U-F0C"/>
-                        <constraint firstAttribute="height" constant="55" id="Pcl-QI-0Gb"/>
+                        <constraint firstAttribute="height" constant="64" id="Pcl-QI-0Gb"/>
                         <constraint firstItem="Edp-VY-ag0" firstAttribute="leading" secondItem="Kiz-gN-3bp" secondAttribute="leading" constant="15" id="wZP-eG-rCf"/>
                     </constraints>
                 </view>

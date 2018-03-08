@@ -209,12 +209,12 @@ class PNHomeCollectionViewDelegateDatasource: UICollectionView,UICollectionViewD
             let sidelength = self.frame.size.width / 2 - 23;
             return CGSize(width: sidelength , height: sidelength)
         }else if indexPath.section == 1 && !isfeatureItemShowMore {
-            return CGSize(width: self.frame.size.width, height: 172)
+            return CGSize(width: self.frame.size.width, height: 101)
         }else if indexPath.section == 2 && isCuisineShowMore {
             let sideLength = self.frame.size.width / 2 - 23;
             return CGSize(width: sideLength, height: sideLength)
         }else if indexPath.section == 2 && !isCuisineShowMore {
-            return CGSize(width: self.frame.size.width, height: 172)
+            return CGSize(width: self.frame.size.width, height: 101)
         }else {
             return CGSize(width: self.frame.size.width, height: 320)
         }
