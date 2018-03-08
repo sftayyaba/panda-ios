@@ -45,9 +45,19 @@ struct AppNetworkEndPoints {
     static let kGetUserDefaults                     = "/user/defaults/"
     static let kAddUserDefaults                     = "/user/defaults/"
     static let kAddNicks                            = "/user/nicknames/"
+    
     static let kOrder                               = "/order/"
     static let kOrderStatus                         = "/order/status/"
     static let kPastOrder                           = "/user/orders/"
+    static let KOrderPlaced                         = "/order/placed/"
+    static let KOrderRated                          = "/order/rated/"
+    static let KOrderFeedback                       = "/order/feedback/"
+    static let kOrderReOrder                        = "/order/reorder/"
+    static let KorderReCreate                       = "/order/recreate/"
+    static let KOrderCartClear                      = "/order/cart/clear/"
+    static let KOrderCartAdd                        = "/order/cart/add/"
+    static let KOrderCartCheck                      = "/order/cart/check/"
+    static let KOrderCartCheckOut                   = "/order/cart/checkout/"
     
 
     static let kAddAddress                          = "/customer/location/"

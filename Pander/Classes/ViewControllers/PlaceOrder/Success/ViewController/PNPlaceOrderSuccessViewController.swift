@@ -32,7 +32,7 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
         super.viewDidLoad()
         
         self.totalPrice.text = price
-        
+        let info = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo
         self.UserName.text = "Hi, \((PNUserManager.sharedInstance.user?.firstName)!)"
         self.ResturantName.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
         var val = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address

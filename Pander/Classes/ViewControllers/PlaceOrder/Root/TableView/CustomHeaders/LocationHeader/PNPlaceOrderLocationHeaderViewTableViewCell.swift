@@ -40,26 +40,33 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
     @IBAction func paymentButtonTapped(_ sender: Any) {
         
         if paymentButton.isSelected {
-            self.paymentButton.isSelected = false
+           self.paymentButton.isSelected = false
             self.paymentImage.image = UIImage(named: "Arrow - Big - down - Black")
             if let callBack = didCloseButtonCallback {
                 callBack(1)
             }
-        }else {
+        }else if (PNUserManager.sharedInstance.selectedCard != nil) {
             if let callBack = didOpenButtonCallback {
                 callBack(1)
             }
-            
-            self.paymentButton.isSelected = true
-            self.paymentImage.image = UIImage(named: "Arrow - Big - Up - Black")
+            if(self.paymentButton.isSelected == true){
+                
+            }else{
+                self.paymentButton.isSelected = true
+                self.paymentImage.image = UIImage(named: "Arrow - Big - Up - Black")
+
+            }
         }
     }
     
     func setContent(){
+        if let callBack = didCloseButtonCallback {
+            
+        }
         if let selectedCard = PNUserManager.sharedInstance.selectedCard{
-//            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
-            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard!.lastFour!
-
+            self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
+           // self.paymentLabel.text = PNUserManager.sharedInstance.selectedCard!.lastFour!
+            
         } else {
             self.paymentLabel.text = " - "
         }

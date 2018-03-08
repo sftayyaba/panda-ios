@@ -65,6 +65,12 @@
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
 		AFD386AF756B7E339CD430CF /* Pods_PanderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */; };
+		B33BBE09204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */; };
+		B33BBE0C204B5224005C5404 /* PNOrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BBE0B204B5224005C5404 /* PNOrderPlaced.swift */; };
+		B38316AE204F3A75001263CB /* PNBudgetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38316AD204F3A75001263CB /* PNBudgetVC.xib */; };
+		B38316B0204F3B00001263CB /* PNBudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38316AF204F3B00001263CB /* PNBudgetVC.swift */; };
+		B38316B2204F4A1B001263CB /* PNBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38316B1204F4A1B001263CB /* PNBudget.swift */; };
+		B388FD64205095EA004BE3C2 /* MyLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B388FD63205095EA004BE3C2 /* MyLocationView.xib */; };
 		DA068AF3202F7A6A00377725 /* PNRemoveAddressOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA068AF2202F7A6A00377725 /* PNRemoveAddressOperation.swift */; };
 		DA068AF6202F85EC00377725 /* PNSetDefaultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA068AF5202F85EC00377725 /* PNSetDefaultOperation.swift */; };
 		DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA403978201383490066D843 /* PNAllCuisines.swift */; };
@@ -258,7 +264,6 @@
 		EBAA67EF2028C28500DF20D7 /* PNAddLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBAA67ED2028C28500DF20D7 /* PNAddLocationTableViewCell.xib */; };
 		EBC74E611FCAC22000641B48 /* PanderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC74E601FCAC22000641B48 /* PanderTests.swift */; };
 		EBC74E6C1FCAC22000641B48 /* PanderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC74E6B1FCAC22000641B48 /* PanderUITests.swift */; };
-		EBC74F061FCAC41C00641B48 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBC74E7B1FCAC41C00641B48 /* Info.plist */; };
 		EBC74F071FCAC41C00641B48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC74E7D1FCAC41C00641B48 /* LaunchScreen.storyboard */; };
 		EBC74F081FCAC41C00641B48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC74E7F1FCAC41C00641B48 /* Main.storyboard */; };
 		EBC74F0A1FCAC41C00641B48 /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC74E861FCAC41C00641B48 /* ApplicationConstants.swift */; };
@@ -435,6 +440,12 @@
 		5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BEF31003DB5D0C4B3F475C /* Pods-PanderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanderTests/Pods-PanderTests.release.xcconfig"; sourceTree = "<group>"; };
 		ACECFB0E13C5189292F92319 /* Pods_Pander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+OrderPlaced.swift"; sourceTree = "<group>"; };
+		B33BBE0B204B5224005C5404 /* PNOrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderPlaced.swift; sourceTree = "<group>"; };
+		B38316AD204F3A75001263CB /* PNBudgetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNBudgetVC.xib; sourceTree = "<group>"; };
+		B38316AF204F3B00001263CB /* PNBudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNBudgetVC.swift; sourceTree = "<group>"; };
+		B38316B1204F4A1B001263CB /* PNBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNBudget.swift; sourceTree = "<group>"; };
+		B388FD63205095EA004BE3C2 /* MyLocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLocationView.xib; sourceTree = "<group>"; };
 		BDF4BE66D589EF59CA21CEDD /* Pods-Pander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pander.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pander/Pods-Pander.release.xcconfig"; sourceTree = "<group>"; };
 		CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADAD55070F9612A39CC507 /* Pods-PanderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1188,6 +1199,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B33BBE0A204B5201005C5404 /* OrderPlaced */ = {
+			isa = PBXGroup;
+			children = (
+				B33BBE0B204B5224005C5404 /* PNOrderPlaced.swift */,
+			);
+			path = OrderPlaced;
+			sourceTree = "<group>";
+		};
+		B38316AC204F3A18001263CB /* Budget View */ = {
+			isa = PBXGroup;
+			children = (
+				B38316AD204F3A75001263CB /* PNBudgetVC.xib */,
+				B38316AF204F3B00001263CB /* PNBudgetVC.swift */,
+			);
+			path = "Budget View";
+			sourceTree = "<group>";
+		};
 		DA068AEE202F799D00377725 /* Remove address */ = {
 			isa = PBXGroup;
 			children = (
@@ -1218,6 +1246,7 @@
 				DA420948203096B200327A28 /* PNOrderManager+GenerateOrder.swift */,
 				DA42094A203096D000327A28 /* PNOrderManager+OrderStatus.swift */,
 				1E3E6323204D1F7D009A0DAB /* PNOrderManager+PastOrders.swift */,
+				B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */,
 			);
 			path = OrderManager;
 			sourceTree = "<group>";
@@ -1226,6 +1255,7 @@
 			isa = PBXGroup;
 			children = (
 				1E3E6325204D2251009A0DAB /* PastOrder */,
+				B33BBE0A204B5201005C5404 /* OrderPlaced */,
 				DA4209262030857100327A28 /* OrderStatus */,
 				DA4209252030856600327A28 /* Order */,
 			);
@@ -1861,6 +1891,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3C23DD201BB81A00D266FD /* PNBudgetView.swift */,
+				B38316B1204F4A1B001263CB /* PNBudget.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1868,6 +1899,7 @@
 		EB3C23DE201BB81A00D266FD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B38316AC204F3A18001263CB /* Budget View */,
 				EB3C23DF201BB81A00D266FD /* PNBudgetViewController.swift */,
 				EB3C23E0201BB81A00D266FD /* PNBudgetViewController.xib */,
 			);
@@ -1961,6 +1993,7 @@
 			children = (
 				EB52B5E8200FD57C004E7E96 /* PNLocationViewController.swift */,
 				EB52B5E9200FD57C004E7E96 /* PNLocationViewController.xib */,
+				B388FD63205095EA004BE3C2 /* MyLocationView.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3574,7 +3607,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				TargetAttributes = {
 					EBC74E471FCAC22000641B48 = {
 						CreatedOnToolsVersion = 9.0;
@@ -3625,9 +3658,9 @@
 				EBC74F081FCAC41C00641B48 /* Main.storyboard in Resources */,
 				1E1D815920453275005DB9C9 /* PNOrderDetailViewController.xib in Resources */,
 				EB478BE2201353EA0017E718 /* PNTravisFieldTableViewCell.xib in Resources */,
+				B388FD64205095EA004BE3C2 /* MyLocationView.xib in Resources */,
 				EBF8F142202E4F2200119BFF /* PNOrdersViewController.xib in Resources */,
 				EBCC566E200DDA90009D865E /* PNForgotPasswordViewController.xib in Resources */,
-				EBC74F061FCAC41C00641B48 /* Info.plist in Resources */,
 				EBE05BF92006AE33009A865C /* PNGuestLetGetStartedStepThreeCollectionViewCell.xib in Resources */,
 				EBC74F491FCAC41D00641B48 /* Assets.xcassets in Resources */,
 				EB9F8EC020261D5D0044255F /* PHHomeFindRestuarantCollectionReusableView.xib in Resources */,
@@ -3645,6 +3678,7 @@
 				1E96746F2046AD27006B4E35 /* PHQuickSearchFindRestuarantCollectionReusableView.xib in Resources */,
 				1E331C662044200000311B41 /* PNOrderMainHeaderCollectionReusableView.xib in Resources */,
 				EB8F018A1FCAD844000D790F /* PNLoginViewController.xib in Resources */,
+				B38316AE204F3A75001263CB /* PNBudgetVC.xib in Resources */,
 				EBE05BFD2006AE33009A865C /* PNGuestLetsGetStartedStepThreeController.xib in Resources */,
 				EB31BB84200402E900F86CBF /* PNSignUpViewController.xib in Resources */,
 				EBAA67D62028BBDD00DF20D7 /* PNPlaceOrderCurrentLocationTableViewCell.xib in Resources */,
@@ -3959,6 +3993,7 @@
 				DA6E7DF7202E7C91004475A3 /* PNGetNicksOperation.swift in Sources */,
 				EBED0A4F1FCE93A600F9F5B8 /* PNVerifyCredentialsOperation.swift in Sources */,
 				DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */,
+				B33BBE0C204B5224005C5404 /* PNOrderPlaced.swift in Sources */,
 				DA7A126A2031031F00DEC686 /* PNMenuAddedDishTableViewCell.swift in Sources */,
 				EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */,
 				EBD90D7E202E1BBF001BB7C5 /* PNAddPaymentOperation.swift in Sources */,
@@ -3980,6 +4015,7 @@
 				DABB1DBC20081A19003CD371 /* PNCheckAddressIsSupportedOperation.swift in Sources */,
 				EBCC5676200DEDC4009D865E /* UIString.swift in Sources */,
 				EBFB71081FCCA14200DB4C58 /* PNBaseViewController.swift in Sources */,
+				B33BBE09204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift in Sources */,
 				EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */,
 				EBF8F12F202E4D0100119BFF /* PNSettingView.swift in Sources */,
 				EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */,
@@ -3994,6 +4030,7 @@
 				DA49D4D9202E55AA00F15521 /* PNAddresses.swift in Sources */,
 				1E96745A2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift in Sources */,
 				1E331C5A2044011700311B41 /* PNOrdersMainSeeLessCollectionViewCell.swift in Sources */,
+				B38316B2204F4A1B001263CB /* PNBudget.swift in Sources */,
 				DA42092A203085B200327A28 /* PNOrderStatusOperation.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
 				DA42094520308A0800327A28 /* PNOrderRawAll.swift in Sources */,
@@ -4030,6 +4067,7 @@
 				DA42093F20308A0800327A28 /* PNOrderFees.swift in Sources */,
 				DABB1DB52007FE62003CD371 /* OnebyteNetworkRequest.swift in Sources */,
 				EB738E722028D8B600A2DC16 /* PNPlaceOrderAddItemMainView.swift in Sources */,
+				B38316B0204F3B00001263CB /* PNBudgetVC.swift in Sources */,
 				EBAA67C22028798000DF20D7 /* PNPlaceOrderLocationTableViewCell.swift in Sources */,
 				1E96745E2046A27A006B4E35 /* PNQuickSearchMainSeeLessCollectionViewCell.swift in Sources */,
 				1E3E6327204D228D009A0DAB /* PNPastOrderOperation.swift in Sources */,

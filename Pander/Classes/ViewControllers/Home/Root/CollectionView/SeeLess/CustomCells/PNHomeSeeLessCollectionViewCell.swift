@@ -15,6 +15,13 @@ class PNHomeSeeLessCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        itemDetailLabel.layer.shadowOpacity = 1.0;
+        itemDetailLabel.layer.shadowRadius = 0.0;
+        itemDetailLabel.layer.shadowColor = UIColor.black.cgColor;
+        //[UIColor, blackColor].CGColor;
+        itemDetailLabel.layer.shadowOffset = CGSize(width:0.0, height: -1.0);
+        //CGSizeMake(0.0, -1.0);
+
     }
 
 }
