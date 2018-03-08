@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import FacebookLogin
 import GoogleSignIn
+import SwiftyJSON
 
 class PNPlaceOrderViewController: PNBaseViewController {
     
@@ -69,7 +70,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
             return result + dish.price!
         }){
-            self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+           // self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
         }
     }
     
@@ -96,6 +97,16 @@ class PNPlaceOrderViewController: PNBaseViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
             
         }
+        
+        
+        self.tableView.editAndReorderButtonCallback = {
+            self.placeOrderPressed()
+        }
+        
+        self.tableView.newSuggestionButtonCallback = {
+            self.getNewSuggestionsTapped()
+        }
+        
     }
     
 
@@ -111,6 +122,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
 
         self.tableView.register(UINib(nibName: "PNPlaceOrderPaymentTableViewCell", bundle: nil), forCellReuseIdentifier: "PNPlaceOrderPaymentTableViewCell")
 
+         self.tableView.register(UINib(nibName: "PNPlaceOrderTotalTableViewCell", bundle: nil), forCellReuseIdentifier: "PNPlaceOrderTotalTableViewCell")
         
         //MARK: Location Cells
         self.tableView.register(UINib(nibName: "PNPlaceOrderCurrentLocationTableViewCell", bundle: nil), forCellReuseIdentifier: "PNPlaceOrderCurrentLocationTableViewCell")
@@ -124,17 +136,43 @@ class PNPlaceOrderViewController: PNBaseViewController {
         self.tableView.reloadData()
     }
     
-    @IBAction func placeOrderPressed(_ sender: UIButton) {
+     func placeOrderPressed() {
+        
+        let order: [PNOrderDish] =  (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order)!
+        
+        let dictionaryArray = order.map { (order) -> [String: Any] in
+            return order.dictionaryRepresentation()
+        }
+        
+        let dishJsonData = try? JSONSerialization.data(withJSONObject: dictionaryArray, options: [])
+        let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
         
      let resturantid = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.id
 
-        
-        
         PNOrderManager.sharedInstance.ClearPlacedOrders(ResturantId:resturantid!, SuccessBlock: { (placedOrderclear) in
             print("clear")
-            let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
-            viewController.price = self.placeOrderView.totalPriceLabel.text!;
-            self.navigationController?.pushViewController(viewController, animated: true)
+//            let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
+//            viewController.price = self.placeOrderView.totalPriceLabel.text!;
+//            self.navigationController?.pushViewController(viewController, animated: true)
+            
+            
+            
+            PNOrderManager.sharedInstance.AddToCartOrder(Items: dishesjsonString!, ResturantId: resturantid!,SuccessBlock: { (addToCart) in
+                print("Response is ",addToCart);
+            }, FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else{
+                    self.alert(title: "Error", message: "Something went wrong")
+                }
+            });
+            
+            
+            
+            
+            
+            
+            
         }, FailureBlock: { (error) in
             if let localError = error as? ErrorBaseClass{
                 self.alert(title: "Oops", message: localError.localizedDescription)
@@ -142,11 +180,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
                 self.alert(title: "Error", message: "Something went wrong")
             }
         })
-        
-        
-        
-
-        
+    
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -154,7 +188,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func getNewSuggestionsTapped(_ sender: Any) {
+    func getNewSuggestionsTapped() {
         var searchAddress = ""
         var city = ""
         var zip = ""

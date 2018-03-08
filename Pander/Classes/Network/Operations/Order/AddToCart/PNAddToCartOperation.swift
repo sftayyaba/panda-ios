@@ -1,25 +1,28 @@
 //
-//  PNOrderPlaced.swift
+//  PNAddToCartOperation.swift
 //  Pander
 //
-//  Created by Zeeshan on 04/03/2018.
+//  Created by umaid naeem on 3/8/18.
 //
 
 import Foundation
 import SwiftyJSON
 
 
-class PNOrderOrderCartClear: OnebyteNetworkOperationBase {
+class PNAddToCartOperation: OnebyteNetworkOperationBase {
     
     
     //MARK: Instance Variables
     
+    var items : String
     var resturantId : String
     
     
     init(
+        Items items : String,
         ResturantId resturantId : String
         ) {
+        self.items = items
         self.resturantId = resturantId
     }
     
@@ -57,7 +60,7 @@ class PNOrderOrderCartClear: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
         
-        let urlWithId:String = AppNetworkEndPoints.KOrderCartClear + "\(self.resturantId)/"
+        let urlWithId:String = AppNetworkEndPoints.KOrderCartAdd + "\(self.resturantId)/"
         OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkRequest(methodType: .post, path: urlWithId, parameters: createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
@@ -77,9 +80,7 @@ class PNOrderOrderCartClear: OnebyteNetworkOperationBase {
     
     private func createBody() -> Dictionary<String, Any>{
         
-        let body : [String : Any] = [ "resturantId": self.resturantId ]
+        let body : [String : Any] = [ "items": self.items ]
         return body
     }
 }
-
-

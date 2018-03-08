@@ -84,11 +84,10 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
                PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
 
                     if let addresses = response.addresses{
-                       PNUserManager.sharedInstance.selectedAddress=addresses[0]
                        // if(addresses[0].isSelected){
                        //self.locationTableView.addresses = addresses
                        if addresses.count != 0 {
-                        
+                        PNUserManager.sharedInstance.selectedAddress=addresses[0]
                            self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
                                .normal(normalText)
                               .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)

@@ -68,6 +68,8 @@
 		1E9674712046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */; };
 		1E9674752046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */; };
 		1E9674762046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */; };
+		1ED0E81D2051543F00EB60B1 /* PNOrderManager+AddToCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */; };
+		1ED0E8202051558700EB60B1 /* PNAddToCartOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */; };
 		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
 		1ED481702046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */; };
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
@@ -451,6 +453,8 @@
 		1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQucikSearchCategoriesCollectionReusableView.swift; sourceTree = "<group>"; };
 		1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQucikSearchCategoriesCollectionReusableView.xib; sourceTree = "<group>"; };
+		1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+AddToCart.swift"; sourceTree = "<group>"; };
+		1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNAddToCartOperation.swift; sourceTree = "<group>"; };
 		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
 		1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSearchFindRestuarantCollectionViewCell.xib; sourceTree = "<group>"; };
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
@@ -1263,6 +1267,14 @@
 			path = SuggestedCateogries;
 			sourceTree = "<group>";
 		};
+		1ED0E81E205154DF00EB60B1 /* AddToCart */ = {
+			isa = PBXGroup;
+			children = (
+				1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */,
+			);
+			path = AddToCart;
+			sourceTree = "<group>";
+		};
 		1EFBAFC5203AA7A900885D4D /* TextFielDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,6 +1342,7 @@
 				1E3E6323204D1F7D009A0DAB /* PNOrderManager+PastOrders.swift */,
 				1E4209D8204E75F0004D35D1 /* PNOrderManager+Edit&Reorder.swift */,
 				B33BBE08204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift */,
+				1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */,
 			);
 			path = OrderManager;
 			sourceTree = "<group>";
@@ -1337,6 +1350,7 @@
 		DA4209242030855E00327A28 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				1ED0E81E205154DF00EB60B1 /* AddToCart */,
 				1E4209DA204E78C2004D35D1 /* Edit&Reorder */,
 				1E3E6325204D2251009A0DAB /* PastOrder */,
 				B33BBE0A204B5201005C5404 /* OrderPlaced */,
@@ -4117,6 +4131,7 @@
 				1E96745A2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift in Sources */,
 				1E331C5A2044011700311B41 /* PNOrdersMainSeeLessCollectionViewCell.swift in Sources */,
 				B38316B2204F4A1B001263CB /* PNBudget.swift in Sources */,
+				1ED0E81D2051543F00EB60B1 /* PNOrderManager+AddToCart.swift in Sources */,
 				DA42092A203085B200327A28 /* PNOrderStatusOperation.swift in Sources */,
 				EBFB70F11FCB150E00DB4C58 /* userCuisinePreferences.swift in Sources */,
 				DA42094520308A0800327A28 /* PNOrderRawAll.swift in Sources */,
@@ -4135,6 +4150,7 @@
 				EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */,
 				DA40397B201383B30066D843 /* PNAllDishes.swift in Sources */,
 				EBFB71071FCCA14200DB4C58 /* PNBaseView.swift in Sources */,
+				1ED0E8202051558700EB60B1 /* PNAddToCartOperation.swift in Sources */,
 				DA42094420308A0800327A28 /* PNOrderBaseClass.swift in Sources */,
 				1E331C3F2043ED0900311B41 /* PNOrdersMainSeeMoreCollectionViewCell.swift in Sources */,
 				EBED0A401FCE918600F9F5B8 /* PNDeletePushNotifactionTokenOperation.swift in Sources */,

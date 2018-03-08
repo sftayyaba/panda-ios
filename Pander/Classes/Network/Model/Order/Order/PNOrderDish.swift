@@ -27,7 +27,7 @@ public final class PNOrderDish: NSCoding {
   }
 
   // MARK: Properties
-    public var isSelected: Bool = false
+  public var isSelected: Bool = false
   public var name: String?
   public var id: String?
   public var minQty: Int?

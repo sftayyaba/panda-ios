@@ -79,7 +79,7 @@ class PNOrderStatusOperation: OnebyteNetworkOperationBase {
     
     private func createBody() -> Dictionary<String, Any>{
         
-        var body : [String : Any] = [ "taskId": self.taskId ]
+        let body : [String : Any] = [ "taskId": self.taskId ]
         return body
     }
 }

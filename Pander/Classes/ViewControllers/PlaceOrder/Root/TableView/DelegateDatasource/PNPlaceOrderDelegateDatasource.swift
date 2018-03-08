@@ -14,6 +14,9 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     public var didPressShowCardCallback : (() -> Void)?
     
     
+    public var editAndReorderButtonCallback : (() -> Void)?
+    public var newSuggestionButtonCallback : (() -> Void)?
+    
     var isLocationSelected = false
     var isPaymentSelected = false
     
@@ -21,7 +24,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     var numberofLocations = PNUserManager.sharedInstance.addresses!.count
     var numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
     
-    var numberofSectionHeaders = 3
+    var numberofSectionHeaders = 4
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return numberofSectionHeaders
@@ -60,6 +63,8 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             return 50
         }else if section == 1 {
             return 320
+        }else if section == 3 {
+            return 180
         }else {
             return 0
         }
@@ -81,6 +86,16 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             return self.tableView(tableView, headerForLocationOptionAt: section)
         }else if section == 1{
             return self.tableView(tableView, headerForAddItemsOptionAt: section)
+        }else if (section == 3){
+            let cell: PNPlaceOrderTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderTotalTableViewCell") as? PNPlaceOrderTotalTableViewCell)!
+            cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
+            cell.newSuggestionButtonCallback = self.newSuggestionButtonCallback;
+            if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
+                return result + dish.price!
+            }){
+                cell.totalPriceLbl.text = "$"+totalPrice.format(f: "")
+            }
+            return cell
         }else {
             return UIView()
         }
