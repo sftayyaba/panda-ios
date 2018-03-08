@@ -29,6 +29,11 @@ class PNPlaceOrderLocationTableViewCell: UITableViewCell {
     
     
     func setCardContent(card:PNCards) {
+        if card.isSelected{
+            setSelected()
+        }else{
+            setUnSelected()
+        }
         self.addressLabelView.text = card.lastFour
     }
     

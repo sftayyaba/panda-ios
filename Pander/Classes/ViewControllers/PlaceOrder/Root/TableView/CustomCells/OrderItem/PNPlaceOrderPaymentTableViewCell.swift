@@ -32,6 +32,13 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.detailLabelMaxHeightConstraint.constant = 0
+        self.viewMaxHeightConstraint.constant = 0
+        plusBtn.isHidden = true
+        minusBtn.isHidden = true
+        counterLbl.isHidden = true
+        chagneBtn.isHidden = true
+        refreshBtn.isHidden = true
         // Initialization code
     }
 
@@ -54,6 +61,15 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
                 counterLbl.isHidden = false
                 chagneBtn.isHidden = false
                 refreshBtn.isHidden = false
+                
+            }else{
+                self.detailLabelMaxHeightConstraint.constant = 200
+                self.viewMaxHeightConstraint.constant = 40
+                plusBtn.isHidden = false
+                minusBtn.isHidden = false
+                counterLbl.isHidden = false
+                chagneBtn.isHidden = false
+                refreshBtn.isHidden = false
             }
         }else{
             self.detailLabelMaxHeightConstraint.constant = 0
@@ -63,7 +79,7 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
             counterLbl.isHidden = true
             chagneBtn.isHidden = true
             refreshBtn.isHidden = true
-        }
+       }
     }
     
     @IBAction func plusBtnTarget(_ sender: Any) {
@@ -78,6 +94,7 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
         if counter < 0 {
             counter = 0
             self.counterLbl.text = String(format: "%d",counter)
+            
 //            let dishDic : [String: PNOrderDish] = ["dish":dish]
 //            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
         }else {

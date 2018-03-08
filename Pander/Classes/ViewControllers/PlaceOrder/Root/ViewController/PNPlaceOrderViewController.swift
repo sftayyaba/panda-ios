@@ -83,7 +83,19 @@ class PNPlaceOrderViewController: PNBaseViewController {
             let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
+        self.tableView.didPressShowAddressCallback = {
+            let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+
+        }
         
+        self.tableView.didPressShowCardCallback = {
+            let viewController = PNBudgetVC(nibName: "PNBudgetVC", bundle: nil)
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
+        }
     }
     
 
@@ -113,9 +125,28 @@ class PNPlaceOrderViewController: PNBaseViewController {
     }
     
     @IBAction func placeOrderPressed(_ sender: UIButton) {
-        let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
-        viewController.price = self.placeOrderView.totalPriceLabel.text!;
-        self.navigationController?.pushViewController(viewController, animated: true)
+        
+     let resturantid = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.id
+
+        
+        
+        PNOrderManager.sharedInstance.ClearPlacedOrders(ResturantId:resturantid!, SuccessBlock: { (placedOrderclear) in
+            print("clear")
+            let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
+            viewController.price = self.placeOrderView.totalPriceLabel.text!;
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }, FailureBlock: { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        })
+        
+        
+        
+
+        
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

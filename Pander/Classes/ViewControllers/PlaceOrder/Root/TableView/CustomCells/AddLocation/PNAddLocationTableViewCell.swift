@@ -9,7 +9,7 @@ import UIKit
 
 class PNAddLocationTableViewCell: UITableViewCell {
 
-    
+    @IBOutlet weak var address:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         

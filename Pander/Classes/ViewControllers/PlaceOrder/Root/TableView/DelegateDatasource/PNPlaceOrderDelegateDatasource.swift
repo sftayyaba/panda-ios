@@ -10,6 +10,9 @@ import UIKit
 class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
     public var didAddItemButtonCallback : (() -> Void)?
 
+    public var didPressShowAddressCallback : (() -> Void)?
+    public var didPressShowCardCallback : (() -> Void)?
+    
     
     var isLocationSelected = false
     var isPaymentSelected = false
@@ -28,9 +31,9 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         
         if (section == 0 && (isLocationSelected || isPaymentSelected)) {
             if isLocationSelected {
-                return numberofLocations
+                return numberofLocations+1
             }else {
-                return numberofCards!
+                return numberofCards!+1
             }
         }else if section == 2{
             if let count = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.count{
@@ -129,15 +132,30 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, cellForLocationsOptionAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PNPlaceOrderLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderLocationTableViewCell") as? PNPlaceOrderLocationTableViewCell)!
+
         
-
         if self.isLocationSelected {
-                    let address = PNUserManager.sharedInstance.addresses![indexPath.row]
-                    cell.setContent(address: address)
+            let locations = numberofLocations 
+            if(indexPath.row==locations){
+                let cell:PNAddLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNAddLocationTableViewCell") as? PNAddLocationTableViewCell)!
+                return cell
+            }else{
+                let address = PNUserManager.sharedInstance.addresses![indexPath.row]
+                cell.setContent(address: address)
+            }
+            
         }else {
-            let card = PNUserManager.sharedInstance.cardsBaseObject?.cards![indexPath.row]
-            cell.setCardContent(card: card!)
-
+            let cards = numberofCards
+            if(indexPath.row==cards){
+                let cell:PNAddLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNAddLocationTableViewCell") as? PNAddLocationTableViewCell)!
+                cell.address.text="Add new payment method"
+                return cell
+            }else{
+                let card = PNUserManager.sharedInstance.cardsBaseObject?.cards![indexPath.row]
+                cell.setCardContent(card: card!)
+            }
+            
+            
         }
         
        
@@ -183,13 +201,73 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             // Create the actions
+            if self.isPaymentSelected{
+                let cards = numberofCards
+                if(indexPath.row==cards){
+                 
+                    
+//                    let viewController = PNBudgetViewController(nibName: "PNBudgetVC", bundle: nil)
+//
+//                    UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
+                    if let callback = self.didPressShowCardCallback{
+                        callback();
+                    }
+                   
+                    print("add new")
+                    
+                    
+                }else{
+                    
+                let card = PNUserManager.sharedInstance.cardsBaseObject;
+                var mycard = card?.cards![indexPath.row];
+               
+                
+                let payment = PNUserManager.sharedInstance.selectedCard
+                payment?.isSelected=false
+                payment?.isDefault=false
+                mycard?.isSelected=true
+                mycard?.isDefault=true
+                payment?.isSelected = !(payment?.isSelected)!
+                
+                
+                var selectDefault = false
+                if !(payment?.isSelected)!{
+                    selectDefault = true
+                }
+                if(payment?.ccId != mycard?.ccId){
+                    payment?.isSelected=false
+                }
+                if selectDefault && (payment?.isDefault)!{
+                    payment?.isSelected = true;
+                    mycard = payment
+                }
+                PNUserManager.sharedInstance.selectedCard = mycard
+                numberofCards=0;
+                self.refreshData()
+                self.reloadData()
+                 numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
+            }
+            }
             if self.isLocationSelected {
+                
                 let alertController = UIAlertController(title: "", message: "Are you sure you want to change your address?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
+                    let selected = self.numberofLocations
+                    if(indexPath.row==selected){
+                        
+                        if let callback = self.didPressShowAddressCallback{
+                            callback();
+                        }
+                        
+                        print("add new location")
+                        
+                    }else{
+                        
                     let address = PNUserManager.sharedInstance.addresses![indexPath.row]
                     address.isSelected = !address.isSelected
+                    
                     
                     var selectDefault = false
                     if !address.isSelected{
@@ -214,7 +292,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                     PNUserManager.sharedInstance.selectedAddress = selectedAddress
                     self.refreshData()
                     self.reloadData()
-                    
+                    }
                 }
                 
                 let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
@@ -231,7 +309,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             
         }else if indexPath.section == 2{
             if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
-                dish.isSelected = !dish.isSelected
+             dish.isSelected = !dish.isSelected
                 
                 reloadData()
             }
