@@ -142,7 +142,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
 //                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
 //
 //                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
-//=======
+
 //        if(PNUserManager.sharedInstance.selectedCard==nil){
 //            PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
 //
@@ -154,7 +154,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
 //
 //                        //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
 //                    }
-//>>>>>>> 8430edde10c6787f8e84c25980e49068ad650c1f
+
 //                }
 //
 //            }
