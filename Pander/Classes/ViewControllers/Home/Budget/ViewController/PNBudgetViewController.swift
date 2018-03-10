@@ -47,7 +47,12 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             
             self.cardsArray = response.cards!
             
+            if(response.cards?.count == 0){
+                self.budgetView.paywith.text = ""
+                 self.budgetView.selectedCardLabel.text = "No Payment method"
+            }
             if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                 self.budgetView.paywith.text = "Pay With"
                 self.budgetView.selectedCardLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
             }
                 self.budgetTableView.cardsArray = self.cardsArray
@@ -215,6 +220,7 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         textField.textColor = UIColor.white
+      
         
         if textField.text?.characters.count == 4 && string.characters.count != 0 {
             textField.text = textField.text! + "-"

@@ -47,6 +47,7 @@ class PNLocationViewController: PNBaseViewController {
 
             if let addresses = response.addresses{
                 self.locationTableView.addresses = addresses
+                self.locationView.deliverto.text = "Deliver to"
                 self.locationView.selectedAddressLabel.text = PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
             }
             
@@ -114,6 +115,8 @@ class PNLocationViewController: PNBaseViewController {
             address in
             PNUserManager.sharedInstance.removeLocation(LocationId: "\(address.locationId!)", successBlock: { (locationResponse) in
                 
+                self.locationView.selectedAddressLabel.text = "No Delivery Address"
+                self.locationView.deliverto.text = ""
                 self.doInitialDataLoad()
                 
             }, failureBlock: { (error) in

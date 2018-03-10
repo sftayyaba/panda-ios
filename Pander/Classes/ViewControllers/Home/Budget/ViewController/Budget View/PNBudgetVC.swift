@@ -216,6 +216,8 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
         
         textField.textColor = UIColor.white
         
+        
+        
         if textField.text?.characters.count == 4 && string.characters.count != 0 {
             textField.text = textField.text! + "-"
         }

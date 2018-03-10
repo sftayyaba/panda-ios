@@ -68,7 +68,7 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Refresh" translatesAutoresizingMaskIntoConstraints="NO" id="xRe-uO-T8q">
-                        <rect key="frame" x="70" y="92" width="20" height="17"/>
+                        <rect key="frame" x="50" y="92" width="20" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="YJH-su-jlT"/>
                             <constraint firstAttribute="width" constant="20" id="bpQ-jI-7vQ"/>
@@ -91,7 +91,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="QxC-uQ-0Ev" firstAttribute="centerY" secondItem="AqM-Oe-YgW" secondAttribute="centerY" constant="-37" id="12p-AT-GCl"/>
-                    <constraint firstItem="xRe-uO-T8q" firstAttribute="leading" secondItem="AqM-Oe-YgW" secondAttribute="leading" constant="70" id="140-fZ-3QU"/>
+                    <constraint firstItem="xRe-uO-T8q" firstAttribute="leading" secondItem="AqM-Oe-YgW" secondAttribute="leading" constant="50" id="140-fZ-3QU"/>
                     <constraint firstItem="UE3-zc-B1K" firstAttribute="top" secondItem="FpE-O1-4uz" secondAttribute="bottom" constant="8" id="6m9-UQ-h5c"/>
                     <constraint firstItem="QxC-uQ-0Ev" firstAttribute="leading" secondItem="AqM-Oe-YgW" secondAttribute="leading" constant="17" id="EbJ-Te-yxw"/>
                     <constraint firstItem="Nl6-kd-1qm" firstAttribute="centerY" secondItem="cQc-Mf-rgE" secondAttribute="centerY" id="KDZ-En-vpg"/>

@@ -623,6 +623,7 @@ Cgo
                 <outlet property="newAddressButton" destination="N2X-QV-VLh" id="IT5-MT-oHZ"/>
                 <outlet property="newAddressView" destination="L6o-Je-g4e" id="HZ3-bA-l5t"/>
                 <outlet property="nickNameTextField" destination="Knq-ga-xlV" id="Ek9-Lc-RJe"/>
+                <outlet property="paywith" destination="xVX-ef-z7T" id="KN6-Dv-07j"/>
                 <outlet property="selectedCardLabel" destination="wYN-qO-J4k" id="lRx-qF-aUM"/>
                 <outlet property="showNewAddressViewHeight" destination="7jD-ed-yuw" id="hUl-4H-HEE"/>
                 <outlet property="showTableViewHeight" destination="oev-EZ-lXQ" id="Vhq-vg-U9S"/>

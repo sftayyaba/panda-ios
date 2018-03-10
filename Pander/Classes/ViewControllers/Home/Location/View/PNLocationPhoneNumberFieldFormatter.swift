@@ -22,7 +22,11 @@ extension PNLocationView: UITextFieldDelegate{
             if (range.location == 12) {
                 return false
             }
-            
+            if(textField == zipCodeField){
+                if range.location == 5{
+                    return false
+                }
+            }else{
             
             // Auto-add hyphen before appending 4rd or 8th digit
             if (range.length == 0 &&
@@ -40,6 +44,7 @@ extension PNLocationView: UITextFieldDelegate{
                 textField.text = textField.text?.replacingCharacters(in: Range(customRange, in: textField.text!)!, with: "")
                 return false;
             }
+        }
         }
         return true;
     }

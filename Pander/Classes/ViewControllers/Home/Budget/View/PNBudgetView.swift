@@ -23,6 +23,7 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
     @IBOutlet weak var labelTapToAdd: UILabel!
 
     @IBOutlet weak var budgetPerPersonLabel: UILabel!
+    @IBOutlet weak var paywith :UILabel!
     @IBOutlet weak var budgetPerPersonSlider: UISlider!
     @IBOutlet var cardNumberTextField:UITextField!
 
@@ -87,9 +88,14 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
     @IBAction func showStoredAddressButtonTapped() {
         
         if !self.storeAddressButton.isSelected {
+            if(PNUserManager.sharedInstance.cardsBaseObject?.cards?.count == 0){
+                 self.showTableViewHeight.constant = 35
+            }else{
+                 self.showTableViewHeight.constant = 200
+            }
         self.storeAddressView.isHidden = false
         self.newAddressView.isHidden = true
-        self.showTableViewHeight.constant = 200
+       
         self.storeAddressButton.isSelected = true
         self.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
             
