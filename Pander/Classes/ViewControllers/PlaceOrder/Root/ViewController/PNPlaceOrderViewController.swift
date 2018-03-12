@@ -140,14 +140,56 @@ class PNPlaceOrderViewController: PNBaseViewController {
         
         let order: [PNOrderDish] =  (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order)!
         
-        let dictionaryArray = order.map { (order) -> [String: Any] in
-            return order.dictionaryRepresentation()
-        }
+//        let dictionaryArray = order.map { (order) -> [String: Any] in
+//            return order.dictionaryRepresentation()
+//        }
         
+        
+//      do {
+//        let jsonData = try JSONSerialization.data(withJSONObject: dictionaryArray, options: JSONSerialization.WritingOptions.prettyPrinted)
+//        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+//            print(JSONString)
+//        }
+//
+//      } catch {
+//        }
+        
+        
+        
+        
+        
+        
+        var dictionaryArray = order.map({$0.submission.map({$0.dictionaryRepresentation()})})
+        
+//        for dic in dictionaryArray {
+//            var quantityOption = dic!["option_qty"] as! [String:Any]
+//            let itemId = dic!["item_id"] as! String
+//            let  itemQuantity = dic!["item_qty"] as! Int
+//            quantityOption[itemId] = itemQuantity
+//            print(quantityOption);
+//        }
+        
+        for index in 0..<dictionaryArray.count {
+            var dic = dictionaryArray[index]
+            var quantityOption = dic!["option_qty"] as! [String:Any]
+            let itemId = dic!["item_id"] as! String
+            let  itemQuantity = dic!["item_qty"] as! Int
+            quantityOption[itemId] = itemQuantity
+            dic!["option_qty"] = quantityOption
+            print(quantityOption);
+            
+            dictionaryArray[index] = dic
+        }
+
+        
+
         let dishJsonData = try? JSONSerialization.data(withJSONObject: dictionaryArray, options: [])
+        
+        
         let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
         
-     let resturantid = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.id
+        
+        let resturantid = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.id
 
         PNOrderManager.sharedInstance.ClearPlacedOrders(ResturantId:resturantid!, SuccessBlock: { (placedOrderclear) in
             print("clear")
