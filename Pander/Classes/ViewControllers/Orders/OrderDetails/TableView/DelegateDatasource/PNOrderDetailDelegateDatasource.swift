@@ -128,8 +128,6 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
                 self.isPaymentSelected = true
             }
             
-            //            self.isLocationSelected = true
-            
             self.reloadData()
         }
         

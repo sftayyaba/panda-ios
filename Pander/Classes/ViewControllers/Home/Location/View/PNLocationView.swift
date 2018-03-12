@@ -12,6 +12,7 @@ import AAPickerView
 class PNLocationView: UIView {
     
     @IBOutlet weak var selectedAddressLabel: UILabel!
+    @IBOutlet weak var deliverto : UILabel!
     @IBOutlet weak var streetAddressField: HoshiTextField!
     @IBOutlet weak var phoneNumberField: HoshiTextField!
     @IBOutlet weak var stateField: AAPickerView!
@@ -39,6 +40,7 @@ class PNLocationView: UIView {
     
     @IBOutlet weak var newAddressButton: UIButton!
 
+//    @IBOutlet weak var showTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var showTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var showNewAddressViewHeight: NSLayoutConstraint!
 
@@ -46,6 +48,7 @@ class PNLocationView: UIView {
         self.configureTextFields()
         self.configureStateTextFields()
         self.phoneNumberField.delegate = self
+        self.zipCodeField.delegate = self
     }
     
     func configureStateTextFields() {
@@ -87,9 +90,14 @@ class PNLocationView: UIView {
     @IBAction func showStoredAddressButtonTapped() {
         
         if !self.storeAddressButton.isSelected {
+            if(PNUserManager.sharedInstance.addresses?.count == 0){
+                  self.showTableViewHeight.constant = 35
+            }else{
+                 self.showTableViewHeight.constant = 280
+            }
         self.storeAddressView.isHidden = false
         self.newAddressView.isHidden = true
-        self.showTableViewHeight.constant = 335
+       
         self.storeAddressButton.isSelected = true
         self.newAddressButton.isSelected = true
 
@@ -98,7 +106,7 @@ class PNLocationView: UIView {
         }else {
 //            self.storeAddressButton.isSelected = true
             self.storeAddressView.isHidden = true
-            self.showTableViewHeight.constant = 35
+           self.showTableViewHeight.constant = 35
             self.storeAddressButton.isSelected = false
             self.arrowImageView.image = UIImage(named: "Arrow - Big - down - Black")
         }

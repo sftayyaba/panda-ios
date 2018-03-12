@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ncy-MH-OeP" customClass="PNOrderDetailDelegateDatasource" customModule="Pander" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="20" width="375" height="631"/>
+                    <rect key="frame" x="0.0" y="53" width="375" height="598"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ela-2I-8Nt">
@@ -47,11 +47,11 @@
                 <constraint firstItem="ela-2I-8Nt" firstAttribute="leading" secondItem="cJJ-Hb-3Ef" secondAttribute="leading" constant="10" id="Dwx-6B-PNl"/>
                 <constraint firstItem="ela-2I-8Nt" firstAttribute="top" secondItem="cJJ-Hb-3Ef" secondAttribute="top" constant="-5" id="MAc-eZ-bfi"/>
                 <constraint firstItem="cJJ-Hb-3Ef" firstAttribute="bottom" secondItem="Ncy-MH-OeP" secondAttribute="bottom" constant="16" id="QV8-bB-xzH"/>
-                <constraint firstItem="Ncy-MH-OeP" firstAttribute="top" secondItem="cJJ-Hb-3Ef" secondAttribute="top" id="bTu-nZ-cNQ"/>
+                <constraint firstItem="Ncy-MH-OeP" firstAttribute="top" secondItem="cJJ-Hb-3Ef" secondAttribute="top" constant="33" id="bTu-nZ-cNQ"/>
                 <constraint firstItem="Ncy-MH-OeP" firstAttribute="trailing" secondItem="cJJ-Hb-3Ef" secondAttribute="trailing" id="rZE-2u-jCA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="cJJ-Hb-3Ef"/>
-            <point key="canvasLocation" x="-171" y="10"/>
+            <point key="canvasLocation" x="-55" y="-18"/>
         </view>
     </objects>
     <resources>

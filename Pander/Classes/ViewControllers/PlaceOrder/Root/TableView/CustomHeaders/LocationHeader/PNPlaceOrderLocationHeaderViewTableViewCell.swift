@@ -50,16 +50,37 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
                 callBack(1)
             }
             if(self.paymentButton.isSelected == true){
-                
+
             }else{
                 self.paymentButton.isSelected = true
-                self.paymentImage.image = UIImage(named: "Arrow - Big - Up - Black")
-
+                let image = UIImage(named: "Arrow - Big - Up - Black")
+                self.paymentImage.image = image
             }
         }
     }
     
     func setContent(){
+        
+        
+        if paymentButton.isSelected {
+            self.paymentImage.image = UIImage(named: "Arrow - Big - Up - Black")
+        }else {
+            self.paymentImage.image = UIImage(named: "Arrow - Big - down - Black")
+        }
+        
+        
+        if locationButton.isSelected {
+            self.locationImage.image = UIImage(named: "Arrow - Big - Up - Black")
+        }else {
+            self.locationImage.image = UIImage(named: "Arrow - Big - down - Black")
+        }
+        
+        
+        
+        
+        
+        
+        
         if let callBack = didCloseButtonCallback {
             
         }

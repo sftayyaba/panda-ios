@@ -13,8 +13,9 @@ import GoogleSignIn
 enum PNMenuTab: Int{
     case  main = 0
     case  appetizer = 1
-    case  drink = 3
     case  dessert = 2
+    case  drink = 3
+    
 }
 
 class PNPlaceOrderAddItemMainViewController: PNBaseViewController {

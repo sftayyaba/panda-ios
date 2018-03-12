@@ -75,7 +75,7 @@ class QuickSearchFindRestuarantCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLabelDeliverToLocation() {
-     /*   let normalText = "Deliver to "
+        let normalText = "Deliver to "
         var boldText = "current location"
         if let address = PNUserManager.sharedInstance.selectedAddress, let nick = address.nick {
             boldText = nick
@@ -86,12 +86,16 @@ class QuickSearchFindRestuarantCollectionViewCell: UICollectionViewCell {
             PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
                 
                 if let addresses = response.addresses{
+                    PNUserManager.sharedInstance.selectedAddress=addresses[0]
+                    // if(addresses[0].isSelected){
                     //self.locationTableView.addresses = addresses
                     if addresses.count != 0 {
+                        
                         self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
                             .normal(normalText)
                             .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
                     }
+                    // }
                 }
                 
             }
@@ -109,7 +113,6 @@ class QuickSearchFindRestuarantCollectionViewCell: UICollectionViewCell {
                 .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
             
         }
- */
     }
     
     

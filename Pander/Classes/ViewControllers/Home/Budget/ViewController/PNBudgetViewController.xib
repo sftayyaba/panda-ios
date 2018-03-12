@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -623,6 +623,7 @@ Cgo
                 <outlet property="newAddressButton" destination="N2X-QV-VLh" id="IT5-MT-oHZ"/>
                 <outlet property="newAddressView" destination="L6o-Je-g4e" id="HZ3-bA-l5t"/>
                 <outlet property="nickNameTextField" destination="Knq-ga-xlV" id="Ek9-Lc-RJe"/>
+                <outlet property="paywith" destination="xVX-ef-z7T" id="KN6-Dv-07j"/>
                 <outlet property="selectedCardLabel" destination="wYN-qO-J4k" id="lRx-qF-aUM"/>
                 <outlet property="showNewAddressViewHeight" destination="7jD-ed-yuw" id="hUl-4H-HEE"/>
                 <outlet property="showTableViewHeight" destination="oev-EZ-lXQ" id="Vhq-vg-U9S"/>
