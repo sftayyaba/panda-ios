@@ -153,6 +153,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             let locations = numberofLocations 
             if(indexPath.row==locations){
                 let cell:PNAddLocationTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNAddLocationTableViewCell") as? PNAddLocationTableViewCell)!
+                cell.address.text="Add new delivery Address"
                 return cell
             }else{
                 let address = PNUserManager.sharedInstance.addresses![indexPath.row]
