@@ -68,14 +68,11 @@
 		1E9674712046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */; };
 		1E9674752046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */; };
 		1E9674762046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */; };
-		1EBCEB8F2058FA8900A1BCA2 /* PNCheckCartOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB8E2058FA8900A1BCA2 /* PNCheckCartOperation.swift */; };
 		1EBCEB912058FD2400A1BCA2 /* PNOrderManager+CheckCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB902058FD2400A1BCA2 /* PNOrderManager+CheckCart.swift */; };
 		1EBCEB93205900DE00A1BCA2 /* PNOrderCheckCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB92205900DE00A1BCA2 /* PNOrderCheckCart.swift */; };
 		1EBCEB95205910BE00A1BCA2 /* PNOrderManager+Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB94205910BE00A1BCA2 /* PNOrderManager+Checkout.swift */; };
-		1EBCEB982059119700A1BCA2 /* PNCheckoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB972059119700A1BCA2 /* PNCheckoutOperation.swift */; };
 		1EBCEB9A205929EC00A1BCA2 /* PNOrderCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB99205929EC00A1BCA2 /* PNOrderCheckout.swift */; };
 		1EBCEB9C205971B600A1BCA2 /* PNOrderManager+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB9B205971B600A1BCA2 /* PNOrderManager+Feedback.swift */; };
-		1EBCEB9F2059724200A1BCA2 /* PNOrderFeedbackOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB9E2059724200A1BCA2 /* PNOrderFeedbackOperation.swift */; };
 		1ED0E81D2051543F00EB60B1 /* PNOrderManager+AddToCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */; };
 		1ED0E8202051558700EB60B1 /* PNAddToCartOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */; };
 		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
@@ -461,14 +458,11 @@
 		1E9674702046AE36006B4E35 /* PNQuickSearchCollectionViewDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQuickSearchCollectionViewDelegateDatasource.swift; sourceTree = "<group>"; };
 		1E9674732046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNQucikSearchCategoriesCollectionReusableView.swift; sourceTree = "<group>"; };
 		1E9674742046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PNQucikSearchCategoriesCollectionReusableView.xib; sourceTree = "<group>"; };
-		1EBCEB8E2058FA8900A1BCA2 /* PNCheckCartOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCheckCartOperation.swift; sourceTree = "<group>"; };
 		1EBCEB902058FD2400A1BCA2 /* PNOrderManager+CheckCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+CheckCart.swift"; sourceTree = "<group>"; };
 		1EBCEB92205900DE00A1BCA2 /* PNOrderCheckCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderCheckCart.swift; sourceTree = "<group>"; };
 		1EBCEB94205910BE00A1BCA2 /* PNOrderManager+Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+Checkout.swift"; sourceTree = "<group>"; };
-		1EBCEB972059119700A1BCA2 /* PNCheckoutOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCheckoutOperation.swift; sourceTree = "<group>"; };
 		1EBCEB99205929EC00A1BCA2 /* PNOrderCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderCheckout.swift; sourceTree = "<group>"; };
 		1EBCEB9B205971B600A1BCA2 /* PNOrderManager+Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+Feedback.swift"; sourceTree = "<group>"; };
-		1EBCEB9E2059724200A1BCA2 /* PNOrderFeedbackOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderFeedbackOperation.swift; sourceTree = "<group>"; };
 		1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+AddToCart.swift"; sourceTree = "<group>"; };
 		1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNAddToCartOperation.swift; sourceTree = "<group>"; };
 		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1283,30 +1277,6 @@
 			path = SuggestedCateogries;
 			sourceTree = "<group>";
 		};
-		1EBCEB8D2058FA5900A1BCA2 /* CheckCart */ = {
-			isa = PBXGroup;
-			children = (
-				1EBCEB8E2058FA8900A1BCA2 /* PNCheckCartOperation.swift */,
-			);
-			path = CheckCart;
-			sourceTree = "<group>";
-		};
-		1EBCEB962059117800A1BCA2 /* Checkout */ = {
-			isa = PBXGroup;
-			children = (
-				1EBCEB972059119700A1BCA2 /* PNCheckoutOperation.swift */,
-			);
-			path = Checkout;
-			sourceTree = "<group>";
-		};
-		1EBCEB9D2059722600A1BCA2 /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				1EBCEB9E2059724200A1BCA2 /* PNOrderFeedbackOperation.swift */,
-			);
-			path = Feedback;
-			sourceTree = "<group>";
-		};
 		1ED0E81E205154DF00EB60B1 /* AddToCart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1393,9 +1363,6 @@
 		DA4209242030855E00327A28 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				1EBCEB9D2059722600A1BCA2 /* Feedback */,
-				1EBCEB962059117800A1BCA2 /* Checkout */,
-				1EBCEB8D2058FA5900A1BCA2 /* CheckCart */,
 				1ED0E81E205154DF00EB60B1 /* AddToCart */,
 				1E4209DA204E78C2004D35D1 /* Edit&Reorder */,
 				1E3E6325204D2251009A0DAB /* PastOrder */,
@@ -4169,7 +4136,6 @@
 				EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */,
 				EBF8F12F202E4D0100119BFF /* PNSettingView.swift in Sources */,
 				EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */,
-				1EBCEB9F2059724200A1BCA2 /* PNOrderFeedbackOperation.swift in Sources */,
 				EBFB710C1FCCA78600DB4C58 /* ApplicationFonts.swift in Sources */,
 				EBD90D83202E32B3001BB7C5 /* PNGetCardsBaseClass.swift in Sources */,
 				1E1D817C20457013005DB9C9 /* PNOrderDetailPaymentTableViewCell.swift in Sources */,
@@ -4180,7 +4146,6 @@
 				1E331C4B2043EF0000311B41 /* PNScheduledCollectionReusableView.swift in Sources */,
 				1EBCEB912058FD2400A1BCA2 /* PNOrderManager+CheckCart.swift in Sources */,
 				DA49D4D9202E55AA00F15521 /* PNAddresses.swift in Sources */,
-				1EBCEB982059119700A1BCA2 /* PNCheckoutOperation.swift in Sources */,
 				1E96745A2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift in Sources */,
 				1E331C5A2044011700311B41 /* PNOrdersMainSeeLessCollectionViewCell.swift in Sources */,
 				B38316B2204F4A1B001263CB /* PNBudget.swift in Sources */,
@@ -4353,7 +4318,6 @@
 				EBAA67D02028798000DF20D7 /* PNPlaceOrderViewController.swift in Sources */,
 				EBED0A411FCE918600F9F5B8 /* PNAddPushNotifactionTokenOperation.swift in Sources */,
 				DABB1DBE20081BF3003CD371 /* PNUserManager+CheckAddressSupported.swift in Sources */,
-				1EBCEB8F2058FA8900A1BCA2 /* PNCheckCartOperation.swift in Sources */,
 				DA42092F203089F100327A28 /* PNGenerateOrder.swift in Sources */,
 				DA42094320308A0800327A28 /* PNOrderRestaurantInfo.swift in Sources */,
 				EBD4CD202013388A00BAD5E3 /* PNLocationTableViewDelegateDatasource.swift in Sources */,
