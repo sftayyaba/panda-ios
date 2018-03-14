@@ -68,9 +68,9 @@ class PNPlaceOrderViewController: PNBaseViewController {
 
     
     func updateTotalPrice(){
-        if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
+        if (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
             return result + dish.price!
-        }){
+        })) != nil{
            // self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
         }
     }
@@ -139,83 +139,12 @@ class PNPlaceOrderViewController: PNBaseViewController {
     
      func placeOrderPressed() {
         
-        let order: [PNOrderDish] =  (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order)!
-        
-//        let dictionaryArray = order.map { (order) -> [String: Any] in
-//            return order.dictionaryRepresentation()
-//        }
-        
-        
-//      do {
-//        let jsonData = try JSONSerialization.data(withJSONObject: dictionaryArray, options: JSONSerialization.WritingOptions.prettyPrinted)
-//        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-//            print(JSONString)
-//        }
-//
-//      } catch {
-//        }
-        
-        
-        
-        
-        
-        
-        var dictionaryArray = order.map({$0.submission.map({$0.dictionaryRepresentation()})})
-        
-//        for dic in dictionaryArray {
-//            var quantityOption = dic!["option_qty"] as! [String:Any]
-//            let itemId = dic!["item_id"] as! String
-//            let  itemQuantity = dic!["item_qty"] as! Int
-//            quantityOption[itemId] = itemQuantity
-//            print(quantityOption);
-//        }
-        
-        for index in 0..<dictionaryArray.count {
-            var dic = dictionaryArray[index]
-            var quantityOption = dic!["option_qty"] as! [String:Any]
-            let itemId = dic!["item_id"] as! String
-            let  itemQuantity = dic!["item_qty"] as! Int
-            quantityOption[itemId] = itemQuantity
-            dic!["option_qty"] = quantityOption
-            print(quantityOption);
-            
-            dictionaryArray[index] = dic
-        }
-
-        
-
-        let dishJsonData = try? JSONSerialization.data(withJSONObject: dictionaryArray, options: [])
-        
-        
-        let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
-        
-        
         let resturantid = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.id
 
+        //Clear Cart
         PNOrderManager.sharedInstance.ClearPlacedOrders(ResturantId:resturantid!, SuccessBlock: { (placedOrderclear) in
-            print("clear")
-//            let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
-//            viewController.price = self.placeOrderView.totalPriceLabel.text!;
-//            self.navigationController?.pushViewController(viewController, animated: true)
-            
-            
-            
-            PNOrderManager.sharedInstance.AddToCartOrder(Items: dishesjsonString!, ResturantId: resturantid!,SuccessBlock: { (addToCart) in
-                print("Response is ",addToCart);
-            }, FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
-                    self.alert(title: "Oops", message: localError.localizedDescription)
-                }else{
-                    self.alert(title: "Error", message: "Something went wrong")
-                }
-            });
-            
-            
-            
-            
-            
-            
-            
+            //Add To Cart
+            self.addToCart(resturantid!)
         }, FailureBlock: { (error) in
             if let localError = error as? ErrorBaseClass{
                 self.alert(title: "Oops", message: localError.localizedDescription)
@@ -223,8 +152,114 @@ class PNPlaceOrderViewController: PNBaseViewController {
                 self.alert(title: "Error", message: "Something went wrong")
             }
         })
-    
     }
+    
+    func addToCart(_ resturantId: String)  {
+       
+        let order: [PNOrderDish] =  (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order)!
+        var dictionaryArray = order.map({$0.submission.map({$0.dictionaryRepresentation()})})
+        for index in 0..<dictionaryArray.count {
+            var dic = dictionaryArray[index]
+            var quantityOption = dic!["option_qty"] as! [String:Any]
+            let itemId = dic!["item_id"] as! String
+            let  itemQuantity = dic!["item_qty"] as! Int
+            quantityOption[itemId] = itemQuantity
+            dic!["option_qty"] = quantityOption
+            dictionaryArray[index] = dic
+        }
+        
+        let dishJsonData = try? JSONSerialization.data(withJSONObject: dictionaryArray, options: [])
+        let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
+        
+        PNOrderManager.sharedInstance.AddToCartOrder(Items: dishesjsonString!, ResturantId: resturantId,SuccessBlock: { (addToCart) in
+            print("Response is ",addToCart);
+            //Check The Cart
+            self.checkCart(resturantId)
+        }, FailureBlock: { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        })
+    }
+    
+    
+    func checkCart(_ resturantId: String)  {
+        PNOrderManager.sharedInstance.CheckCart(ResturantId: resturantId, SuccessBlock: { (checkCart) in
+            print ("Success Response is ",checkCart);
+
+            if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
+                return result + dish.price!
+            }){
+                let tipAmount = totalPrice * 0.1
+                let itemsBasePrice = checkCart.price!
+                let fees = checkCart.fees!
+
+                let totalEstimatedPrice = (itemsBasePrice + fees) + (itemsBasePrice * tipAmount) - totalPrice
+                print(totalEstimatedPrice)
+                if totalEstimatedPrice > 1.0 {
+
+                    let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want to proceed?", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+                        UIAlertAction in
+                        //Check Out
+                        self.cartCheckOut(resturantId,tipAmount: tipAmount)
+                    }
+
+                    let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+                        UIAlertAction in
+                    }
+
+                    alertController.addAction(okAction)
+                    alertController.addAction(cancelAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }else {
+                    let tipAmount = totalPrice * 0.1
+                    //Check Out
+                    self.cartCheckOut(resturantId,tipAmount: tipAmount)
+                }
+            }
+        }, FailureBlock: { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        })
+        
+        
+    }
+    
+    func cartCheckOut(_ resturantId: String,tipAmount:Float) {
+        
+        let cardId = PNUserManager.sharedInstance.selectedCard?.ccId
+        let location = (PNUserManager.sharedInstance.selectedAddress?.locationId)!
+        let locationID = String(describing: location)
+        
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .decimal
+        let str = formatter.string(from: NSNumber.init(value: tipAmount))
+        let tip = (str! as NSString).doubleValue
+        
+        
+        PNOrderManager.sharedInstance.CheckOut(ResturantId: resturantId, LocationId: locationID, CardId: cardId!, Tip: tip, Instructions: "That's Great", SuccessBlock: { (checkOut) in
+            print("success is",checkOut)
+            let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
+            viewController.price = self.placeOrderView.totalPriceLabel.text!;
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        }
+    }
+    
+    
     
     @IBAction func backButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(nil, forKey: "myTotalPrice")
@@ -264,7 +299,6 @@ class PNPlaceOrderViewController: PNBaseViewController {
             
             PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
                 
-                
                 self.tableView.reloadData()
                 self.updateTotalPrice()
                 
@@ -284,11 +318,45 @@ class PNPlaceOrderViewController: PNBaseViewController {
             }
         }
         
+        
+        
+        let order: [PNOrderDish] =  (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order)!
+        var wordsList = ""
+        for dish in order {
+            var dishName = dish.name
+            var dishDescription = dish.descriptionValue
+            
+            wordsList += dishName! + "," + dishDescription!
+        }
+        
+        print(wordsList);
+        
+        PNOrderManager.sharedInstance.OrderFeedback(WordsList: wordsList, SuccessBlock: { (feedback) in
+            print ("success")
+            
+        }) { (error) in
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
+        }
+        
+        
+        
+        
     }
 }
 
 extension Float {
     func format(f: String) -> String {
         return String(format: "%\(f).02f", self)
+    }
+    
+    
+    func round(decimalPlace:Int)->Float{
+        let format = NSString(format: "%%.%if", decimalPlace)
+        let string = NSString(format: format, self)
+        return Float(atof(string.utf8String))
     }
 }

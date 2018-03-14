@@ -20,6 +20,8 @@ final class PNOrderManager: PNBaseManager {
     
     var pastOrders : [PNOrderItems]?
     
+    var checkOut : PNOrderCheckout?
+    
     var placedOrderclear: PNOrderBaseClass?
     var prevRestaurentIds: [String] = [String]()
     //MARK: Shared Instance

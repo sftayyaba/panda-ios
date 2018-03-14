@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -131,10 +131,10 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrA-hF-nWm">
-                    <rect key="frame" x="20" y="12.5" width="46" height="46"/>
+                    <rect key="frame" x="20" y="13" width="123" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="Y05-1e-R5k"/>
-                        <constraint firstAttribute="width" constant="46" id="wC9-Fk-uDw"/>
+                        <constraint firstAttribute="width" constant="123" id="wC9-Fk-uDw"/>
                     </constraints>
                     <state key="normal" image="Arrow - Big - Up - Black"/>
                     <connections>
