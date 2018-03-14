@@ -126,7 +126,11 @@ Cg
                                                     <rect key="frame" x="10" y="11" width="16" height="23"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-ef-z7T">
+
                                                     <rect key="frame" x="54" y="13" width="33" height="20"/>
+
+                                                    <rect key="frame" x="54" y="13" width="33.333333333333343" height="20"/>
+
                                                     <attributedString key="attributedText">
                                                         <fragment content="NO   ">
                                                             <attributes>
@@ -139,6 +143,7 @@ Cg
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8B-Wg-213">
                                                     <rect key="frame" x="89" y="13" width="110" height="20"/>
+                                                    <rect key="frame" x="89.333333333333314" y="13" width="110" height="20"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

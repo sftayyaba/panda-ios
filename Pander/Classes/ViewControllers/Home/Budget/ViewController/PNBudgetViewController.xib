@@ -129,9 +129,9 @@ Cg
                                                             <rect key="frame" x="10" y="14.666666666666657" width="22" height="16"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-ef-z7T">
-                                                            <rect key="frame" x="42" y="13" width="51.666666666666657" height="20"/>
+                                                            <rect key="frame" x="42" y="13" width="23" height="20"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Pay with">
+                                                                <fragment content="No ">
                                                                     <attributes>
                                                                         <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -140,8 +140,8 @@ Cg
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chase card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYN-qO-J4k">
-                                                            <rect key="frame" x="96" y="12.999999999999998" width="71.666666666666686" height="19.333333333333329"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYN-qO-J4k">
+                                                            <rect key="frame" x="67.333333333333329" y="12.999999999999998" width="110.99999999999999" height="19.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
