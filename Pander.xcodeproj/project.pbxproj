@@ -73,6 +73,9 @@
 		1EBCEB95205910BE00A1BCA2 /* PNOrderManager+Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB94205910BE00A1BCA2 /* PNOrderManager+Checkout.swift */; };
 		1EBCEB9A205929EC00A1BCA2 /* PNOrderCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB99205929EC00A1BCA2 /* PNOrderCheckout.swift */; };
 		1EBCEB9C205971B600A1BCA2 /* PNOrderManager+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEB9B205971B600A1BCA2 /* PNOrderManager+Feedback.swift */; };
+		1EBCEBA620597ED800A1BCA2 /* PNOrderFeedbackOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEBA120597ED700A1BCA2 /* PNOrderFeedbackOperation.swift */; };
+		1EBCEBA720597ED800A1BCA2 /* PNCheckCartOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEBA320597ED700A1BCA2 /* PNCheckCartOperation.swift */; };
+		1EBCEBA820597ED800A1BCA2 /* PNCheckoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCEBA520597ED700A1BCA2 /* PNCheckoutOperation.swift */; };
 		1ED0E81D2051543F00EB60B1 /* PNOrderManager+AddToCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */; };
 		1ED0E8202051558700EB60B1 /* PNAddToCartOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */; };
 		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
@@ -463,6 +466,9 @@
 		1EBCEB94205910BE00A1BCA2 /* PNOrderManager+Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+Checkout.swift"; sourceTree = "<group>"; };
 		1EBCEB99205929EC00A1BCA2 /* PNOrderCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderCheckout.swift; sourceTree = "<group>"; };
 		1EBCEB9B205971B600A1BCA2 /* PNOrderManager+Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+Feedback.swift"; sourceTree = "<group>"; };
+		1EBCEBA120597ED700A1BCA2 /* PNOrderFeedbackOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNOrderFeedbackOperation.swift; sourceTree = "<group>"; };
+		1EBCEBA320597ED700A1BCA2 /* PNCheckCartOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCheckCartOperation.swift; sourceTree = "<group>"; };
+		1EBCEBA520597ED700A1BCA2 /* PNCheckoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNCheckoutOperation.swift; sourceTree = "<group>"; };
 		1ED0E81C2051543E00EB60B1 /* PNOrderManager+AddToCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+AddToCart.swift"; sourceTree = "<group>"; };
 		1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNAddToCartOperation.swift; sourceTree = "<group>"; };
 		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1277,6 +1283,30 @@
 			path = SuggestedCateogries;
 			sourceTree = "<group>";
 		};
+		1EBCEBA020597ED700A1BCA2 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				1EBCEBA120597ED700A1BCA2 /* PNOrderFeedbackOperation.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		1EBCEBA220597ED700A1BCA2 /* CheckCart */ = {
+			isa = PBXGroup;
+			children = (
+				1EBCEBA320597ED700A1BCA2 /* PNCheckCartOperation.swift */,
+			);
+			path = CheckCart;
+			sourceTree = "<group>";
+		};
+		1EBCEBA420597ED700A1BCA2 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				1EBCEBA520597ED700A1BCA2 /* PNCheckoutOperation.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
 		1ED0E81E205154DF00EB60B1 /* AddToCart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1363,6 +1393,9 @@
 		DA4209242030855E00327A28 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				1EBCEBA220597ED700A1BCA2 /* CheckCart */,
+				1EBCEBA420597ED700A1BCA2 /* Checkout */,
+				1EBCEBA020597ED700A1BCA2 /* Feedback */,
 				1ED0E81E205154DF00EB60B1 /* AddToCart */,
 				1E4209DA204E78C2004D35D1 /* Edit&Reorder */,
 				1E3E6325204D2251009A0DAB /* PastOrder */,
@@ -4134,6 +4167,7 @@
 				EBFB71081FCCA14200DB4C58 /* PNBaseViewController.swift in Sources */,
 				B33BBE09204B50FD005C5404 /* PNOrderManager+OrderPlaced.swift in Sources */,
 				EBED0A331FCE8BCB00F9F5B8 /* PNCreateGuestAccountOperation.swift in Sources */,
+				1EBCEBA620597ED800A1BCA2 /* PNOrderFeedbackOperation.swift in Sources */,
 				EBF8F12F202E4D0100119BFF /* PNSettingView.swift in Sources */,
 				EBE05BF62006AE33009A865C /* PNStepThreeCollectionViewDelegateDatasource.swift in Sources */,
 				EBFB710C1FCCA78600DB4C58 /* ApplicationFonts.swift in Sources */,
@@ -4209,6 +4243,7 @@
 				DA5604042033A02C00393159 /* PNLocationPhoneNumberFieldFormatter.swift in Sources */,
 				EB9F8ED420263D7C0044255F /* PNHomeFeaturedCuisineCollectionReusableView.swift in Sources */,
 				EB63DD75201A921200737550 /* NSDate.swift in Sources */,
+				1EBCEBA720597ED800A1BCA2 /* PNCheckCartOperation.swift in Sources */,
 				DA420949203096B200327A28 /* PNOrderManager+GenerateOrder.swift in Sources */,
 				EBCC5670200DE36B009D865E /* PNUserManager+ForgotPassword.swift in Sources */,
 				1E1D816A20456328005DB9C9 /* PNOrderDetailItemsTableViewCell.swift in Sources */,
@@ -4216,6 +4251,7 @@
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
 				EB63DD72201A7FF800737550 /* PNDeliveryDateTableViewDelegateDatasource.swift in Sources */,
 				EB7AD55C202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift in Sources */,
+				1EBCEBA820597ED800A1BCA2 /* PNCheckoutOperation.swift in Sources */,
 				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
 				DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */,
 				EB738E7F2028F48800A2DC16 /* PNPlaceOrderAddItemMainDelegateDatasource.swift in Sources */,
