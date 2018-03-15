@@ -14,6 +14,12 @@ class PNOrdersMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionVi
     
     var type: PNHomeItemType = PNHomeItemType.cuisine
     
+    var isPastOrder = Bool()
+    
+    
+    //MARK: Properties
+    var pastOrders: [PNOrders] = []
+    
     @IBOutlet var collectionView: PNOrderCollectionSeeLessViewDelegateDatasource!
     
     
@@ -38,36 +44,44 @@ class PNOrdersMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 10
+        return self.pastOrders.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell:PNOrdersSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "PNOrdersSeeLessCollectionViewCell", for: indexPath) as! PNOrdersSeeLessCollectionViewCell
+
+        let pastOrder = pastOrders[indexPath.row]
+        let imgUrlStr = pastOrder.imageUrl!
         
-//        if self.type == .cuisine{
+        let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineInline")
+        cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
+        });
         
-//            let cuisine = self.cuisines[indexPath.row]
-//
-            let imgUrlStr = "https://desolate-everglades-24260.herokuapp.com/api/v2/image/bg_greek"
-            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineInline")
-            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
-            });
-//
-//            cell.itemDetailLabel.text = cuisine["cuisine"].string!
-//        }else{
         
-//            let cuisine = self.dishes[indexPath.row]
-//
-//            let imgUrlStr = "https://desolate-everglades-24260.herokuapp.com/api/v2/image/bg_greek"
-//            let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemInline")
-//            cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
-//            });
-//
-//            cell.itemDetailLabel.text = cuisine["dish"].string!
+        
+        if isPastOrder {
+            let deliveryDate = pastOrder.deliveryDate!
+            let dateFormatterGet = DateFormatter()
+            dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             
-//        }
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "E MMM d "
+            
+            let date: Date? = dateFormatterGet.date(from: deliveryDate)
+            let boldText = dateFormatterPrint.string(from: date!) + "  "
+            
+            let normalText = pastOrder.dishSummary!
+            cell.itemDetailLabel.attributedText = NSMutableAttributedString().boldPast(boldText).normalPast(normalText)
+        }else {
+            let normalText = pastOrder.dishSummary!
+            let boldText = "$"+pastOrder.total!.format(f: "") + "  "
+            cell.itemDetailLabel.attributedText = NSMutableAttributedString().boldPast(boldText).normalPast(normalText)
+        }
+        
+        
+       
         
         return cell
     }

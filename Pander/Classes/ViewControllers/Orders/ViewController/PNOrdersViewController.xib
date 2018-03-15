@@ -37,6 +37,9 @@
                         <constraint firstAttribute="width" constant="61" id="6V3-J3-MfT"/>
                     </constraints>
                     <state key="normal" image="Arrow - Big - left - Black"/>
+                    <connections>
+                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="rh7-mz-Bci"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -189,6 +189,20 @@ extension NSMutableAttributedString {
     @discardableResult func normal(_ text: String) -> NSMutableAttributedString {
         let normal = NSAttributedString(string: text)
         append(normal)
+        return self
+    }
+    
+    @discardableResult func normalPast(_ text: String) -> NSMutableAttributedString {
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont(name: "AvenirNext-Regular", size: 11)!]
+        let normal = NSAttributedString(string: text, attributes: attrs)
+        append(normal)
+        return self
+    }
+    
+    @discardableResult func boldPast(_ text: String) -> NSMutableAttributedString {
+        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont(name: "AvenirNext-Bold", size: 13)!]
+        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+        append(boldString)
         
         return self
     }

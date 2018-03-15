@@ -18,7 +18,7 @@ final class PNOrderManager: PNBaseManager {
     
     var generatedOrder: PNOrderBaseClass?
     
-    var pastOrders : [PNOrderItems]?
+//    var pastOrders : [PNOrderItems]?
     
     var checkOut : PNOrderCheckout?
     

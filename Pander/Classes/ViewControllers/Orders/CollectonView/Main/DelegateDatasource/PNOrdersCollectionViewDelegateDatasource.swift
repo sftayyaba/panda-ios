@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     
     public var didSelectCuisineCallback : ((String) -> Void)?
+    
+    //MARK: Properties
+    var pastOrders: [PNOrders] = []
+    var scheduledOrders: [PNOrders] = []
+    
+    
     
     
     var isfeatureItemShowMore = false
@@ -27,19 +34,16 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
         }else if section == 1 && !isfeatureItemShowMore {
             return 1
         }else if section == 1 && isfeatureItemShowMore {
-           // return self.dishes.count
-            return 10
+            return self.scheduledOrders.count
         }else if section == 2 && !isCuisineShowMore {
             return 1
         }else if section == 2 && isCuisineShowMore {
-//            return self.cuisines.count
-             return 10
+            return self.pastOrders.count
         }else {
             return 0
         }
     }
     
-//    - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
@@ -109,43 +113,44 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if indexPath.section == 1 && !isfeatureItemShowMore {
             let cell:PNOrdersMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNOrdersMainSeeLessCollectionViewCell", for: indexPath) as! PNOrdersMainSeeLessCollectionViewCell
             
-//            cell.type = .dish
-//
-//            cell.cuisines = self.cuisines
-//            cell.dishes = self.dishes
-//
+            cell.isPastOrder = false
+            cell.pastOrders = self.scheduledOrders
+
             cell.didSelectCuisineCallback = self.didSelectCuisineCallback
             
             cell.collectionView.reloadData()
             
             return cell
-        }else if indexPath.section == 0 && isfeatureItemShowMore {
+        }else if indexPath.section == 1 && isfeatureItemShowMore {
             let cell:PNOrdersMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNOrdersMainSeeMoreCollectionViewCell", for: indexPath) as! PNOrdersMainSeeMoreCollectionViewCell
             
-//            let cuisine = self.dishes[indexPath.row]
-//
-            let imgUrlStr = "https://desolate-everglades-24260.herokuapp.com/api/v2/image/bg_greek"
+            let pastOrder = pastOrders[indexPath.row]
+            let imgUrlStr = pastOrder.imageUrl!
+
             let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemExpanded")
             cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
             });
-//
-//            cell.itemLabel.text = cuisine["dish"].string!
+
+            let normalText = pastOrder.dishSummary!
+            let boldText = "$"+pastOrder.total!.format(f: "") + "  "
+            
+            cell.itemLabel.attributedText = NSMutableAttributedString().boldPast(boldText).normalPast(normalText)
+            
             
             return cell
         }else if indexPath.section == 2 && !isCuisineShowMore {
             let cell:PNOrdersMainSeeLessCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNOrdersMainSeeLessCollectionViewCell", for: indexPath) as! PNOrdersMainSeeLessCollectionViewCell
             
-//            cell.type = .cuisine
-//
-//            cell.cuisines = self.cuisines
-//            cell.dishes = self.dishes
-//
+             cell.isPastOrder = true
+            cell.pastOrders = self.pastOrders
+           
             cell.didSelectCuisineCallback = self.didSelectCuisineCallback
             
             cell.collectionView.reloadData()
@@ -155,14 +160,25 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
             let cell:PNOrdersMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNOrdersMainSeeMoreCollectionViewCell", for: indexPath) as! PNOrdersMainSeeMoreCollectionViewCell
             
-//            let cuisine = self.cuisines[indexPath.row]
-//
-            let imgUrlStr = "https://desolate-everglades-24260.herokuapp.com/api/v2/image/bg_greek"
+            let pastOrder = pastOrders[indexPath.row]
+            let imgUrlStr = pastOrder.imageUrl!
             let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryCuisineExpanded")
             cell.itemImageView.sd_setImage(with: imgUrl, completed: { (img, err, type, url) in
             });
-//
-//            cell.itemLabel.text = cuisine["cuisine"].string!
+            
+            
+            let deliveryDate = pastOrder.deliveryDate!
+            let dateFormatterGet = DateFormatter()
+            dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "E MMM d "
+            
+            let date: Date? = dateFormatterGet.date(from: deliveryDate)
+            let boldText = dateFormatterPrint.string(from: date!) + "  "
+            
+            let normalText = pastOrder.dishSummary!
+            cell.itemLabel.attributedText = NSMutableAttributedString().boldPast(boldText).normalPast(normalText)
             
             return cell
         }

@@ -12,7 +12,7 @@ import SwiftyJSON
 extension PNOrderManager{
     
     //MARK: PastOrder/Method
-    func getPastOrder(SuccessBlock successBlock: @escaping ((_ successResponse: PNPastOrderBaseClass ) -> Void),
+    func getPastOrder(SuccessBlock successBlock: @escaping ((_ successResponse: PNPastOrdersBaseClass ) -> Void),
                            FailureBlock failureBlock: @escaping ((_ error: Error?) -> Void)){
         
         
@@ -29,11 +29,11 @@ extension PNOrderManager{
             
             weakSelf?.notifyNetworkRequestFinish()
             
-            if let successResponse = response as? PNPastOrderBaseClass{
+            if let successResponse = response as? PNPastOrdersBaseClass{
                 
                 print("Success Reposne is",successResponse)
                 
-                weakSelf?.pastOrders = successResponse.orders
+//                weakSelf?.pastOrders = successResponse.orders
                 
                 successBlock(successResponse)
 

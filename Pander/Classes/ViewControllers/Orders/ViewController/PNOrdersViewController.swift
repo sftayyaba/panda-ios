@@ -18,11 +18,11 @@ class PNOrdersViewController: PNBaseViewController {
         super.viewDidLoad()
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
             
-            var cardarray = response.cards
+//            var cardarray = response.cards
             
             if response.cards?.count != 0 {
                 PNUserManager.sharedInstance.selectedCard=response.cards?[0]
-                if let selectedCard = PNUserManager.sharedInstance.selectedCard{
+                if PNUserManager.sharedInstance.selectedCard != nil{
                     
                     //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
                 }
@@ -30,7 +30,7 @@ class PNOrdersViewController: PNBaseViewController {
             
         }
             , FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
+                if (error as? ErrorBaseClass) != nil{
                     //(self.alert(title: "Oops", message: localError.localizedDescription)
                 }else {
                     // self.alert(title: "Error", message: "Something went wrong !")
@@ -39,7 +39,6 @@ class PNOrdersViewController: PNBaseViewController {
         })
         
         PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
-            
             if let addresses = response.addresses{
                 //self.locationTableView.addresses = addresses
                 if addresses.count != 0 {
@@ -51,7 +50,7 @@ class PNOrdersViewController: PNBaseViewController {
             
         }
             , FailureBlock: { (error) in
-                if let localError = error as? ErrorBaseClass{
+                if (error as? ErrorBaseClass) != nil{
                     //self.alert(title: "Oops", message: localError.localizedDescription)
                 }else {
                     // self.alert(title: "Error", message: "Something went wrong !")
@@ -62,10 +61,47 @@ class PNOrdersViewController: PNBaseViewController {
         
         PNOrderManager.sharedInstance.getPastOrder(SuccessBlock: { (response) in
             print("Response is ",response);
+            guard let responseOrders = response.orders else {return}
+            
+            var pastOrders: [PNOrders] = []
+            var scheduledOrders: [PNOrders] = []
+            
+            for order in responseOrders {
+                let deliveryDateString = order.deliveryDate!
+               
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+                let date: Date? = dateFormatterGet.date(from: deliveryDateString)
+                
+                let currentDate = Date()
+
+
+                let dateOrder = Calendar.current.compare(date!, to: currentDate, toGranularity:.day)
+                switch dateOrder {
+                case .orderedDescending:
+                    print("DESCENDING")
+                    scheduledOrders.append(order)
+                case .orderedAscending:
+                    print("ASCENDING,PAST")
+                    pastOrders.append(order)
+                case .orderedSame:
+                    print("SAME")
+                    scheduledOrders.append(order)
+                }
+            }
+            
+            self.ordersView.collectionView.pastOrders = pastOrders
+            self.ordersView.collectionView.scheduledOrders = scheduledOrders
+            self.ordersView.collectionView.reloadData()
+            
         }) { (error) in
-            print("Error is ",error);
+            if let localError = error as? ErrorBaseClass{
+                self.alert(title: "Oops", message: localError.localizedDescription)
+            }else{
+                self.alert(title: "Error", message: "Something went wrong")
+            }
         }
-        
         
         self.ordersView.collectionView.reloadData()
         
@@ -75,6 +111,7 @@ class PNOrdersViewController: PNBaseViewController {
         super.viewDidAppear(animated)
         self.ordersView.collectionView.reloadData()
         self.doInitialDataLoad()
+        
     }
     
     override func configureNavigationBar() {
@@ -170,5 +207,30 @@ class PNOrdersViewController: PNBaseViewController {
         self.ordersView.collectionView.register((UINib(nibName: "PNScheduledCollectionReusableView", bundle: nil)), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PNScheduledCollectionReusableView")
         
         self.ordersView.collectionView.reloadData()
+    }
+    
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 0
+    }
+}
+
+extension Date {
+    func dateWithoutTime() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .short    //02/15/17
+        let str = dateFormatter.string(from: self)
+        return dateFormatter.date(from: str)!
+    }
+    
+    func isAfterThanDate(dateToCompare: Date) -> Bool {
+        var isGreater = false
+        
+        if self.compare(dateToCompare) == .orderedDescending {
+            isGreater = true
+        }
+        
+        return isGreater
     }
 }

@@ -25,7 +25,7 @@ class PNPastOrderOperation: OnebyteNetworkOperationBase {
         if let code = json["code"].int{
             
             if code >= PNApiResponseCodes.successResponse.rawValue{
-                let codeResponseObject: PNPastOrderBaseClass = PNPastOrderBaseClass(json: JSON(response))
+                let codeResponseObject: PNPastOrdersBaseClass = PNPastOrdersBaseClass(json: JSON(response))
                 
                 self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
             }else if code <= PNApiResponseCodes.errorResponse.rawValue{
