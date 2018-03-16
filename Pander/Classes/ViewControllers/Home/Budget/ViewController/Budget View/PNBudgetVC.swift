@@ -245,18 +245,20 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
     //MARK: Events
     private func handleMonthEvent() {
         
-        let date = Date()
-        let calendar = Calendar.current
+//        let date = Date()
+//        let calendar = Calendar.current
+//        
+//        let month = calendar.component(.month, from: date)
         
-        let month = calendar.component(.month, from: date)
-        
-        for i in month..<12 {
+        for i in 0..<13 {
             
-            if i <= 9 {
-                self.monthArray.append("0\(i)")
-            }else {
-                self.monthArray.append("\(i)")
-            }
+//            if i <= 9 {
+//                self.monthArray.append("0\(i)")
+//            }else {
+//                self.monthArray.append("\(i)")
+//            }
+            
+            self.monthArray.append("\(i)")
         }
         
         //        self.budgetView.expiryMonthTextField.pickerType = .StringPicker

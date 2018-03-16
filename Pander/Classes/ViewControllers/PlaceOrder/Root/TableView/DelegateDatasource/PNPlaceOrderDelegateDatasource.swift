@@ -326,7 +326,6 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         }else if indexPath.section == 2{
             if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
              dish.isSelected = !dish.isSelected
-                
                 reloadData()
             }
         }

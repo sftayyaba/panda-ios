@@ -39,7 +39,6 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
         counterLbl.isHidden = true
         chagneBtn.isHidden = true
         refreshBtn.isHidden = true
-        // Initialization code
     }
 
     
@@ -115,14 +114,6 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-//        dish.isSelected = selected
-//        if dish.isSelected{
-//            self.detailLabelMaxHeightConstraint.constant = 200
-//        }else{
-//            self.detailLabelMaxHeightConstraint.constant = 0
-//        }
-        // Configure the view for the selected state
     }
     
 }

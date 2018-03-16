@@ -33,8 +33,6 @@ extension PNOrderManager{
                 
                 print("Success Reposne is",successResponse)
                 
-//                weakSelf?.pastOrders = successResponse.orders
-                
                 successBlock(successResponse)
 
             } else if let errorResponse = response as? ErrorBaseClass{

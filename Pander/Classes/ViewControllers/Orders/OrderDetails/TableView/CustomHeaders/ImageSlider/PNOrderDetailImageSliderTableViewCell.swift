@@ -15,10 +15,15 @@ class PNOrderDetailImageSliderTableViewCell: UITableViewCell, UIScrollViewDelega
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControll: UIPageControl!
+    @IBOutlet weak var orderdOnLbl: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var numberOfImages: Int = 1
     
     var contentWidth:CGFloat = 0.0
+    
+    
+    var order : PNOrders!
     
     
     override func awakeFromNib() {
@@ -40,7 +45,7 @@ class PNOrderDetailImageSliderTableViewCell: UITableViewCell, UIScrollViewDelega
     }
     
     func loadDataToViews(){
-//        self.restaurentNameLabel.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
+        self.restaurentNameLabel.text = self.order.name
 //        if let minOrder = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.minOrder{
 //            self.minimumOrderLabel.text = "Minimum order $\(minOrder)"
 //        }
@@ -77,6 +82,60 @@ class PNOrderDetailImageSliderTableViewCell: UITableViewCell, UIScrollViewDelega
         scrollView.isScrollEnabled = false
         scrollView.isPagingEnabled = false
         self.pageControll.numberOfPages = self.numberOfImages
+    }
+    
+    
+    func setContent(cuisine:String,order:PNOrders) {
+        self.order = order
+        if cuisine == "0" {
+            print("Scheduled Order",order.deliveryDate!)
+            let orderDateString = order.deliveryDate!
+            let dateFormatterGet = DateFormatter()
+            dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            
+            
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "d MMM yyyy"
+            
+            
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = "h:mm a"
+            
+            let date: Date? = dateFormatterGet.date(from: orderDateString)
+            let dateText = dateFormatterPrint.string(from: date!) + "  "
+            
+            let time : Date? = dateFormatterGet.date(from: orderDateString)
+            let timeString = timeFormatter.string(from: time!) + "  "
+            
+            print(dateText,timeString)
+
+            
+            self.orderdOnLbl.text = dateText
+            self.orderdOnLbl.font = UIFont(name: "AvenirNext-Bold", size: 13)
+            self.orderdOnLbl.textColor = UIColor.black
+            
+            self.dateLabel.text = timeString
+            self.dateLabel.textColor = UIColor.red
+            self.dateLabel.font = UIFont(name: "AvenirNext-Bold", size: 12)
+            
+            
+        }else {
+            print("Past Order",order.deliveryDate!)
+            let orderDateString = order.deliveryDate!
+            let dateFormatterGet = DateFormatter()
+            dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            
+            
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "d MMM yyyy"
+            
+            let date: Date? = dateFormatterGet.date(from: orderDateString)
+            let dateText = dateFormatterPrint.string(from: date!) + "  "
+            
+            self.dateLabel.text = dateText
+
+
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

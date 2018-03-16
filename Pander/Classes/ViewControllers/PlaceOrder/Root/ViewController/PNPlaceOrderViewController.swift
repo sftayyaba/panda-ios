@@ -248,7 +248,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         PNOrderManager.sharedInstance.CheckOut(ResturantId: resturantId, LocationId: locationID, CardId: cardId!, Tip: tip, Instructions: "That's Great", SuccessBlock: { (checkOut) in
             print("success is",checkOut)
             let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
-            viewController.price = self.placeOrderView.totalPriceLabel.text!;
+//            viewController.price = self.placeOrderView.totalPriceLabel.text!;
             self.navigationController?.pushViewController(viewController, animated: true)
         }) { (error) in
             if let localError = error as? ErrorBaseClass{

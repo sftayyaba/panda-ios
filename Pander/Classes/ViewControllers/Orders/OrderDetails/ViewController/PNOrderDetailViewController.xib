@@ -27,7 +27,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ela-2I-8Nt">
-                    <rect key="frame" x="10" y="15" width="30" height="30"/>
+                    <rect key="frame" x="10" y="30" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="IPA-R7-al1"/>
                         <constraint firstAttribute="height" constant="30" id="siR-qM-IPn"/>
@@ -45,7 +45,7 @@
             <constraints>
                 <constraint firstItem="Ncy-MH-OeP" firstAttribute="leading" secondItem="cJJ-Hb-3Ef" secondAttribute="leading" id="6Wd-TJ-bKy"/>
                 <constraint firstItem="ela-2I-8Nt" firstAttribute="leading" secondItem="cJJ-Hb-3Ef" secondAttribute="leading" constant="10" id="Dwx-6B-PNl"/>
-                <constraint firstItem="ela-2I-8Nt" firstAttribute="top" secondItem="cJJ-Hb-3Ef" secondAttribute="top" constant="-5" id="MAc-eZ-bfi"/>
+                <constraint firstItem="ela-2I-8Nt" firstAttribute="top" secondItem="cJJ-Hb-3Ef" secondAttribute="top" constant="10" id="MAc-eZ-bfi"/>
                 <constraint firstItem="cJJ-Hb-3Ef" firstAttribute="bottom" secondItem="Ncy-MH-OeP" secondAttribute="bottom" constant="16" id="QV8-bB-xzH"/>
                 <constraint firstItem="Ncy-MH-OeP" firstAttribute="top" secondItem="cJJ-Hb-3Ef" secondAttribute="top" constant="33" id="bTu-nZ-cNQ"/>
                 <constraint firstItem="Ncy-MH-OeP" firstAttribute="trailing" secondItem="cJJ-Hb-3Ef" secondAttribute="trailing" id="rZE-2u-jCA"/>

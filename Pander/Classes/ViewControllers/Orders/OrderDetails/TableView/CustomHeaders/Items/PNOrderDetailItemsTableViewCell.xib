@@ -64,6 +64,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Sw3-4B-9Tp"/>
+            <connections>
+                <outlet property="dishDiscountedPrice" destination="USK-D6-A8z" id="dSs-uo-otG"/>
+                <outlet property="dishNameLbl" destination="TNc-SX-Ycu" id="Xua-iW-LrU"/>
+                <outlet property="dishPrice" destination="TQR-03-ved" id="3rL-GB-hrE"/>
+            </connections>
             <point key="canvasLocation" x="-47" y="56"/>
         </tableViewCell>
     </objects>

@@ -9,6 +9,10 @@ import UIKit
 
 class PNOrderDetailItemsTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var dishNameLbl: UILabel!
+    @IBOutlet weak var dishPrice: UILabel!
+    @IBOutlet weak var dishDiscountedPrice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

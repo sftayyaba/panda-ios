@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="55" width="375" height="596"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b7-TA-biz">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b7-TA-biz">
                     <rect key="frame" x="10" y="20" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="G9A-1E-vCT"/>
@@ -44,7 +44,7 @@
             <constraints>
                 <constraint firstItem="cVF-Wo-Qn7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ON2-RA-cee"/>
                 <constraint firstItem="cVF-Wo-Qn7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="bfS-7m-rHi"/>
-                <constraint firstItem="6b7-TA-biz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="fU6-KN-2BG"/>
+                <constraint firstItem="6b7-TA-biz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="fU6-KN-2BG"/>
                 <constraint firstAttribute="bottom" secondItem="cVF-Wo-Qn7" secondAttribute="bottom" constant="16" id="gYU-pY-2dY"/>
                 <constraint firstItem="cVF-Wo-Qn7" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="hDt-uY-HyS"/>
                 <constraint firstItem="6b7-TA-biz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xOo-B4-yXS"/>

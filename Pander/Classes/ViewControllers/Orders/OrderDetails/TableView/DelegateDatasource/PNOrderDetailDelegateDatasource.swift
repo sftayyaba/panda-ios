@@ -9,13 +9,17 @@ import UIKit
 
 class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
 
-    public var didAddItemButtonCallback : (() -> Void)?
+    public var  didAddItemButtonCallback : (() -> Void)?
     public var editAndReorderButtonCallback : (() -> Void)?
+    public var reorderButtonCallback : (() -> Void)?
     
     
     var isLocationSelected = false
     var isPaymentSelected = false
     var cuisine = String()
+    var order : PNOrders!
+    
+    
     
     var numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
     var numberofLocations = PNUserManager.sharedInstance.addresses!.count
@@ -36,13 +40,11 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
                 return numberofCards!
             }
         }else if section == 2{
-//            if let count = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.count{
-//                return count
-//            }else{
-//                return 0
-//            }
-            
-            return 5
+            if order == nil {
+                return 0
+            }else {
+                return order.cart!.count
+            }
         }else{
             return 0
         }
@@ -169,9 +171,8 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForPaymentOptionAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PNOrderDetailPaymentTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailPaymentTableViewCell") as? PNOrderDetailPaymentTableViewCell)!
-//        if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
-//            cell.setContent(dish: dish)
-//        }
+        let cart = order.cart![indexPath.row]
+        cell.setContent(cart: cart,order: order,indexPath: indexPath)
         
         cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
         return cell
@@ -189,6 +190,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, headerForAddItemsOptionAt section: Int) -> UITableViewCell {
         
         let cell: PNOrderDetailImageSliderTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailImageSliderTableViewCell") as? PNOrderDetailImageSliderTableViewCell)!
+        cell.setContent(cuisine: cuisine,order: order)
         cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
         return cell
     }
@@ -198,7 +200,8 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         
         let cell: PNOrderDetailTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailTotalTableViewCell") as? PNOrderDetailTotalTableViewCell)!
         cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
-        cell.setContent(cuisine: cuisine)
+        cell.reorderButtonCallback = self.reorderButtonCallback;
+        cell.setContent(cuisine: cuisine,order: order)
         return cell
     }
     
@@ -236,7 +239,6 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
                     }
                     
                     PNUserManager.sharedInstance.selectedAddress = selectedAddress
-//                    self.refreshData()
                     self.reloadData()
                     
                 }
@@ -254,11 +256,10 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
             }
             
         }else if indexPath.section == 2{
-            if let dish = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?[indexPath.row]{
-                dish.isSelected = !dish.isSelected
-                
-                reloadData()
-            }
+            
+            let cart = order.cart![indexPath.row]
+            cart.isSelected = !cart.isSelected
+            reloadData()
         }
     }
 }

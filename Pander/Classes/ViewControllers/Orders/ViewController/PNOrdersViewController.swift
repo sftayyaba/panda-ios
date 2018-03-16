@@ -165,18 +165,10 @@ class PNOrdersViewController: PNBaseViewController {
     override func configureCallBacks() {
         
         self.ordersView.collectionView.didSelectCuisineCallback = {
-            cuisine in
-            
-            print(cuisine);
-//            if var cuisines = PNUserManager.sharedInstance.homeSelectedCuisines{
-//                cuisines.append(cuisine)
-//            }else{
-//                PNUserManager.sharedInstance.homeSelectedCuisines = [cuisine]
-//            }
-            
-//            self.findRestaurentButtonPressed(self.homeView)
+            cuisine,order in
             let viewController = PNOrderDetailViewController(nibName: "PNOrderDetailViewController", bundle: nil)
             viewController.cuisine = cuisine
+            viewController.order = order
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

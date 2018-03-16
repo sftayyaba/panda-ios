@@ -78,6 +78,9 @@
                         <state key="normal" title="Re-Order">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="reorderAction:" destination="Jn1-Dh-5tI" eventType="touchUpInside" id="xJT-Ta-leY"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -99,6 +102,7 @@
             <connections>
                 <outlet property="editAndReorderBtn" destination="TUq-XW-vJK" id="sgO-5F-MjU"/>
                 <outlet property="reorderBtn" destination="cl2-R1-KNH" id="yLr-Lp-z08"/>
+                <outlet property="totalLabel" destination="m8m-4q-UlB" id="gPF-0b-MNi"/>
             </connections>
             <point key="canvasLocation" x="-204" y="75"/>
         </tableViewCell>

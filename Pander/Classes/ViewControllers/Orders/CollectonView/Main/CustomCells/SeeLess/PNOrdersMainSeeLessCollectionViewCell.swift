@@ -10,7 +10,7 @@ import UIKit
 class PNOrdersMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     //MARK: Callback
-    public var didSelectCuisineCallback : ((String) -> Void)?
+    public var didSelectCuisineCallback : ((String,PNOrders) -> Void)?
     
     var type: PNHomeItemType = PNHomeItemType.cuisine
     
@@ -95,19 +95,16 @@ class PNOrdersMainSeeLessCollectionViewCell: UICollectionViewCell,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if self.type == .cuisine{
 
-//            let cuisine = self.cuisines[indexPath.row]
+        let pastOrder = pastOrders[indexPath.row]
+        
+        if self.type == .cuisine{
             if let callback = didSelectCuisineCallback{
-//                callback(cuisine["cuisine"].string!)
-                callback("0")
+                callback("0",pastOrder)
             }
         }else{
-
-//            let cuisine = self.dishes[indexPath.row]
             if let callback = didSelectCuisineCallback{
-//                callback(cuisine["cuisine"].string!)
-                callback("1")
+                callback("1",pastOrder)
             }
         }
     }

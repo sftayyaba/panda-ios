@@ -52,7 +52,7 @@ class PNBudget: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextField
     
     override func awakeFromNib() {
         self.configureTextFields()
-        
+        self.zipCodeTextField.delegate = self
        // self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.normal)
        // self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.highlighted)
        // self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.focused)

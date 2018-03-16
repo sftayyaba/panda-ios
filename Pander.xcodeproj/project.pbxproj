@@ -85,6 +85,8 @@
 		1ED0E8202051558700EB60B1 /* PNAddToCartOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */; };
 		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
 		1ED481702046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */; };
+		1EF8B9F1205BF059002E9011 /* PNOrderManager+Reorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B9F0205BF059002E9011 /* PNOrderManager+Reorder.swift */; };
+		1EF8B9F4205BF0DA002E9011 /* PNReorderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B9F3205BF0DA002E9011 /* PNReorderOperation.swift */; };
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
@@ -483,6 +485,8 @@
 		1ED0E81F2051558700EB60B1 /* PNAddToCartOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNAddToCartOperation.swift; sourceTree = "<group>"; };
 		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
 		1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSearchFindRestuarantCollectionViewCell.xib; sourceTree = "<group>"; };
+		1EF8B9F0205BF059002E9011 /* PNOrderManager+Reorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PNOrderManager+Reorder.swift"; sourceTree = "<group>"; };
+		1EF8B9F3205BF0DA002E9011 /* PNReorderOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNReorderOperation.swift; sourceTree = "<group>"; };
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
 		31A2A6AE5F5089AD6E00B2F7 /* Pods-PanderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1330,6 +1334,14 @@
 			path = AddToCart;
 			sourceTree = "<group>";
 		};
+		1EF8B9F2205BF0A7002E9011 /* Reorder */ = {
+			isa = PBXGroup;
+			children = (
+				1EF8B9F3205BF0DA002E9011 /* PNReorderOperation.swift */,
+			);
+			path = Reorder;
+			sourceTree = "<group>";
+		};
 		1EFBAFC5203AA7A900885D4D /* TextFielDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1401,6 +1413,7 @@
 				1EBCEB902058FD2400A1BCA2 /* PNOrderManager+CheckCart.swift */,
 				1EBCEB94205910BE00A1BCA2 /* PNOrderManager+Checkout.swift */,
 				1EBCEB9B205971B600A1BCA2 /* PNOrderManager+Feedback.swift */,
+				1EF8B9F0205BF059002E9011 /* PNOrderManager+Reorder.swift */,
 			);
 			path = OrderManager;
 			sourceTree = "<group>";
@@ -1408,6 +1421,7 @@
 		DA4209242030855E00327A28 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				1EF8B9F2205BF0A7002E9011 /* Reorder */,
 				1EBCEBA220597ED700A1BCA2 /* CheckCart */,
 				1EBCEBA420597ED700A1BCA2 /* Checkout */,
 				1EBCEBA020597ED700A1BCA2 /* Feedback */,
@@ -4171,6 +4185,7 @@
 				EBD4CD1720129AA400BAD5E3 /* YoshikoTextField.swift in Sources */,
 				1E96746A2046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift in Sources */,
 				EBFB70FA1FCB1CE800DB4C58 /* PNCodeResponse.swift in Sources */,
+				1EF8B9F1205BF059002E9011 /* PNOrderManager+Reorder.swift in Sources */,
 				DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */,
 				EBFB71181FCCAA9A00DB4C58 /* PropertyStoring.swift in Sources */,
 				1E9674752046CAFB006B4E35 /* PNQucikSearchCategoriesCollectionReusableView.swift in Sources */,
@@ -4285,6 +4300,7 @@
 				EB9F8ECF20262CF80044255F /* PNHomeMainSeeMoreCollectionViewCell.swift in Sources */,
 				DA6A9AAB2008F71B00BE591F /* PNCuisine.swift in Sources */,
 				EB9F8EC120261D5D0044255F /* PNHomeCollectionViewDelegateDatasource.swift in Sources */,
+				1EF8B9F4205BF0DA002E9011 /* PNReorderOperation.swift in Sources */,
 				EB12CCC820113940005E8394 /* TweePlaceholderTextField.swift in Sources */,
 				EBE7344B200E75AD001BB651 /* PNPartySizeView.swift in Sources */,
 				EBED0A501FCE93A600F9F5B8 /* PNGetRecommendationsOperation.swift in Sources */,

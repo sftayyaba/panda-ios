@@ -11,7 +11,7 @@ import SwiftyJSON
 class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     
-    public var didSelectCuisineCallback : ((String) -> Void)?
+    public var didSelectCuisineCallback : ((String,PNOrders) -> Void)?
     
     //MARK: Properties
     var pastOrders: [PNOrders] = []
@@ -207,17 +207,15 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.section == 1 && isfeatureItemShowMore {
-//            let cuisine = self.dishes[indexPath.row]
+            let pastOrder = scheduledOrders[indexPath.row]
             if let callback = didSelectCuisineCallback{
-//                callback(cuisine["cuisine"].string!)
-                callback("0")
+                callback("0",pastOrder)
             }
             
         }else if indexPath.section == 2 && isCuisineShowMore {
-//            let cuisine = self.cuisines[indexPath.row]
+            let pastOrder = pastOrders[indexPath.row]
             if let callback = didSelectCuisineCallback{
-//                callback(cuisine["cuisine"].string!)
-                callback("1")
+                callback("1",pastOrder)
             }
         }
         

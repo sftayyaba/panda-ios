@@ -78,9 +78,6 @@ class PNPlaceOrderLocationHeaderViewTableViewCell: UITableViewCell {
         
         
         
-        
-        
-        
         if let callBack = didCloseButtonCallback {
             
         }

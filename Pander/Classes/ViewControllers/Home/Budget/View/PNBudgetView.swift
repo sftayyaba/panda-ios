@@ -52,7 +52,10 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
     @IBOutlet weak var showNewAddressViewHeight: NSLayoutConstraint!
 
     override func awakeFromNib() {
+        
+        
         self.configureTextFields()
+        self.zipCodeTextField.delegate = self
         
         self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.normal)
         self.budgetPerPersonSlider.setThumbImage(UIImage.circle(diameter: 12.0, color: UIColor.red), for: UIControlState.highlighted)
@@ -143,18 +146,18 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
     
     private func handleMonthEvent() {
         
-        let date = Date()
-        let calendar = Calendar.current
+//        let date = Date()
+//        let calendar = Calendar.current
+//
+//        let month = calendar.component(.month, from: date)
         
-        let month = calendar.component(.month, from: date)
-        
-        for i in month..<12 {
+        for i in 1..<13 {
             
-            if i <= 9 {
-                self.monthArray.append("0\(i)")
-            }else {
+//            if i <= 9 {
+//                self.monthArray.append("0\(i)")
+//            }else {
                 self.monthArray.append("\(i)")
-            }
+//            }
         }
     }
     
