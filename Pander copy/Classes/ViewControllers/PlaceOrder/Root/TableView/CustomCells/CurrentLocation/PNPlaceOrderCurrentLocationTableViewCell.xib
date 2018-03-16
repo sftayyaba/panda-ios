@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PNPlaceOrderCurrentLocationTableViewCell" id="KGk-i7-Jjw" customClass="PNPlaceOrderCurrentLocationTableViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-Zg-cBI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Mp-InP">
+                                <rect key="frame" x="35" y="51.5" width="250" height="1"/>
+                                <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="d06-i0-tE5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLu-dQ-aua">
+                                <rect key="frame" x="35" y="0.0" width="250" height="50.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Budget Copy" translatesAutoresizingMaskIntoConstraints="NO" id="vjK-TA-nek">
+                                        <rect key="frame" x="0.0" y="20.5" width="13" height="10"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="current location arrow" translatesAutoresizingMaskIntoConstraints="NO" id="9JR-fy-pta">
+                                        <rect key="frame" x="30" y="17.5" width="15" height="15"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eug-VR-U8u">
+                                        <rect key="frame" x="55" y="16" width="195" height="20"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="NO  ">
+                                                <attributes>
+                                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Delivery Address">
+                                                <attributes>
+                                                    <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vjK-TA-nek" firstAttribute="leading" secondItem="cLu-dQ-aua" secondAttribute="leading" id="Bkf-5C-35B"/>
+                                    <constraint firstItem="9JR-fy-pta" firstAttribute="leading" secondItem="cLu-dQ-aua" secondAttribute="leading" constant="30" id="KaS-iu-9Zb"/>
+                                    <constraint firstItem="9JR-fy-pta" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="NUH-nM-ZGL"/>
+                                    <constraint firstItem="vjK-TA-nek" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="Ra5-tJ-ogQ"/>
+                                    <constraint firstItem="eug-VR-U8u" firstAttribute="centerY" secondItem="cLu-dQ-aua" secondAttribute="centerY" id="VCd-IU-x08"/>
+                                    <constraint firstAttribute="trailing" secondItem="eug-VR-U8u" secondAttribute="trailing" id="Yyz-0T-UUc"/>
+                                    <constraint firstItem="eug-VR-U8u" firstAttribute="leading" secondItem="9JR-fy-pta" secondAttribute="trailing" constant="10" id="hox-Ms-JSg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cLu-dQ-aua" secondAttribute="bottom" constant="2" id="1RF-BG-mjM"/>
+                            <constraint firstItem="cLu-dQ-aua" firstAttribute="leading" secondItem="iiS-Zg-cBI" secondAttribute="leading" constant="35" id="Lc7-kV-Zxz"/>
+                            <constraint firstItem="jRg-Mp-InP" firstAttribute="leading" secondItem="iiS-Zg-cBI" secondAttribute="leading" constant="35" id="RR1-lr-LL6"/>
+                            <constraint firstAttribute="bottom" secondItem="jRg-Mp-InP" secondAttribute="bottom" id="UgS-GZ-5dO"/>
+                            <constraint firstItem="cLu-dQ-aua" firstAttribute="top" secondItem="iiS-Zg-cBI" secondAttribute="top" id="XUO-F2-mVd"/>
+                            <constraint firstAttribute="trailing" secondItem="cLu-dQ-aua" secondAttribute="trailing" constant="35" id="bhz-6O-7LK"/>
+                            <constraint firstAttribute="trailing" secondItem="jRg-Mp-InP" secondAttribute="trailing" constant="35" id="mcp-JZ-2xF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.91013580559999996" green="0.10190721599999999" blue="0.11120847609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iiS-Zg-cBI" secondAttribute="trailing" id="E5I-mA-65p"/>
+                    <constraint firstAttribute="bottom" secondItem="iiS-Zg-cBI" secondAttribute="bottom" id="HCv-v9-czj"/>
+                    <constraint firstItem="iiS-Zg-cBI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="U8x-Ub-fOM"/>
+                    <constraint firstItem="iiS-Zg-cBI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iFY-Qg-dMV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="selectedStateConstratints" destination="KaS-iu-9Zb" id="XjY-y5-Cqg"/>
+                <outlet property="seletedStateImageView" destination="vjK-TA-nek" id="tRi-47-uqm"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="79.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Budget Copy" width="13" height="10"/>
+        <image name="current location arrow" width="15" height="15"/>
+    </resources>
+</document>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PNGuestLetGetStartedStepThreeCollectionViewCell" id="FP1-G4-j6g" customClass="PNGuestLetGetStartedStepThreeCollectionViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVr-Jq-SbP">
+                        <rect key="frame" x="8" y="5" width="191" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="2Mb-cV-otj"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="304" id="BP8-X2-tfd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZVr-Jq-SbP" secondAttribute="trailing" constant="8" id="5Nb-oK-5sM"/>
+                <constraint firstAttribute="bottom" secondItem="ZVr-Jq-SbP" secondAttribute="bottom" constant="5" id="CNG-ii-JvA"/>
+                <constraint firstItem="ZVr-Jq-SbP" firstAttribute="leading" secondItem="FP1-G4-j6g" secondAttribute="leading" constant="8" id="k9s-K8-qow"/>
+                <constraint firstItem="ZVr-Jq-SbP" firstAttribute="top" secondItem="FP1-G4-j6g" secondAttribute="top" constant="5" id="zbi-u5-Xfm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="1wL-YQ-lg8"/>
+            <size key="customSize" width="207" height="50"/>
+            <connections>
+                <outlet property="tagNameMaxWidthConstraint" destination="BP8-X2-tfd" id="Jzc-ed-5mq"/>
+                <outlet property="titleLabel" destination="ZVr-Jq-SbP" id="Dcr-AZ-Tld"/>
+            </connections>
+            <point key="canvasLocation" x="-7" y="76"/>
+        </collectionViewCell>
+    </objects>
+</document>

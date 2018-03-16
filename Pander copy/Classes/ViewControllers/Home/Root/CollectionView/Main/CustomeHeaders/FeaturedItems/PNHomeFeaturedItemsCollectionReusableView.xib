@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PNHomeFeaturedItemsCollectionReusableView" customModule="Pander" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PNHomeFeaturedItemsCollectionReusableView" id="U6b-Vx-4bR" customClass="PNHomeFeaturedItemsCollectionReusableView" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfa-gi-aoL">
+                    <rect key="frame" x="20" y="14" width="110.5" height="22"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl4-HE-Ld4">
+                    <rect key="frame" x="225" y="17.5" width="53" height="16.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="ka3-no-taL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow - Big - down - Black" translatesAutoresizingMaskIntoConstraints="NO" id="MWG-U2-l8M">
+                    <rect key="frame" x="288" y="22" width="12" height="7"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8X-1O-Ne7">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="selectionButtonTapped:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="j4C-VW-DGH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="MWG-U2-l8M" firstAttribute="leading" secondItem="dl4-HE-Ld4" secondAttribute="trailing" constant="10" id="4ds-Po-pEd"/>
+                <constraint firstItem="wfa-gi-aoL" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="20" id="62S-gY-Tvz"/>
+                <constraint firstItem="p8X-1O-Ne7" firstAttribute="trailing" secondItem="VXr-Tz-HHm" secondAttribute="trailing" id="Bqf-Jf-185"/>
+                <constraint firstItem="p8X-1O-Ne7" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="FK7-TK-YyP"/>
+                <constraint firstItem="dl4-HE-Ld4" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Nrx-v0-eSQ"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="MWG-U2-l8M" secondAttribute="trailing" constant="20" id="QeS-KA-0u5"/>
+                <constraint firstItem="p8X-1O-Ne7" firstAttribute="bottom" secondItem="VXr-Tz-HHm" secondAttribute="bottom" id="ZGh-Pn-ocN"/>
+                <constraint firstItem="p8X-1O-Ne7" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" id="fNy-we-oM3"/>
+                <constraint firstItem="MWG-U2-l8M" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="n8r-Dh-zkv"/>
+                <constraint firstItem="wfa-gi-aoL" firstAttribute="centerY" secondItem="VXr-Tz-HHm" secondAttribute="centerY" id="yL4-Wf-l8x"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="arrowImage" destination="MWG-U2-l8M" id="9vj-Qm-ML7"/>
+                <outlet property="seeLabel" destination="dl4-HE-Ld4" id="P4j-tT-06J"/>
+                <outlet property="selectedButton" destination="p8X-1O-Ne7" id="rFk-kl-zes"/>
+                <outlet property="titleLabel" destination="wfa-gi-aoL" id="jjv-g3-6rr"/>
+            </connections>
+            <point key="canvasLocation" x="-157" y="-13"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="Arrow - Big - down - Black" width="12" height="7"/>
+    </resources>
+</document>

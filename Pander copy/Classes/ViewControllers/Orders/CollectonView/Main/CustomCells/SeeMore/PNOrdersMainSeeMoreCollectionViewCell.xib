@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EdY-ZV-SYZ" customClass="PNOrdersMainSeeMoreCollectionViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="205"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="205"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osn-jp-rML">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="138"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Upc-pe-51h"/>
+                            <constraint firstAttribute="height" constant="138" id="zuZ-Fp-WGM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImD-JU-aVT">
+                        <rect key="frame" x="0.0" y="143" width="100" height="62"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Tues Sep 12">
+                                <attributes>
+                                    <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <font key="NSFont" size="13" name="AvenirNext-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="   Lorem ipsum dolor sit amet.">
+                                <attributes>
+                                    <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <font key="NSFont" size="11" name="AvenirNext-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="osn-jp-rML" firstAttribute="top" secondItem="EdY-ZV-SYZ" secondAttribute="top" id="CYj-Nj-WJG"/>
+                <constraint firstAttribute="bottom" secondItem="ImD-JU-aVT" secondAttribute="bottom" id="M4h-pc-0Y9"/>
+                <constraint firstItem="osn-jp-rML" firstAttribute="leading" secondItem="EdY-ZV-SYZ" secondAttribute="leading" id="VeK-rE-aSc"/>
+                <constraint firstItem="ImD-JU-aVT" firstAttribute="top" secondItem="osn-jp-rML" secondAttribute="bottom" constant="5" id="jO1-FJ-Is0"/>
+                <constraint firstItem="ImD-JU-aVT" firstAttribute="leading" secondItem="EdY-ZV-SYZ" secondAttribute="leading" id="obl-Um-hfo"/>
+                <constraint firstAttribute="trailing" secondItem="ImD-JU-aVT" secondAttribute="trailing" id="sAh-P6-T6O"/>
+                <constraint firstAttribute="trailing" secondItem="osn-jp-rML" secondAttribute="trailing" id="xsy-fu-gnj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="T9V-6d-aIh"/>
+            <size key="customSize" width="100" height="205"/>
+            <connections>
+                <outlet property="itemImageView" destination="osn-jp-rML" id="dcK-Sn-HN1"/>
+                <outlet property="itemLabel" destination="ImD-JU-aVT" id="fwP-MG-n3F"/>
+            </connections>
+            <point key="canvasLocation" x="-52" y="158.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PNChaseCardTableViewCell" id="KGk-i7-Jjw" customClass="PNChaseCardTableViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFP-K7-hBd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60n-PF-zGF">
+                                <rect key="frame" x="35" y="42.5" width="250" height="1"/>
+                                <color key="backgroundColor" red="0.92932325599999999" green="0.92947560549999997" blue="0.92929089070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="3f1-5y-8RL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1H-t5-3VQ">
+                                <rect key="frame" x="35" y="0.0" width="250" height="41.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Budget Copy" translatesAutoresizingMaskIntoConstraints="NO" id="3pd-b6-wLG">
+                                        <rect key="frame" x="0.0" y="16" width="13" height="10"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chase Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsu-p1-OoJ">
+                                        <rect key="frame" x="30" y="11" width="74.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide left" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-ms-lDX">
+                                        <rect key="frame" x="222" y="11.5" width="26" height="19"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VXM-ms-lDX" secondAttribute="trailing" constant="2" id="5Va-QW-6cZ"/>
+                                    <constraint firstItem="3pd-b6-wLG" firstAttribute="leading" secondItem="u1H-t5-3VQ" secondAttribute="leading" id="BsB-iB-3bn"/>
+                                    <constraint firstItem="Vsu-p1-OoJ" firstAttribute="centerY" secondItem="u1H-t5-3VQ" secondAttribute="centerY" id="NCS-Gm-Llm"/>
+                                    <constraint firstItem="VXM-ms-lDX" firstAttribute="centerY" secondItem="u1H-t5-3VQ" secondAttribute="centerY" id="PnC-YM-gRQ"/>
+                                    <constraint firstItem="Vsu-p1-OoJ" firstAttribute="leading" secondItem="u1H-t5-3VQ" secondAttribute="leading" constant="30" id="f5W-Wr-96q"/>
+                                    <constraint firstItem="3pd-b6-wLG" firstAttribute="centerY" secondItem="u1H-t5-3VQ" secondAttribute="centerY" id="k7g-B6-5cI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="60n-PF-zGF" firstAttribute="leading" secondItem="gFP-K7-hBd" secondAttribute="leading" constant="35" id="8IR-0o-aIX"/>
+                            <constraint firstAttribute="bottom" secondItem="60n-PF-zGF" secondAttribute="bottom" id="E0d-Kc-mUr"/>
+                            <constraint firstAttribute="trailing" secondItem="60n-PF-zGF" secondAttribute="trailing" constant="35" id="GG7-kk-5lL"/>
+                            <constraint firstAttribute="bottom" secondItem="u1H-t5-3VQ" secondAttribute="bottom" constant="2" id="PIz-Yd-azm"/>
+                            <constraint firstItem="u1H-t5-3VQ" firstAttribute="leading" secondItem="gFP-K7-hBd" secondAttribute="leading" constant="35" id="RzU-TV-HGj"/>
+                            <constraint firstAttribute="trailing" secondItem="u1H-t5-3VQ" secondAttribute="trailing" constant="35" id="a37-xm-lfz"/>
+                            <constraint firstItem="u1H-t5-3VQ" firstAttribute="top" secondItem="gFP-K7-hBd" secondAttribute="top" id="zwE-Hi-psO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gFP-K7-hBd" secondAttribute="bottom" id="2jt-7k-o1o"/>
+                    <constraint firstAttribute="trailing" secondItem="gFP-K7-hBd" secondAttribute="trailing" id="Tj9-ag-4Jr"/>
+                    <constraint firstItem="gFP-K7-hBd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kQ8-Fu-6k6"/>
+                    <constraint firstItem="gFP-K7-hBd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pdH-vh-ESK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="selectedStateConstratints" destination="f5W-Wr-96q" id="Vr8-VF-pCR"/>
+                <outlet property="seletedStateImageView" destination="3pd-b6-wLG" id="3c1-Rp-ZlN"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Budget Copy" width="13" height="10"/>
+        <image name="slide left" width="26" height="19"/>
+    </resources>
+</document>

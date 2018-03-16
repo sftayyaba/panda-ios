@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PNHomeMainSeeMoreCollectionViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fC3-0m-iHH">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SALADS" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSC-2J-JY8">
+                        <rect key="frame" x="10" y="66.5" width="80" height="23.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nSC-2J-JY8" secondAttribute="bottom" constant="10" id="BbD-BO-9tU"/>
+                <constraint firstItem="nSC-2J-JY8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="R05-Dt-Zlj"/>
+                <constraint firstItem="nSC-2J-JY8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="aVv-8A-LuW"/>
+                <constraint firstAttribute="trailing" secondItem="nSC-2J-JY8" secondAttribute="trailing" constant="10" id="ar2-aF-1QP"/>
+                <constraint firstItem="nSC-2J-JY8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="iH9-Kd-xHy"/>
+                <constraint firstAttribute="trailing" secondItem="nSC-2J-JY8" secondAttribute="trailing" constant="10" id="yKC-Fg-yAh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="100" height="100"/>
+            <connections>
+                <outlet property="itemImageView" destination="fC3-0m-iHH" id="7ey-do-Hce"/>
+                <outlet property="itemLabel" destination="nSC-2J-JY8" id="oBe-7a-neB"/>
+            </connections>
+            <point key="canvasLocation" x="59" y="151"/>
+        </collectionViewCell>
+    </objects>
+</document>
