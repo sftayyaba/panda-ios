@@ -216,7 +216,12 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
         
         textField.textColor = UIColor.white
         
-        
+        if(textField == budget
+            .zipCodeTextField){
+            if range.location == 5{
+                return false
+            }
+        }
         
         if textField.text?.characters.count == 4 && string.characters.count != 0 {
             textField.text = textField.text! + "-"

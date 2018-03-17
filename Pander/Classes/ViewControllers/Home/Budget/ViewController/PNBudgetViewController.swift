@@ -220,7 +220,11 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         textField.textColor = UIColor.white
-      
+        if(textField == budgetView.zipCodeTextField){
+            if range.location == 5{
+                return false
+            }
+        }
         
         if textField.text?.characters.count == 4 && string.characters.count != 0 {
             textField.text = textField.text! + "-"

@@ -40,13 +40,18 @@ class PNPlaceOrderViewController: PNBaseViewController {
                 var totalPrice = UserDefaults.standard.object(forKey: "myTotalPrice") as! Float
                 totalPrice = totalPrice + unitPrice!
                 UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
-//                self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+                self.placeOrderView?.totalPriceLabel?.text! =  String(totalPrice)
+                
+                 self.placeOrderView?.totalPriceLabel?.text = "$\(self.placeOrderView.totalPriceLabel.text!)"
             }else {
                 if var totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
                     return result + dish.price!
                 }){
                     totalPrice = totalPrice + unitPrice!
-//                    self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+                   
+                    self.placeOrderView?.totalPriceLabel?.text =  String(totalPrice)
+                   
+                    self.placeOrderView?.totalPriceLabel?.text = "$\(self.placeOrderView.totalPriceLabel.text!)"
                     UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
                 }
             }
@@ -59,8 +64,8 @@ class PNPlaceOrderViewController: PNBaseViewController {
             let unitPrice = dish.unitPrice
             var totalPrice = UserDefaults.standard.object(forKey: "myTotalPrice") as! Float
             totalPrice = totalPrice - unitPrice!
-            
-//            self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+            self.placeOrderView?.totalPriceLabel?.text =  String(totalPrice)
+            self.placeOrderView?.totalPriceLabel?.text = "$\(self.placeOrderView.totalPriceLabel.text!)"
             UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
             
         }
@@ -71,7 +76,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         if (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
             return result + dish.price!
         })) != nil{
-           // self.placeOrderView.totalPriceLabel.text = "$"+totalPrice.format(f: "")
+           // self.placeOrderView.totalPriceLabel.text = "$"+updateTotalPrice().format(f: "%f")
         }
     }
     

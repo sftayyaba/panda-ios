@@ -34,6 +34,7 @@ class PNGuestLetsGetStartedWithLocationController: PNBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func configureView() {

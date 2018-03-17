@@ -83,8 +83,13 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     @IBAction func plusBtnTarget(_ sender: Any) {
         counter = counter + 1
+        self.redPriceLabel.text = self.redPriceLabel.text?.components(separatedBy: "$")[1]
         self.counterLbl.text = String(format: "%d",counter)
         let dishDic : [String: PNOrderDish] = ["dish":dish]
+        let alreadyprice = (self.redPriceLabel.text! as NSString).floatValue
+       
+        self.redPriceLabel.text =  String(alreadyprice+dish.price!)
+        self.redPriceLabel.text = "$\(self.redPriceLabel.text!)"
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
     }
     
@@ -97,8 +102,13 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
 //            let dishDic : [String: PNOrderDish] = ["dish":dish]
 //            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
         }else {
+            self.redPriceLabel.text = self.redPriceLabel.text?.components(separatedBy: "$")[1]
             self.counterLbl.text = String(format: "%d",counter)
             let dishDic : [String: PNOrderDish] = ["dish":dish]
+            let alreadyprice = (self.redPriceLabel.text! as NSString).floatValue
+            
+            self.redPriceLabel.text =  String(alreadyprice-dish.price!)
+            self.redPriceLabel.text = "$\(self.redPriceLabel.text!)"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "minus"), object: nil, userInfo: dishDic)
         }
     }
