@@ -91,7 +91,9 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
     @IBAction func showStoredAddressButtonTapped() {
         
         if !self.storeAddressButton.isSelected {
-            if(PNUserManager.sharedInstance.cardsBaseObject?.cards?.count == 0){
+            let cardsCount = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count ?? 0
+
+            if cardsCount == 0 {
                  self.showTableViewHeight.constant = 35
             }else{
                  self.showTableViewHeight.constant = 200

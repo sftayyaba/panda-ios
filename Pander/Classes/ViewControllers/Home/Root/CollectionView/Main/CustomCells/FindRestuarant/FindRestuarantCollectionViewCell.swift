@@ -83,7 +83,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
 //            labelDishesOrCuisine.text = stringRepresentation
             self.labelDishesOrCuisine.attributedText = NSMutableAttributedString()
                             .normal("Search for")
-                .bold(stringRepresentation!)
+                .bold(stringRepresentation ?? "")
         }
         
         
