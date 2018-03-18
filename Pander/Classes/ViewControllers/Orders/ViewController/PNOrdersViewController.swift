@@ -17,17 +17,11 @@ class PNOrdersViewController: PNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
-            
-//            var cardarray = response.cards
-            
             if response.cards?.count != 0 {
-                PNUserManager.sharedInstance.selectedCard=response.cards?[0]
+                PNUserManager.sharedInstance.selectedCard = response.cards?[0]
                 if PNUserManager.sharedInstance.selectedCard != nil{
-                    
-                    //((PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!)!)
                 }
             }
-            
         }
             , FailureBlock: { (error) in
                 if (error as? ErrorBaseClass) != nil{
@@ -40,14 +34,10 @@ class PNOrdersViewController: PNBaseViewController {
         
         PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
             if let addresses = response.addresses{
-                //self.locationTableView.addresses = addresses
                 if addresses.count != 0 {
-//                    self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
-//                        .normal(normalText)
-//                        .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
+                    PNUserManager.sharedInstance.selectedAddress = addresses[0]
                 }
             }
-            
         }
             , FailureBlock: { (error) in
                 if (error as? ErrorBaseClass) != nil{
@@ -55,7 +45,6 @@ class PNOrdersViewController: PNBaseViewController {
                 }else {
                     // self.alert(title: "Error", message: "Something went wrong !")
                 }
-                
         })
         
         

@@ -130,7 +130,7 @@ class PNOrdersCollectionViewDelegateDatasource: UICollectionView,UICollectionVie
             let cell:PNOrdersMainSeeMoreCollectionViewCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "PNOrdersMainSeeMoreCollectionViewCell", for: indexPath) as! PNOrdersMainSeeMoreCollectionViewCell
             
-            let pastOrder = pastOrders[indexPath.row]
+            let pastOrder = self.scheduledOrders[indexPath.row]
             let imgUrlStr = pastOrder.imageUrl!
 
             let imgUrl = URL(string: "\(imgUrlStr)?imageType=deliveryItemExpanded")

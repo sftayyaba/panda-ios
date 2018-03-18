@@ -23,10 +23,28 @@ class PNOrderDetailViewController: PNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(cuisine)
         
+        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+            PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+                
+            }
+                , FailureBlock: { (error) in
+                    if (error as? ErrorBaseClass) != nil{
+                        //(self.alert(title: "Oops", message: localError.localizedDescription)
+                    }else {
+                        // self.alert(title: "Error", message: "Something went wrong !")
+                    }
+                    
+            })
+        }
+         , FailureBlock: { (error) in
+                if (error as? ErrorBaseClass) != nil{
+                    //self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    // self.alert(title: "Error", message: "Something went wrong !")
+                }
+        })
         
-        // Do any additional setup after loading the view.
         tableView.order = self.order
         tableView.cuisine = self.cuisine
     }
@@ -195,6 +213,21 @@ class PNOrderDetailViewController: PNBaseViewController {
                 })
 
             }
+        }
+        
+        
+        self.tableView.didPressShowAddressCallback = {
+            let viewController = PNLocationViewController(nibName: "PNLocationViewController", bundle: nil)
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
+        }
+        
+        self.tableView.didPressShowCardCallback = {
+            let viewController = PNBudgetVC(nibName: "PNBudgetVC", bundle: nil)
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
         }
     }
     

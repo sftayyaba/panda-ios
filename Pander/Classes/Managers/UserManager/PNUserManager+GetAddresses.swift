@@ -20,7 +20,9 @@ extension PNUserManager {
         
         getAddressesOperation.didFinishSuccessfullyCallback = {
             response in
+            
             weakSelf?.getNicks(SuccessBlock: { (nicks) in
+                
                 weakSelf?.getDefaults(SuccessBlock: { (defaults) in
                     
                     weakSelf?.notifyNetworkRequestFinish()

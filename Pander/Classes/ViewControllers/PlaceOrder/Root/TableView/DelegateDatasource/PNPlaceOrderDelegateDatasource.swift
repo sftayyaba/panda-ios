@@ -127,8 +127,6 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                 self.isPaymentSelected = true
             }
             
-//            self.isLocationSelected = true
-            
             self.reloadData()
         }
         
@@ -221,10 +219,6 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                 let cards = numberofCards
                 if(indexPath.row==cards){
                  
-                    
-//                    let viewController = PNBudgetViewController(nibName: "PNBudgetVC", bundle: nil)
-//
-//                    UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
                     if let callback = self.didPressShowCardCallback{
                         callback();
                     }

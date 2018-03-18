@@ -21,6 +21,10 @@ class PNHomeViewController: PNBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+//        PNUserManager.sharedInstance.homeSelectedCuisines
+        
+        
         self.homeView.collectionView.reloadData()
         self.doInitialDataLoad()
     }
@@ -242,8 +246,6 @@ class PNHomeViewController: PNBaseViewController {
                 self.alert(title: "Error", message: "Something went wrong")
             }
         }
-        
-        
     }
 
 }

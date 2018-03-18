@@ -71,7 +71,6 @@ class PNFavoriteDishesController: PNBaseViewController {
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
             if selectedCount > 0 {
-                
                 PNUserManager.sharedInstance.homeSelectedCuisines = self.collectionView.selectedCusines
             } else {
             }

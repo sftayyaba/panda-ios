@@ -322,6 +322,7 @@
                 <outlet property="deliverAtTimeLabel" destination="gcQ-RD-gHV" id="gQY-gw-yye"/>
                 <outlet property="labelBudgetPerPerson" destination="DUU-vl-x6j" id="jY8-DZ-KiL"/>
                 <outlet property="labelDeliverToLocation" destination="rAp-jZ-aJm" id="uYb-dL-JBS"/>
+                <outlet property="labelDishesOrCuisine" destination="dBv-G7-Zmo" id="fcO-Xk-eNy"/>
                 <outlet property="labelPeopleEating" destination="upG-gt-Nu4" id="T0N-Ez-lJq"/>
             </connections>
             <point key="canvasLocation" x="-141" y="51"/>
