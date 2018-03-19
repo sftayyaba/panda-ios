@@ -242,7 +242,16 @@ final class PNUserManager: PNBaseManager {
     func logoutUser(){
         
         PNUserManager.sharedInstance.selectedCard=nil;
+        PNUserManager.sharedInstance.cardsBaseObject = nil;
+        
+        PNUserManager.sharedInstance.selectedAddress = nil;
         PNUserManager.sharedInstance.addresses=nil;
+
+        PNUserManager.sharedInstance.selectedDishes = nil;
+        PNUserManager.sharedInstance.selectedCusines = nil;
+        
+        PNUserManager.sharedInstance.homeSelectedCuisines = nil;
+        
        // self.token = nil
         
         //self.email = nil
