@@ -73,17 +73,22 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
         setLabelDeliverWhen()
         
         if PNUserManager.sharedInstance.homeSelectedCuisines?.count == 0 {
-            
-        }else {
-//            self.labelDeliverToLocation.attributedText = NSMutableAttributedString()
-//                .normal(normalText)
-//                .bold((PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street)!)
-//           labelDishesOrCuisine.text =  PNUserManager.sharedInstance.homeSelectedCuisines?[0]
-            let stringRepresentation = PNUserManager.sharedInstance.homeSelectedCuisines.flatMap({$0})?.joined(separator: ",")
-//            labelDishesOrCuisine.text = stringRepresentation
             self.labelDishesOrCuisine.attributedText = NSMutableAttributedString()
-                            .normal("Search for")
-                .bold(stringRepresentation!)
+                .normal("Search for ")
+                .bold("dishes or cuisine")
+
+        }else {
+            let stringRepresentation = PNUserManager.sharedInstance.homeSelectedCuisines.flatMap({$0})?.joined(separator: ",")
+            if stringRepresentation == nil {
+                self.labelDishesOrCuisine.attributedText = NSMutableAttributedString()
+                    .normal("Search for ")
+                    .bold("dishes or cuisine")
+
+            }else {
+                self.labelDishesOrCuisine.attributedText = NSMutableAttributedString()
+                    .normal("Search for ")
+                    .bold(stringRepresentation!)
+            }
         }
         
         

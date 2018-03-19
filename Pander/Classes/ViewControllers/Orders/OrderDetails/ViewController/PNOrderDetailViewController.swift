@@ -229,6 +229,13 @@ class PNOrderDetailViewController: PNBaseViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
             
         }
+        
+        
+        self.tableView.didAddItemButtonCallback = {
+            let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
+            self.navigationController?.pushViewController(viewController, animated: true)
+
+        }
     }
     
     fileprivate func configureTableView() {
@@ -276,15 +283,5 @@ class PNOrderDetailViewController: PNBaseViewController {
         super.viewWillDisappear(animated)
         UserDefaults.standard.set(nil, forKey: "detailTotalPrice")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
     public var didAddItemButtonCallback : (() -> Void)?
+    public var didRemoveItemButtonCallback : ((PNOrderDish) -> Void)?
 
     public var didPressShowAddressCallback : (() -> Void)?
     public var didPressShowCardCallback : (() -> Void)?
@@ -90,11 +91,7 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             let cell: PNPlaceOrderTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderTotalTableViewCell") as? PNPlaceOrderTotalTableViewCell)!
             cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
             cell.newSuggestionButtonCallback = self.newSuggestionButtonCallback;
-            if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
-                return result + dish.price!
-            }){
-                cell.totalPriceLbl.text = "$"+totalPrice.format(f: "")
-            }
+            cell.setContent()
             return cell
         }else {
             return UIView()
@@ -189,6 +186,8 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         }
         
         cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+        cell.didRemoveItemButtonCallback = self.didRemoveItemButtonCallback;
+        
         return cell
     }
     
@@ -216,47 +215,101 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         if indexPath.section == 0 {
             // Create the actions
             if self.isPaymentSelected{
-                let cards = numberofCards
-                if(indexPath.row==cards){
-                 
-                    if let callback = self.didPressShowCardCallback{
-                        callback();
+//                let cards = numberofCards
+//                if(indexPath.row==cards){
+//
+//                    if let callback = self.didPressShowCardCallback{
+//                        callback();
+//                    }
+//
+//                    print("add new")
+//
+//
+//                }else{
+//
+//                let card = PNUserManager.sharedInstance.cardsBaseObject;
+//                var mycard = card?.cards![indexPath.row];
+//
+//
+//                let payment = PNUserManager.sharedInstance.selectedCard
+//                payment?.isSelected=false
+//                payment?.isDefault=false
+//                mycard?.isSelected=true
+//                mycard?.isDefault=true
+//                payment?.isSelected = !(payment?.isSelected)!
+//
+//
+//                var selectDefault = false
+//                if !(payment?.isSelected)!{
+//                    selectDefault = true
+//                }
+//                if(payment?.ccId != mycard?.ccId){
+//                    payment?.isSelected=false
+//                }
+//                if selectDefault && (payment?.isDefault)!{
+//                    payment?.isSelected = true;
+//                    mycard = payment
+//                }
+//                PNUserManager.sharedInstance.selectedCard = mycard
+//                numberofCards=0;
+//                self.refreshData()
+//                self.reloadData()
+//                 numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
+                
+                let alertController = UIAlertController(title: "", message: "Are you sure you want to change your card?", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                    
+                    let cards = self.numberofCards
+                    if(indexPath.row==cards){
+                        print("Add cards");
+                        if let callback = self.didPressShowCardCallback{
+                            callback();
+                        }
+                        
+                    }else {
+                        if  let card = PNUserManager.sharedInstance.cardsBaseObject?.cards![indexPath.row] {
+                            
+                            card.isSelected = !card.isSelected
+                            var selectDefault = false
+                            
+                            if !card.isSelected{
+                                selectDefault = true
+                            }
+                            
+                            var selectedCard = card;
+                            PNUserManager.sharedInstance.cardsBaseObject?.cards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.map { (currentCard) -> PNCards in
+                                
+                                if (card.ccId != currentCard.ccId){
+                                    currentCard.isSelected = false
+                                }
+                                
+                                if selectDefault && currentCard.isDefault{
+                                    currentCard.isSelected = true;
+                                    selectedCard = currentCard
+                                }
+                                
+                                return currentCard
+                            }
+                            
+                            PNUserManager.sharedInstance.selectedCard = selectedCard
+                            self.isLocationSelected = false
+                            self.isPaymentSelected = false
+                            self.reloadData()
+                        }
+                        
                     }
-                   
-                    print("add new")
-                    
-                    
-                }else{
-                    
-                let card = PNUserManager.sharedInstance.cardsBaseObject;
-                var mycard = card?.cards![indexPath.row];
-               
-                
-                let payment = PNUserManager.sharedInstance.selectedCard
-                payment?.isSelected=false
-                payment?.isDefault=false
-                mycard?.isSelected=true
-                mycard?.isDefault=true
-                payment?.isSelected = !(payment?.isSelected)!
-                
-                
-                var selectDefault = false
-                if !(payment?.isSelected)!{
-                    selectDefault = true
                 }
-                if(payment?.ccId != mycard?.ccId){
-                    payment?.isSelected=false
+                
+                let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+                    UIAlertAction in
+                    NSLog("Cancel Pressed")
                 }
-                if selectDefault && (payment?.isDefault)!{
-                    payment?.isSelected = true;
-                    mycard = payment
-                }
-                PNUserManager.sharedInstance.selectedCard = mycard
-                numberofCards=0;
-                self.refreshData()
-                self.reloadData()
-                 numberofCards = PNUserManager.sharedInstance.cardsBaseObject?.cards?.count
-            }
+                
+                alertController.addAction(okAction)
+                alertController.addAction(cancelAction)
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
             }
             if self.isLocationSelected {
                 
@@ -301,6 +354,8 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
                     
                     PNUserManager.sharedInstance.selectedAddress = selectedAddress
                     self.refreshData()
+                    self.isLocationSelected = false
+                    self.isPaymentSelected = false
                     self.reloadData()
                     }
                 }

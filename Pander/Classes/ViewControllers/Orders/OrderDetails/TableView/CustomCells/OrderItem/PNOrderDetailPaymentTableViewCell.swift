@@ -11,6 +11,7 @@ class PNOrderDetailPaymentTableViewCell: UITableViewCell {
 
     
     public var didAddItemButtonCallback : (() -> Void)?
+    
     var cart: PNCart!
     var ordrer: PNOrders!
     var totalPrice = Float()
@@ -141,7 +142,18 @@ class PNOrderDetailPaymentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func changeTarget(_ sender: Any) {
+        if let callBack = didAddItemButtonCallback{
+            callBack()
+        }
+    }
+    
+    
 }
+
+
+
+
 
 extension String {
     func floatValue() -> Float? {

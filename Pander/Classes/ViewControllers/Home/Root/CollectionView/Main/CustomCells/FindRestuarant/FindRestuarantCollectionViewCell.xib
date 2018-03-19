@@ -73,11 +73,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g10-dm-Kmb">
                         <rect key="frame" x="20" y="55" width="280" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Food icon" translatesAutoresizingMaskIntoConstraints="NO" id="3SI-0m-zCb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Food icon" translatesAutoresizingMaskIntoConstraints="NO" id="3SI-0m-zCb">
                                 <rect key="frame" x="15" y="14.5" width="21" height="16"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBv-G7-Zmo">
-                                <rect key="frame" x="51" y="13" width="175" height="19.5"/>
+                                <rect key="frame" x="51" y="13" width="214" height="19.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Search for">
                                         <attributes>
@@ -96,6 +96,7 @@
                         <color key="backgroundColor" red="0.97637790440000005" green="0.97653752569999996" blue="0.97634404900000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dBv-G7-Zmo" firstAttribute="leading" secondItem="3SI-0m-zCb" secondAttribute="trailing" constant="15" id="637-kE-6JQ"/>
+                            <constraint firstAttribute="trailing" secondItem="dBv-G7-Zmo" secondAttribute="trailing" constant="15" id="KK2-rD-0Ch"/>
                             <constraint firstItem="3SI-0m-zCb" firstAttribute="leading" secondItem="g10-dm-Kmb" secondAttribute="leading" constant="15" id="cNw-8g-eTN"/>
                             <constraint firstItem="dBv-G7-Zmo" firstAttribute="centerY" secondItem="3SI-0m-zCb" secondAttribute="centerY" id="dyT-Wj-9yH"/>
                             <constraint firstAttribute="height" constant="45" id="fsA-ZG-Jvd"/>

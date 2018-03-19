@@ -45,13 +45,11 @@ extension PNOrderManager{
                 }
                 
             }
-            
             getRecommendationsOperation.didFinishWithErrorCallback = {
                 error in
                 weakSelf?.notifyNetworkRequestFinish()
                 failureBlock(error)
             }
-            
         OnebyteNetworkOperationQueue.sharedInstance.addOperation(getRecommendationsOperation)
         
     }

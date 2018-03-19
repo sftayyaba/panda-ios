@@ -10,6 +10,8 @@ import UIKit
 class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
 
     public var didAddItemButtonCallback : (() -> Void)?
+    public var didRemoveItemButtonCallback : ((PNOrderDish) -> Void)?
+    
     var dish: PNOrderDish!
     @IBOutlet weak var redPriceLabel: UILabel!
     @IBOutlet weak var greyPriceLabel: UILabel!
@@ -27,7 +29,7 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     @IBOutlet var chagneBtn: UIButton!
     @IBOutlet var refreshBtn: UIButton!
     
-    var counter = Int()
+    var counter = 1
     
     
     override func awakeFromNib() {
@@ -88,27 +90,48 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
         let dishDic : [String: PNOrderDish] = ["dish":dish]
         let alreadyprice = (self.redPriceLabel.text! as NSString).floatValue
        
-        self.redPriceLabel.text =  String(alreadyprice+dish.price!)
+        self.redPriceLabel.text =  String(alreadyprice + dish.unitPrice!)
         self.redPriceLabel.text = "$\(self.redPriceLabel.text!)"
+        dish.price = alreadyprice + dish.price!
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
     }
     
     @IBAction func minusBtntarget(_ sender: Any) {
         counter = counter - 1
-        if counter < 0 {
-            counter = 0
-            self.counterLbl.text = String(format: "%d",counter)
+        if counter <= 0 {
+            let alertController = UIAlertController(title: "", message: "Are you sure you want to remove the item?", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
+                self.counter = 0
+                self.counterLbl.text = String(format: "%d",self.counter)
+                if let callBack = self.didRemoveItemButtonCallback{
+                    callBack(self.dish)
+                }
+            }
             
-//            let dishDic : [String: PNOrderDish] = ["dish":dish]
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
+            let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+                UIAlertAction in
+                NSLog("Cancel Pressed")
+                self.counter = 1
+                self.counterLbl.text = String(format: "%d",self.counter)
+            }
+            
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            
         }else {
             self.redPriceLabel.text = self.redPriceLabel.text?.components(separatedBy: "$")[1]
             self.counterLbl.text = String(format: "%d",counter)
             let dishDic : [String: PNOrderDish] = ["dish":dish]
             let alreadyprice = (self.redPriceLabel.text! as NSString).floatValue
             
-            self.redPriceLabel.text =  String(alreadyprice-dish.price!)
+            self.redPriceLabel.text =  String(alreadyprice - dish.unitPrice!)
             self.redPriceLabel.text = "$\(self.redPriceLabel.text!)"
+            
+            dish.price = alreadyprice - dish.unitPrice!
+            
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "minus"), object: nil, userInfo: dishDic)
         }
     }
