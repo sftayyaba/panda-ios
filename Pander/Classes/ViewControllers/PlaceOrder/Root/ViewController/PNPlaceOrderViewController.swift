@@ -210,7 +210,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
                     let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
                         UIAlertAction in
                         //Check Out
-                        self.cartCheckOut(resturantId,tipAmount: tipAmount)
+                        self.cartCheckOut(resturantId,tipAmount: tipAmount, totalPrice: totalEstimatedPrice)
                     }
 
                     let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
@@ -223,7 +223,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
                 }else {
                     let tipAmount = totalPrice * 0.1
                     //Check Out
-                    self.cartCheckOut(resturantId,tipAmount: tipAmount)
+                    self.cartCheckOut(resturantId,tipAmount: tipAmount, totalPrice: totalEstimatedPrice)
                 }
             }
         }, FailureBlock: { (error) in
@@ -237,7 +237,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         
     }
     
-    func cartCheckOut(_ resturantId: String,tipAmount:Float) {
+    func cartCheckOut(_ resturantId: String, tipAmount: Float, totalPrice: Float) {
         
         let cardId = PNUserManager.sharedInstance.selectedCard?.ccId
         let location = (PNUserManager.sharedInstance.selectedAddress?.locationId)!
@@ -255,6 +255,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
             print("success is",checkOut)
             let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
 //            viewController.price = self.placeOrderView.totalPriceLabel.text!;
+            viewController.totalBill = totalPrice
             self.navigationController?.pushViewController(viewController, animated: true)
         }) { (error) in
             if let localError = error as? ErrorBaseClass{

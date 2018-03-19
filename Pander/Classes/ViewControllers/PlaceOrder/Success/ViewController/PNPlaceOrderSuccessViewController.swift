@@ -13,11 +13,13 @@ import GoogleSignIn
 class PNPlaceOrderSuccessViewController: PNBaseViewController {
     
     var price = ""
+    var totalBill = Float()
+
     @IBOutlet weak var UserName: UILabel!
     @IBOutlet weak var Explanation: UILabel!
     
     @IBOutlet weak var  ResturantAddress1:UILabel!
-    @IBOutlet weak var orderNumber: UILabel!
+    @IBOutlet weak var orderNumberLbl: UILabel!
     @IBOutlet var placeOrderSuccessView: PNPlaceOrderSuccessView!
     @IBOutlet weak var totalPrice: UILabel!
     
@@ -31,33 +33,37 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.totalPrice.text = price
-        let info = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo
-        self.UserName.text = "Hi, \((PNUserManager.sharedInstance.user?.firstName)!)"
+        let restaurantInfo = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo
+        let orderCheckout = PNOrderManager.sharedInstance.checkOut
+
+        UserName.text = "Hi, \(PNUserManager.sharedInstance.user?.firstName ?? "")"
+        Explanation.text = StringConstants.orderCheckoutSuccessMessage.replacingOccurrences(of: StringConstants.restaurantNamePlaceholder, with: restaurantInfo?.name ?? "")
+        if let orderId = orderCheckout?.orderId {
+            orderNumberLbl.text = "\(orderId)"
+        }
+        totalPrice.text = "$\(totalBill)"
+
         self.ResturantName.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
-        var val = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address
-        let chekc = val?.split(separator: "-")
-        val = String(chekc![0]) + String(chekc![1])
-        self.ResturantAddress.text = String(chekc![2])
-        self.ResturantAddress1.text = val
+
+        let restaurantAddress = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.address
+        let addressComponents = (restaurantAddress ?? "").components(separatedBy: "-SPLITTER-")
+        ResturantAddress1.text = addressComponents.first
+        ResturantAddress.text = addressComponents.last
+
         self.numberuser.text = PNUserManager.sharedInstance.selectedAddress?.phone
         var string = PNUserManager.sharedInstance.selectedAddress?.city!
         string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.state!)!
         string = string! + ", " + (PNUserManager.sharedInstance.selectedAddress?.zipCode!)!
         self.buddinsaddress2.text = string
         self.buddinsaddress.text = (PNUserManager.sharedInstance.selectedAddress?.street!)!
-        print(PNUserManager.sharedInstance.selectedAddress?.nick!)
-       // print(string)
-        //self.buddinsaddress.text = "\(PNUserManager.sharedInstance.selectedAddress?.city,PNUserManager.sharedInstance.selectedAddress?.state)"
-        //\(PNUserManager.sharedInstance.selectedAddress?.locationId!),\(PNUserManager.sharedInstance.selectedAddress?.street!)"
-        self.Explanation.text = "N A"
-        
     }
     
     override func configureCallBacks() {
     }
     
     @IBAction func detailButtonClick(_ sender: Any) {
+        let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 280.0)))
+        orderDetailsView.showOn(view: view)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
