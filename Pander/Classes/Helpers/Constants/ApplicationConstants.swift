@@ -324,3 +324,7 @@ struct ApplicationAlertMessages {
     static let kAlertSelectCorrectDateTitle = "Please enter correct date"
 }
 
+struct StringConstants {
+    static let restaurantNamePlaceholder = "{{RESTAURANT NAME}}"
+    static let orderCheckoutSuccessMessage = "Thanks for your order from {{RESTAURANT NAME}}! They're working on it now for you to enjoy - in the meantime, here's a summary and some contact information in case you need anything."
+}

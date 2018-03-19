@@ -79,6 +79,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
 
         }else {
             let stringRepresentation = PNUserManager.sharedInstance.homeSelectedCuisines.flatMap({$0})?.joined(separator: ",")
+
             if stringRepresentation == nil {
                 self.labelDishesOrCuisine.attributedText = NSMutableAttributedString()
                     .normal("Search for ")
@@ -90,8 +91,6 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
                     .bold(stringRepresentation!)
             }
         }
-        
-        
     }
     
     private func setLabelDeliverToLocation() {
