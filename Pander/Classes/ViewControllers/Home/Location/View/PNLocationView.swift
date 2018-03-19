@@ -90,7 +90,9 @@ class PNLocationView: UIView {
     @IBAction func showStoredAddressButtonTapped() {
         
         if !self.storeAddressButton.isSelected {
-            if(PNUserManager.sharedInstance.addresses?.count == 0){
+            let count = PNUserManager.sharedInstance.addresses?.count ?? 0
+            
+            if( count == 0){
                   self.showTableViewHeight.constant = 35
             }else{
                  self.showTableViewHeight.constant = 280
