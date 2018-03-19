@@ -11,6 +11,7 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
 
     public var editAndReorderButtonCallback : (() -> Void)?
     public var reorderButtonCallback : (() -> Void)?
+    public var detailsButtonCallback : (() -> Void)?
     
     @IBOutlet var editAndReorderBtn: UIButton!
     @IBOutlet var reorderBtn: UIButton!
@@ -45,9 +46,11 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
         }
 
     }
-    
-    
-    
+
+    @IBAction func detailsBtnPressed(_ sender: Any) {
+        detailsButtonCallback?()
+    }
+
     func setContent(cuisine:String,order:PNOrders) {
         
         self.order = order

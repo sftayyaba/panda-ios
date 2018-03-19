@@ -12,6 +12,7 @@ class PNPlaceOrderTotalTableViewCell: UITableViewCell {
     
     public var editAndReorderButtonCallback : (() -> Void)?
     public var newSuggestionButtonCallback : (() -> Void)?
+    public var detailsButtonCallback : (() -> Void)?
     
     @IBOutlet var totalPriceLbl: UILabel!
     
@@ -34,9 +35,11 @@ class PNPlaceOrderTotalTableViewCell: UITableViewCell {
             callBack()
         }
     }
-    
-    
-    
+
+    @IBAction func detailsBtnPressed(_ sender: Any) {
+        detailsButtonCallback?()
+    }
+
     func setContent()  {
         
         NotificationCenter.default.addObserver(self, selector: #selector(plusObserver), name: NSNotification.Name(rawValue: "plus"), object: nil)

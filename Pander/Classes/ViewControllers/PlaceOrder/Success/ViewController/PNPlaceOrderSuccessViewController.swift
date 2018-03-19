@@ -60,10 +60,12 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
     
     override func configureCallBacks() {
     }
-    
+
     @IBAction func detailButtonClick(_ sender: Any) {
+        let orderItems = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order
+
         let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 280.0)))
-        orderDetailsView.showOn(view: view)
+        orderDetailsView.showOn(view: view, orderItems: orderItems, cartItems: nil)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
