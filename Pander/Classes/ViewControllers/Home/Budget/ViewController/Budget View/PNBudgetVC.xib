@@ -283,7 +283,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp2-4l-dsV">
-                    <rect key="frame" x="16" y="16.5" width="20" height="20"/>
+                    <rect key="frame" x="16" y="30" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="WN0-Od-nr3"/>
                         <constraint firstAttribute="height" constant="20" id="ZNA-wt-WIm"/>
@@ -299,7 +299,7 @@
                 <constraint firstItem="nTO-ZF-Fe5" firstAttribute="leading" secondItem="CMs-3h-Ppa" secondAttribute="leading" constant="15" id="1Zn-eq-wec"/>
                 <constraint firstItem="Xp2-4l-dsV" firstAttribute="leading" secondItem="CMs-3h-Ppa" secondAttribute="leading" constant="16" id="Sgk-hs-0ig"/>
                 <constraint firstItem="nTO-ZF-Fe5" firstAttribute="centerY" secondItem="CMs-3h-Ppa" secondAttribute="centerY" id="bv7-Xk-I6x"/>
-                <constraint firstItem="Xp2-4l-dsV" firstAttribute="top" secondItem="CMs-3h-Ppa" secondAttribute="top" constant="16.670000000000002" id="kgr-rl-ISo"/>
+                <constraint firstItem="Xp2-4l-dsV" firstAttribute="top" secondItem="CMs-3h-Ppa" secondAttribute="top" constant="30" id="kgr-rl-ISo"/>
                 <constraint firstItem="nTO-ZF-Fe5" firstAttribute="centerX" secondItem="CMs-3h-Ppa" secondAttribute="centerX" id="lrZ-he-uNA"/>
             </constraints>
             <connections>
