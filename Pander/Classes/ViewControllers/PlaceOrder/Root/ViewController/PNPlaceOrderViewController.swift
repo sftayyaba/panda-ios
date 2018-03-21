@@ -144,33 +144,34 @@ class PNPlaceOrderViewController: PNBaseViewController {
     }
     
     func addToCart(_ resturantId: String)  {
-       
-        let order: [PNOrderDish] =  (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order)!
-        var dictionaryArray = order.map({$0.submission.map({$0.dictionaryRepresentation()})})
-        for index in 0..<dictionaryArray.count {
-            var dic = dictionaryArray[index]
-            var quantityOption = dic!["option_qty"] as! [String:Any]
-            let itemId = dic!["item_id"] as! String
-            let  itemQuantity = dic!["item_qty"] as! Int
-            quantityOption[itemId] = itemQuantity
-            dic!["option_qty"] = quantityOption
-            dictionaryArray[index] = dic
-        }
-        
-        let dishJsonData = try? JSONSerialization.data(withJSONObject: dictionaryArray, options: [])
-        let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
-        
-        PNOrderManager.sharedInstance.AddToCartOrder(Items: dishesjsonString!, ResturantId: resturantId,SuccessBlock: { (addToCart) in
-            print("Response is ",addToCart);
-            //Check The Cart
-            self.checkCart(resturantId)
-        }, FailureBlock: { (error) in
-            if let localError = error as? ErrorBaseClass{
-                self.alert(title: "Oops", message: localError.localizedDescription)
-            }else{
-                self.alert(title: "Error", message: "Something went wrong")
+        if let orderSubmissionsArr = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.submission {
+            var dictionaryArray = [[String : Any]]()
+            for orderSubmission in orderSubmissionsArr {
+                var orderSubmissionDict = orderSubmission.dictionaryRepresentation()
+                if let optionQuantity = orderSubmissionDict["option_qty"] as? [String : Any],
+                   optionQuantity.count == 0,
+                   let optionQuantityIndex = orderSubmissionDict.index(forKey: "option_qty") {
+                    orderSubmissionDict.remove(at: optionQuantityIndex)
+                }
+
+                dictionaryArray.append(orderSubmissionDict)
             }
-        })
+
+            let dishJsonData = try? JSONSerialization.data(withJSONObject: dictionaryArray, options: [])
+            let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
+
+            PNOrderManager.sharedInstance.AddToCartOrder(Items: dishesjsonString!, ResturantId: resturantId, SuccessBlock: { (addToCart) in
+                print("Response is ",addToCart);
+                //Check The Cart
+                self.checkCart(resturantId)
+            }, FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else{
+                    self.alert(title: "Error", message: "Something went wrong")
+                }
+            })
+        }
     }
     
     
