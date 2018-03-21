@@ -63,8 +63,8 @@
                             <constraint firstAttribute="width" constant="20" id="PSG-7Y-tOM"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ORDERD ON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-1j-ysq">
-                        <rect key="frame" x="47" y="285" width="61.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ORDERED ON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-1j-ysq">
+                        <rect key="frame" x="47" y="285" width="67.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="51D-y3-wSj"/>
                         </constraints>
@@ -73,7 +73,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Sep 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbx-jm-50S">
-                        <rect key="frame" x="122.5" y="284" width="83.5" height="21"/>
+                        <rect key="frame" x="128.5" y="284" width="83.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="CgV-R9-mSg"/>
                         </constraints>

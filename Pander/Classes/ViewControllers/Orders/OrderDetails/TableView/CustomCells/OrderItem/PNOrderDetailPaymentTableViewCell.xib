@@ -164,7 +164,7 @@
                 <outlet property="refreshBtn" destination="lah-3c-uUw" id="hqv-Oc-RC0"/>
                 <outlet property="viewMaxHeightConstraint" destination="PLt-CB-BEn" id="Sur-e7-ZZY"/>
             </connections>
-            <point key="canvasLocation" x="-198" y="60"/>
+            <point key="canvasLocation" x="-63" y="58"/>
         </tableViewCell>
     </objects>
     <resources>
