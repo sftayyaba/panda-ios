@@ -102,10 +102,9 @@ class PNPlaceOrderViewController: PNBaseViewController {
             dish in
             
             print(dish);
-            var array:[PNOrderDish] = (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order!)!
+            let array:[PNOrderDish] = (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order!)!
             if let index = array.index(where: {$0.id! == dish.id!}) {
-                _ =  array.remove(at: index)
-                PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order = array
+                PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.remove(at: index)
                 self.tableView.reloadData()
                 print(array);
 
@@ -133,14 +132,9 @@ class PNPlaceOrderViewController: PNBaseViewController {
         self.tableView.newSuggestionButtonCallback = {
             self.getNewSuggestionsTapped()
         }
-
-        tableView.detailsButtonCallback = {
-            let orderItems = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order
-
-            let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 280.0)))
-            orderDetailsView.showOn(view: self.view, orderItems: orderItems, cartItems: nil)
-        }
+        
     }
+    
 
     fileprivate func configureTableView() {
         let cellNib = UINib(nibName: "PNPlaceOrderLocationHeaderViewTableViewCell", bundle: nil)
@@ -373,6 +367,12 @@ class PNPlaceOrderViewController: PNBaseViewController {
                 self.alert(title: "Error", message: "Something went wrong")
             }
         }
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UserDefaults.standard.set(nil, forKey: "myTotalPrice")
     }
 }
 

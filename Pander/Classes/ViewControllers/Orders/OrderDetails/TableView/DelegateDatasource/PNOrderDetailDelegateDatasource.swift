@@ -10,13 +10,14 @@ import UIKit
 class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     public var  didAddItemButtonCallback : (() -> Void)?
+    public var didRemoveItemButtonCallback : ((PNCart) -> Void)?
+    
     public var editAndReorderButtonCallback : (() -> Void)?
     public var reorderButtonCallback : (() -> Void)?
     
     
     public var didPressShowAddressCallback : (() -> Void)?
     public var didPressShowCardCallback : (() -> Void)?
-    public var detailsButtonCallback : (() -> Void)?
     
     
     var isLocationSelected = false
@@ -100,7 +101,8 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
             return self.tableView(tableView, headerForAddItemsOptionAt: section)
         }else if section == 2 {
             let cell: PNOrderDetailAddItemTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailAddItemTableViewCell") as? PNOrderDetailAddItemTableViewCell)!
-//            cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+            cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+            
             return cell
         }else if (section == 3){
             return self.tableView(tableView, headerForOrderDetailTotalOptionAt: section)
@@ -194,6 +196,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         cell.setContent(cart: cart,order: order,indexPath: indexPath)
         
         cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
+        cell.didRemoveItemButtonCallback = self.didRemoveItemButtonCallback;
         return cell
     }
     
@@ -220,7 +223,6 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         let cell: PNOrderDetailTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailTotalTableViewCell") as? PNOrderDetailTotalTableViewCell)!
         cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
         cell.reorderButtonCallback = self.reorderButtonCallback;
-        cell.detailsButtonCallback = detailsButtonCallback
         cell.setContent(cuisine: cuisine,order: order)
         return cell
     }

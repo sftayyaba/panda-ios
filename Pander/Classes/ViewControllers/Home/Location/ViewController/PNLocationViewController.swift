@@ -49,12 +49,6 @@ class PNLocationViewController: PNBaseViewController {
                 self.locationTableView.addresses = addresses
                 self.locationView.deliverto.text = "Deliver to"
                 self.locationView.selectedAddressLabel.text = PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
-                let chekcaddress = self.locationView.selectedAddressLabel.text
-
-                if(chekcaddress == nil || chekcaddress == ""){
-                     self.locationView.deliverto.text = "No"
-                    self.locationView.selectedAddressLabel.text = " Delivery Address"
-                }
             }
             
             self.locationTableView.reloadData()

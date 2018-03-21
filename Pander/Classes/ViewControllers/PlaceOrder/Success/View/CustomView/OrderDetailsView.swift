@@ -16,8 +16,7 @@ class OrderDetailsView: UIView {
     var backgroundBlurView = UIView()
     var tapGesture = UITapGestureRecognizer()
     var selectedPickerValue: String?
-    @IBOutlet weak var orderItemsTableView: OrderItemsTableView!
-    
+
     // MARK: IBOutlet
     @IBOutlet weak var containerView: UIView!
     
@@ -42,10 +41,7 @@ class OrderDetailsView: UIView {
         containerView.roundCorner(radius: 3.0)
     }
     
-    func showOn(view: UIView, orderItems: [PNOrderDish]?, cartItems: [PNCart]?) {
-        orderItemsTableView.initWith(orderItems: orderItems)
-        orderItemsTableView.initWith(cartItems: cartItems)
-
+    func showOn(view: UIView) {
         // Add Blur background view
         setupBlurViewWithTapGesture(frame: view.frame)
         frame.origin.y = view.frame.maxY

@@ -16,6 +16,8 @@ class PNHomeViewController: PNBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         UserDefaults.standard.set(nil, forKey: "myTotalPrice")
+         UserDefaults.standard.set(nil, forKey: "detailTotalPrice")
         self.homeView.collectionView.reloadData()
     }
     

@@ -49,8 +49,6 @@ class PNLocationView: UIView {
         self.configureStateTextFields()
         self.phoneNumberField.delegate = self
         self.zipCodeField.delegate = self
-         self.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
-        self.storeAddressButton.isSelected = true
     }
     
     func configureStateTextFields() {
@@ -92,9 +90,7 @@ class PNLocationView: UIView {
     @IBAction func showStoredAddressButtonTapped() {
         
         if !self.storeAddressButton.isSelected {
-            let count = PNUserManager.sharedInstance.addresses?.count ?? 0
-            
-            if( count == 0){
+            if(PNUserManager.sharedInstance.addresses?.count == 0){
                   self.showTableViewHeight.constant = 35
             }else{
                  self.showTableViewHeight.constant = 280

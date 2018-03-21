@@ -232,15 +232,36 @@ class PNOrderDetailViewController: PNBaseViewController {
         
         
         self.tableView.didAddItemButtonCallback = {
-            return // Temp fix to avoid crash
             let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
             self.navigationController?.pushViewController(viewController, animated: true)
 
         }
+        
+        
+        self.tableView.didRemoveItemButtonCallback = {
+            cart in
+            
+            print(cart);
+            var array:[PNCart] = self.order.cart!
+            if let index = array.index(where: {$0.id! == cart.id!}) {
+                self.order.cart?.remove(at: index)
+                var totalPrice = Float()
+                if UserDefaults.standard.object(forKey: "detailTotalPrice") != nil{
+                    let removedObject =  array.remove(at: index)
+                    totalPrice = UserDefaults.standard.object(forKey: "detailTotalPrice") as! Float
+                    totalPrice = totalPrice - removedObject.price!
+                    UserDefaults.standard.set(totalPrice, forKey: "detailTotalPrice")
+                    let counterDic : [String: Float] = ["TotalPrice":totalPrice]
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "orderDetailPlus"), object: nil, userInfo: counterDic)
+                }else {
+//                    totalPrice = ordrer.total! + cart.price!
+//                    UserDefaults.standard.set(totalPrice, forKey: "detailTotalPrice")
+                }
 
-        tableView.detailsButtonCallback = {
-            let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 280.0)))
-            orderDetailsView.showOn(view: self.view, orderItems: nil, cartItems: self.order.cart)
+                self.tableView.reloadData()
+                print(array);
+                
+            }
         }
     }
     

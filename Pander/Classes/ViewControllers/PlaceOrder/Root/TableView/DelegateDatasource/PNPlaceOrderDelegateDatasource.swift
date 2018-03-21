@@ -17,7 +17,6 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     
     public var editAndReorderButtonCallback : (() -> Void)?
     public var newSuggestionButtonCallback : (() -> Void)?
-    public var detailsButtonCallback : (() -> Void)?
     
     var isLocationSelected = false
     var isPaymentSelected = false
@@ -92,7 +91,6 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
             let cell: PNPlaceOrderTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderTotalTableViewCell") as? PNPlaceOrderTotalTableViewCell)!
             cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
             cell.newSuggestionButtonCallback = self.newSuggestionButtonCallback;
-            cell.detailsButtonCallback = detailsButtonCallback
             cell.setContent()
             return cell
         }else {

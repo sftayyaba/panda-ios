@@ -11,6 +11,7 @@ class PNOrderDetailPaymentTableViewCell: UITableViewCell {
 
     
     public var didAddItemButtonCallback : (() -> Void)?
+    public var didRemoveItemButtonCallback : ((PNCart) -> Void)?
     
     var cart: PNCart!
     var ordrer: PNOrders!
@@ -109,8 +110,30 @@ class PNOrderDetailPaymentTableViewCell: UITableViewCell {
     @IBAction func minusBtntarget(_ sender: Any) {
         counter = counter - 1
         if counter < 1 {
-            counter = 1
-            self.counterLbl.text = String(format: "%d",counter)
+//            counter = 1
+//            self.counterLbl.text = String(format: "%d",counter)
+            let alertController = UIAlertController(title: "", message: "Are you sure you want to remove the item?", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
+                self.counter = 0
+                self.counterLbl.text = String(format: "%d",self.counter)
+                if let callBack = self.didRemoveItemButtonCallback{
+                    callBack(self.cart!)
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+                UIAlertAction in
+                NSLog("Cancel Pressed")
+                self.counter = 1
+                self.counterLbl.text = String(format: "%d",self.counter)
+            }
+            
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+
         }else {
             self.cart.quantity = counter
             self.ordrer.cart![self.indexPath.row] = self.cart!

@@ -25,24 +25,13 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         
         let vc = PNPlaceOrderAddItemMainViewController(nibName: "PNPlaceOrderAddItemMainViewController", bundle: nil)
-//        ["", "", "Dessert", "Drinks"]
-        if(items[Int(index)] == "Main"){
-            vc.type = PNMenuTab.main
-        }else if (items[Int(index)] == "Appetizers & small bites"){
-            vc.type = PNMenuTab.appetizer
-        }else if(items[Int(index)] == "Dessert"){
-            vc.type = PNMenuTab.dessert
-        }else if (items[Int(index)] == "Drinks"){
-            vc.type = PNMenuTab.drink
-        }
 
-        
+        vc.type = PNMenuTab(rawValue: Int(index))
 
         return vc
     }
     
-    var items : [String] = []
-    
+    var items = NSArray()
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
     let screenSize: CGRect = UIScreen.main.bounds
 
@@ -110,53 +99,6 @@ class PNPlaceOrderAddItemRootViewController: PNBaseViewController,CarbonTabSwipe
     // MARK: Carboon swipe Navigation
     func configureCarbonSwipeNavigation() -> Void {
         items = ["Main", "Appetizers & small bites", "Dessert", "Drinks"]
-        if let  count  = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.rawEntrees?.count {
-            if count == 0 {
-                items = items.filter({ (str) -> Bool in
-                    return str != "Main"
-                })
-            }
-        }else{
-            items = items.filter({ (str) -> Bool in
-                return str != "Main"
-            })
-        }
-        
-        if let  count  = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.rawAppetizers?.count {
-            if count == 0 {
-                items = items.filter({ (str) -> Bool in
-                    return str != "Appetizers & small bites"
-                })
-            }
-        }else{
-            items = items.filter({ (str) -> Bool in
-                return str != "Appetizers & small bites"
-            })
-        }
-        
-        if let  count  = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.rawDesserts?.count {
-            if count == 0 {
-                items = items.filter({ (str) -> Bool in
-                    return str != "Dessert"
-                })
-            }
-        }else{
-            items = items.filter({ (str) -> Bool in
-                return str != "Dessert"
-            })
-        }
-
-        if let  count  = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.rawDrinks?.count {
-            if count == 0 {
-                items = items.filter({ (str) -> Bool in
-                    return str != "Drinks"
-                })
-            }
-        }else{
-            items = items.filter({ (str) -> Bool in
-                return str != "Drinks"
-            })
-        }
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items as [AnyObject], delegate: self)
 
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.navigationBarView)

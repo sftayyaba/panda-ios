@@ -30,6 +30,9 @@
                         <state key="normal" title="   Add new item" image="Plus icon">
                             <color key="titleColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="addNewItemPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hgY-yZ-hlf"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
