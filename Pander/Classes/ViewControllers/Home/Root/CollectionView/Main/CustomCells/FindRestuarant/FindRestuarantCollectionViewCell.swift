@@ -78,7 +78,7 @@ class FindRestuarantCollectionViewCell: UICollectionViewCell {
                 .bold("dishes or cuisine")
 
         }else {
-            let stringRepresentation = PNUserManager.sharedInstance.homeSelectedCuisines.flatMap({$0})?.joined(separator: ",")
+            let stringRepresentation = PNUserManager.sharedInstance.homeSelectedCuisines.flatMap({$0})?.joined(separator: ", ")
 
             if stringRepresentation == nil {
                 self.labelDishesOrCuisine.attributedText = NSMutableAttributedString()
