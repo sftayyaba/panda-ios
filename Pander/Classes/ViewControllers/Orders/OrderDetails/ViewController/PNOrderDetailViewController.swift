@@ -232,9 +232,15 @@ class PNOrderDetailViewController: PNBaseViewController {
         
         
         self.tableView.didAddItemButtonCallback = {
+            return // Temp fix to avoid crash
             let viewController = PNPlaceOrderAddItemRootViewController(nibName: "PNPlaceOrderAddItemRootViewController", bundle: nil)
             self.navigationController?.pushViewController(viewController, animated: true)
 
+        }
+
+        tableView.detailsButtonCallback = {
+            let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 280.0)))
+            orderDetailsView.showOn(view: self.view, orderItems: nil, cartItems: self.order.cart)
         }
     }
     

@@ -73,6 +73,12 @@
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
 		258E9821205F30AF00F81A58 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E9820205F30AF00F81A58 /* OrderDetailsView.swift */; };
 		258E9823205F30BF00F81A58 /* OrderDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258E9822205F30BF00F81A58 /* OrderDetailsView.xib */; };
+		25E983B320604B230019A81E /* PNUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983B220604B230019A81E /* PNUtils.swift */; };
+		25E983B82060501C0019A81E /* OrderItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983B72060501C0019A81E /* OrderItemsTableView.swift */; };
+		25E983BB206050890019A81E /* OrderItemPopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983B9206050890019A81E /* OrderItemPopupCell.swift */; };
+		25E983BC206050890019A81E /* OrderItemPopupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E983BA206050890019A81E /* OrderItemPopupCell.xib */; };
+		25E983BF2060648F0019A81E /* OrderTotalPopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983BD2060648E0019A81E /* OrderTotalPopupCell.swift */; };
+		25E983C02060648F0019A81E /* OrderTotalPopupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E983BE2060648E0019A81E /* OrderTotalPopupCell.xib */; };
 		25F5483E205F38570067B7A2 /* UIView+Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5483D205F38570067B7A2 /* UIView+Commons.swift */; };
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
@@ -476,6 +482,12 @@
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
 		258E9820205F30AF00F81A58 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
 		258E9822205F30BF00F81A58 /* OrderDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsView.xib; sourceTree = "<group>"; };
+		25E983B220604B230019A81E /* PNUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNUtils.swift; sourceTree = "<group>"; };
+		25E983B72060501C0019A81E /* OrderItemsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableView.swift; sourceTree = "<group>"; };
+		25E983B9206050890019A81E /* OrderItemPopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemPopupCell.swift; sourceTree = "<group>"; };
+		25E983BA206050890019A81E /* OrderItemPopupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemPopupCell.xib; sourceTree = "<group>"; };
+		25E983BD2060648E0019A81E /* OrderTotalPopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTotalPopupCell.swift; sourceTree = "<group>"; };
+		25E983BE2060648E0019A81E /* OrderTotalPopupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTotalPopupCell.xib; sourceTree = "<group>"; };
 		25F5483D205F38570067B7A2 /* UIView+Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Commons.swift"; sourceTree = "<group>"; };
 		31A2A6AE5F5089AD6E00B2F7 /* Pods-PanderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1313,10 +1325,46 @@
 		258E981F205F309000F81A58 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				25E983B420604F730019A81E /* TableView */,
 				258E9820205F30AF00F81A58 /* OrderDetailsView.swift */,
 				258E9822205F30BF00F81A58 /* OrderDetailsView.xib */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		25E983B120604AD80019A81E /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		25E983B420604F730019A81E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				25E983B620604F960019A81E /* CustomCells */,
+				25E983B520604F8F0019A81E /* DelegateDatasource */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		25E983B520604F8F0019A81E /* DelegateDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				25E983B72060501C0019A81E /* OrderItemsTableView.swift */,
+			);
+			path = DelegateDatasource;
+			sourceTree = "<group>";
+		};
+		25E983B620604F960019A81E /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				25E983B9206050890019A81E /* OrderItemPopupCell.swift */,
+				25E983BA206050890019A81E /* OrderItemPopupCell.xib */,
+				25E983BD2060648E0019A81E /* OrderTotalPopupCell.swift */,
+				25E983BE2060648E0019A81E /* OrderTotalPopupCell.xib */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		25F5483C205F37FB0067B7A2 /* UIView */ = {
@@ -2925,6 +2973,7 @@
 		EBC74E841FCAC41C00641B48 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				25E983B120604AD80019A81E /* HelperClasses */,
 				EB12CCBD20113940005E8394 /* ThirdParties */,
 				EBFB71091FCCA78600DB4C58 /* Extensions */,
 				EBC74E851FCAC41C00641B48 /* Constants */,
@@ -2936,6 +2985,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC74E861FCAC41C00641B48 /* ApplicationConstants.swift */,
+				25E983B220604B230019A81E /* PNUtils.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -3898,7 +3948,9 @@
 				1E9674572046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.xib in Resources */,
 				EBE05C3A2006B229009A865C /* PNGuestLetsGetStartedWithDietaryRestrictionController.xib in Resources */,
 				EB9F8EB920261D5D0044255F /* FindRestuarantCollectionViewCell.xib in Resources */,
+				25E983C02060648F0019A81E /* OrderTotalPopupCell.xib in Resources */,
 				EB478BDD2013526D0017E718 /* PNFriendLocationTableViewCell.xib in Resources */,
+				25E983BC206050890019A81E /* OrderItemPopupCell.xib in Resources */,
 				EBAA67C52028798000DF20D7 /* PNPlaceOrderPaymentTableViewCell.xib in Resources */,
 				EB738E642028D1E700A2DC16 /* PNPlaceOrderSuccessViewController.xib in Resources */,
 				1E1D816720455F6C005DB9C9 /* PNOrderDetailImageSliderTableViewCell.xib in Resources */,
@@ -4152,7 +4204,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4190,6 +4242,7 @@
 				1E9674662046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift in Sources */,
 				EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */,
 				DA42093C20308A0800327A28 /* PNOrderDiscounts.swift in Sources */,
+				25E983B82060501C0019A81E /* OrderItemsTableView.swift in Sources */,
 				EB8F01891FCAD844000D790F /* PNLoginViewController.swift in Sources */,
 				EBF8F141202E4F2200119BFF /* PNOrdersView.swift in Sources */,
 				EB12CCC420113940005E8394 /* FontAnimation.swift in Sources */,
@@ -4236,6 +4289,7 @@
 				B32AB559205C52830072F634 /* PNOrders.swift in Sources */,
 				EB9F8EC6202622600044255F /* PNHomeSeeLessCollectionViewCell.swift in Sources */,
 				1E331C4B2043EF0000311B41 /* PNScheduledCollectionReusableView.swift in Sources */,
+				25E983B320604B230019A81E /* PNUtils.swift in Sources */,
 				DA49D4D9202E55AA00F15521 /* PNAddresses.swift in Sources */,
 				1E96745A2046A1FB006B4E35 /* PNQuickSearchMainSeeMoreCollectionViewCell.swift in Sources */,
 				1E331C5A2044011700311B41 /* PNOrdersMainSeeLessCollectionViewCell.swift in Sources */,
@@ -4305,6 +4359,7 @@
 				EB9F8ED420263D7C0044255F /* PNHomeFeaturedCuisineCollectionReusableView.swift in Sources */,
 				EB63DD75201A921200737550 /* NSDate.swift in Sources */,
 				DA420949203096B200327A28 /* PNOrderManager+GenerateOrder.swift in Sources */,
+				25E983BB206050890019A81E /* OrderItemPopupCell.swift in Sources */,
 				EBCC5670200DE36B009D865E /* PNUserManager+ForgotPassword.swift in Sources */,
 				1E1D816A20456328005DB9C9 /* PNOrderDetailItemsTableViewCell.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
@@ -4422,6 +4477,7 @@
 				EBD4CD202013388A00BAD5E3 /* PNLocationTableViewDelegateDatasource.swift in Sources */,
 				EB8F01921FCAD8F6000D790F /* PNUserManager.swift in Sources */,
 				EBC74F3B1FCAC41D00641B48 /* NetworkConstants.swift in Sources */,
+				25E983BF2060648F0019A81E /* OrderTotalPopupCell.swift in Sources */,
 				DA49D4CE202C556400F15521 /* PNDDCLocation.swift in Sources */,
 				EBD4CD1020129AA400BAD5E3 /* IsaoTextField.swift in Sources */,
 				DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */,

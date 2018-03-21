@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailsView" customModule="Pander" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="oWx-F2-oSd" id="n5H-et-A6H"/>
+                <outlet property="orderItemsTableView" destination="djU-v4-hVr" id="qqe-Oh-sti"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,7 +41,7 @@
                                 <constraint firstAttribute="height" constant="1" id="RgP-o4-VsF"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="djU-v4-hVr">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="djU-v4-hVr" customClass="OrderItemsTableView" customModule="Pander" customModuleProvider="target">
                             <rect key="frame" x="12" y="56.5" width="323" height="136.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>

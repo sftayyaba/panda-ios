@@ -133,9 +133,14 @@ class PNPlaceOrderViewController: PNBaseViewController {
         self.tableView.newSuggestionButtonCallback = {
             self.getNewSuggestionsTapped()
         }
-        
+
+        tableView.detailsButtonCallback = {
+            let orderItems = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order
+
+            let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 280.0)))
+            orderDetailsView.showOn(view: self.view, orderItems: orderItems, cartItems: nil)
+        }
     }
-    
 
     fileprivate func configureTableView() {
         let cellNib = UINib(nibName: "PNPlaceOrderLocationHeaderViewTableViewCell", bundle: nil)
