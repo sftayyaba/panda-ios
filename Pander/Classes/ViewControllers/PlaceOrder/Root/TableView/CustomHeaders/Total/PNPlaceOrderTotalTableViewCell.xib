@@ -111,7 +111,7 @@
             <connections>
                 <outlet property="totalPriceLbl" destination="Nl6-kd-1qm" id="R3h-xy-yF6"/>
             </connections>
-            <point key="canvasLocation" x="-155" y="-15"/>
+            <point key="canvasLocation" x="-155.5" y="-15"/>
         </tableViewCell>
     </objects>
     <resources>
