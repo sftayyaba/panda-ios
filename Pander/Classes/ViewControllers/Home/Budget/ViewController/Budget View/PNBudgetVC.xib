@@ -296,9 +296,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="nTO-ZF-Fe5" firstAttribute="centerY" secondItem="CMs-3h-Ppa" secondAttribute="centerY" id="0Zh-ar-WKj"/>
                 <constraint firstItem="nTO-ZF-Fe5" firstAttribute="leading" secondItem="CMs-3h-Ppa" secondAttribute="leading" constant="15" id="1Zn-eq-wec"/>
                 <constraint firstItem="Xp2-4l-dsV" firstAttribute="leading" secondItem="CMs-3h-Ppa" secondAttribute="leading" constant="16" id="Sgk-hs-0ig"/>
-                <constraint firstItem="nTO-ZF-Fe5" firstAttribute="centerY" secondItem="CMs-3h-Ppa" secondAttribute="centerY" id="bv7-Xk-I6x"/>
+                <constraint firstItem="nTO-ZF-Fe5" firstAttribute="centerX" secondItem="CMs-3h-Ppa" secondAttribute="centerX" id="WBu-6a-JgO"/>
                 <constraint firstItem="Xp2-4l-dsV" firstAttribute="top" secondItem="CMs-3h-Ppa" secondAttribute="top" constant="30" id="kgr-rl-ISo"/>
                 <constraint firstItem="nTO-ZF-Fe5" firstAttribute="centerX" secondItem="CMs-3h-Ppa" secondAttribute="centerX" id="lrZ-he-uNA"/>
             </constraints>
