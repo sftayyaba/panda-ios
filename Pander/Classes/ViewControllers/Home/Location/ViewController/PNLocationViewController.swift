@@ -30,7 +30,9 @@ class PNLocationViewController: PNBaseViewController {
     @IBOutlet var locationView: PNLocationView!
     
     @IBOutlet var locationTableView: PNLocationTableViewDelegateDatasource!
-
+    
+    public var didFindRestaurentButtonCallback : (() -> Void)?
+    public var didSelectAddressCallback : ((PNAddresses) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         isNewAddressAdded = false
@@ -219,10 +221,18 @@ class PNLocationViewController: PNBaseViewController {
                                                                 
                                                                     
                                                                     self.doInitialDataLoad()
-                                                                    
+                                                                    let index = (PNUserManager.sharedInstance.addresses?.count)!-1
+                                                                    let selectedAddress =  PNUserManager.sharedInstance.addresses![index]
                                                                     self.locationView.refreshForm()
                                                                     
                                                                     self.locationId =  locationResponse.location?.locationId
+                                                                    if let callback = self.didSelectAddressCallback{
+                                                                        selectedAddress.isSelected = true
+                                                                        callback(selectedAddress);
+                                                                    }
+                                                                    if let callback = self.didFindRestaurentButtonCallback{
+                                                                        callback()
+                                                                    }
                                                                     
                                                                     self.locationView.showStoredAddressButtonTapped()
                                                                     self.locationView.showStoredAddressButtonTapped()
