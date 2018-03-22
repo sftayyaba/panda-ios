@@ -49,8 +49,7 @@ class PNLocationView: UIView {
         self.configureStateTextFields()
         self.phoneNumberField.delegate = self
         self.zipCodeField.delegate = self
-         self.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
-        self.storeAddressButton.isSelected = true
+       self.arrowImageView.image = UIImage(named: "Arrow - Big - down - Black")
     }
     
     func configureStateTextFields() {

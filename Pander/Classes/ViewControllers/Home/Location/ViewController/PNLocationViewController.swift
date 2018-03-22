@@ -49,13 +49,13 @@ class PNLocationViewController: PNBaseViewController {
 
             if let addresses = response.addresses{
                 self.locationTableView.addresses = addresses
+                if(addresses.count == 0){
+                    self.locationView.deliverto.text = "NO "
+                    self.locationView.selectedAddressLabel.text = " Delivery Address"
+                    
+                }else{
                 self.locationView.deliverto.text = "Deliver to"
                 self.locationView.selectedAddressLabel.text = PNUserManager.sharedInstance.selectedAddress?.nick != nil ? PNUserManager.sharedInstance.selectedAddress?.nick : PNUserManager.sharedInstance.selectedAddress?.street
-                let chekcaddress = self.locationView.selectedAddressLabel.text
-
-                if(chekcaddress == nil || chekcaddress == ""){
-                     self.locationView.deliverto.text = "No"
-                    self.locationView.selectedAddressLabel.text = " Delivery Address"
                 }
             }
             
@@ -227,15 +227,24 @@ class PNLocationViewController: PNBaseViewController {
                                                                 
                                                                     
                                                                     self.doInitialDataLoad()
-                                                                    let index = (PNUserManager.sharedInstance.addresses?.count)!-1
-                                                                    let selectedAddress =  PNUserManager.sharedInstance.addresses![index]
+                                                                    var index = (PNUserManager.sharedInstance.addresses?.count)!-1
+                                                                    if(index < 0){
+                                                                         index = 0
+                                                                    }
+                                                                    if(PNUserManager.sharedInstance.addresses?.count == 0){
+                                                                        
+                                                                    }else{
+                                                                        let selectedAddress =  PNUserManager.sharedInstance.addresses![index]
+                                                                        if let callback = self.didSelectAddressCallback{
+                                                                            selectedAddress.isSelected = true
+                                                                            callback(selectedAddress);
+                                                                        }
+                                                                    }
+                                                                    
                                                                     self.locationView.refreshForm()
                                                                     
                                                                     self.locationId =  locationResponse.location?.locationId
-                                                                    if let callback = self.didSelectAddressCallback{
-                                                                        selectedAddress.isSelected = true
-                                                                        callback(selectedAddress);
-                                                                    }
+                                                                   
                                                                     if let callback = self.didFindRestaurentButtonCallback{
                                                                         callback()
                                                                     }
