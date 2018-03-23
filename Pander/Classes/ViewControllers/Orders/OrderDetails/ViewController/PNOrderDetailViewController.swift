@@ -124,9 +124,21 @@ class PNOrderDetailViewController: PNBaseViewController {
                     return
                 }
     
-    
-                PNOrderManager.sharedInstance.recreateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, ReorderInfo: reorderInfoJsonString!, SuccessBlock: { (response) in
-                    self.alert(title: "Success", message: "Successfully recreated order.")
+                PNOrderManager.sharedInstance.recreateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, ReorderInfo: reorderInfoJsonString!, SuccessBlock: { (generatedOrderResponse) in
+                    PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
+                        if orderReponse.internalStatus == -1 {
+                            self.alert(title: "Oops", message: "There seems to be no restaurants available. Please choose another address");
+                        } else {
+                            let viewController = PNPlaceOrderViewController(nibName: "PNPlaceOrderViewController", bundle: nil)
+                            self.navigationController?.pushViewController(viewController, animated: true)
+                        }
+                    }, FailureBlock: { (error) in
+                        if let localError = error as? ErrorBaseClass{
+                            self.alert(title: "Oops", message: localError.localizedDescription)
+                        }else{
+                            self.alert(title: "Error", message: "Something went wrong")
+                        }
+                    })
                 }, FailureBlock: { (error) in
                     if let localError = error as? ErrorBaseClass{
                         self.alert(title: "Oops", message: localError.localizedDescription)

@@ -35,12 +35,12 @@ extension PNOrderManager{
             
             weakSelf?.notifyNetworkRequestFinish()
             
-//            if let successResponse = response as? PNGenerateOrder{
-//                weakSelf?.generatedOrderId = successResponse.id
-//                successBlock(successResponse)
-//            }else if let errorResponse = response as? ErrorBaseClass{
-//                failureBlock(errorResponse)
-//            }
+            if let successResponse = response as? PNGenerateOrder{
+                weakSelf?.generatedOrderId = successResponse.id
+                successBlock(successResponse)
+            }else if let errorResponse = response as? ErrorBaseClass{
+                failureBlock(errorResponse)
+            }
             
         }
         
