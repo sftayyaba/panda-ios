@@ -239,6 +239,7 @@ class PNOrderDetailViewController: PNBaseViewController {
         }
 
         tableView.detailsButtonCallback = {
+            return // Temporary
             let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 280.0)))
             orderDetailsView.showOn(view: self.view, orderItems: nil, cartItems: self.order.cart)
         }

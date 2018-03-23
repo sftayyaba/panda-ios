@@ -40,18 +40,11 @@ class PNPlaceOrderTotalTableViewCell: UITableViewCell {
         detailsButtonCallback?()
     }
 
-    func setContent()  {
-        
+    func setContent(totalPrice: Float)  {
         NotificationCenter.default.addObserver(self, selector: #selector(plusObserver), name: NSNotification.Name(rawValue: "plus"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(minusObserver), name: NSNotification.Name(rawValue: "minus"), object: nil)
 
-        
-        if let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
-            return result + dish.price!
-        }){
-            self.totalPriceLbl.text = "$"+totalPrice.format(f: "")
-        }
-
+        totalPriceLbl.text = "$" + totalPrice.format(f: "")
     }
     
     

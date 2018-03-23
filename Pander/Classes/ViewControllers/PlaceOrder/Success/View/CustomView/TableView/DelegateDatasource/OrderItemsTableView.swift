@@ -13,6 +13,7 @@ class OrderItemsTableView: UITableView, UITableViewDelegate, UITableViewDataSour
     let totalPriceCellIdentifier = "OrderTotalPopupCell"
     var orderItems: [PNOrderDish]?
     var cartItems: [PNCart]?
+    var orderRecommendation: PNOrderRecommendation?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,12 @@ class OrderItemsTableView: UITableView, UITableViewDelegate, UITableViewDataSour
         reloadData()
     }
 
+    func initWith(orderRecommendation: PNOrderRecommendation?) {
+        self.orderRecommendation = orderRecommendation
+
+        reloadData()
+    }
+
     func confirgureTableView() {
         delegate = self
         dataSource = self
@@ -43,10 +50,12 @@ class OrderItemsTableView: UITableView, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if orderItems != nil && orderItems?.count == indexPath.row || cartItems != nil && cartItems?.count == indexPath.row  {
-            var totalPrice = PNUtils.calculateTotalPrice(orders: orderItems)
-            if cartItems != nil {
-                totalPrice = PNUtils.calculateTotalPrice(orders: cartItems)
-            }
+            let orderRecommendation = PNOrderManager.sharedInstance.generatedOrder?.recommendation
+            let totalPrice = OrderTotalCalculator.calculateTotalPrice(orderRecommendation: orderRecommendation)
+//            var totalPrice = PNUtils.calculateTotalPrice(orders: orderItems)
+//            if cartItems != nil {
+//                totalPrice = PNUtils.calculateTotalPrice(orders: cartItems)
+//            }
 
             let cell = tableView.dequeueReusableCell(withIdentifier: totalPriceCellIdentifier) as! OrderTotalPopupCell
             cell.setupCell(totalPrice: totalPrice)

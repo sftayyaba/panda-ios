@@ -20,11 +20,11 @@ public final class PNOrderFees: NSCoding {
   }
 
   // MARK: Properties
-  public var untaxedPctFees: [Any]?
-  public var untaxedFlatFees: [Any]?
+  public var untaxedPctFees: [PNFeeModel]?
+  public var untaxedFlatFees: [PNFeeModel]?
   public var salesTax: Float?
-  public var taxedFlatFees: [Any]?
-  public var taxedPctFees: [Any]?
+  public var taxedFlatFees: [PNFeeModel]?
+  public var taxedPctFees: [PNFeeModel]?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -39,11 +39,11 @@ public final class PNOrderFees: NSCoding {
   ///
   /// - parameter json: JSON object from SwiftyJSON.
   public required init(json: JSON) {
-    if let items = json[SerializationKeys.untaxedPctFees].array { untaxedPctFees = items.map { $0.object} }
-    if let items = json[SerializationKeys.untaxedFlatFees].array { untaxedFlatFees = items.map { $0.object} }
+    if let items = json[SerializationKeys.untaxedPctFees].array { untaxedPctFees = items.map { PNFeeModel(json: $0) } }
+    if let items = json[SerializationKeys.untaxedFlatFees].array { untaxedFlatFees = items.map { PNFeeModel(json: $0) } }
     salesTax = json[SerializationKeys.salesTax].float
-    if let items = json[SerializationKeys.taxedFlatFees].array { taxedFlatFees = items.map { $0.object} }
-    if let items = json[SerializationKeys.taxedPctFees].array { taxedPctFees = items.map { $0.object} }
+    if let items = json[SerializationKeys.taxedFlatFees].array { taxedFlatFees = items.map { PNFeeModel(json: $0) } }
+    if let items = json[SerializationKeys.taxedPctFees].array { taxedPctFees = items.map { PNFeeModel(json: $0) } }
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -61,11 +61,11 @@ public final class PNOrderFees: NSCoding {
 
   // MARK: NSCoding Protocol
   required public init(coder aDecoder: NSCoder) {
-    self.untaxedPctFees = aDecoder.decodeObject(forKey: SerializationKeys.untaxedPctFees) as? [Any]
-    self.untaxedFlatFees = aDecoder.decodeObject(forKey: SerializationKeys.untaxedFlatFees) as? [Any]
+    self.untaxedPctFees = aDecoder.decodeObject(forKey: SerializationKeys.untaxedPctFees) as? [PNFeeModel]
+    self.untaxedFlatFees = aDecoder.decodeObject(forKey: SerializationKeys.untaxedFlatFees) as? [PNFeeModel]
     self.salesTax = aDecoder.decodeObject(forKey: SerializationKeys.salesTax) as? Float
-    self.taxedFlatFees = aDecoder.decodeObject(forKey: SerializationKeys.taxedFlatFees) as? [Any]
-    self.taxedPctFees = aDecoder.decodeObject(forKey: SerializationKeys.taxedPctFees) as? [Any]
+    self.taxedFlatFees = aDecoder.decodeObject(forKey: SerializationKeys.taxedFlatFees) as? [PNFeeModel]
+    self.taxedPctFees = aDecoder.decodeObject(forKey: SerializationKeys.taxedPctFees) as? [PNFeeModel]
   }
 
   public func encode(with aCoder: NSCoder) {
@@ -75,5 +75,4 @@ public final class PNOrderFees: NSCoding {
     aCoder.encode(taxedFlatFees, forKey: SerializationKeys.taxedFlatFees)
     aCoder.encode(taxedPctFees, forKey: SerializationKeys.taxedPctFees)
   }
-
 }

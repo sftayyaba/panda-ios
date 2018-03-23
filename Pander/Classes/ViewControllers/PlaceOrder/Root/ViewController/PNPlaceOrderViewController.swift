@@ -35,57 +35,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         self.tableView.reloadData()
 //        updateTotalPrice()
     }
-    
-    
-//    @objc func plusObserver(notification:NSNotification) {
-//
-//        if let dish = notification.userInfo?["dish"] as? PNOrderDish {
-//            let unitPrice = dish.unitPrice
-//
-//            if UserDefaults.standard.object(forKey: "myTotalPrice") != nil{
-//                var totalPrice = UserDefaults.standard.object(forKey: "myTotalPrice") as! Float
-//                totalPrice = totalPrice + unitPrice!
-//                UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
-//                self.placeOrderView?.totalPriceLabel?.text! =  String(totalPrice)
-//
-//                 self.placeOrderView?.totalPriceLabel?.text = "$\(self.placeOrderView.totalPriceLabel.text!)"
-//            }else {
-//                if var totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
-//                    return result + dish.price!
-//                }){
-//                    totalPrice = totalPrice + unitPrice!
-//
-//                    self.placeOrderView?.totalPriceLabel?.text =  String(totalPrice)
-//
-//                    self.placeOrderView?.totalPriceLabel?.text = "$\(self.placeOrderView.totalPriceLabel.text!)"
-//                    UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
-//                }
-//            }
-//        }
-//    }
-//
-//    @objc func minusObserver(notification:NSNotification) {
-//
-//        if let dish = notification.userInfo?["dish"] as? PNOrderDish {
-//            let unitPrice = dish.unitPrice
-//            var totalPrice = UserDefaults.standard.object(forKey: "myTotalPrice") as! Float
-//            totalPrice = totalPrice - unitPrice!
-//            self.placeOrderView?.totalPriceLabel?.text =  String(totalPrice)
-//            self.placeOrderView?.totalPriceLabel?.text = "$\(self.placeOrderView.totalPriceLabel.text!)"
-//            UserDefaults.standard.set(totalPrice, forKey: "myTotalPrice")
-//
-//        }
-//    }
 
-    
-//    func updateTotalPrice(){
-//        if (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order?.reduce( Float(0) , { (result, dish) -> Float in
-//            return result + dish.price!
-//        })) != nil{
-//           // self.placeOrderView.totalPriceLabel.text = "$"+updateTotalPrice().format(f: "%f")
-//        }
-//    }
-    
     override func configureView() {
         self.configureTableView()
     }
@@ -139,6 +89,14 @@ class PNPlaceOrderViewController: PNBaseViewController {
 
             let orderDetailsView = OrderDetailsView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 280.0)))
             orderDetailsView.showOn(view: self.view, orderItems: orderItems, cartItems: nil)
+        }
+
+        tableView.didChangedItemQuantity = {
+            [weak self] in
+
+            // Currently 'reloadSections(NSIndexSet(index: 3) as IndexSet, with: .none)' is not working fine
+            // need to explore to avoid 'reloadData()' call on tableView
+            self?.tableView?.reloadData()
         }
     }
 
@@ -235,7 +193,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
                     let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
                         UIAlertAction in
                         //Check Out
-                        self.cartCheckOut(resturantId,tipAmount: tipAmount, totalPrice: totalEstimatedPrice)
+                        self.cartCheckOut(resturantId,tipAmount: tipAmount)
                     }
 
                     let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
@@ -248,7 +206,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
                 }else {
                     let tipAmount = totalPrice * 0.1
                     //Check Out
-                    self.cartCheckOut(resturantId,tipAmount: tipAmount, totalPrice: totalEstimatedPrice)
+                    self.cartCheckOut(resturantId,tipAmount: tipAmount)
                 }
             }
         }, FailureBlock: { (error) in
@@ -262,7 +220,7 @@ class PNPlaceOrderViewController: PNBaseViewController {
         
     }
     
-    func cartCheckOut(_ resturantId: String, tipAmount: Float, totalPrice: Float) {
+    func cartCheckOut(_ resturantId: String, tipAmount: Float) {
         
         let cardId = PNUserManager.sharedInstance.selectedCard?.ccId
         let location = (PNUserManager.sharedInstance.selectedAddress?.locationId)!
@@ -280,7 +238,6 @@ class PNPlaceOrderViewController: PNBaseViewController {
             print("success is",checkOut)
             let viewController = PNPlaceOrderSuccessViewController(nibName: "PNPlaceOrderSuccessViewController", bundle: nil)
 //            viewController.price = self.placeOrderView.totalPriceLabel.text!;
-            viewController.totalBill = totalPrice
             self.navigationController?.pushViewController(viewController, animated: true)
         }) { (error) in
             if let localError = error as? ErrorBaseClass{

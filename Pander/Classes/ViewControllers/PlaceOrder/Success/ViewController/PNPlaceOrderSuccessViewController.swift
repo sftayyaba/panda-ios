@@ -13,7 +13,6 @@ import GoogleSignIn
 class PNPlaceOrderSuccessViewController: PNBaseViewController {
     
     var price = ""
-    var totalBill = Float()
 
     @IBOutlet weak var UserName: UILabel!
     @IBOutlet weak var Explanation: UILabel!
@@ -21,7 +20,7 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
     @IBOutlet weak var  ResturantAddress1:UILabel!
     @IBOutlet weak var orderNumberLbl: UILabel!
     @IBOutlet var placeOrderSuccessView: PNPlaceOrderSuccessView!
-    @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var totalPriceLbl: UILabel!
     
     @IBOutlet weak var detailsbtn: UIButton!
     @IBOutlet weak var ResturantName: UILabel!
@@ -41,7 +40,10 @@ class PNPlaceOrderSuccessViewController: PNBaseViewController {
         if let orderId = orderCheckout?.orderId {
             orderNumberLbl.text = "\(orderId)"
         }
-        totalPrice.text = "$\(totalBill)"
+
+        let orderRecommendation = PNOrderManager.sharedInstance.generatedOrder?.recommendation
+        let totalPrice = OrderTotalCalculator.calculateTotalPrice(orderRecommendation: orderRecommendation)
+        totalPriceLbl.text = "$\(totalPrice)"
 
         self.ResturantName.text = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.restaurantInfo?.name
 

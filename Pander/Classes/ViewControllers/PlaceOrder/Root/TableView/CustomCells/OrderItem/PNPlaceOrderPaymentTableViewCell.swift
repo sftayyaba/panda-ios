@@ -11,7 +11,8 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
 
     public var didAddItemButtonCallback : (() -> Void)?
     public var didRemoveItemButtonCallback : ((PNOrderDish) -> Void)?
-    
+    public var didChangedItemQuantity : (() -> Void)?
+
     var dish: PNOrderDish!
     @IBOutlet weak var redPriceLabel: UILabel!
     @IBOutlet weak var greyPriceLabel: UILabel!
@@ -46,12 +47,13 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     func setContent(dish: PNOrderDish){
         self.dish = dish
-        if let price = dish.price{
-            self.redPriceLabel.text = "$"+price.format(f: "")
-        }
-        self.itemTitleLabel.text = dish.name
-        self.detailLabel.text = dish.descriptionValue
-        
+        self.counter = (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.dishQuantity(dishId: dish.id)) ?? 1
+        let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.totalPriceFor(dishId: dish.id)
+        redPriceLabel.text = "$\(totalPrice ?? 0.0)"
+
+        itemTitleLabel.text = dish.name
+        detailLabel.text = dish.descriptionValue
+
         
         if dish.isSelected{
             if dish.descriptionValue != "" {
@@ -85,15 +87,12 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
     
     @IBAction func plusBtnTarget(_ sender: Any) {
         counter = counter + 1
-        self.redPriceLabel.text = self.redPriceLabel.text?.components(separatedBy: "$")[1]
-        self.counterLbl.text = String(format: "%d",counter)
-        let dishDic : [String: PNOrderDish] = ["dish":dish]
-        let alreadyprice = (self.redPriceLabel.text! as NSString).floatValue
-       
-        self.redPriceLabel.text =  String(alreadyprice + dish.unitPrice!)
-        self.redPriceLabel.text = "$\(self.redPriceLabel.text!)"
-        dish.price = alreadyprice + dish.price!
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "plus"), object: nil, userInfo: dishDic)
+        PNOrderManager.sharedInstance.generatedOrder?.recommendation?.increaseDishQuantity(dishId: dish.id)
+        let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.totalPriceFor(dishId: dish.id)
+        redPriceLabel.text = "$\(totalPrice ?? 0.0)"
+        counterLbl.text = String(format: "%d", counter)
+
+        didChangedItemQuantity?()
     }
     
     @IBAction func minusBtntarget(_ sender: Any) {
@@ -122,17 +121,12 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
             UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
             
         }else {
-            self.redPriceLabel.text = self.redPriceLabel.text?.components(separatedBy: "$")[1]
-            self.counterLbl.text = String(format: "%d",counter)
-            let dishDic : [String: PNOrderDish] = ["dish":dish]
-            let alreadyprice = (self.redPriceLabel.text! as NSString).floatValue
-            
-            self.redPriceLabel.text =  String(alreadyprice - dish.unitPrice!)
-            self.redPriceLabel.text = "$\(self.redPriceLabel.text!)"
-            
-            dish.price = alreadyprice - dish.unitPrice!
-            
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "minus"), object: nil, userInfo: dishDic)
+            PNOrderManager.sharedInstance.generatedOrder?.recommendation?.decreaseDishQuantity(dishId: dish.id)
+            let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.totalPriceFor(dishId: dish.id)
+            redPriceLabel.text = "$\(totalPrice ?? 0.0)"
+            counterLbl.text = String(format: "%d",counter)
+ 
+            didChangedItemQuantity?()
         }
     }
     

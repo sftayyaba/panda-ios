@@ -54,6 +54,34 @@ public final class PNOrderRecommendation: NSCoding {
   public var order: [PNOrderDish]?
   public var submission: [PNOrderSubmission]?
 
+    func increaseDishQuantity(dishId: String?) {
+        if let orderDish = order?.first(where: { $0.id == dishId }) {
+            orderDish.qty = min((orderDish.qty ?? 1) + (orderDish.increment ?? 1), (orderDish.maxQty ?? 1))
+        }
+    }
+
+    func decreaseDishQuantity(dishId: String?) {
+        if let orderDish = order?.first(where: { $0.id == dishId }) {
+            orderDish.qty = max((orderDish.qty ?? 1) - (orderDish.increment ?? 1), 1) // Should be greater than 0
+        }
+    }
+
+    func totalPriceFor(dishId: String?) -> Float? {
+        if let orderDish = order?.first(where: { $0.id == dishId }) {
+            return Float(orderDish.qty ?? 1) * (orderDish.unitPrice ?? 0.0)
+        }
+
+        return nil
+    }
+
+    func dishQuantity(dishId: String?) -> Int? {
+        if let orderDish = order?.first(where: { $0.id == dishId }) {
+            return orderDish.qty
+        }
+
+        return nil
+    }
+
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
   ///

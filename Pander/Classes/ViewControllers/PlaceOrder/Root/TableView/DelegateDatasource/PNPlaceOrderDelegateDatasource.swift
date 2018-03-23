@@ -10,6 +10,7 @@ import UIKit
 class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableViewDataSource {
     public var didAddItemButtonCallback : (() -> Void)?
     public var didRemoveItemButtonCallback : ((PNOrderDish) -> Void)?
+    public var didChangedItemQuantity : (() -> Void)?
 
     public var didPressShowAddressCallback : (() -> Void)?
     public var didPressShowCardCallback : (() -> Void)?
@@ -83,21 +84,23 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         if section == 0 {
             return self.tableView(tableView, headerForLocationOptionAt: section)
-        }else if section == 1{
+        } else if section == 1 {
             return self.tableView(tableView, headerForAddItemsOptionAt: section)
-        }else if (section == 3){
+        } else if section == 3 {
+            let orderRecommendation = PNOrderManager.sharedInstance.generatedOrder?.recommendation
+            let totalPrice = OrderTotalCalculator.calculateTotalPrice(orderRecommendation: orderRecommendation)
             let cell: PNPlaceOrderTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNPlaceOrderTotalTableViewCell") as? PNPlaceOrderTotalTableViewCell)!
-            cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
-            cell.newSuggestionButtonCallback = self.newSuggestionButtonCallback;
+            cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback
+            cell.newSuggestionButtonCallback = self.newSuggestionButtonCallback
             cell.detailsButtonCallback = detailsButtonCallback
-            cell.setContent()
+            cell.setContent(totalPrice: totalPrice)
+
             return cell
-        }else {
-            return UIView()
         }
+
+        return nil
     }
     
     func tableView(_ tableView: UITableView, headerForLocationOptionAt section: Int) -> UITableViewCell {
@@ -189,7 +192,8 @@ class PNPlaceOrderDelegateDatasource: UITableView,UITableViewDelegate,UITableVie
         
         cell.didAddItemButtonCallback = self.didAddItemButtonCallback;
         cell.didRemoveItemButtonCallback = self.didRemoveItemButtonCallback;
-        
+        cell.didChangedItemQuantity = didChangedItemQuantity
+
         return cell
     }
     

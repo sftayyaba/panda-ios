@@ -73,6 +73,8 @@
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
 		258E9821205F30AF00F81A58 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E9820205F30AF00F81A58 /* OrderDetailsView.swift */; };
 		258E9823205F30BF00F81A58 /* OrderDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258E9822205F30BF00F81A58 /* OrderDetailsView.xib */; };
+		25C25CF1206559190058FE3E /* OrderTotalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */; };
+		25C25CF3206563D70058FE3E /* PNFeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C25CF2206563D70058FE3E /* PNFeeModel.swift */; };
 		25E983B320604B230019A81E /* PNUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983B220604B230019A81E /* PNUtils.swift */; };
 		25E983B82060501C0019A81E /* OrderItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983B72060501C0019A81E /* OrderItemsTableView.swift */; };
 		25E983BB206050890019A81E /* OrderItemPopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983B9206050890019A81E /* OrderItemPopupCell.swift */; };
@@ -482,6 +484,8 @@
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
 		258E9820205F30AF00F81A58 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
 		258E9822205F30BF00F81A58 /* OrderDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsView.xib; sourceTree = "<group>"; };
+		25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTotalCalculator.swift; sourceTree = "<group>"; };
+		25C25CF2206563D70058FE3E /* PNFeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNFeeModel.swift; sourceTree = "<group>"; };
 		25E983B220604B230019A81E /* PNUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNUtils.swift; sourceTree = "<group>"; };
 		25E983B72060501C0019A81E /* OrderItemsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableView.swift; sourceTree = "<group>"; };
 		25E983B9206050890019A81E /* OrderItemPopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemPopupCell.swift; sourceTree = "<group>"; };
@@ -1332,9 +1336,18 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		25C25CEF206558E60058FE3E /* OrderTotalCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */,
+			);
+			path = OrderTotalCalculator;
+			sourceTree = "<group>";
+		};
 		25E983B120604AD80019A81E /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				25C25CEF206558E60058FE3E /* OrderTotalCalculator */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -1557,6 +1570,7 @@
 				DA42093420308A0600327A28 /* PNOrderSubmission.swift */,
 				B32AB55B205C53390072F634 /* PNOrderCheckCart.swift */,
 				B32AB55A205C53390072F634 /* PNOrderCheckout.swift */,
+				25C25CF2206563D70058FE3E /* PNFeeModel.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -4252,10 +4266,12 @@
 				DA6A9AA22008A13300BE591F /* PNSignUpOperation.swift in Sources */,
 				B33BBE0C204B5224005C5404 /* PNOrderPlaced.swift in Sources */,
 				DA7A126A2031031F00DEC686 /* PNMenuAddedDishTableViewCell.swift in Sources */,
+				25C25CF1206559190058FE3E /* OrderTotalCalculator.swift in Sources */,
 				EB1869972002429100C27925 /* PNGuestLetsGetStartedWithEmailTextFieldDelegate.swift in Sources */,
 				EBD90D7E202E1BBF001BB7C5 /* PNAddPaymentOperation.swift in Sources */,
 				EBE73463200E8A32001BB651 /* PNPartySizeTableViewCell.swift in Sources */,
 				DA42093E20308A0800327A28 /* PNOrderRawDesserts.swift in Sources */,
+				25C25CF3206563D70058FE3E /* PNFeeModel.swift in Sources */,
 				EBED0A281FCE8A6B00F9F5B8 /* PNRegisterForUpdateOperation.swift in Sources */,
 				EB478BDC2013526D0017E718 /* PNFriendLocationTableViewCell.swift in Sources */,
 				258E9821205F30AF00F81A58 /* OrderDetailsView.swift in Sources */,

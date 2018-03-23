@@ -29,7 +29,7 @@
                 <outlet property="numberuser" destination="CeA-1k-8AR" id="zDW-JU-VIc"/>
                 <outlet property="orderNumberLbl" destination="g67-R4-uei" id="0r5-GA-cI6"/>
                 <outlet property="placeOrderSuccessView" destination="i5M-Pr-FkT" id="W1L-fq-oqb"/>
-                <outlet property="totalPrice" destination="wNk-Wx-52L" id="FoA-7d-8HD"/>
+                <outlet property="totalPriceLbl" destination="wNk-Wx-52L" id="UMB-ja-pCg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="MwB-aK-xhh"/>
             </connections>
         </placeholder>
