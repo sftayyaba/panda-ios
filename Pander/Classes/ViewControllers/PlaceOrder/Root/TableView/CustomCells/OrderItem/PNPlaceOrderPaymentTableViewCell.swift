@@ -49,7 +49,8 @@ class PNPlaceOrderPaymentTableViewCell: UITableViewCell {
         self.dish = dish
         self.counter = (PNOrderManager.sharedInstance.generatedOrder?.recommendation?.dishQuantity(dishId: dish.id)) ?? 1
         let totalPrice = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.totalPriceFor(dishId: dish.id)
-        redPriceLabel.text = "$\(totalPrice ?? 0.0)"
+        redPriceLabel.text = "$\(dish.unitPrice ?? 0.0)"
+        greyPriceLabel.text = "$\(totalPrice ?? 0.0)"
 
         itemTitleLabel.text = dish.name
         detailLabel.text = dish.descriptionValue
