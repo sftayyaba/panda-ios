@@ -9,7 +9,7 @@ import UIKit
 
 class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
     
-    @IBOutlet var budget: PNBudgetView!
+    @IBOutlet var budgetView: PNBudget!
     
     @IBOutlet var budgetTableView: PNBudgetTableViewDelegateDatasource!
     
@@ -151,72 +151,79 @@ class PNBudgetVC: PNBaseViewController, UITextFieldDelegate {
     }
     
     
-//    @IBAction func addNewAddressButtonTapped(_ sender: Any) {
-//
-////        if self.budgetView.nickNameTextField.text == "" {
-////            self.alert(title: "Alert", message: "Nick name field is empty!")
-////        }else if self.budgetView.zipCodeTextField.text == "" {
-////            self.alert(title: "Alert", message: "Zip field is empty!")
-////        }else if self.budgetView.cardNumberTextField.text == "" {
-////            self.alert(title: "Alert", message: "Card number field is empty!")
-////
-////        }else if self.budgetView.cvvTextField.text == "" {
-////            self.alert(title: "Alert", message: "CVV field is empty!")
-////
-////        }else if self.budgetView.expiryMonthTextField.text == "" {
-////            self.alert(title: "Alert", message: "Month field is empty!")
-////
-////        }else if self.budgetView.expiryYearTextField.text == "" {
-////            self.alert(title: "Alert", message: "Year field is empty!")
-////
-////        }else if self.budgetView.zipCodeTextField.text?.count != 5 {
-////            self.alert(title: "Alert", message: "ZIP code should be of 5 digits!")
-////        }
-////        else if (self.budgetView.cardNumberTextField.text?.count)! < 15 || (self.budgetView.cardNumberTextField.text?.count)! > 16 {
-////            self.alert(title: "Alert", message: "Credit Card number is invalid!")
-////        }
-////        else if (self.budgetView.cvvTextField.text?.count)! > 4 || (self.budgetView.cvvTextField.text?.count)! < 3   {
-////            self.alert(title: "Alert", message: "CVV should be of 3 or 4 digits!")
-////
-////        }else {
-////            let nick = self.budgetView.nickNameTextField.text == "" ? nil : self.budgetView.nickNameTextField.text;
-////            let cardText = self.budgetView.cardNumberTextField.text!.replacingOccurrences(of: "-", with: "")
-////
-//           // PNUserManager.sharedInstance.addCreditCard(CardNumber: cardText, Zip: self.budgetView.zipCodeTextField.text!, Year: self.budgetView.expiryYearTextField.text!, ClientId: "ZmYxNjAxZjdmMDVhZWFkYTFkMDE3OTRmYmEzMDc1ZmIy", Cvv: self.budgetView.cvvTextField.text!, Month: self.budgetView.expiryMonthTextField.text!, NickName: nick,  successBlock: { (paymentResponse) in
-//                if let errorMsg = paymentResponse.message?.first?.localizedDescription{
-//                    self.alert(title: "Oops", message: errorMsg)
-//                }else{
-//                    //self.locationView.showStoredAddressButtonTapped()
-//
-//                    self.isNewCardAdded = true
-//                    self.doInitialDataLoad()
-//
-//                    //                    self.budgetView.storeAddressView.isHidden = false
-//                    //                    self.budgetView.newAddressView.isHidden = true
-//                    //                    self.budgetView.showTableViewHeight.constant = 200
-//                    //                    self.budgetView.storeAddressButton.isSelected = true
-//                    //                    self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
-//
-//                    //                    self.alert(title: "Success", message: "Successfully added your card.")
-//                }
-//            }, failureBlock: { (error) in
-//                if let localError = error as? ErrorBaseClass{
-//                    self.alert(title: "Oops", message: localError.localizedDescription)
-//                }else {
-//                    self.alert(title: "Error", message: "Something went wrong !")
-//                }
-//            })
-//
-//
-//        }
-//
-//    }
-    
+    @IBAction func addNewAddressButtonTapped(_ sender: Any) {
+
+        if self.budgetView.nickNameTextField.text == "" {
+            self.alert(title: "Alert", message: "Nick name field is empty!")
+        }else if self.budgetView.zipCodeTextField.text == "" {
+            self.alert(title: "Alert", message: "Zip field is empty!")
+        }else if self.budgetView.cardNumberTextField.text == "" {
+            self.alert(title: "Alert", message: "Card number field is empty!")
+
+        }else if self.budgetView.cvvTextField.text == "" {
+            self.alert(title: "Alert", message: "CVV field is empty!")
+
+        }else if self.budgetView.expiryMonthTextField.text == "" {
+            self.alert(title: "Alert", message: "Month field is empty!")
+
+        }else if self.budgetView.expiryYearTextField.text == "" {
+            self.alert(title: "Alert", message: "Year field is empty!")
+
+        }else if self.budgetView.zipCodeTextField.text?.count != 5 {
+            self.alert(title: "Alert", message: "ZIP code should be of 5 digits!")
+        }
+        else if (self.budgetView.cardNumberTextField.text?.count)! < 15 || (self.budgetView.cardNumberTextField.text?.count)! > 16 {
+            self.alert(title: "Alert", message: "Credit Card number is invalid!")
+        }
+        else if (self.budgetView.cvvTextField.text?.count)! > 4 || (self.budgetView.cvvTextField.text?.count)! < 3   {
+            self.alert(title: "Alert", message: "CVV should be of 3 or 4 digits!")
+
+        }else {
+            let nick = self.budgetView.nickNameTextField.text == "" ? nil : self.budgetView.nickNameTextField.text;
+            let cardText = self.budgetView.cardNumberTextField.text!.replacingOccurrences(of: "-", with: "")
+
+            PNUserManager.sharedInstance.addCreditCard(CardNumber: cardText, Zip: self.budgetView.zipCodeTextField.text!, Year: self.budgetView.expiryYearTextField.text!, ClientId: "ZmYxNjAxZjdmMDVhZWFkYTFkMDE3OTRmYmEzMDc1ZmIy", Cvv: self.budgetView.cvvTextField.text!, Month: self.budgetView.expiryMonthTextField.text!, NickName: nick,  successBlock: { (paymentResponse) in
+                if let errorMsg = paymentResponse.message?.first?.localizedDescription{
+                    self.alert(title: "Oops", message: errorMsg)
+                }else{
+                   // self.locationView.showStoredAddressButtonTapped()
+
+                    self.isNewCardAdded = true
+                    self.doInitialDataLoad()
+
+//                                        self.budgetView.storeAddressView.isHidden = false
+//                                        self.budgetView.newAddressView.isHidden = true
+//                                        self.budgetView.showTableViewHeight.constant = 200
+//                                        self.budgetView.storeAddressButton.isSelected = true
+//                                        self.budgetView.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
+                    let myalert = UIAlertController(title: "Success", message: "Successfully added your card.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    
+                    self.present(myalert, animated: true)
+                                        
+                    
+                }
+            }, failureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+            })
+
+
+        }
+
+    }
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         textField.textColor = UIColor.white
         
-        if(textField == budget
+        if(textField == budgetView
             .zipCodeTextField){
             if range.location == 5{
                 return false

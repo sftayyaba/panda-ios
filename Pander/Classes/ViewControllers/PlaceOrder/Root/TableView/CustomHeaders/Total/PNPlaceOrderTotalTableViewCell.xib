@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxC-uQ-0Ev">
-                        <rect key="frame" x="17" y="48.5" width="31.5" height="8.5"/>
+                        <rect key="frame" x="17" y="40" width="32" height="25"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                     <constraint firstItem="cQc-Mf-rgE" firstAttribute="leading" secondItem="QxC-uQ-0Ev" secondAttribute="trailing" constant="10" id="NW9-eP-Iz7"/>
                     <constraint firstItem="UE3-zc-B1K" firstAttribute="leading" secondItem="AqM-Oe-YgW" secondAttribute="leading" constant="15" id="WgX-Zf-77n"/>
                     <constraint firstAttribute="trailing" secondItem="FpE-O1-4uz" secondAttribute="trailing" constant="15" id="bSd-Q6-p0T"/>
-                    <constraint firstItem="xRe-uO-T8q" firstAttribute="top" secondItem="QxC-uQ-0Ev" secondAttribute="bottom" constant="35" id="cbr-nG-JqQ"/>
+                    <constraint firstItem="xRe-uO-T8q" firstAttribute="top" secondItem="QxC-uQ-0Ev" secondAttribute="bottom" constant="27" id="cbr-nG-JqQ"/>
                     <constraint firstAttribute="trailing" secondItem="UE3-zc-B1K" secondAttribute="trailing" constant="15" id="e6M-ny-eoi"/>
                     <constraint firstAttribute="bottom" secondItem="UE3-zc-B1K" secondAttribute="bottom" constant="6.5" id="gcq-bR-HzU"/>
                     <constraint firstItem="FpE-O1-4uz" firstAttribute="leading" secondItem="AqM-Oe-YgW" secondAttribute="leading" constant="15" id="naE-Ll-13L"/>
