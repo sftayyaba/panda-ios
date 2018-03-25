@@ -48,8 +48,8 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             self.cardsArray = response.cards!
             
             if(response.cards?.count == 0){
-                self.budgetView.paywith.text = ""
-                 self.budgetView.selectedCardLabel.text = "No Payment method"
+                self.budgetView.paywith.text = "No"
+                 self.budgetView.selectedCardLabel.text = "Payment method"
             }
             if let selectedCard = PNUserManager.sharedInstance.selectedCard{
                  self.budgetView.paywith.text = "Pay With"

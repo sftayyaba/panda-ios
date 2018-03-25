@@ -50,7 +50,7 @@ class PNLocationViewController: PNBaseViewController {
             if let addresses = response.addresses{
                 self.locationTableView.addresses = addresses
                 if(addresses.count == 0){
-                    self.locationView.deliverto.text = "NO "
+                    self.locationView.deliverto.text = "No "
                     self.locationView.selectedAddressLabel.text = " Delivery Address"
                     
                 }else{
