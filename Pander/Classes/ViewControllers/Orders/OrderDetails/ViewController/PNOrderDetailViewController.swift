@@ -66,6 +66,44 @@ class PNOrderDetailViewController: PNBaseViewController {
         self.configureTableView()
     }
     
+    func showErrorAlert(_ message: String) {
+        
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+        }
+        alertController.addAction(okAction)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func checkCardIdExistence() {
+        
+        PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+            
+            let cardsArray = response.cards!
+            
+            for card in cardsArray {
+                //TODO: change orderId to relevant credit card id
+                if self.order.orderId == card.ccId! {
+                    //success
+                    //do something
+                    return
+                }
+            }
+            self.showErrorAlert("Credit Card Information not found in user account")
+            
+        }
+            , FailureBlock: { (error) in
+                if let localError = error as? ErrorBaseClass{
+                    self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
+        })
+    }
+    
     override func configureCallBacks() {
         
         self.tableView.editAndReorderButtonCallback = {
@@ -150,9 +188,37 @@ class PNOrderDetailViewController: PNBaseViewController {
             }
             
         }
+        
+//        func checkLocations(completionHandler: @escaping (_ ))
      
         
         func editAndReorder () {
+            
+        }
+        
+        
+        
+        self.tableView.checkLocationsCallback = {
+            
+            PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+                
+                print("Locations: \(response)")
+                
+                if let successResponse = response as? PNGetAddressesResponse {
+                    for address in successResponse.addresses! {
+                        if address.locationId == Int(self.order.locationId!) {
+                            //yes
+                            //go to next step
+                            self.checkCardIdExistence()
+                            return
+                        }
+                    }
+                    self.showErrorAlert("Location not found in user account")
+                }
+
+                
+            }, FailureBlock: { (error) in
+            })
             
         }
         
