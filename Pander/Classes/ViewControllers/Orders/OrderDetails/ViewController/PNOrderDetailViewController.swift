@@ -129,7 +129,7 @@ class PNOrderDetailViewController: PNBaseViewController {
                 
               reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "\"[", with: "[", options: NSString.CompareOptions.literal , range: nil)
                 
-               
+               reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "]\"", with: "]", options: NSString.CompareOptions.literal , range: nil)
     
                 PNOrderManager.sharedInstance.recreateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, ReorderInfo: reorderInfoJsonString!, SuccessBlock: { (generatedOrderResponse) in
                     PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
