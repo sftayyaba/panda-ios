@@ -24,6 +24,8 @@ class PNOrderDetailViewController: PNBaseViewController {
         super.viewDidLoad()
 
         
+        
+        
         PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
             PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
                 
@@ -43,6 +45,19 @@ class PNOrderDetailViewController: PNBaseViewController {
                 }else {
                     // self.alert(title: "Error", message: "Something went wrong !")
                 }
+        })
+        
+        
+        PNOrderManager.sharedInstance.getPastOrderWithID(OrderID:self.order.orderId!, SuccessBlock:{ (response) in
+            
+        }
+            , FailureBlock: { (error) in
+                if (error as? ErrorBaseClass) != nil{
+                    //(self.alert(title: "Oops", message: localError.localizedDescription)
+                }else {
+                    // self.alert(title: "Error", message: "Something went wrong !")
+                }
+                
         })
         
         tableView.order = self.order
