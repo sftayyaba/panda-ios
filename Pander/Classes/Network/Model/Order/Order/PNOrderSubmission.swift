@@ -19,7 +19,7 @@ public final class PNOrderSubmission: NSCoding {
 
   // MARK: Properties
   public var itemId: String?
-  public var optionQty: PNOrderOptionQty?
+    public var optionQty: [String: Any]?
   public var itemQty: Int?
 
   // MARK: SwiftyJSON Initializers
@@ -36,7 +36,7 @@ public final class PNOrderSubmission: NSCoding {
   /// - parameter json: JSON object from SwiftyJSON.
   public required init(json: JSON) {
     itemId = json[SerializationKeys.itemId].string
-    optionQty = PNOrderOptionQty(json: json[SerializationKeys.optionQty])
+    optionQty = json[SerializationKeys.optionQty].dictionaryObject
     itemQty = json[SerializationKeys.itemQty].int
   }
 
@@ -46,7 +46,7 @@ public final class PNOrderSubmission: NSCoding {
   public func dictionaryRepresentation() -> [String: Any] {
     var dictionary: [String: Any] = [:]
     if let value = itemId { dictionary[SerializationKeys.itemId] = value }
-    if let value = optionQty { dictionary[SerializationKeys.optionQty] = value.dictionaryRepresentation() }
+    if let value = optionQty { dictionary[SerializationKeys.optionQty] = value }
     if let value = itemQty { dictionary[SerializationKeys.itemQty] = value }
     return dictionary
   }
@@ -54,7 +54,7 @@ public final class PNOrderSubmission: NSCoding {
   // MARK: NSCoding Protocol
   required public init(coder aDecoder: NSCoder) {
     self.itemId = aDecoder.decodeObject(forKey: SerializationKeys.itemId) as? String
-    self.optionQty = aDecoder.decodeObject(forKey: SerializationKeys.optionQty) as? PNOrderOptionQty
+    self.optionQty = aDecoder.decodeObject(forKey: SerializationKeys.optionQty) as? [String:Any]
     self.itemQty = aDecoder.decodeObject(forKey: SerializationKeys.itemQty) as? Int
   }
 

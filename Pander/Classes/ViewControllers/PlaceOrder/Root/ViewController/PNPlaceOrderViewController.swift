@@ -144,16 +144,22 @@ class PNPlaceOrderViewController: PNBaseViewController {
     }
     
     func addToCart(_ resturantId: String)  {
+        let order  = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.order
         if let orderSubmissionsArr = PNOrderManager.sharedInstance.generatedOrder?.recommendation?.submission {
             var dictionaryArray = [[String : Any]]()
+            var index = 0
             for orderSubmission in orderSubmissionsArr {
                 var orderSubmissionDict = orderSubmission.dictionaryRepresentation()
                 if let optionQuantity = orderSubmissionDict["option_qty"] as? [String : Any],
                    optionQuantity.count == 0,
                    let optionQuantityIndex = orderSubmissionDict.index(forKey: "option_qty") {
                     orderSubmissionDict.remove(at: optionQuantityIndex)
+                    
                 }
-
+               
+                
+                orderSubmissionDict["item_qty"] = order![index].qty
+                index += 1
                 dictionaryArray.append(orderSubmissionDict)
             }
 
