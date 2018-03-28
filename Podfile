@@ -33,7 +33,7 @@ pod 'PINCache'
 pod 'ToggleView', '~> 0.0.1'
 pod 'TextFieldEffects'
 pod 'CarbonKit'
-pod 'ObjectMapper'
+
 
   # Pods for Pander
 

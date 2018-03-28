@@ -71,7 +71,6 @@
 		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
 		1ED481702046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */; };
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
-		2526E32F20699237008C8CEF /* MerchantHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526E32E20699237008C8CEF /* MerchantHoursModel.swift */; };
 		258E9821205F30AF00F81A58 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E9820205F30AF00F81A58 /* OrderDetailsView.swift */; };
 		258E9823205F30BF00F81A58 /* OrderDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258E9822205F30BF00F81A58 /* OrderDetailsView.xib */; };
 		25C25CF1206559190058FE3E /* OrderTotalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */; };
@@ -83,12 +82,6 @@
 		25E983BF2060648F0019A81E /* OrderTotalPopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E983BD2060648E0019A81E /* OrderTotalPopupCell.swift */; };
 		25E983C02060648F0019A81E /* OrderTotalPopupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E983BE2060648E0019A81E /* OrderTotalPopupCell.xib */; };
 		25F5483E205F38570067B7A2 /* UIView+Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5483D205F38570067B7A2 /* UIView+Commons.swift */; };
-		25FEEA8B206B6389000B481E /* OpenTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEEA8A206B6389000B481E /* OpenTimeModel.swift */; };
-		25FEEA8D206B6431000B481E /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEEA8C206B6431000B481E /* ScheduleModel.swift */; };
-		25FEEA8F206B6642000B481E /* DayScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEEA8E206B6642000B481E /* DayScheduleModel.swift */; };
-		25FEEA92206B68CE000B481E /* MerchantHoursOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEEA91206B68CE000B481E /* MerchantHoursOperation.swift */; };
-		25FEEA95206B6B08000B481E /* PNMerchantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEEA94206B6B08000B481E /* PNMerchantManager.swift */; };
-		25FEEA97206B6B45000B481E /* PNMerchantHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEEA96206B6B45000B481E /* PNMerchantHours.swift */; };
 		96C5532EEA7DBC7C22B4E5D5 /* Pods_Pander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECFB0E13C5189292F92319 /* Pods_Pander.framework */; };
 		A46C50AF075C13DA42A7B87E /* Pods_PanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B13E8B6967E5A4406F522 /* Pods_PanderTests.framework */; };
 		AFD386AF756B7E339CD430CF /* Pods_PanderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */; };
@@ -489,7 +482,6 @@
 		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
 		1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSearchFindRestuarantCollectionViewCell.xib; sourceTree = "<group>"; };
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
-		2526E32E20699237008C8CEF /* MerchantHoursModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantHoursModel.swift; sourceTree = "<group>"; };
 		258E9820205F30AF00F81A58 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
 		258E9822205F30BF00F81A58 /* OrderDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsView.xib; sourceTree = "<group>"; };
 		25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTotalCalculator.swift; sourceTree = "<group>"; };
@@ -501,12 +493,6 @@
 		25E983BD2060648E0019A81E /* OrderTotalPopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTotalPopupCell.swift; sourceTree = "<group>"; };
 		25E983BE2060648E0019A81E /* OrderTotalPopupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTotalPopupCell.xib; sourceTree = "<group>"; };
 		25F5483D205F38570067B7A2 /* UIView+Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Commons.swift"; sourceTree = "<group>"; };
-		25FEEA8A206B6389000B481E /* OpenTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTimeModel.swift; sourceTree = "<group>"; };
-		25FEEA8C206B6431000B481E /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
-		25FEEA8E206B6642000B481E /* DayScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleModel.swift; sourceTree = "<group>"; };
-		25FEEA91206B68CE000B481E /* MerchantHoursOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantHoursOperation.swift; sourceTree = "<group>"; };
-		25FEEA94206B6B08000B481E /* PNMerchantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNMerchantManager.swift; sourceTree = "<group>"; };
-		25FEEA96206B6B45000B481E /* PNMerchantHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNMerchantHours.swift; sourceTree = "<group>"; };
 		31A2A6AE5F5089AD6E00B2F7 /* Pods-PanderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PanderUITests/Pods-PanderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A38314382D2D776855DE6BA /* Pods_PanderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PanderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BEF31003DB5D0C4B3F475C /* Pods-PanderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PanderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PanderTests/Pods-PanderTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1340,25 +1326,6 @@
 			path = TextFielDelegate;
 			sourceTree = "<group>";
 		};
-		2526E32C206989FF008C8CEF /* Merchant */ = {
-			isa = PBXGroup;
-			children = (
-				25FEEA90206B68AB000B481E /* MerchantHours */,
-			);
-			path = Merchant;
-			sourceTree = "<group>";
-		};
-		2526E32D20698A27008C8CEF /* Merchant */ = {
-			isa = PBXGroup;
-			children = (
-				2526E32E20699237008C8CEF /* MerchantHoursModel.swift */,
-				25FEEA8A206B6389000B481E /* OpenTimeModel.swift */,
-				25FEEA8C206B6431000B481E /* ScheduleModel.swift */,
-				25FEEA8E206B6642000B481E /* DayScheduleModel.swift */,
-			);
-			path = Merchant;
-			sourceTree = "<group>";
-		};
 		258E981F205F309000F81A58 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1419,23 +1386,6 @@
 				25F5483D205F38570067B7A2 /* UIView+Commons.swift */,
 			);
 			path = UIView;
-			sourceTree = "<group>";
-		};
-		25FEEA90206B68AB000B481E /* MerchantHours */ = {
-			isa = PBXGroup;
-			children = (
-				25FEEA91206B68CE000B481E /* MerchantHoursOperation.swift */,
-			);
-			path = MerchantHours;
-			sourceTree = "<group>";
-		};
-		25FEEA93206B6AD9000B481E /* MerchantManager */ = {
-			isa = PBXGroup;
-			children = (
-				25FEEA94206B6B08000B481E /* PNMerchantManager.swift */,
-				25FEEA96206B6B45000B481E /* PNMerchantHours.swift */,
-			);
-			path = MerchantManager;
 			sourceTree = "<group>";
 		};
 		3E4E492EA6F19ABD86D002E0 /* Frameworks */ = {
@@ -2603,7 +2553,6 @@
 		EB8F01951FCADAD2000D790F /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				2526E32C206989FF008C8CEF /* Merchant */,
 				DA4209242030855E00327A28 /* Order */,
 				EB8F01961FCADAD2000D790F /* UserProfiling */,
 			);
@@ -3058,7 +3007,6 @@
 		EBC74EB61FCAC41C00641B48 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				25FEEA93206B6AD9000B481E /* MerchantManager */,
 				DA4209212030845000327A28 /* OrderManager */,
 				EB8F018D1FCAD8F6000D790F /* BaseManaer */,
 				EB8F018F1FCAD8F6000D790F /* UserManager */,
@@ -3089,7 +3037,6 @@
 		EBC74EBA1FCAC41C00641B48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2526E32D20698A27008C8CEF /* Merchant */,
 				DA42092B203089C400327A28 /* Order */,
 				EBFB70E51FCB150E00DB4C58 /* Common */,
 				EBFB70E01FCB150E00DB4C58 /* UserProfile */,
@@ -4208,7 +4155,6 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PWSwitch/PWSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
@@ -4246,7 +4192,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PWSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
@@ -4307,7 +4252,6 @@
 				DAA0C3EF202EA2DA00B130C8 /* PNAddNickOperation.swift in Sources */,
 				EBD4CD1120129AA400BAD5E3 /* JiroTextField.swift in Sources */,
 				B32AB568205C53FC0072F634 /* PNCheckCartOperation.swift in Sources */,
-				25FEEA8D206B6431000B481E /* ScheduleModel.swift in Sources */,
 				1E1D815B2045329E005DB9C9 /* PNOrderDetailView.swift in Sources */,
 				1E9674662046AB85006B4E35 /* PNQucikSearchFeaturedCuisineCollectionReusableView.swift in Sources */,
 				EB18699A2002477600C27925 /* PNGuestLetsGetStartedWithLocationViewTextFieldDelegate.swift in Sources */,
@@ -4385,7 +4329,6 @@
 				DA42093D20308A0800327A28 /* PNOrderOptionQty.swift in Sources */,
 				EB31BB82200402E900F86CBF /* PNSignUpView.swift in Sources */,
 				DA40397B201383B30066D843 /* PNAllDishes.swift in Sources */,
-				25FEEA92206B68CE000B481E /* MerchantHoursOperation.swift in Sources */,
 				EBFB71071FCCA14200DB4C58 /* PNBaseView.swift in Sources */,
 				1ED0E8202051558700EB60B1 /* PNAddToCartOperation.swift in Sources */,
 				DA42094420308A0800327A28 /* PNOrderBaseClass.swift in Sources */,
@@ -4437,7 +4380,6 @@
 				1E1D816A20456328005DB9C9 /* PNOrderDetailItemsTableViewCell.swift in Sources */,
 				EB18699420023E3100C27925 /* PNGuestLetsGetStartedWithNameTextFieldDelegate.swift in Sources */,
 				EB63DD72201A7FF800737550 /* PNDeliveryDateTableViewDelegateDatasource.swift in Sources */,
-				25FEEA8F206B6642000B481E /* DayScheduleModel.swift in Sources */,
 				EB7AD55C202B8EE50082EF96 /* PNUserManager+UpdateTastePreferences.swift in Sources */,
 				EB31BB83200402E900F86CBF /* PNSignUpViewController.swift in Sources */,
 				DA4039792013834A0066D843 /* PNAllCuisines.swift in Sources */,
@@ -4461,7 +4403,6 @@
 				1E331C652044200000311B41 /* PNOrderMainHeaderCollectionReusableView.swift in Sources */,
 				1E9674562046A163006B4E35 /* PNQuickSearchFeaturedItemsCollectionViewCell.swift in Sources */,
 				EBAA67CE2028798000DF20D7 /* PNPlaceOrderDelegateDatasource.swift in Sources */,
-				25FEEA8B206B6389000B481E /* OpenTimeModel.swift in Sources */,
 				DA560406203493B100393159 /* DateUtils.swift in Sources */,
 				EBFB71151FCCA9AD00DB4C58 /* ApplicationTextfields.swift in Sources */,
 				EB738E762028D8B600A2DC16 /* PNPlaceOrderAddItemRootViewController.swift in Sources */,
@@ -4479,7 +4420,6 @@
 				EB1869852002297A00C27925 /* PNGuestLetsGetStartedWithLocationView.swift in Sources */,
 				1E3E6324204D1F7D009A0DAB /* PNOrderManager+PastOrders.swift in Sources */,
 				DA40397D20138B5A0066D843 /* PNGetAllCuisines.swift in Sources */,
-				25FEEA97206B6B45000B481E /* PNMerchantHours.swift in Sources */,
 				EB3C23EB201BB81B00D266FD /* PNBudgetTableViewDelegateDatasource.swift in Sources */,
 				EBD90D7B202E1B45001BB7C5 /* PNUserManager+AddRemoveCreditCard.swift in Sources */,
 				EB9F8EB620261D5D0044255F /* PNHomeFeaturedItemsCollectionViewCell.swift in Sources */,
@@ -4517,7 +4457,6 @@
 				1E4209DC204E79FE004D35D1 /* PNEditReorderOperation.swift in Sources */,
 				EB478BE1201353EA0017E718 /* PNTravisFieldTableViewCell.swift in Sources */,
 				EB9F8EBA20261D5D0044255F /* PHCommonHeaderCollectionView.swift in Sources */,
-				25FEEA95206B6B08000B481E /* PNMerchantManager.swift in Sources */,
 				DA49D4D4202E53A300F15521 /* PNGetAddressesOperation.swift in Sources */,
 				DA49D4D0202C5DC100F15521 /* PNUserManager+AddUpdateRemoveLocation.swift in Sources */,
 				EB9F8EBC20261D5D0044255F /* PNHomeFeaturedItemsCollectionReusableView.swift in Sources */,
@@ -4561,7 +4500,6 @@
 				EBF8F130202E4D0100119BFF /* PNSettingViewController.swift in Sources */,
 				1E8444F1204FFA3E004D3671 /* PNQuickSearchDetailView.swift in Sources */,
 				1E96744B20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift in Sources */,
-				2526E32F20699237008C8CEF /* MerchantHoursModel.swift in Sources */,
 				EBD90D82202E32B3001BB7C5 /* PNCards.swift in Sources */,
 				1E4209E0204EADF6004D35D1 /* PNQucikSearchReusableView.swift in Sources */,
 				1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */,
