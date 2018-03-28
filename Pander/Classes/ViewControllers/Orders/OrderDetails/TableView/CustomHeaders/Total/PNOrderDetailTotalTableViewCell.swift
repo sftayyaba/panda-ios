@@ -11,6 +11,7 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
 
     public var editAndReorderButtonCallback : (() -> Void)?
     public var reorderButtonCallback : (() -> Void)?
+    public var checkLocationsCallback :  (() -> Void)?
     public var detailsButtonCallback : (() -> Void)?
     
     @IBOutlet var editAndReorderBtn: UIButton!
@@ -41,7 +42,8 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
     
     
     @IBAction func reorderAction(_ sender: Any) {
-        if let callBack = reorderButtonCallback{
+        
+        if let callBack = checkLocationsCallback{
             callBack()
         }
 

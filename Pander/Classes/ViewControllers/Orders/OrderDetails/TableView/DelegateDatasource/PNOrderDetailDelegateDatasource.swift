@@ -12,11 +12,12 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     public var  didAddItemButtonCallback : (() -> Void)?
     public var editAndReorderButtonCallback : (() -> Void)?
     public var reorderButtonCallback : (() -> Void)?
-    
+    public var checkLocationsCallback : (() -> Void)?
     
     public var didPressShowAddressCallback : (() -> Void)?
     public var didPressShowCardCallback : (() -> Void)?
     public var detailsButtonCallback : (() -> Void)?
+    
     
     
     var isLocationSelected = false
@@ -220,6 +221,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         let cell: PNOrderDetailTotalTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "PNOrderDetailTotalTableViewCell") as? PNOrderDetailTotalTableViewCell)!
         cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
         cell.reorderButtonCallback = self.reorderButtonCallback;
+        cell.checkLocationsCallback = self.checkLocationsCallback
         cell.detailsButtonCallback = detailsButtonCallback
         cell.setContent(cuisine: cuisine,order: order)
         return cell
