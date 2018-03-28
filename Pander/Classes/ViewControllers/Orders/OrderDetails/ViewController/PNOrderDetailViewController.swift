@@ -92,6 +92,16 @@ class PNOrderDetailViewController: PNBaseViewController {
                 var zip = ""
                 var addressId = ""
     
+                if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
+                    searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
+                    city = selectedAddress.city!
+                    zip = selectedAddress.zipCode!
+                    addressId = "\(selectedAddress.locationId!)"
+                }else{
+                    self.alert(title: "Oops", message: "No Delivery address is selected.")
+                    return
+                }
+                
                 let dishesArray : NSMutableArray = NSMutableArray ()
                 for cart in self.order.cart! {
                     let dishDictionary :NSMutableDictionary = NSMutableDictionary()
@@ -103,26 +113,23 @@ class PNOrderDetailViewController: PNBaseViewController {
     
                 let dishJsonData = try? JSONSerialization.data(withJSONObject: dishesArray, options: [])
                 let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
-    
+                
     
                 let reorderInfoJsonObject: NSMutableDictionary = NSMutableDictionary()
                 reorderInfoJsonObject.setValue(self.order.merchantId, forKey: "restId")
                 reorderInfoJsonObject.setValue(self.order.name, forKey: "restName")
                 reorderInfoJsonObject.setValue(dishesjsonString!, forKey: "dishes")
+                reorderInfoJsonObject.setValue("ALL_CUISINES", forKey: "cuisine")
+              // reorderInfoJsonObject.setValue(searchAddress, forKey: "searchAddress")
                 let reorderInfoJsonData = try? JSONSerialization.data(withJSONObject: reorderInfoJsonObject, options: [])
-                let reorderInfoJsonString = String(data: reorderInfoJsonData!, encoding: .utf8)
-    
-    
-    
-                if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
-                    searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
-                    city = selectedAddress.city!
-                    zip = selectedAddress.zipCode!
-                    addressId = "\(selectedAddress.locationId!)"
-                }else{
-                    self.alert(title: "Oops", message: "No Delivery address is selected.")
-                    return
-                }
+                var reorderInfoJsonString = String(data: reorderInfoJsonData!, encoding: .utf8)
+            
+               
+                reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal , range: nil)
+                
+              reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "\"[", with: "[", options: NSString.CompareOptions.literal , range: nil)
+                
+               reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "]\"", with: "]", options: NSString.CompareOptions.literal , range: nil)
     
                 PNOrderManager.sharedInstance.recreateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, ReorderInfo: reorderInfoJsonString!, SuccessBlock: { (generatedOrderResponse) in
                     PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
