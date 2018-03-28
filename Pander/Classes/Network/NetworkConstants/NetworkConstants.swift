@@ -61,7 +61,7 @@ struct AppNetworkEndPoints {
     static let KOrderCartCheckOut                   = "/order/cart/checkout/"
     static let kAddAddress                          = "/customer/location/"
     static let kAddCreditCard                       = "/customer/cc/"
-    static let kMerchantHours                       = "/merchant/88630/hours/"
+    static let kMerchantHours                       = "/merchant/{{merchant_id}}/hours/"
 }
 
 struct AppNetworkStatusCodes {
