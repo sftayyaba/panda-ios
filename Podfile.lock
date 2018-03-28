@@ -83,6 +83,7 @@ PODS:
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
+  - ObjectMapper (3.1.0)
   - PINCache (2.3)
   - PWSwitch (1.1.0)
   - ReachabilitySwift (3)
@@ -116,6 +117,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 1.0.0)
   - MGSwipeTableCell
   - NVActivityIndicatorView
+  - ObjectMapper
   - PINCache
   - PWSwitch
   - ReachabilitySwift (~> 3)
@@ -153,6 +155,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MGSwipeTableCell: c3bc6e261e7bc06c112909fe3fb8205de286082c
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PWSwitch: e5a45cb84ff794a4d651812cce1f061764629ed3
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
@@ -163,6 +166,6 @@ SPEC CHECKSUMS:
   ToggleView: c19e75ab7c78d548f9eca8e3c438271cce6c9e2d
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: f5d957d305c0d3f1cc22558ed6e9c57ff38da9e1
+PODFILE CHECKSUM: 1b5a0f62014f469fbd49f70d04a64866ac44816d
 
 COCOAPODS: 1.4.0

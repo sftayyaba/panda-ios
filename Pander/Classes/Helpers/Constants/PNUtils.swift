@@ -7,6 +7,16 @@
 
 import UIKit
 
+extension Date {
+    
+    func dayOfWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self).capitalized
+        // or use capitalized(with: locale) if you want
+    }
+}
+
 class PNUtils: NSObject {
     static func calculateTotalPrice(orders: [PNOrderDish]?) -> Float {
         let totalPrice = (orders?.reduce(0.0) { $0 + ($1.price ?? 0.0) }) ?? 0.0
@@ -19,4 +29,5 @@ class PNUtils: NSObject {
 
         return totalPrice
     }
+    
 }
