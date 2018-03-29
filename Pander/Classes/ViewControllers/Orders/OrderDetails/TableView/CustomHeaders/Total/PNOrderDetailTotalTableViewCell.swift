@@ -13,6 +13,7 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
     public var reorderButtonCallback : (() -> Void)?
     public var checkPreConditions :  (() -> Void)?
     public var detailsButtonCallback : (() -> Void)?
+    public var checkPreConditionsEditAndReorder : (() -> Void)?
     
     @IBOutlet var editAndReorderBtn: UIButton!
     @IBOutlet var reorderBtn: UIButton!
@@ -34,9 +35,7 @@ class PNOrderDetailTotalTableViewCell: UITableViewCell {
     }
     
     @IBAction func editAndReorderAction(_ sender: Any) {
-        if let callBack = editAndReorderButtonCallback{
-            callBack()
-        }
+        checkPreConditionsEditAndReorder?()
     }
     
     

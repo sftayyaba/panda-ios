@@ -12,10 +12,11 @@ extension PNMerchantManager{
 
     //MARK: PastOrder/Method
     func getMerchantHours(
+        merchantId: String,
         SuccessBlock successBlock: @escaping ((_ successResponse: MerchantHoursModel ) -> Void),
         FailureBlock failureBlock: @escaping ((_ error: Error?) -> Void)
         ) {
-        let merchantHoursOperation = MerchantHoursOperation()
+        let merchantHoursOperation = MerchantHoursOperation(merchantId: merchantId)
         weak var weakSelf = self
 
         weakSelf?.notifyNetworkRequestStarted()

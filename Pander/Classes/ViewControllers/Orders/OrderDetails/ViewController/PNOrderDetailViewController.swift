@@ -9,6 +9,7 @@
 //cusine = 1 //Past Orders
 
 import UIKit
+import DateToolsSwift
 
 class PNOrderDetailViewController: PNBaseViewController {
 
@@ -19,36 +20,44 @@ class PNOrderDetailViewController: PNBaseViewController {
     
     var cuisine = String()
     var order : PNOrders!
+    var orderWithPaymentCard : PNOrders!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
-            PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
-                
+        PNOrderManager.sharedInstance.getPastOrderDetail(orderId: order.orderId ?? "", SuccessBlock: {
+            [weak self] (_ successResponse: PNOrders) in
+            self?.orderWithPaymentCard = successResponse
+
+            PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+                PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+                    
+                }
+                    , FailureBlock: { (error) in
+                        if (error as? ErrorBaseClass) != nil{
+                            //(self.alert(title: "Oops", message: localError.localizedDescription)
+                        }else {
+                            // self.alert(title: "Error", message: "Something went wrong !")
+                        }
+                        
+                })
             }
                 , FailureBlock: { (error) in
                     if (error as? ErrorBaseClass) != nil{
-                        //(self.alert(title: "Oops", message: localError.localizedDescription)
+                        //self.alert(title: "Oops", message: localError.localizedDescription)
                     }else {
                         // self.alert(title: "Error", message: "Something went wrong !")
                     }
-                    
             })
-        }
-         , FailureBlock: { (error) in
-                if (error as? ErrorBaseClass) != nil{
-                    //self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                    // self.alert(title: "Error", message: "Something went wrong !")
-                }
+        }, FailureBlock: {
+            [weak self] _ in
+            self?.alert(title: "Error", message: "Failed to fetch order details.")
         })
-        
+
         tableView.order = self.order
         tableView.cuisine = self.cuisine
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
         updateTotalPrice()
@@ -78,21 +87,25 @@ class PNOrderDetailViewController: PNBaseViewController {
     }
     
     func checkCardIdExistence() {
-        
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
             
             let cardsArray = response.cards!
             
             for card in cardsArray {
                 //TODO: change orderId to relevant credit card id
-                if self.order.orderId == card.ccId! {
+                let currentDate = Date()
+                if let cardCCID = card.ccId,
+                   let expYear = card.expYear,
+                   let expMonth = card.expMonth,
+                   self.orderWithPaymentCard.paymentsUsed?.creditCard?.first?.id == Int(cardCCID),
+                   expYear >= currentDate.year && expMonth >= currentDate.month {
+                    self.tableView.reorderButtonCallback?()
                     //success
                     //do something
                     return
                 }
             }
             self.showErrorAlert("Credit Card Information not found in user account")
-            
         }
             , FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
@@ -115,8 +128,7 @@ class PNOrderDetailViewController: PNBaseViewController {
                         if address.locationId == Int(self.order.locationId!) {
                             //yes
                             //go to next step
-//                            self.checkCardIdExistence()
-                            self.tableView.reorderButtonCallback!()
+                            self.checkCardIdExistence()
                             return
                         }
                     }
@@ -130,7 +142,7 @@ class PNOrderDetailViewController: PNBaseViewController {
     
     func checkMerchantOpenHours() {
        
-        PNMerchantManager.sharedInstance.getMerchantHours(SuccessBlock: {
+        PNMerchantManager.sharedInstance.getMerchantHours(merchantId: order.merchantId ?? "", SuccessBlock: {
             (merchantHours) in
             
             let currentDelivery = merchantHours.currentSchedule!.delivery!
@@ -203,6 +215,16 @@ class PNOrderDetailViewController: PNBaseViewController {
                 var zip = ""
                 var addressId = ""
     
+                if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
+                    searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
+                    city = selectedAddress.city!
+                    zip = selectedAddress.zipCode!
+                    addressId = "\(selectedAddress.locationId!)"
+                }else{
+                    self.alert(title: "Oops", message: "No Delivery address is selected.")
+                    return
+                }
+                
                 let dishesArray : NSMutableArray = NSMutableArray ()
                 for cart in self.order.cart! {
                     let dishDictionary :NSMutableDictionary = NSMutableDictionary()
@@ -214,26 +236,23 @@ class PNOrderDetailViewController: PNBaseViewController {
     
                 let dishJsonData = try? JSONSerialization.data(withJSONObject: dishesArray, options: [])
                 let dishesjsonString = String(data: dishJsonData!, encoding: .utf8)
-    
+                
     
                 let reorderInfoJsonObject: NSMutableDictionary = NSMutableDictionary()
                 reorderInfoJsonObject.setValue(self.order.merchantId, forKey: "restId")
                 reorderInfoJsonObject.setValue(self.order.name, forKey: "restName")
                 reorderInfoJsonObject.setValue(dishesjsonString!, forKey: "dishes")
+                reorderInfoJsonObject.setValue("ALL_CUISINES", forKey: "cuisine")
+              // reorderInfoJsonObject.setValue(searchAddress, forKey: "searchAddress")
                 let reorderInfoJsonData = try? JSONSerialization.data(withJSONObject: reorderInfoJsonObject, options: [])
-                let reorderInfoJsonString = String(data: reorderInfoJsonData!, encoding: .utf8)
-    
-    
-    
-                if let selectedAddress = PNUserManager.sharedInstance.selectedAddress{
-                    searchAddress = "\(selectedAddress.street!),\(selectedAddress.zipCode!)"
-                    city = selectedAddress.city!
-                    zip = selectedAddress.zipCode!
-                    addressId = "\(selectedAddress.locationId!)"
-                }else{
-                    self.alert(title: "Oops", message: "No Delivery address is selected.")
-                    return
-                }
+                var reorderInfoJsonString = String(data: reorderInfoJsonData!, encoding: .utf8)
+            
+               
+                reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal , range: nil)
+                
+              reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "\"[", with: "[", options: NSString.CompareOptions.literal , range: nil)
+                
+               reorderInfoJsonString =  reorderInfoJsonString?.replacingOccurrences(of: "]\"", with: "]", options: NSString.CompareOptions.literal , range: nil)
     
                 PNOrderManager.sharedInstance.recreateOrder(SearchAddress: searchAddress, AddressCity: city, AddressZip: zip, AddressId: addressId, ReorderInfo: reorderInfoJsonString!, SuccessBlock: { (generatedOrderResponse) in
                     PNOrderManager.sharedInstance.getGeneratedOrder(TaskId: generatedOrderResponse.id!, SuccessBlock: { (orderReponse) in
@@ -263,15 +282,10 @@ class PNOrderDetailViewController: PNBaseViewController {
         }
         
 //        func checkLocations(completionHandler: @escaping (_ ))
-     
-        
-        func editAndReorder () {
-            
+        tableView.checkPreConditionsEditAndReorder = {
+            self.checkMerchantHoursEditAndReorder()
         }
-        
-        
-        
-        
+
         self.tableView.checkPreConditions = {
             
             self.checkMerchantOpenHours()
@@ -378,7 +392,79 @@ class PNOrderDetailViewController: PNBaseViewController {
             orderDetailsView.showOn(view: self.view, orderItems: nil, cartItems: self.order.cart)
         }
     }
-    
+
+    func checkLocationsEditAndReorder() {
+        
+        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+            
+            print("Locations: \(response)")
+            
+            if let successResponse = response as? PNGetAddressesResponse {
+                for address in successResponse.addresses! {
+                    if address.locationId == Int(self.order.locationId!) {
+                        //yes
+                        //go to next step
+                        //                            self.checkCardIdExistence()
+                        self.tableView.editAndReorderButtonCallback!()
+                        return
+                    }
+                }
+                self.showErrorAlert("Location not found in user account")
+            }
+            
+            
+        }, FailureBlock: { (error) in
+        })
+    }
+
+    func checkMerchantHoursEditAndReorder() {
+        PNMerchantManager.sharedInstance.getMerchantHours(merchantId: order.merchantId ?? "", SuccessBlock: {
+            (merchantHours) in
+            
+            let currentDelivery = merchantHours.currentSchedule!.delivery!
+            print("Current Delivery: \(currentDelivery)")
+            let currentTime = Date()
+            let currentDay = currentTime.dayOfWeek()!.lowercased()
+            let timesOpen = currentDelivery[currentDay]!.timesOpen![0].start!
+            let timeClosed = currentDelivery[currentDay]!.timesOpen![0].end!
+            
+            let f = DateFormatter()
+            f.dateFormat = "HH:mm"
+            
+            let startDate = f.date(from: timesOpen)!
+            let endDate = f.date(from: timeClosed)!
+            
+            let gregorian = Calendar(identifier: .gregorian)
+            var startComponents = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: currentTime)
+            var endComponents = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: currentTime)
+            
+            var componentsForStart = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: startDate)
+            var componentsForEnd = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: endDate)
+            
+            // Change the time to 9:30:00 in your locale
+            startComponents.hour = componentsForStart.hour
+            startComponents.minute = componentsForStart.minute
+            startComponents.second = componentsForStart.second
+            
+            endComponents.hour = componentsForEnd.hour
+            endComponents.minute = componentsForEnd.minute
+            endComponents.second = componentsForEnd.second
+            
+            let startTime = gregorian.date(from: startComponents)!
+            let endTime = gregorian.date(from: endComponents)!
+            
+            if currentTime.timeIntervalSince1970 > startTime.timeIntervalSince1970 && currentTime.timeIntervalSince1970 < endTime.timeIntervalSince1970 {
+                print("YESSS!!")
+                self.checkLocationsEditAndReorder()
+            } else {
+                self.showErrorAlert("Merchant is closed now!")
+            }
+            
+        }, FailureBlock: {
+            (error) in
+        })
+    }
+
     fileprivate func configureTableView() {
         
         let cellNib = UINib(nibName: "PNOrderDetailLocationHeaderViewTableViewCell", bundle: nil)

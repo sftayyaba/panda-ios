@@ -9,12 +9,19 @@ import UIKit
 
 class MerchantHoursOperation: OnebyteNetworkOperationBase {
 
+    //MARK: Instance Variables
+    var merchantId : String
+
+    init(merchantId : String) {
+        self.merchantId = merchantId
+    }
+
     //MARK: Overridden Methods
     override func start() {
         super.start()
         self.startMerchantHoursOperation()
     }
-    
+
     override func handleDidFinishedWithResponse(response: AnyObject!) {
         
         if let jsonDict = response as? [String : Any] {
@@ -32,7 +39,7 @@ class MerchantHoursOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startMerchantHoursOperation() {
         
-        let urlWithId = AppNetworkEndPoints.kMerchantHours
+        let urlWithId = AppNetworkEndPoints.kMerchantHours.replacingOccurrences(of: "{{merchant_id}}", with: merchantId)
 
         OnebyteNetworkSessionManager.request(AppNetworkManager.closeNetworkDDCRequest(methodType: .get, path: urlWithId, parameters: nil)).responseJSON {response in
 

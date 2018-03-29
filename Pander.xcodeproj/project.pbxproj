@@ -71,7 +71,11 @@
 		1ED4816F2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */; };
 		1ED481702046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */; };
 		1EFBAFC7203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */; };
+		2522D79E206C4D230078E476 /* PNOrderPaymentsUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522D79D206C4D230078E476 /* PNOrderPaymentsUsed.swift */; };
+		2522D7A0206C4D720078E476 /* PNPaymentCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522D79F206C4D720078E476 /* PNPaymentCreditCard.swift */; };
 		2526E32F20699237008C8CEF /* MerchantHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526E32E20699237008C8CEF /* MerchantHoursModel.swift */; };
+		254517DC206C532C00FBBCBC /* PNOrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254517DB206C532C00FBBCBC /* PNOrderDetail.swift */; };
+		254517DE206C53EB00FBBCBC /* PNOrderDetailOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254517DD206C53EB00FBBCBC /* PNOrderDetailOperation.swift */; };
 		258E9821205F30AF00F81A58 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E9820205F30AF00F81A58 /* OrderDetailsView.swift */; };
 		258E9823205F30BF00F81A58 /* OrderDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258E9822205F30BF00F81A58 /* OrderDetailsView.xib */; };
 		25C25CF1206559190058FE3E /* OrderTotalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */; };
@@ -489,7 +493,11 @@
 		1ED4816D2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSearchFindRestuarantCollectionViewCell.swift; sourceTree = "<group>"; };
 		1ED4816E2046E6D200F26006 /* QuickSearchFindRestuarantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSearchFindRestuarantCollectionViewCell.xib; sourceTree = "<group>"; };
 		1EFBAFC6203AA7D000885D4D /* PNFavoriteDishesTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNFavoriteDishesTextFieldDelegate.swift; sourceTree = "<group>"; };
+		2522D79D206C4D230078E476 /* PNOrderPaymentsUsed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderPaymentsUsed.swift; sourceTree = "<group>"; };
+		2522D79F206C4D720078E476 /* PNPaymentCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPaymentCreditCard.swift; sourceTree = "<group>"; };
 		2526E32E20699237008C8CEF /* MerchantHoursModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantHoursModel.swift; sourceTree = "<group>"; };
+		254517DB206C532C00FBBCBC /* PNOrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderDetail.swift; sourceTree = "<group>"; };
+		254517DD206C53EB00FBBCBC /* PNOrderDetailOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderDetailOperation.swift; sourceTree = "<group>"; };
 		258E9820205F30AF00F81A58 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
 		258E9822205F30BF00F81A58 /* OrderDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsView.xib; sourceTree = "<group>"; };
 		25C25CF0206559190058FE3E /* OrderTotalCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTotalCalculator.swift; sourceTree = "<group>"; };
@@ -1548,6 +1556,7 @@
 				B32AB544205C50E80072F634 /* PNOrderManager+Checkout.swift */,
 				B32AB543205C50E80072F634 /* PNOrderManager+Feedback.swift */,
 				B32AB545205C50E80072F634 /* PNOrderManager+Reorder.swift */,
+				254517DB206C532C00FBBCBC /* PNOrderDetail.swift */,
 			);
 			path = OrderManager;
 			sourceTree = "<group>";
@@ -1573,6 +1582,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4209272030859C00327A28 /* PNOrderOperation.swift */,
+				254517DD206C53EB00FBBCBC /* PNOrderDetailOperation.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1621,6 +1631,8 @@
 				B32AB55B205C53390072F634 /* PNOrderCheckCart.swift */,
 				B32AB55A205C53390072F634 /* PNOrderCheckout.swift */,
 				25C25CF2206563D70058FE3E /* PNFeeModel.swift */,
+				2522D79D206C4D230078E476 /* PNOrderPaymentsUsed.swift */,
+				2522D79F206C4D720078E476 /* PNPaymentCreditCard.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -4191,6 +4203,7 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
@@ -4229,6 +4242,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarbonKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
@@ -4335,7 +4349,9 @@
 				EBD4CD1720129AA400BAD5E3 /* YoshikoTextField.swift in Sources */,
 				B32AB54A205C50E80072F634 /* PNOrderManager+CheckCart.swift in Sources */,
 				1E96746A2046AC88006B4E35 /* PNQuickSearchFeaturedItemsCollectionReusableView.swift in Sources */,
+				2522D79E206C4D230078E476 /* PNOrderPaymentsUsed.swift in Sources */,
 				EBFB70FA1FCB1CE800DB4C58 /* PNCodeResponse.swift in Sources */,
+				2522D7A0206C4D720078E476 /* PNPaymentCreditCard.swift in Sources */,
 				DA40397F20138CE40066D843 /* PNGetAllDishes.swift in Sources */,
 				B32AB549205C50E80072F634 /* PNOrderManager+Reorder.swift in Sources */,
 				EBFB71181FCCAA9A00DB4C58 /* PropertyStoring.swift in Sources */,
@@ -4559,6 +4575,7 @@
 				EBD4CD1020129AA400BAD5E3 /* IsaoTextField.swift in Sources */,
 				DABB1DB12007FE62003CD371 /* OnebyteNetworkSessionManager.swift in Sources */,
 				EBF8F130202E4D0100119BFF /* PNSettingViewController.swift in Sources */,
+				254517DC206C532C00FBBCBC /* PNOrderDetail.swift in Sources */,
 				1E8444F1204FFA3E004D3671 /* PNQuickSearchDetailView.swift in Sources */,
 				1E96744B20469C0C006B4E35 /* PNQuickSearchCollectionSeeLessViewDelegateDatasource.swift in Sources */,
 				2526E32F20699237008C8CEF /* MerchantHoursModel.swift in Sources */,
@@ -4592,6 +4609,7 @@
 				EBD4CD1520129AA400BAD5E3 /* TextFieldEffects.swift in Sources */,
 				1E8444EC204FF981004D3671 /* PNQuickSearchDetailViewController.swift in Sources */,
 				DA6E7DFD202E7D7E004475A3 /* PNGetNicksResponse.swift in Sources */,
+				254517DE206C53EB00FBBCBC /* PNOrderDetailOperation.swift in Sources */,
 				EBFB710F1FCCA92200DB4C58 /* ApplicationButtons.swift in Sources */,
 				EBE73460200E897D001BB651 /* PNPartySizeTableViewDelegateDatasource.swift in Sources */,
 				EBD4CD0F20129AA400BAD5E3 /* HoshiTextField.swift in Sources */,

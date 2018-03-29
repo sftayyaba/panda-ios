@@ -13,6 +13,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
     public var editAndReorderButtonCallback : (() -> Void)?
     public var reorderButtonCallback : (() -> Void)?
     public var checkPreConditions : (() -> Void)?
+    public var checkPreConditionsEditAndReorder : (() -> Void)?
     
     public var didPressShowAddressCallback : (() -> Void)?
     public var didPressShowCardCallback : (() -> Void)?
@@ -222,6 +223,7 @@ class PNOrderDetailDelegateDatasource: UITableView,UITableViewDelegate,UITableVi
         cell.editAndReorderButtonCallback = self.editAndReorderButtonCallback;
         cell.reorderButtonCallback = self.reorderButtonCallback;
         cell.checkPreConditions = self.checkPreConditions
+        cell.checkPreConditionsEditAndReorder = checkPreConditionsEditAndReorder
         cell.detailsButtonCallback = detailsButtonCallback
         cell.setContent(cuisine: cuisine,order: order)
         return cell
