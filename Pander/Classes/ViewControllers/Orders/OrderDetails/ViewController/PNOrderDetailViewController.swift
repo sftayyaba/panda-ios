@@ -9,6 +9,7 @@
 //cusine = 1 //Past Orders
 
 import UIKit
+import DateToolsSwift
 
 class PNOrderDetailViewController: PNBaseViewController {
 
@@ -19,36 +20,44 @@ class PNOrderDetailViewController: PNBaseViewController {
     
     var cuisine = String()
     var order : PNOrders!
+    var orderWithPaymentCard : PNOrders!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
-            PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
-                
+        PNOrderManager.sharedInstance.getPastOrderDetail(orderId: order.orderId ?? "", SuccessBlock: {
+            [weak self] (_ successResponse: PNOrders) in
+            self?.orderWithPaymentCard = successResponse
+
+            PNUserManager.sharedInstance.getAddresses(SuccessBlock: { (response) in
+                PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
+                    
+                }
+                    , FailureBlock: { (error) in
+                        if (error as? ErrorBaseClass) != nil{
+                            //(self.alert(title: "Oops", message: localError.localizedDescription)
+                        }else {
+                            // self.alert(title: "Error", message: "Something went wrong !")
+                        }
+                        
+                })
             }
                 , FailureBlock: { (error) in
                     if (error as? ErrorBaseClass) != nil{
-                        //(self.alert(title: "Oops", message: localError.localizedDescription)
+                        //self.alert(title: "Oops", message: localError.localizedDescription)
                     }else {
                         // self.alert(title: "Error", message: "Something went wrong !")
                     }
-                    
             })
-        }
-         , FailureBlock: { (error) in
-                if (error as? ErrorBaseClass) != nil{
-                    //self.alert(title: "Oops", message: localError.localizedDescription)
-                }else {
-                    // self.alert(title: "Error", message: "Something went wrong !")
-                }
+        }, FailureBlock: {
+            [weak self] _ in
+            self?.alert(title: "Error", message: "Failed to fetch order details.")
         })
-        
+
         tableView.order = self.order
         tableView.cuisine = self.cuisine
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
         updateTotalPrice()
@@ -78,21 +87,25 @@ class PNOrderDetailViewController: PNBaseViewController {
     }
     
     func checkCardIdExistence() {
-        
         PNUserManager.sharedInstance.getCards(SuccessBlock: { (response) in
             
             let cardsArray = response.cards!
             
             for card in cardsArray {
                 //TODO: change orderId to relevant credit card id
-                if self.order.orderId == card.ccId! {
+                let currentDate = Date()
+                if let cardCCID = card.ccId,
+                   let expYear = card.expYear,
+                   let expMonth = card.expMonth,
+                   self.orderWithPaymentCard.paymentsUsed?.creditCard?.first?.id == Int(cardCCID),
+                   expYear >= currentDate.year && expMonth >= currentDate.month {
+                    self.tableView.reorderButtonCallback?()
                     //success
                     //do something
                     return
                 }
             }
             self.showErrorAlert("Credit Card Information not found in user account")
-            
         }
             , FailureBlock: { (error) in
                 if let localError = error as? ErrorBaseClass{
@@ -115,8 +128,7 @@ class PNOrderDetailViewController: PNBaseViewController {
                         if address.locationId == Int(self.order.locationId!) {
                             //yes
                             //go to next step
-//                            self.checkCardIdExistence()
-                            self.tableView.reorderButtonCallback!()
+                            self.checkCardIdExistence()
                             return
                         }
                     }

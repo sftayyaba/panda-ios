@@ -49,6 +49,7 @@ struct AppNetworkEndPoints {
     static let kOrder                               = "/order/"
     static let kOrderStatus                         = "/order/status/"
     static let kPastOrder                           = "/user/orders/"
+    static let kPastOrderDetail                     = "/user/orders/{{order_id}}"
     static let kEditAndReorder                      = "/order/recreate/"
     static let KOrderPlaced                         = "/order/placed/"
     static let KOrderRated                          = "/order/rated/"

@@ -34,6 +34,7 @@ PODS:
   - CocoaLumberjack/Default (3.4.0)
   - CocoaLumberjack/Swift (3.4.0):
     - CocoaLumberjack/Default
+  - DateToolsSwift (2.0.3)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -104,6 +105,7 @@ DEPENDENCIES:
   - BIObjCHelpers (~> 0.4)
   - CarbonKit
   - CocoaLumberjack/Swift
+  - DateToolsSwift
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -137,6 +139,7 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CarbonKit: 0dec4738fa489b4c043a5f850c27fd0dbefb57cc
   CocoaLumberjack: e033a5d8513357af2dd456eb66e202c325c30627
+  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
@@ -166,6 +169,6 @@ SPEC CHECKSUMS:
   ToggleView: c19e75ab7c78d548f9eca8e3c438271cce6c9e2d
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: 1b5a0f62014f469fbd49f70d04a64866ac44816d
+PODFILE CHECKSUM: 3a6e5fe457daa80dc48b799bceec6ae300f9fa04
 
 COCOAPODS: 1.4.0

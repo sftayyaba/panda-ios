@@ -38,6 +38,7 @@ public final class PNOrders: NSCoding {
     static let merchantId = "merchant_id"
     static let logoUrl = "logo_url"
     static let deliveryDate = "delivery_date"
+    static let paymentsUsed = "payments_used"
   }
 
   // MARK: Properties
@@ -67,6 +68,8 @@ public final class PNOrders: NSCoding {
   public var merchantId: String?
   public var logoUrl: String?
   public var deliveryDate: String?
+  public var paymentsUsed: PNOrderPaymentsUsed?
+    
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -107,6 +110,7 @@ public final class PNOrders: NSCoding {
     merchantId = json[SerializationKeys.merchantId].string
     logoUrl = json[SerializationKeys.logoUrl].string
     deliveryDate = json[SerializationKeys.deliveryDate].string
+    paymentsUsed = PNOrderPaymentsUsed(json: json[SerializationKeys.paymentsUsed])
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -140,6 +144,7 @@ public final class PNOrders: NSCoding {
     if let value = merchantId { dictionary[SerializationKeys.merchantId] = value }
     if let value = logoUrl { dictionary[SerializationKeys.logoUrl] = value }
     if let value = deliveryDate { dictionary[SerializationKeys.deliveryDate] = value }
+    if let value = paymentsUsed { dictionary[SerializationKeys.paymentsUsed] = value }
     return dictionary
   }
 
@@ -171,6 +176,7 @@ public final class PNOrders: NSCoding {
     self.merchantId = aDecoder.decodeObject(forKey: SerializationKeys.merchantId) as? String
     self.logoUrl = aDecoder.decodeObject(forKey: SerializationKeys.logoUrl) as? String
     self.deliveryDate = aDecoder.decodeObject(forKey: SerializationKeys.deliveryDate) as? String
+    self.paymentsUsed = aDecoder.decodeObject(forKey: SerializationKeys.paymentsUsed) as? PNOrderPaymentsUsed
   }
 
   public func encode(with aCoder: NSCoder) {
@@ -200,6 +206,7 @@ public final class PNOrders: NSCoding {
     aCoder.encode(merchantId, forKey: SerializationKeys.merchantId)
     aCoder.encode(logoUrl, forKey: SerializationKeys.logoUrl)
     aCoder.encode(deliveryDate, forKey: SerializationKeys.deliveryDate)
+    aCoder.encode(paymentsUsed, forKey: SerializationKeys.paymentsUsed)
   }
 
 }

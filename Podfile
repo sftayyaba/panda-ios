@@ -34,6 +34,7 @@ pod 'ToggleView', '~> 0.0.1'
 pod 'TextFieldEffects'
 pod 'CarbonKit'
 pod 'ObjectMapper'
+pod 'DateToolsSwift'
 
   # Pods for Pander
 
