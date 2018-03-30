@@ -14,7 +14,9 @@ class OrderItemPopupCell: UITableViewCell {
     
     func setupCell(orderItem: PNOrderDish?) {
         itemNameLbl.text = orderItem?.name
-        let itemRoundedPrice = orderItem?.price ?? 0.0
+        let itemQuantity = orderItem?.qty ?? 0
+        let quantityFloat = Float(itemQuantity)
+        let itemRoundedPrice = quantityFloat * (orderItem?.price ?? 0.0)
         itemPriceLbl.text = "$\(String(format: "%.2f", itemRoundedPrice))"
     }
 
