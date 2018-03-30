@@ -11,14 +11,16 @@ class OrderItemPopupCell: UITableViewCell {
 
     @IBOutlet weak var itemNameLbl: UILabel!
     @IBOutlet weak var itemPriceLbl: UILabel!
-
+    
     func setupCell(orderItem: PNOrderDish?) {
         itemNameLbl.text = orderItem?.name
-        itemPriceLbl.text = "\(orderItem?.price ?? 0.0)"
+        let itemRoundedPrice = orderItem?.price ?? 0.0
+        itemPriceLbl.text = "$\(String(format: "%.2f", itemRoundedPrice))"
     }
 
     func setupCell(cartItem: PNCart?) {
         itemNameLbl.text = cartItem?.name
-        itemPriceLbl.text = "\(cartItem?.price ?? 0.0)"
+        let cartItemRoundedPrice = cartItem?.price ?? 0.0
+        itemPriceLbl.text = "$\(String(format: "%.2f", cartItemRoundedPrice))"
     }
 }
