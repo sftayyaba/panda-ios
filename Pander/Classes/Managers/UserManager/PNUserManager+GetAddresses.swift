@@ -35,6 +35,7 @@ extension PNUserManager {
                                 address.nick = nick
                             }
                             address.isDefault = defaults.address == "\(address.locationId!)"
+                           
 //                            address.isDefault = address.isSelected
                             
                             if ( weakSelf?.selectedAddress == nil && address.isDefault){
@@ -46,6 +47,11 @@ extension PNUserManager {
                                 address.isSelected = true
                             }
                             
+                            if(defaults.address == "\(address.locationId!)"){
+                                address.isDefault = true
+                                address.nick = nicks.addresses["\(address.locationId!)"]
+                                
+                            }
                             return address
                         })
                         
