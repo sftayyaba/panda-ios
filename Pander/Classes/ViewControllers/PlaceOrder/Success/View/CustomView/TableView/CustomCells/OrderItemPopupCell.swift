@@ -13,12 +13,20 @@ class OrderItemPopupCell: UITableViewCell {
     @IBOutlet weak var itemPriceLbl: UILabel!
 
     func setupCell(orderItem: PNOrderDish?) {
+        let unitPrice = orderItem?.unitPrice ?? 0.0
+        let itemQuantity = orderItem?.qty ?? 1
+        let totalPrice = unitPrice * Float(itemQuantity)
+
         itemNameLbl.text = orderItem?.name
-        itemPriceLbl.text = "\(orderItem?.price ?? 0.0)"
+        itemPriceLbl.text = "\(totalPrice)"
     }
 
     func setupCell(cartItem: PNCart?) {
+        let unitPrice = cartItem?.price ?? 0.0
+        let itemQuantity = cartItem?.quantity ?? 1
+        let totalPrice = unitPrice * Float(itemQuantity)
+
         itemNameLbl.text = cartItem?.name
-        itemPriceLbl.text = "\(cartItem?.price ?? 0.0)"
+        itemPriceLbl.text = "\(totalPrice)"
     }
 }
