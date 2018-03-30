@@ -74,6 +74,7 @@
 		2522D79E206C4D230078E476 /* PNOrderPaymentsUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522D79D206C4D230078E476 /* PNOrderPaymentsUsed.swift */; };
 		2522D7A0206C4D720078E476 /* PNPaymentCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522D79F206C4D720078E476 /* PNPaymentCreditCard.swift */; };
 		2526E32F20699237008C8CEF /* MerchantHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526E32E20699237008C8CEF /* MerchantHoursModel.swift */; };
+		252740EB206E7241004E9315 /* Float+Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252740EA206E7241004E9315 /* Float+Commons.swift */; };
 		254517DC206C532C00FBBCBC /* PNOrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254517DB206C532C00FBBCBC /* PNOrderDetail.swift */; };
 		254517DE206C53EB00FBBCBC /* PNOrderDetailOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254517DD206C53EB00FBBCBC /* PNOrderDetailOperation.swift */; };
 		258E9821205F30AF00F81A58 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E9820205F30AF00F81A58 /* OrderDetailsView.swift */; };
@@ -496,6 +497,7 @@
 		2522D79D206C4D230078E476 /* PNOrderPaymentsUsed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderPaymentsUsed.swift; sourceTree = "<group>"; };
 		2522D79F206C4D720078E476 /* PNPaymentCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPaymentCreditCard.swift; sourceTree = "<group>"; };
 		2526E32E20699237008C8CEF /* MerchantHoursModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantHoursModel.swift; sourceTree = "<group>"; };
+		252740EA206E7241004E9315 /* Float+Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Commons.swift"; sourceTree = "<group>"; };
 		254517DB206C532C00FBBCBC /* PNOrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderDetail.swift; sourceTree = "<group>"; };
 		254517DD206C53EB00FBBCBC /* PNOrderDetailOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNOrderDetailOperation.swift; sourceTree = "<group>"; };
 		258E9820205F30AF00F81A58 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
@@ -1365,6 +1367,14 @@
 				25FEEA8E206B6642000B481E /* DayScheduleModel.swift */,
 			);
 			path = Merchant;
+			sourceTree = "<group>";
+		};
+		252740E9206E721B004E9315 /* Float */ = {
+			isa = PBXGroup;
+			children = (
+				252740EA206E7241004E9315 /* Float+Commons.swift */,
+			);
+			path = Float;
 			sourceTree = "<group>";
 		};
 		258E981F205F309000F81A58 /* CustomView */ = {
@@ -3809,6 +3819,7 @@
 		EBFB71091FCCA78600DB4C58 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				252740E9206E721B004E9315 /* Float */,
 				25F5483C205F37FB0067B7A2 /* UIView */,
 				EB63DD73201A91FD00737550 /* Date */,
 				EB63DCF0201A64A100737550 /* UINavigationBar */,
@@ -4463,6 +4474,7 @@
 				DABB1DB32007FE62003CD371 /* OnebyteNetworkOperationBase.swift in Sources */,
 				EBFB70EF1FCB150E00DB4C58 /* userAppSettings.swift in Sources */,
 				EB3C23F8201BBBDF00D266FD /* PNBankOfWestTableViewCell.swift in Sources */,
+				252740EB206E7241004E9315 /* Float+Commons.swift in Sources */,
 				1E331C612044031C00311B41 /* PNOrderCollectionSeeLessViewDelegateDatasource.swift in Sources */,
 				EB478BD7201351350017E718 /* PNMomLocationTableViewCell.swift in Sources */,
 				1E331C5E2044014F00311B41 /* PNOrdersSeeLessCollectionViewCell.swift in Sources */,

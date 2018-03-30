@@ -18,7 +18,7 @@ class OrderItemPopupCell: UITableViewCell {
         let totalPrice = unitPrice * Float(itemQuantity)
 
         itemNameLbl.text = orderItem?.name
-        itemPriceLbl.text = "\(totalPrice)"
+        itemPriceLbl.text = totalPrice.stringValue(decimalPlaces: 2)
     }
 
     func setupCell(cartItem: PNCart?) {
@@ -27,6 +27,6 @@ class OrderItemPopupCell: UITableViewCell {
         let totalPrice = unitPrice * Float(itemQuantity)
 
         itemNameLbl.text = cartItem?.name
-        itemPriceLbl.text = "\(totalPrice)"
+        itemPriceLbl.text = totalPrice.stringValue(decimalPlaces: 2)
     }
 }
