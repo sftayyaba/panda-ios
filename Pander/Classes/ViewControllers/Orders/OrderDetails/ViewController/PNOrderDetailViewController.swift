@@ -453,7 +453,7 @@ class PNOrderDetailViewController: PNBaseViewController {
             let startTime = gregorian.date(from: startComponents)!
             let endTime = gregorian.date(from: endComponents)!
             
-            if currentTime.timeIntervalSince1970 > startTime.timeIntervalSince1970 && currentTime.timeIntervalSince1970 < endTime.timeIntervalSince1970 {
+            if startTime == endTime || currentTime.timeIntervalSince1970 > startTime.timeIntervalSince1970 && currentTime.timeIntervalSince1970 < endTime.timeIntervalSince1970 {
                 print("YESSS!!")
                 self.checkLocationsEditAndReorder()
             } else {
