@@ -50,6 +50,7 @@ class PNAddPaymentOperation: OnebyteNetworkOperationBase {
         
         let codeResponseObject: PNAddCardResponse = PNAddCardResponse(json: json)
         if codeResponseObject.message?.count == 0{
+            
             self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
         }else{
             self.safeCallDidFinishWithErrorCallback(error: codeResponseObject.message?.first)

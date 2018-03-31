@@ -103,7 +103,6 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
        
         self.storeAddressButton.isSelected = true
         self.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
-            
         }else {
 //            self.storeAddressButton.isSelected = true
             self.storeAddressView.isHidden = true
