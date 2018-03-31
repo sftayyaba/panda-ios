@@ -39,7 +39,9 @@ class PNBankOfAmericaTableViewCell: MGSwipeTableCell {
         
         self.cardType.text = card.nick != nil ? card.nick : card.type! + card.lastFour!
         
-        if card.isSelected {
+        if card.isSelected && card.isDefault{
+            self.selectedState()
+        }else if card.isSelected {
             self.selectedState()
         }else {
             self.unselectedState()
@@ -52,6 +54,9 @@ class PNBankOfAmericaTableViewCell: MGSwipeTableCell {
     fileprivate func selectedState() {
         self.selectedStateConstratints.constant = 35
         self.seletedStateImageView.isHidden = false
+        
+        
+        
     }
 
     fileprivate func unselectedState() {

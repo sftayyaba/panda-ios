@@ -51,6 +51,9 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
     @IBOutlet weak var showTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var showNewAddressViewHeight: NSLayoutConstraint!
 
+    
+    
+    
     override func awakeFromNib() {
         
         
@@ -103,7 +106,8 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
        
         self.storeAddressButton.isSelected = true
         self.arrowImageView.image = UIImage(named: "Arrow - Big - Up - Black")
-            
+           
+          
         }else {
 //            self.storeAddressButton.isSelected = true
             self.storeAddressView.isHidden = true
@@ -111,6 +115,8 @@ class PNBudgetView: UIView,UIPickerViewDelegate, UIPickerViewDataSource, UITextF
             self.storeAddressButton.isSelected = false
             self.arrowImageView.image = UIImage(named: "Arrow - Big - down - Black")
         }
+        
+        
     }
     
     @IBAction func showNewAddressButtonTapped() {

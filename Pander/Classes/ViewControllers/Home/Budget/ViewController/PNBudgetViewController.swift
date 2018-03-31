@@ -55,6 +55,14 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
                  self.budgetView.paywith.text = "Pay With"
                 self.budgetView.selectedCardLabel.text = PNUserManager.sharedInstance.selectedCard?.nick != nil ? PNUserManager.sharedInstance.selectedCard?.nick : PNUserManager.sharedInstance.selectedCard!.type! + PNUserManager.sharedInstance.selectedCard!.lastFour!
             }
+            for index in 0..<self.cardsArray.count{
+                if(self.cardsArray[index].isDefault == true){
+                    self.cardsArray[index].isSelected = true
+                   self.budgetView.selectedCardLabel.text = self.cardsArray[index].nick != nil ? self.cardsArray[index].nick : self.cardsArray[index].type! + self.cardsArray[index].lastFour!
+                }else{
+                    self.cardsArray[index].isSelected = false
+                }
+            }
                 self.budgetTableView.cardsArray = self.cardsArray
                 self.budgetTableView.reloadData()
             
@@ -112,7 +120,7 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
             }, failureBlock: { (error) in
                 
                 PNUserManager.sharedInstance.selectedCard = nil
-                self.budgetView.selectedCardLabel.text = "Chase card"
+                self.budgetView.selectedCardLabel.text = ""
                 self.doInitialDataLoad()
                 
                 if let localError = error as? ErrorBaseClass{
@@ -208,7 +216,8 @@ class PNBudgetViewController: PNBaseViewController, UITextFieldDelegate {
                 if let localError = error as? ErrorBaseClass{
                     self.alert(title: "Oops", message: localError.localizedDescription)
                 }else {
-                    self.alert(title: "Error", message: "Something went wrong !")
+                    let localerror = error as? ErrorBaseClass
+                    self.alert(title: "Error", message: (localerror?.userMsg ?? "Something went wrong"))
                 }
             })
             
