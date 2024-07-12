@@ -16,12 +16,22 @@ class PNGuestLetsGetStartedWithEmailView: UIView {
 
     override func awakeFromNib() {
         self.configureTextFields()
-        
-    
     }
     
     private func configureTextFields(){
         self.emailTextField.delegate = self;
         self.passwordTextField.delegate = self;
+    }
+    
+    func setNextButtonState() {
+        if let email = emailTextField.text , let password = passwordTextField.text{
+            if !email.isEmpty && email.isEmail && password.count >= 5{
+                self.nextButton.setTitleColor(.black, for: .normal)
+                self.nextButton.isUserInteractionEnabled = true
+                return
+            }
+        }
+        self.nextButton.setTitleColor(.lightGray, for: .normal)
+        self.nextButton.isUserInteractionEnabled = false
     }
 }

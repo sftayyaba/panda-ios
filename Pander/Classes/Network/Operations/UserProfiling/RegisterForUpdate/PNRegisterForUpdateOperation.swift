@@ -13,11 +13,10 @@ class PNRegisterForUpdateOperation: OnebyteNetworkOperationBase {
     
     
     //MARK: Instance Variables
-    var firstName: String?
-    var lastName: String?
     var email: String?
-    var password: String?
-    
+    var country_code: String?
+    var zip: String?
+   
     //MARK: Overridden Methods
     override func start() {
         super.start()
@@ -26,10 +25,23 @@ class PNRegisterForUpdateOperation: OnebyteNetworkOperationBase {
     }
     
     override func handleDidFinishedWithResponse(response: AnyObject!) {
-        let loginBaseObject: PNUserCommonSuccessResponse = PNUserCommonSuccessResponse(json: JSON(response))
+        let json = JSON(response)
         
-        self.safeCallDidFinishSuccessfullyCallback(responseObject: loginBaseObject)
+        
+        if let code = json["code"].int{
+            
+            if code >= PNApiResponseCodes.successResponse.rawValue{
+                let codeResponseObject: PNCodeResponse = PNCodeResponse(json: JSON(response))
+                
+                self.safeCallDidFinishSuccessfullyCallback(responseObject: codeResponseObject)
+            }else if code <= PNApiResponseCodes.errorResponse.rawValue{
+                let errorResponse: ErrorBaseClass = ErrorBaseClass(json: JSON(response))
+                
+                self.safeCallDidFinishSuccessfullyCallback(responseObject: errorResponse)
+            }
+        }
         self.handleDidFinishedCommon()
+
     }
     
     override func handleDidFinishedWithError(error: Error!) {
@@ -39,7 +51,7 @@ class PNRegisterForUpdateOperation: OnebyteNetworkOperationBase {
     //MARK: Request
     private func startLoginOperation() {
        
-        let urlWithId:String = AppNetworkEndPoints.kUserSignUp
+        let urlWithId:String = AppNetworkEndPoints.kRegisterUserForUpdates
         OnebyteNetworkSessionManager.request(AppNetworkManager.openNetworkRequest(methodType: .post, path: urlWithId, parameters: self.createBody())).responseJSON {response in
             
             if ((response.response?.statusCode) == 200){
@@ -59,9 +71,10 @@ class PNRegisterForUpdateOperation: OnebyteNetworkOperationBase {
     
     private func createBody() -> Dictionary<String, String>{
         return ["email":     self.email!,
-                "password":     self.password!,
-                "first_name":     self.firstName!,
-                "last_name":     self.lastName!
+                "country_code":     self.country_code!,
+                "zip":     self.zip!,
+                "latitude":     "40.7128",
+                "longitude":     "74.0060"
 
         ]
     }

@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             window.backgroundColor = UIColor.white
             if PNUserManager.sharedInstance.user != nil || PNUserManager.sharedInstance.guestUser != nil{
                 if PNUserManager.sharedInstance.isLoggedIn {
-                    moveToHome()
+                    moveToHome(atTab: AppDelegate.PNHomeTabs.home)
         
                 }else if PNUserManager.sharedInstance.selectedZip == nil{
                     self.moveToSingUp()
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                     self.moveToSingUp()
                     moveToDishSelection()
                 }else{
-                    moveToHome()
+                    moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                 }
                 
             }else{
@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         if (error == nil) {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
-            token = user.authentication.accessToken // Safe to send to the server
+            token = user.authentication.idToken // Safe to send to the server
             //print(token)
             if didPressCallAPIButtonCallback != nil {
                 didPressCallAPIButtonCallback!(token)

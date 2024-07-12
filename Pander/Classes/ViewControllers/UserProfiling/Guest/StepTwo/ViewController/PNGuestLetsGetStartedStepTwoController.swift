@@ -15,6 +15,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
     
     @IBOutlet var guestLetsGetStartedStepTwoView: PNGuestLetsGetStartedStepTwoView!
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet var collectionView: PNStepTwoCollectionViewDelegateDatasource!
 
     @IBOutlet weak var flowLayout: FlowLayout!
@@ -69,19 +70,25 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
             self.collectionView.reloadData()
                 
         }
-        
+        backButton.isHidden = PNUserManager.sharedInstance.guestUser == nil ? true : false
         self.collectionView.cuisineSelectedCallback = {
             selectedCount in
-            if selectedCount > 0 {
-                
-                PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
-                self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = true
-            } else {
-                self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = false
-            }
+            self.setupNextButton(count: selectedCount)
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupNextButton(count: self.collectionView.selectedCusines.count)
+    }
+    
+    func setupNextButton(count: Int){
+        if count > 2 {
+            PNUserManager.sharedInstance.selectedCusines = self.collectionView.selectedCusines
+            self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = true
+        } else {
+            self.guestLetsGetStartedStepTwoView.nextButton.isEnabled = false
+        }
+    }
     
     override func doInitialDataLoad() {
         PNUserManager.sharedInstance.getAllCuisines(SuccessBlock: { (recommendations) in
@@ -96,6 +103,7 @@ class PNGuestLetsGetStartedStepTwoController: PNBaseViewController {
                 
                 self.collectionView.cusines = cuisines
                 self.collectionView.reloadData()
+                self.setupNextButton(count: self.collectionView.selectedCusines.count)
             }
         }) { (error) in
             if let localError = error as? ErrorBaseClass{

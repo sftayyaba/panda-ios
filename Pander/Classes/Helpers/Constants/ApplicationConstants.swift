@@ -139,6 +139,62 @@ struct ApplicationLocalArrays {
         , ("14", "2030")
     ]
 
+    static let kStates = [ "AK",
+                   "AL",
+                   "AR",
+                   "AS",
+                   "AZ",
+                   "CA",
+                   "CO",
+                   "CT",
+                   "DC",
+                   "DE",
+                   "FL",
+                   "GA",
+                   "GU",
+                   "HI",
+                   "IA",
+                   "ID",
+                   "IL",
+                   "IN",
+                   "KS",
+                   "KY",
+                   "LA",
+                   "MA",
+                   "MD",
+                   "ME",
+                   "MI",
+                   "MN",
+                   "MO",
+                   "MS",
+                   "MT",
+                   "NC",
+                   "ND",
+                   "NE",
+                   "NH",
+                   "NJ",
+                   "NM",
+                   "NV",
+                   "NY",
+                   "OH",
+                   "OK",
+                   "OR",
+                   "PA",
+                   "PR",
+                   "RI",
+                   "SC",
+                   "SD",
+                   "TN",
+                   "TX",
+                   "UT",
+                   "VA",
+                   "VI",
+                   "VT",
+                   "WA",
+                   "WI",
+                   "WV",
+                   "WY"]
+    
     static let kMenuOptionsImages = ["icon_home","icon_profile", "refill", "usage", "history", "support", "logout"]
     static let kIssueCategoryOptions = ["Billing","Service", "Device", "Porting"]
     static let kIssueSubCategoryOptions = [0: ["Auto Pay", "Refund", "Make Payement"],
@@ -268,3 +324,7 @@ struct ApplicationAlertMessages {
     static let kAlertSelectCorrectDateTitle = "Please enter correct date"
 }
 
+struct StringConstants {
+    static let restaurantNamePlaceholder = "{{RESTAURANT NAME}}"
+    static let orderCheckoutSuccessMessage = "Thanks for your order from {{RESTAURANT NAME}}! They're working on it now for you to enjoy - in the meantime, here's a summary and some contact information in case you need anything."
+}

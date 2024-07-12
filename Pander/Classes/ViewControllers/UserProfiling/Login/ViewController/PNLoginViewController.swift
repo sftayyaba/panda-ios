@@ -64,11 +64,11 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
 
                     PNUserManager.sharedInstance.signIn(Email: email, Password: password, SuccessBlock: { (successResponse) in
 
-                        AppDelegate.sharedInstance()?.moveToHome()
+                        AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
 
                     }, FailureBlock: { (error) in
                         if let localError = error as? ErrorBaseClass{
-                            self.alert(title: "Opss", message: localError.localizedDescription)
+                            self.alert(title: "Oops", message: localError.localizedDescription)
                         }else {
                             self.alert(title: "Error", message: "Something went wrong !")
                         }
@@ -145,7 +145,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
                 if firstSignUp{
                     AppDelegate.sharedInstance()?.moveToLetGetStarted()
                 }else{
-                    AppDelegate.sharedInstance()?.moveToHome()
+                    AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                 }
             }else{
                 AppDelegate.sharedInstance()?.moveToLetGetStarted()
@@ -172,7 +172,7 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
                     if firstSignUp{
                         AppDelegate.sharedInstance()?.moveToLetGetStarted()
                     }else{
-                        AppDelegate.sharedInstance()?.moveToHome()
+                        AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
                     }
                 }else{
                     AppDelegate.sharedInstance()?.moveToLetGetStarted()
@@ -196,9 +196,6 @@ class PNLoginViewController: PNBaseViewController,GIDSignInUIDelegate {
     
     @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
         
-        let viewController = PNForgotPasswordViewController(nibName: "PNForgotPasswordViewController", bundle: nil)
-        
-        self.navigationController?.pushViewController(viewController, animated: true)
-//        AppDelegate.sharedInstance()?.moveToSingUp()
+       AppDelegate.sharedInstance()?.moveToSingUp()
     }
 }

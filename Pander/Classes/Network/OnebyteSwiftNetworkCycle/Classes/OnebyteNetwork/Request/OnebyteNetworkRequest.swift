@@ -22,8 +22,9 @@ public class OnebyteNetworkRequest {
     
     class public func InitiateRequest() -> URLRequestConvertible {
         let url = URL(string: OnebyteNetworkRequest.baseURLString)!
+       
         var urlRequest = URLRequest(url: url.appendingPathComponent(OnebyteNetworkRequest.path!))
-        
+         print("Complete URL is ",url.appendingPathComponent(OnebyteNetworkRequest.path!))
         switch OnebyteNetworkRequest.method! {
         case .get:
             urlRequest.httpMethod = "GET"

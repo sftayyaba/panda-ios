@@ -32,14 +32,24 @@ class PNGuestLetsGetStartedWithDietaryRestrictionController: PNBaseViewControlle
         PNUserManager.sharedInstance.isNoPeanut = !PNUserManager.sharedInstance.isNoPeanut
     }
     
+    @IBAction func moreButtonTapped(_ sender: Any) {
+        let message = "This feature is in testing, so it may not always be perfect. (For example - perhaps a 'vegetarian' soup may be made with fish stock without any way to know). If you're worried or have a health concern, please check directly with the restaurant before eating."
+        let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func glutenFreeClicked(_ sender: UIButton) {
         PNUserManager.sharedInstance.isGlutenFree = !PNUserManager.sharedInstance.isGlutenFree
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
 //        let viewController = PNGuestLetsGetStartedWithNameController(nibName: "PNGuestLetsGetStartedWithNameController", bundle: nil)
 //        self.navigationController?.pushViewController(viewController, animated: true)
-        AppDelegate.sharedInstance()?.moveToHome()
-
+        PNUserManager.sharedInstance.updateTastePreferencesWith(SuccessBlock: { (response) in
+            AppDelegate.sharedInstance()?.moveToHome(atTab: AppDelegate.PNHomeTabs.home)
+        }) { (error) in
+            
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

@@ -14,10 +14,10 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     
     //MARK: Instance Variables
     var location: String
-    var zip: String
+    var zip: String?
     
     
-    init(Location location: String, Zip zip: String) {
+    init(Location location: String, Zip zip: String?) {
         self.location = location
         self.zip = zip
     }
@@ -76,7 +76,11 @@ class PNGetRecommendationsOperation: OnebyteNetworkOperationBase {
     }
     
     private func createBody() -> Dictionary<String, Any>{
-        return [ "locations" : "{\"US\": [{\"zip\":\"\(self.zip)\"}]}"
+        if let zip = self.zip{
+            return [ "locations" : "{\"US\": [{\"zip\":\"\(zip)\"}]}"
+            ]
+        }
+        return [ "locations" : "{\"US\": \"\"}"
             ]
     }
 }

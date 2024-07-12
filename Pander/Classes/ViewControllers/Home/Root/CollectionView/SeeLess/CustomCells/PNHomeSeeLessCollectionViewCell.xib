@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PNHomeSeeLessCollectionViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="101"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-ad-Mvy">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="101"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="101" id="j57-ep-kLZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-S7-SGF">
+                        <rect key="frame" x="6" y="77.5" width="163" height="23.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="gnf-ad-Mvy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2eU-IQ-q0P"/>
+                <constraint firstItem="0z3-S7-SGF" firstAttribute="bottom" secondItem="gnf-ad-Mvy" secondAttribute="bottom" id="Jja-2g-7yX"/>
+                <constraint firstAttribute="trailing" secondItem="gnf-ad-Mvy" secondAttribute="trailing" id="cIt-8J-b30"/>
+                <constraint firstItem="0z3-S7-SGF" firstAttribute="leading" secondItem="gnf-ad-Mvy" secondAttribute="trailing" constant="-169" id="exc-t5-beX"/>
+                <constraint firstItem="0z3-S7-SGF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="qAD-BU-iPG"/>
+                <constraint firstItem="gnf-ad-Mvy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uCd-g7-SPI"/>
+                <constraint firstAttribute="trailing" secondItem="0z3-S7-SGF" secondAttribute="trailing" constant="6" id="wlh-Bk-cio"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="222" height="45"/>
+            <connections>
+                <outlet property="itemDetailLabel" destination="0z3-S7-SGF" id="xQ4-xg-3Ve"/>
+                <outlet property="itemImageView" destination="gnf-ad-Mvy" id="Xoj-uU-RJx"/>
+            </connections>
+            <point key="canvasLocation" x="-4.5" y="90.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

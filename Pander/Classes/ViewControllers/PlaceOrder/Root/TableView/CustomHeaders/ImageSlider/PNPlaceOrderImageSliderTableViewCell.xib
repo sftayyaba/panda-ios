@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PNPlaceOrderImageSliderTableViewCell" customModule="Pander" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="319.66666666666669"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boudin’s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7W-4t-NHB">
+                        <rect key="frame" x="17" y="200" width="68" height="23.666666666666657"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum order $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqD-oz-a5S">
+                        <rect key="frame" x="17" y="228.66666666666666" width="93" height="14"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="10"/>
+                        <color key="textColor" red="0.94117647058823528" green="0.098039215686274508" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWd-VW-PUu">
+                        <rect key="frame" x="17" y="260" width="286" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="ThK-qG-ncG"/>
+                        </constraints>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="120" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="150" maxY="0.0"/>
+                        <state key="normal" title="   Add new item" image="Plus icon">
+                            <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="addNewItemPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Trp-sm-Tp6"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2V-90-Q3R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOy-qs-nlD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aOy-qs-nlD" secondAttribute="trailing" id="A28-m8-3Ez"/>
+                            <constraint firstItem="aOy-qs-nlD" firstAttribute="leading" secondItem="u2V-90-Q3R" secondAttribute="leading" id="OoK-wO-f1b"/>
+                            <constraint firstAttribute="bottom" secondItem="aOy-qs-nlD" secondAttribute="bottom" id="QfF-5s-5me"/>
+                            <constraint firstAttribute="height" constant="171" id="bcv-ly-VxF"/>
+                            <constraint firstItem="aOy-qs-nlD" firstAttribute="top" secondItem="u2V-90-Q3R" secondAttribute="top" id="wRI-Br-rQl"/>
+                        </constraints>
+                    </view>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9TP-7k-Ra6">
+                        <rect key="frame" x="140" y="134" width="39" height="37"/>
+                    </pageControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="o7W-4t-NHB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="BEd-2G-Lmm"/>
+                    <constraint firstItem="u2V-90-Q3R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CNJ-4S-Drc"/>
+                    <constraint firstItem="u2V-90-Q3R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E6Y-oJ-pZx"/>
+                    <constraint firstItem="o7W-4t-NHB" firstAttribute="top" secondItem="u2V-90-Q3R" secondAttribute="bottom" constant="29" id="IJq-ws-qHr"/>
+                    <constraint firstItem="9TP-7k-Ra6" firstAttribute="bottom" secondItem="u2V-90-Q3R" secondAttribute="bottom" id="Nnp-2b-seZ"/>
+                    <constraint firstAttribute="bottom" secondItem="nWd-VW-PUu" secondAttribute="bottom" id="XgF-uO-fDN"/>
+                    <constraint firstItem="WqD-oz-a5S" firstAttribute="leading" secondItem="o7W-4t-NHB" secondAttribute="leading" id="jo1-A7-Gmt"/>
+                    <constraint firstAttribute="trailing" secondItem="u2V-90-Q3R" secondAttribute="trailing" id="nJ5-Mq-lIA"/>
+                    <constraint firstItem="9TP-7k-Ra6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="nLY-Ba-mfx"/>
+                    <constraint firstItem="WqD-oz-a5S" firstAttribute="top" secondItem="o7W-4t-NHB" secondAttribute="bottom" constant="5" id="pGh-w5-jnD"/>
+                    <constraint firstItem="nWd-VW-PUu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="rfw-Ch-AnD"/>
+                    <constraint firstAttribute="trailing" secondItem="nWd-VW-PUu" secondAttribute="trailing" constant="17" id="uXl-WK-QGF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="minimumOrderLabel" destination="WqD-oz-a5S" id="4a4-Fl-LAJ"/>
+                <outlet property="pageControll" destination="9TP-7k-Ra6" id="Td7-wI-BFW"/>
+                <outlet property="restaurentNameLabel" destination="o7W-4t-NHB" id="rUM-Lv-HVc"/>
+                <outlet property="scrollView" destination="aOy-qs-nlD" id="ypw-Wi-ODA"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Plus icon" width="20" height="20"/>
+    </resources>
+</document>

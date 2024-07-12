@@ -21,6 +21,7 @@ final class PNUserManager: PNBaseManager {
                 PINCache.shared().setObject(self.isLoggedIn as NSCoding, forKey: keyPath)
         }
     }
+    
     var token:String?{
         didSet {
             if let token = self.token{
@@ -61,8 +62,30 @@ final class PNUserManager: PNBaseManager {
     
     
     var recommendations: PNRecommendationsModel?
+
+    //Cards of user
+    var cardsBaseObject: PNGetCardsBaseClass?
+    var selectedCard: PNCards?
+    
+    //Addresses of user
+    var addresses: [PNAddresses]?
+    var selectedAddress: PNAddresses?
+    //Nicks of User
+    var userNicks: PNGetNicksResponse?
+    //Defaults of User
+    var userDefaults: PNUserDefaults?
+    //Home Selected Cuisines
+    var homeSelectedCuisines:[String]?
+    
+    var groupSize: Int = 1
+    var budgetPerPerson: Int = 20
+    
+    //Selected Time And Date for order
+    var selectedDate: String = "Today"
+    var selectedTime: String = "ASAP"
     
     //step 1.1
+    var selectedUnsupportedZip:String?
     var selectedZip:String?{
         didSet {
             if let selectedZip = self.selectedZip{
@@ -81,7 +104,6 @@ final class PNUserManager: PNBaseManager {
             }
         }
     }
-    
     //step 2 & 3 recommendations
     var recommentations: PNRecommendationsModel?
     var allCuisines: PNAllCuisines?
@@ -101,7 +123,6 @@ final class PNUserManager: PNBaseManager {
         }
     }
 
-    
     //step 3
     var selectedDishes :[String]?{
         didSet {
@@ -122,6 +143,8 @@ final class PNUserManager: PNBaseManager {
     var isVegan : Bool = false
     var isGlutenFree : Bool = false
     var isNoPeanut : Bool = false
+    var isNoNuts : Bool = false
+    var adventure : Int = 1
 
     
     static let sharedInstance: PNUserManager = {
@@ -142,6 +165,8 @@ final class PNUserManager: PNBaseManager {
         if let selectedZip = PINCache.shared().object(forKey: "selectedZip") as? String{
             instance.selectedZip = selectedZip
         }
+
+        
         
         if let userDictionary = PINCache.shared().object(forKey: "user"){
             instance.user = userBaseClass(object: userDictionary as AnyObject)
@@ -216,25 +241,37 @@ final class PNUserManager: PNBaseManager {
     
     func logoutUser(){
         
-        self.token = nil
+        PNUserManager.sharedInstance.selectedCard=nil;
+        PNUserManager.sharedInstance.cardsBaseObject = nil;
         
-        self.email = nil
+        PNUserManager.sharedInstance.selectedAddress = nil;
+        PNUserManager.sharedInstance.addresses=nil;
+
+        PNUserManager.sharedInstance.selectedDishes = nil;
+        PNUserManager.sharedInstance.selectedCusines = nil;
         
-        self.selectedName = nil
+        PNUserManager.sharedInstance.homeSelectedCuisines = nil;
+        
+       // self.token = nil
+        
+        //self.email = nil
+        
+       // self.selectedName = nil
         
         
-        self.selectedZip = nil
+       // self.selectedZip = nil
     
-        self.user = nil
+       // self.user = nil
         
-        self.guestUser = nil
+       // self.guestUser = nil
         
-        self.selectedCusines = nil
+       // self.selectedCusines = nil
         
         
-        self.selectedDishes = nil
+       // self.selectedDishes = nil
         
-        self.isLoggedIn = false
+        //self.isLoggedIn = false
+        //self.userNicks = nil
 
         PINCache.shared().removeAllObjects()
         

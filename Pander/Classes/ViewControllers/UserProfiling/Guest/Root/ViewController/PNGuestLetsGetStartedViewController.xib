@@ -34,13 +34,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Hey! I'm Pander." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDO-hg-atb">
-                    <rect key="frame" x="99" y="159" width="122" height="22"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                    <rect key="frame" x="91.5" y="166" width="137" height="25"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                     <color key="textColor" red="1" green="0.0078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLc-or-JTY">
-                    <rect key="frame" x="50" y="475" width="220" height="40"/>
+                    <rect key="frame" x="50" y="472" width="220" height="40"/>
                     <color key="backgroundColor" red="1" green="0.0078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ezQ-o2-agG"/>
@@ -53,35 +53,29 @@
                         <action selector="letGetStartedButtonTapped:" destination="-1" eventType="touchUpInside" id="MRM-30-g9C"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
-                    <rect key="frame" x="16" y="189" width="288" height="268.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-0u-l8Z">
+                    <rect key="frame" x="20" y="203" width="280" height="245"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="209" id="XFs-3B-dp2"/>
+                        <constraint firstAttribute="height" constant="245" id="XFs-3B-dp2"/>
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment>
-                            <string key="content">I learn what you like to eat, and then automatically finds the best meal for you to eat for your mood
+                            <string key="content">I learn what you like to eat, and then automatically find the best meal for you to eat for your mood
 - every time.
 
-I can search through thousands of menus and pick out exactly the right food for you to order with just one click, And the best part? The more you use me, the better I get!
+I can search through thousands of menus and pick out exactly the right food for you to order with just one click. And the best part? The more you use me, the better I get!
 
-</string>
+To start with, help me learn a bit about you.</string>
                             <attributes>
                                 <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="2" paragraphSpacingBefore="2" lineHeightMultiple="1.1799999999999999" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="To start with, help learn a bit about you.">
-                            <attributes>
-                                <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="2" paragraphSpacingBefore="2" lineHeightMultiple="1.1799999999999999" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" paragraphSpacing="2" paragraphSpacingBefore="2" lineHeightMultiple="1.1799999999999999" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-l2-ccN">
-                    <rect key="frame" x="60" y="523" width="200" height="34"/>
+                    <rect key="frame" x="60" y="520" width="200" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="2Hh-Tb-cG4"/>
                     </constraints>
@@ -96,17 +90,17 @@ I can search through thousands of menus and pick out exactly the right food for 
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="d8f-0u-l8Z" firstAttribute="top" secondItem="nDO-hg-atb" secondAttribute="bottom" constant="8" id="23b-qf-szY"/>
+                <constraint firstItem="d8f-0u-l8Z" firstAttribute="top" secondItem="nDO-hg-atb" secondAttribute="bottom" constant="12" id="23b-qf-szY"/>
                 <constraint firstItem="kLc-or-JTY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="6BU-Lh-zyh"/>
                 <constraint firstItem="tYn-l2-ccN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="86u-14-l1e"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8f-0u-l8Z" secondAttribute="trailing" constant="16" id="9NG-Jh-uhU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYn-l2-ccN" secondAttribute="bottom" constant="11" id="BgS-kn-OBP"/>
-                <constraint firstItem="nDO-hg-atb" firstAttribute="top" secondItem="giG-Lp-1sT" secondAttribute="bottom" constant="5" id="GQV-tk-gKS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8f-0u-l8Z" secondAttribute="trailing" constant="20" id="9NG-Jh-uhU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYn-l2-ccN" secondAttribute="bottom" constant="14" id="BgS-kn-OBP"/>
+                <constraint firstItem="nDO-hg-atb" firstAttribute="top" secondItem="giG-Lp-1sT" secondAttribute="bottom" constant="12" id="GQV-tk-gKS"/>
                 <constraint firstItem="giG-Lp-1sT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MBs-Bn-1Kc"/>
                 <constraint firstItem="giG-Lp-1sT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="103" id="Mdx-8G-Kcw"/>
                 <constraint firstItem="giG-Lp-1sT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="MpD-fv-YA7"/>
-                <constraint firstItem="d8f-0u-l8Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="NbM-zA-FuB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYn-l2-ccN" secondAttribute="bottom" constant="11" id="VaL-2O-KkQ"/>
+                <constraint firstItem="d8f-0u-l8Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NbM-zA-FuB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tYn-l2-ccN" secondAttribute="bottom" constant="14" id="VaL-2O-KkQ"/>
                 <constraint firstItem="nDO-hg-atb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qAk-rP-z64"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kLc-or-JTY" secondAttribute="trailing" constant="50" id="qNK-pR-jAc"/>
                 <constraint firstItem="tYn-l2-ccN" firstAttribute="top" secondItem="kLc-or-JTY" secondAttribute="bottom" constant="8" id="uyh-Kb-52n"/>

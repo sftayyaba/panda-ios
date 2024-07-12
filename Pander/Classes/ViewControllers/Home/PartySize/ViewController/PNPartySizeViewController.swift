@@ -27,6 +27,8 @@ class PNPartySizeViewController: PNBaseViewController {
         self.configureTableView()
     }
     
+    
+    
     override func configureCallBacks() {
         self.tableView.didSelectFriendCallback = {
             self.partySizeView.selectedFriendsViewHeight.constant = 50
@@ -57,34 +59,7 @@ class PNPartySizeViewController: PNBaseViewController {
     }
 
     @IBAction func nextButtonTapped(_ sender: Any) {
-//        if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text, let password =
-//            self.guestLetsGetStartedWithEmailView.passwordTextField.text {
-//            if let email = self.guestLetsGetStartedWithEmailView.emailTextField.text {
-//                if email.isEmail {
-//                    
-//                    
-//                    PNUserManager.sharedInstance.signUp(Email: email, Password: password, SuccessBlock: { (successResponse) in
-//                        
-//                        let viewController = PNGuestLetsGetStartedStepTwoController(nibName: "PNGuestLetsGetStartedStepTwoController", bundle: nil)
-//                        self.navigationController?.pushViewController(viewController, animated: true)
-//                        
-//                    }, FailureBlock: { (error) in
-//                        if let localError = error as? ErrorBaseClass{
-//                            self.alert(title: "Opss", message: localError.localizedDescription)
-//                        }else {
-//                            self.alert(title: "Error", message: "Something went wrong !")
-//                        }
-//                    })
-//            
-//                }else{
-//                    self.alert(title: "Error", message: "Enter valid email.")
-//
-//                }
-//            }else{
-//                self.alert(title: "Error", message: "Email and password are required")
-//            }
-//            
-//        }
+
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

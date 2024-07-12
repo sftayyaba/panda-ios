@@ -4,10 +4,28 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pander.xcscheme</key>
+		<key>Pander.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>35</integer>
+			<integer>37</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>EBC74E471FCAC22000641B48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBC74E5B1FCAC22000641B48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBC74E661FCAC22000641B48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

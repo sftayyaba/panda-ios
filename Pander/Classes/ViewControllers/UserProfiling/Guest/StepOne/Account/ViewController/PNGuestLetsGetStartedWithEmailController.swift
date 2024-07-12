@@ -19,6 +19,10 @@ class PNGuestLetsGetStartedWithEmailController: PNBaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.guestLetsGetStartedWithEmailView.setNextButtonState()
+    }
+    
     override func configureView() {
         self.guestLetsGetStartedWithEmailView.mainTitleText.text = "Nice to meet you, \(PNUserManager.sharedInstance.selectedName!)! Let's setup your account"
     }
@@ -36,7 +40,7 @@ class PNGuestLetsGetStartedWithEmailController: PNBaseViewController {
                         
                     }, FailureBlock: { (error) in
                         if let localError = error as? ErrorBaseClass{
-                            self.alert(title: "Opss", message: localError.localizedDescription)
+                            self.alert(title: "Oops", message: localError.localizedDescription)
                         }else {
                             self.alert(title: "Error", message: "Something went wrong !")
                         }
